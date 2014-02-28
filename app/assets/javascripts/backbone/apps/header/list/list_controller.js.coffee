@@ -1,13 +1,13 @@
 @Etod.module "HeaderApp.List", (List, App, Backbone, Marionette, $, _) ->
-
-  class List.Controller extends App.Controllers.Application
-
-    initialize: ->
-      @layout = @getLayoutView()
-
-      @listenTo @layout, "show", =>
-
-      @show @layout
-
-    getLayoutView: ->
-      new List.Layout
+	
+	List.Controller =
+		
+		listHeader: ->
+			links = App.request "header:entities"
+			
+			headerView = @getHeaderView links
+			App.headerRegion.show headerView
+		
+		getHeaderView: (links) ->
+			new List.Headers
+				collection: links

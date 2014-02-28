@@ -1,7 +1,10 @@
 @Etod.module "HeaderApp.List", (List, App, Backbone, Marionette, $, _) ->
-
-  class List.Layout extends App.Views.Layout
-    template: "header/list/list_layout"
-
-    regions:
-      fooRegion: "#foo-region"
+	
+	class List.Header extends Marionette.ItemView
+		template: "header/list/templates/_header"
+		tagName: "li"
+	
+	class List.Headers extends Marionette.CompositeView
+		template: "header/list/templates/headers"
+		itemView: List.Header
+		itemViewContainer: "ul"
