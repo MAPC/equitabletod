@@ -11,11 +11,14 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
-//= require twitter/bootstrap
 //= require underscore
 //= require backbone
-//= require backbone_rails_sync
-//= require backbone_datalink
-//= require backbone/equitabletod
-//= require_tree .
+//= require marionette
+//= require_tree ../../../vendor/assets/javascripts
+//= require_tree ./backbone/config
+//= require backbone/app
+//= require_tree ./backbone/controllers
+//= require_tree ./backbone/entities
+//= require_tree ./backbone/views
+//= require_tree ./backbone/components
+//= require_tree ./backbone/apps
