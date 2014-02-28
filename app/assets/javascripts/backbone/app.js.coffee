@@ -5,13 +5,14 @@
   App.addRegions
     headerRegion: "#header-region"
     mainRegion:   "#main-region"
+    footerRegion: "#footer-region"
 
   App.reqres.setHandler "default:region", ->
-    App.mainRegion
+    App.footerRegion
 
-  # App.addInitializer ->
-  #   App.module("HeaderApp").start()
-  #   App.module("FooterApp").start()
+  App.addInitializer ->
+     App.module("HeaderApp").start()
+     App.module("FooterApp").start()
 
   App.on "initialize:after", (options) ->
     if Backbone.history
