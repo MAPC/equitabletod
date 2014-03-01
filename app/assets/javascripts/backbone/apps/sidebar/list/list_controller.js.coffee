@@ -1,13 +1,12 @@
 @Equitabletod.module "SidebarApp.List", (List, App, Backbone, Marionette, $, _) ->
 
-  class List.Controller extends App.Controllers.Application
+  List.Controller =
 
-    initialize: ->
-      @layout = @getLayoutView()
+    listSidebar: ->
+    	links = App.request "sidebar:entities"
 
-      @listenTo @layout, "show", =>
+    	sidebarView = @getSidebarView links
+    	App.sidebarRegion.show sidebarView
 
-      @show @layout
-
-    getLayoutView: ->
-      new List.Layout
+    getSidebarView: (links) ->
+    	new List.Layout
