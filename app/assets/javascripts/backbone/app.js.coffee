@@ -1,19 +1,17 @@
-@Etod = do (Backbone, Marionette) ->
+@Equitabletod = do (Backbone, Marionette) ->
 
   App = new Marionette.Application
   
   App.addRegions
     headerRegion: "#header-region"
     mainRegion:   "#main-region"
-    footerRegion: "#footer-region"
 
   App.reqres.setHandler "default:region", ->
-    App.footerRegion
+    App.mainRegion
 
-  App.addInitializer ->
-     App.module("HeaderApp").start()
-     App.module("MainApp").start()
-     App.module("FooterApp").start()
+  # App.addInitializer ->
+  #   App.module("HeaderApp").start()
+  #   App.module("FooterApp").start()
 
   App.on "initialize:after", (options) ->
     if Backbone.history

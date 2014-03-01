@@ -1,4 +1,4 @@
-@Etod.module "Views", (Views, App, Backbone, Marionette, $, _) ->
+@Equitabletod.module "Views", (Views, App, Backbone, Marionette, $, _) ->
 
   _.extend Marionette.View::,
 

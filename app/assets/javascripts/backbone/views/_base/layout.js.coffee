@@ -1,3 +1,3 @@
-@Etod.module "Views", (Views, App, Backbone, Marionette, $, _) ->
+@Equitabletod.module "Views", (Views, App, Backbone, Marionette, $, _) ->
 
   class Views.Layout extends Marionette.Layout

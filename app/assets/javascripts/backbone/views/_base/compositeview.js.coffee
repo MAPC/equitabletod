@@ -1,4 +1,4 @@
-@Etod.module "Views", (Views, App, Backbone, Marionette, $, _) ->
+@Equitabletod.module "Views", (Views, App, Backbone, Marionette, $, _) ->
 
   class Views.CompositeView extends Marionette.CompositeView
     itemViewEventPrefix: "childview"
