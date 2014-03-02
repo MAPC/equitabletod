@@ -9,4 +9,5 @@
     	App.sidebarRegion.show sidebarView
 
     getSidebarView: (links) ->
-    	new List.Layout
+    	new List.Sidebars
+    		collection: links

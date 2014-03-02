@@ -5,9 +5,14 @@
   App.addRegions
     headerRegion: "#header-region"
     mainRegion:   "#main-region"
+    sidebarRegion: "#sidebar-region"
 
   App.reqres.setHandler "default:region", ->
-    App.mainRegion
+    App.sidebarRegion
+
+  App.addInitializer ->
+    App.module("HeaderApp").start()
+    App.module("SidebarApp").start()
 
   # App.addInitializer ->
   #   App.module("HeaderApp").start()

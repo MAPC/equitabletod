@@ -1,10 +1,4 @@
 <div id ="sidebar" class="well sidebar-nav">
-  <ul class="nav nav-list">
-    <li class="nav-header"></li>
-    <li><%= link_to "Home", "/path1"  %></li>
-    <li><%= link_to "User Guid", "/path2"  %></li>
-    <li><%= link_to "Learn About TOD", "/path3"  %></li>
-    <li><%= link_to "Download All Data", "/path4"  %></li>
-  </ul>
+  <ul class="nav nav-list"></ul>
 </div><!--/.well -->
        
