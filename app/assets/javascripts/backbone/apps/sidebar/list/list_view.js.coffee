@@ -7,4 +7,4 @@
 	class List.Sidebars extends App.Views.CompositeView
 		template: "sidebar/list/templates/sidebars"
 		itemView: List.Sidebar
-		itemViewContainer: "ul"
+		itemViewContainer: "a"
