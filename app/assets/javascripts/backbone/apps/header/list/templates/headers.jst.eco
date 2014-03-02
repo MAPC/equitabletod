@@ -6,12 +6,20 @@
 </nav>
 <div class="navbar navbar-inverse navbar-fixed-top">      
     <!--Include your brand here-->
-    <a class="navbar-brand" href="index.html">
-    	<a class="img-responsive" alt="logo">
-    </a>
+      <a class="navbar-brand" href="index.html">
+    	  <div class="container">
+          <div class="row animated fadeInBig">
+            <div class="col-sm-12">
+              <h2 class="black">
+                TOD Data
+                <span class="color">PORTAL</span>
+              </h2>
+            </div>
+          </div>
+      </a>
     <div class="navbar-header pull-right">
       <a id="nav-expander" class="nav-expander fixed">
-        MENU &nbsp;<i class="fa fa-bars fa-lg white"></i>
+        &nbsp;<i class="fa fa-bars fa-lg white"></i>
       </a>
     </div>
 </div>
