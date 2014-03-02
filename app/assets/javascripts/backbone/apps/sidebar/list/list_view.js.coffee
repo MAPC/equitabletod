@@ -2,9 +2,9 @@
 
 	class List.Sidebar extends App.Views.ItemView
 		template: "sidebar/list/templates/_sidebar"
-		tagName: "li"
+		tagName: "a"
 	
 	class List.Sidebars extends App.Views.CompositeView
 		template: "sidebar/list/templates/sidebars"
 		itemView: List.Sidebar
-		itemViewContainer: "a"
+		itemViewContainer: "ul"

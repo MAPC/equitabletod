@@ -1,5 +1,5 @@
-<div id ="sidebar" class="well sidebar-nav">
-  <ul class="nav nav-list"></ul>
-  	<a></a>
-</div><!--/.well -->
-       
+<ul class="sidebar-nav">
+	<li>
+		<a class="brand">TOD Portal</a>
+	</li>
+</ul>

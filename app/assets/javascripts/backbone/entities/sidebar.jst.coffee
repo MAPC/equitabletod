@@ -8,10 +8,10 @@
 	API =
 		getSidebars: ->
 			new Entities.SidebarCollection [
-				{ name: "Home", url: "/"}
-				{ name: "User Guid", url: "/"}
-				{ name: "Learn About TOD", url: "/"}
-				{ name: "Download All Data", url: "/"}
+				{ name: "Home"}
+				{ name: "User Guid"}
+				{ name: "Learn About TOD"}
+				{ name: "Download All Data"}
 			]
 	
 	App.reqres.setHandler "sidebar:entities", ->

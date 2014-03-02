@@ -11,7 +11,7 @@
     App.sidebarRegion
 
   App.addInitializer ->
-    App.module("HeaderApp").start()
+  #  App.module("HeaderApp").start()
     App.module("SidebarApp").start()
 
   # App.addInitializer ->
