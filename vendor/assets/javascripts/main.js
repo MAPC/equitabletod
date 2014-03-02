@@ -1,22 +1,3 @@
-<nav>
-	<ul class="list-unstyled main-menu">
-		<li class="text-right"><a href="#" id="nav-close">X</a></li>
-		<li class="text-right"><a><span class="icon"></span></a></li>
-	</ul>
-</nav>
-<div class="navbar navbar-inverse navbar-fixed-top">      
-    <!--Include your brand here-->
-    <a class="navbar-brand" href="index.html">
-    	<a class="img-responsive" alt="logo">
-    </a>
-    <div class="navbar-header pull-right">
-      <a id="nav-expander" class="nav-expander fixed">
-        MENU &nbsp;<i class="fa fa-bars fa-lg white"></i>
-      </a>
-    </div>
-</div>
-
-<script type="text/javascript">
 $(document).ready(function(){												
        
        
@@ -26,7 +7,6 @@ $(document).ready(function(){
     		$('body').toggleClass('nav-expanded');
     	});
     	$('#nav-close').on('click',function(e){
-    		e.preventDefault();
     		$('body').removeClass('nav-expanded');
     	});
     	
@@ -52,4 +32,3 @@ $(document).ready(function(){
       	
 });
 
-</script>

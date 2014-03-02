@@ -148,6 +148,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   jquery-rails
+  less
   less-rails
   pg
   rails (= 3.2.13)
