@@ -1,0 +1,11 @@
+<section id="main" class="white-bg">
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-sm-8 col-sm-offset-1 text-left">
+				<hr>
+				<p class="hm1">The Transit-Oriented Development (TOD) Data Portal presents information on over 300 transit station areas in Metro Boston, including the region’s commuter rail, rapid transit, and ferry systems, and for key bus routes. Information includes data on demographics, economics, transportation behavior, and the development context.
+				</p>	
+			</div>
+		</div>
+	</div>
+</section>

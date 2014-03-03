@@ -10,6 +10,7 @@
   App.reqres.setHandler "default:region", ->
     App.headerRegion
 
+
   App.addInitializer ->
     App.module("MainApp").start()
     App.module("HeaderApp").start()
