@@ -1,9 +1,3 @@
-<nav>
-	<ul class="list-unstyled main-menu">
-		<li class="text-right"><a href="#" id="nav-close">X</a></li>
-		<li class="text-right"><a><span class="icon"></span></a></li>
-	</ul>
-</nav>
 <div class="navbar navbar-inverse navbar-fixed-top">      
     <!--Include your brand here-->
       <a class="navbar-brand" href="index.html">
@@ -19,10 +13,16 @@
       </a>
     <div class="navbar-header pull-right">
       <a id="nav-expander" class="nav-expander fixed">
-        &nbsp;<i class="fa fa-bars fa-lg white"></i>
+        &nbsp;<i class="fa fa-bars fa-lg black"></i>
       </a>
     </div>
 </div>
+<nav>
+  <ul class="list-unstyled main-menu">
+    <li class="text-right"><a href="#" id="nav-close">x</a></li>
+    <li class="text-right"><a><span class="icon"></span></a></li>
+  </ul>
+</nav>
 
 <script type="text/javascript">
 $(document).ready(function(){												
