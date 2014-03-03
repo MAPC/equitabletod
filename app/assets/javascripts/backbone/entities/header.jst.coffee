@@ -8,10 +8,7 @@
 	API =
 		getHeaders: ->
 			new Entities.HeaderCollection [
-				{ name: "Home"}
-				{ name: "User Guid"}
-				{ name: "Learn About TOD"}
-				{ name: "Download All Data"}
+				{ name: ""}
 			]
 	
 	App.reqres.setHandler "header:entities", ->

@@ -12,8 +12,10 @@
 
 
   App.addInitializer ->
-    App.module("MainApp").start()
     App.module("HeaderApp").start()
+    App.module("MainApp").start()
+
+
 
   # App.addInitializer ->
   #   App.module("HeaderApp").start()

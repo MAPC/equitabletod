@@ -20,7 +20,10 @@
 <nav>
   <ul class="list-unstyled main-menu">
     <li class="text-right"><a href="#" id="nav-close">x</a></li>
-    <li class="text-right"><a><span class="icon"></span></a></li>
+    <li><a href="#home">Home <span class="icon"></span></a></li>
+    <li><a href="#usrguid">User Guild <span class="icon"></span></a></li>
+    <li><a href="#">Learn About TOD <span class="icon"></span></a></li>
+    <li><a href="#">Download All Data <span class="icon"></span></a></li>
   </ul>
 </nav>
 

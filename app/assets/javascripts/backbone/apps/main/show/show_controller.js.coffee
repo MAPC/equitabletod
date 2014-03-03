@@ -2,13 +2,13 @@
 
   Show.Controller =
 
-  	showMainRegion: ->
-  		mainRegionView = @getLayoutView()
-  		App.mainRegion.show mainRegionView
+  	showHomeRegion: ->
+  		homeRegionView = @getLayoutView()
+  		App.mainRegion.show homeRegionView
+
 
   	getLayoutView: ->
   		new Show.Home
-
 
 
 

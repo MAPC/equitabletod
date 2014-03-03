@@ -5,14 +5,24 @@
 
   class MainApp.Router extends Marionette.AppRouter
     appRoutes:
-      "main/": "showMainRegion"
+      "home/": "showHomeRegion"
+      "usrguid/": "showUsrGuid"
 #      "search/": "showSearchModule"
 #      "map/": "provideMap"
+
   
 
   API =
-    showMainRegion: ->
-      MainApp.Show.Controller.showMainRegion()
+    showHomeRegion: ->
+        MainApp.Show.Controller.showHomeRegion()
+
+    showUsrGuid: ->
+    	MainApp.UsrGuid.Controller.showUsrGuid()
+
+    
+
+
+
 
 #    showSearchModule: ->
 #      MainApp.Search.Controller.showSearchModule()
@@ -22,6 +32,7 @@
 
   
   MainApp.on "start", ->
-    API.showMainRegion()
+    API.showHomeRegion()
 #    API.showSearchModule()
 #    API.provideMap()
+
