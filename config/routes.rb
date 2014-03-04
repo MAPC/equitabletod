@@ -1,4 +1,5 @@
 Equitabletod::Application.routes.draw do
+  resources :station_areas
   root to: 'application#index'
     
 

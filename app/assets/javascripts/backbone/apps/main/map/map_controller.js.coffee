@@ -1,13 +1,13 @@
 @Equitabletod.module "MainApp.Map", (Map, App, Backbone, Marionette, $, _) ->
 
-  class Map.Controller extends App.Controllers.Application
+  Map.Controller =
 
-    initialize: ->
-      @layout = @getLayoutView()
+    getGeoFeature: ->
+    	geoclass = App.request "geofeature:entities"
 
-      @listenTo @layout, "show", =>
+    	mapView = @getMapView geoclass
+    	App.MainRegion.show mapView
 
-      @show @layout
-
-    getLayoutView: ->
-      new Map.Layout
+    getGeoCollection: (geoclass) ->
+    	new Map.MapView
+    		collection: geoclass
