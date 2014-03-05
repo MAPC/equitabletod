@@ -16,6 +16,7 @@
   RegionMan.addRegions
     mapRegion: "#map"
     homeRegion: "#home"
+    simpleSearchRegion: "#simple-search"
 
 
   App.addInitializer ->

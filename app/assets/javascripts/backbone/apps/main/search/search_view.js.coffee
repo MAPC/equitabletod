@@ -1,7 +1,4 @@
 @Equitabletod.module "MainApp.Search", (Search, App, Backbone, Marionette, $, _) ->
 
-  class Search.Layout extends App.Views.Layout
-    template: "main/search/search_layout"
-
-    regions:
-      fooRegion: "#foo-region"
+  class Search.SimpleSearch extends App.Views.Layout
+    template: "main/search/simple_search_layout"

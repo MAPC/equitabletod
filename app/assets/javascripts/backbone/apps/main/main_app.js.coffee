@@ -6,13 +6,16 @@
       "home": "showHomeRegion"
       "usrguid": "showUsrGuid"
       "map": "provideMap"
-#      "search/": "showSearchModule"
+      "search/simple": "showSimpleSearchForm"
 #      "map/": "provideMap"
 
 
   API =
     showHomeRegion: ->
       MainApp.Show.Controller.showHomeRegion()
+
+    showSimpleSearchForm: ->
+      MainApp.Search.Controller.showSimpleSearchForm()
 
     provideMap: ->
       MainApp.Map.Controller.provideMap()
@@ -32,3 +35,4 @@
 #    API.showSearchModule()
 #    API.provideMap()
     API.showHomeRegion()
+    API.showSimpleSearchForm()
