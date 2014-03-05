@@ -4,10 +4,13 @@
 
   	provideMap: ->
   		map = @getMap()
-  		App.mainRegion.show map
+  		App.mapRegion.show map
 
   	getMap: ->
+#      App.request "reset:mainRegion"
   		new Map.Layout
+
+
 ###
     emptyRegion: ->
       App.mainRegion.close homeRegionView###

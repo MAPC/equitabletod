@@ -1,14 +1,14 @@
 @Equitabletod.module "MainApp", (MainApp, App, Backbone, Marionette, $, _) ->
   @startWithParent = false
-
-
+      
   class MainApp.Router extends Marionette.AppRouter
     appRoutes:
-      "home/": "showHomeRegion"
-      "usrguid/": "showUsrGuid"
-      "map/": "provideMap"
+      "home": "showHomeRegion"
+      "usrguid": "showUsrGuid"
+      "map": "provideMap"
 #      "search/": "showSearchModule"
 #      "map/": "provideMap"
+
 
   API =
     showHomeRegion: ->
@@ -16,6 +16,9 @@
 
     provideMap: ->
       MainApp.Map.Controller.provideMap()
+
+    removeHomeRegion: =>
+      @RegionMan.reset()
 
     #showUsrGuid: ->
     #	MainApp.UsrGuid.Controller.showUsrGuid()
@@ -26,7 +29,6 @@
 #    provideMap: ->
 #      MainApp.Map.Controller.provideMap()
   MainApp.on "start", ->
-#    API.showHomeRegion()
 #    API.showSearchModule()
-    API.provideMap()
-
+#    API.provideMap()
+    API.showHomeRegion()

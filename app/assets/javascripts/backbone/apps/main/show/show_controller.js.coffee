@@ -4,7 +4,7 @@
 
   	showHomeRegion: ->
   		homeRegionView = @getLayoutView()
-  		App.mainRegion.show homeRegionView
+  		App.homeRegion.show homeRegionView
   	
   	getLayoutView: ->
   		new Show.Home

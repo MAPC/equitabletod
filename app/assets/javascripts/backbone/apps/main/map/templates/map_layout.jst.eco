@@ -1,5 +1,5 @@
 <hr> 
-<div id="map"></div>
+<div id="map" class="col-sm-8 col-sm-offset-1 text-left></div>
 <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" /> -->
 <!--[if lte IE 8]>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
