@@ -1,26 +1,29 @@
-<section id="home" class="white-bg">
+<div id="home-txt" class="white-bg">
 	<div class="container">
 		<div class="row text-center">
 			<div class="col-sm-8 col-sm-offset-1 text-left">
-				<div id="div1" class="" data-toggle="collapse" data-target="#div2"><span>
+				<div id="div1"><span>
 					<hr>
-					<p id="p-not-expanded" class="hm1">The Transit-Oriented Development (TOD) Data Portal presents information on over 300 transit station areas in Metro Boston, including the region’s commuter rail, rapid transit, and ferry systems, and for key bus routes. Information includes data on demographics, economics, transportation behavior, and the development context.<b id="more" class='more'> More</b></p></span>
+					<p id="p-not-expanded" class="hm1">The Transit-Oriented Development (TOD) Data Portal presents information on over 300 transit station areas in Metro Boston, including the region’s commuter rail, rapid transit, and ferry systems, and for key bus routes. Information includes data on demographics, economics, transportation behavior, and the development context.<a data-toggle="collapse" data-target="#div2"id="more" class="more"> More</></p></span>
+				</div>
+				<div id="div2" class="home-txt-collapse collapse" ><span>
 					<p id="p-expanded" class="hm1"> Users can: 
 					browse data and maps for all station areas - quickly and easily get detailed data on a specific station area or group of station areas that meet certain criteria - browse data and maps for all station areas</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		$(document).ready(function(){												
-		        $('#more').on('click',function(e){
-		    		e.preventDefault();
-		    		$('body').toggleClass('div2');
-		    	});
-		    	$('#less').on('click',function(e){
-		    		e.preventDefault();
-		    		$('body').removeClass('div2');
-		    	});      	
-		});
-	</script>
-</section>
+</div>	
+<script type="text/javascript">
+	$(document).ready(function(){												
+	        $('#more').on('click',function(e){
+	    		e.preventDefault();
+	    		$('#more').toggleClass('div2');
+	    	});
+	    	$('#less').on('click',function(e){
+	    		e.preventDefault();
+	    		$('#more').removeClass('div2');
+	    	});      	
+	});
+</script>
+
