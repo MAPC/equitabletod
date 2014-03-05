@@ -1,8 +1,19 @@
 @Equitabletod.module "MainApp.Map", (Map, App, Backbone, Marionette, $, _) ->
 
   Map.Controller =
+  	provideMap: ->
+  		map = @getMap()
+  		App.mainRegion.show map
 
-    getGeoFeature: ->
+  	getMap: ->
+  		new Map.Layout
+
+
+###    class getGeoCollection extends Backbone.Leaflet.GeoModel 
+    	collection: getGeoCollection	
+
+
+    	    getGeoFeature: ->
     	geoclass = App.request "geofeature:entities"
 
     	mapView = @getMapView geoclass
@@ -10,4 +21,4 @@
 
     getGeoCollection: (geoclass) ->
     	new Map.MapView
-    		collection: geoclass
+    		collection: geoclass  ###

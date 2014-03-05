@@ -10,12 +10,14 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require ../../../vendor/assets/javascripts/modernizr-2.6.2-respond-1.1.0.min.js
 //= require jquery
+//= require ../../../vendor/assets/javascripts/modernizr-2.6.2-respond-1.1.0.min.js
 //= require underscore
 //= require backbone
 //= require_tree ../../../vendor/assets/javascripts
 //= require marionette
+//= require backbone/leaflet.js
+//= require backbone/backbone.leaflet.js
 //= require backbone/app
 //= require_tree ./backbone/config
 //= require_tree ./backbone/views
