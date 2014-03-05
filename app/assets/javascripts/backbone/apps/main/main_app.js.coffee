@@ -11,8 +11,8 @@
 #      "map/": "provideMap"
 
   API =
-    #showHomeRegion: ->
-     #   MainApp.Show.Controller.showHomeRegion()
+    showHomeRegion: ->
+      MainApp.Show.Controller.showHomeRegion()
 
     provideMap: ->
       MainApp.Map.Controller.provideMap()

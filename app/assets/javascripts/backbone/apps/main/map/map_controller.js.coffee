@@ -1,12 +1,17 @@
 @Equitabletod.module "MainApp.Map", (Map, App, Backbone, Marionette, $, _) ->
 
   Map.Controller =
+
   	provideMap: ->
   		map = @getMap()
   		App.mainRegion.show map
 
   	getMap: ->
   		new Map.Layout
+###
+    emptyRegion: ->
+      App.mainRegion.close homeRegionView###
+
 
 
 ###    class getGeoCollection extends Backbone.Leaflet.GeoModel 
@@ -22,3 +27,5 @@
     getGeoCollection: (geoclass) ->
     	new Map.MapView
     		collection: geoclass  ###
+
+
