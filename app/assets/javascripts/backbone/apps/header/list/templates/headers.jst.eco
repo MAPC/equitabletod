@@ -1,16 +1,24 @@
-<div class="navbar navbar-inverse navbar-fixed-top">      
+<div class="navbar navbar-inverse navbar-fixed-top padding-2">      
     <!--Include your brand here-->
-      <a class="navbar-brand" href="index.html">
-    	  <div class="container">
-          <div class="row animated fadeInBig">
-            <div class="col-sm-12">
-              <h2 class="black">
-                TOD Data
-                <span class="color">PORTAL</span>
-              </h2>
-            </div>
+  	  <div class="margin--no-lftrght">
+        <div class="row animated fadeInBig">
+          <div class="col-sm-8">
+            <h2 class="black">
+              TOD Data
+              <span class="color">PORTAL</span>
+            </h2>
           </div>
-      </a>
+        </div>
+        <div class="row margin-10-wb animated fadeInLeft delay2">
+          <div class="margin-10">
+            <ul class="list-inline filter">
+              <li><a href="#" data-toggle="portfilter" data-target="home">Home</a></li>
+              <li><a href="#" data-toggle="portfilter" data-target="usrguid">User Guild</a></li>
+              <li><a href="#" data-toggle="portfilter" data-target="learn">Learn About TOD</a></li>
+              <li><a href="#" data-toggle="portfilter" data-target="download">Download All Data</a></li>
+            </ul>
+        </div>
+      </div>
     <div class="navbar-header pull-right">
       <a id="nav-expander" class="nav-expander fixed">
         &nbsp;<i class="fa fa-bars fa-lg black"></i>
