@@ -12,7 +12,9 @@
  *= require ../../../vendor/assets/stylesheets/owl.carousel.css
  *= require ../../../vendor/assets/stylesheets/animate.css
  *= require ../../../vendor/assets/stylesheets/bootstrap.min.css
+ *= require_tree ../../../vendor/assets/
  *= require_self
  *= require_tree .
  */
+
 

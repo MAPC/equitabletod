@@ -9,39 +9,39 @@
   <div class="form-group">
     <label class="col-md-4 control-label small" for="searchinput1">Station Name</label>
     <div class="col-md-3">
-      <input id="searchinput1" name="searchinput1" placeholder="" class="form-control input-md" type="search">
-      <p class="help-block"></p>
+      <input id="searchinput1" rel="tooltip" title="The name of the station stop" name="searchinput1" placeholder="" class="form-control input-md" type="search">
     </div>
   </div>
   <!-- Search input-->
   <div class="form-group">
     <label class="col-md-4 control-label small" for="searchinput2">Municipality</label>
     <div class="col-md-3">
-      <input id="searchinput2" name="searchinput2" placeholder="" class="form-control input-md" type="search">
+      <input id="searchinput2" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" name="searchinput2" placeholder="" class="form-control input-md" type="search">
       <p class="help-block"></p>
-    </div>
-  </div>
-  <!-- Select Basic -->
-  <div class="form-group">
-    <label class="col-md-4 control-label small" for="selectbasic1">Transit Line</label>
-    <div class="col-md-4">
-      <select id="selectbasic1" name="selectbasic1" class="form-control">
-        <option value="1">All</option>
-        <option value="2">Red</option>
-        <option value="3">Green</option>
-        <option value="4">Orange</option>
-      </select>
     </div>
   </div>
   <!-- Select Basic -->
   <div class="form-group">
     <label class="col-md-4 control-label small" for="selectbasic2">Service Type</label>
     <div class="col-md-4">
-      <select id="selectbasic2" name="selectbasic2" class="form-control">
+      <select id="selectbasic2" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control">
         <option value="1">All</option>
         <option value="2">Commuter Rail</option>
-        <option value="3">Subway</option>
-        <option value="4">Bus</option>
+        <option value="3">Rapid Transit</option>
+        <option value="4">Key Bus Routes</option>
+      </select>
+    </div>
+  </div>
+  <!-- Select Basic -->
+  <div class="form-group">
+    <label class="col-md-4 control-label small" for="selectbasic1">Transit Line</label>
+    <div class="col-md-4">
+      <select id="selectbasic1" rel="tooltip" title="The name of the transit line on which this station is located" name="selectbasic1" class="form-control">
+        <option value="1">All</option>
+        <option value="2">Red</option>
+        <option value="3">Green</option>
+        <option value="4">Orange</option>
+        <option value="5">Blue</option>
       </select>
     </div>
   </div>
@@ -49,7 +49,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label small" for="selectbasic3">Station Type</label>
     <div class="col-md-4">
-      <select id="selectbasic3" name="selectbasic3" class="form-control">
+      <select id="selectbasic3" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" name="selectbasic3" class="form-control">
         <option value="1">All</option>
         <option value="2">Option two</option>
       </select>
@@ -57,9 +57,9 @@
   </div>
   <!-- Select Basic -->
   <div class="form-group">
-    <label class="col-md-4 control-label small" for="selectbasic4">eTOD Group</label>
+    <label class="col-md-4 control-label small" for="selectbasic4">eTOD Group<span class="glyphicon glyphicon-question-sign"</span></label>
     <div class="col-md-4">
-      <select id="selectbasic4" name="selectbasic4" class="form-control">
+      <select id="selectbasic4" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" name="selectbasic4" class="form-control">
         <option value="1">All</option>
         <option value="2">Option two</option>
       </select>
@@ -67,7 +67,7 @@
   </div>
   </fieldset>
   </br>
-  <div class="col-xs-offset-0">
+  <div class="col-xs-offset-1">
         <p>
           <button type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Search</button>
           <button type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button>
@@ -75,3 +75,8 @@
   </div>
   </form>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+      $("[rel=tooltip]").tooltip({ placement: 'top'});
+  });
+</script>
