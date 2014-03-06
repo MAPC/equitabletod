@@ -1,4 +1,4 @@
-<div class="col-sm-12 col-sm-offset-1 text-left">
+<div class="col-sm-6 col-sm-offset-0 text-left">
   <form class="form-horizontal">
   <fieldset>
   <!-- Form Name -->
@@ -7,7 +7,7 @@
   </hr>
   <!-- Search input-->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="searchinput1">Station Name</label>
+    <label class="col-md-4 control-label small" for="searchinput1">Station Name</label>
     <div class="col-md-3">
       <input id="searchinput1" name="searchinput1" placeholder="" class="form-control input-md" type="search">
       <p class="help-block"></p>
@@ -15,7 +15,7 @@
   </div>
   <!-- Search input-->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="searchinput2">Municipality</label>
+    <label class="col-md-4 control-label small" for="searchinput2">Municipality</label>
     <div class="col-md-3">
       <input id="searchinput2" name="searchinput2" placeholder="" class="form-control input-md" type="search">
       <p class="help-block"></p>
@@ -23,8 +23,8 @@
   </div>
   <!-- Select Basic -->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="selectbasic1">Transit Line</label>
-    <div class="col-md-3">
+    <label class="col-md-4 control-label small" for="selectbasic1">Transit Line</label>
+    <div class="col-md-4">
       <select id="selectbasic1" name="selectbasic1" class="form-control">
         <option value="1">All</option>
         <option value="2">Red</option>
@@ -35,8 +35,8 @@
   </div>
   <!-- Select Basic -->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="selectbasic2">Service Type</label>
-    <div class="col-md-3">
+    <label class="col-md-4 control-label small" for="selectbasic2">Service Type</label>
+    <div class="col-md-4">
       <select id="selectbasic2" name="selectbasic2" class="form-control">
         <option value="1">All</option>
         <option value="2">Commuter Rail</option>
@@ -47,8 +47,8 @@
   </div>
   <!-- Select Basic -->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="selectbasic3">Station Type</label>
-    <div class="col-md-3">
+    <label class="col-md-4 control-label small" for="selectbasic3">Station Type</label>
+    <div class="col-md-4">
       <select id="selectbasic3" name="selectbasic3" class="form-control">
         <option value="1">All</option>
         <option value="2">Option two</option>
@@ -57,8 +57,8 @@
   </div>
   <!-- Select Basic -->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="selectbasic4">eTOD Group</label>
-    <div class="col-md-3">
+    <label class="col-md-4 control-label small" for="selectbasic4">eTOD Group</label>
+    <div class="col-md-4">
       <select id="selectbasic4" name="selectbasic4" class="form-control">
         <option value="1">All</option>
         <option value="2">Option two</option>

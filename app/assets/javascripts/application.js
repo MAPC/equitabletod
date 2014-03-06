@@ -10,11 +10,15 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
+//= require ../../../vendor/assets/javascripts/jquery-1.11.0.min.js
+//= require ../../../vendor/assets/javascripts/jquery-migrate-1.2.1.min.js
+//= require ../../../vendor/assets/javascripts/owl.carousel.min.js
+//= require ../../../vendor/assets/javascripts/jquery.backstrech.js
+//= require ../../../vendor/assets/javascripts/bootstrap.min.js
 //= require ../../../vendor/assets/javascripts/modernizr-2.6.2-respond-1.1.0.min.js
+//= require ../../../vendor/assets/javascripts/jquery.navgoco.js
 //= require underscore
 //= require backbone
-//= require_tree ../../../vendor/assets/javascripts
 //= require marionette
 //= require backbone/leaflet.js
 //= require backbone/backbone.leaflet.js

@@ -20,8 +20,8 @@
     provideMap: ->
       MainApp.Map.Controller.provideMap()
 
-    removeHomeRegion: =>
-      @RegionMan.reset()
+#    removeHomeRegion: =>
+#      @RegionMan.reset()
 
     #showUsrGuid: ->
     #	MainApp.UsrGuid.Controller.showUsrGuid()
@@ -33,6 +33,6 @@
 #      MainApp.Map.Controller.provideMap()
   MainApp.on "start", ->
 #    API.showSearchModule()
-#    API.provideMap()
+    API.provideMap()
     API.showHomeRegion()
     API.showSimpleSearchForm()

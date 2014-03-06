@@ -13,27 +13,27 @@
           <div class="margin-10">
             <ul class="list-inline filter">
               <li><a href="#" data-toggle="portfilter" data-target="home">Home</a></li>
-              <li><a href="#" data-toggle="portfilter" data-target="usrguid">User Guild</a></li>
+              <li><a href="#" data-toggle="portfilter" data-target="usrguid">User Guide</a></li>
               <li><a href="#" data-toggle="portfilter" data-target="learn">Learn About TOD</a></li>
               <li><a href="#" data-toggle="portfilter" data-target="download">Download All Data</a></li>
             </ul>
         </div>
       </div>
-    <div class="navbar-header pull-right">
+    <!-- <div class="navbar-header pull-right">
       <a id="nav-expander" class="nav-expander fixed">
         &nbsp;<i class="fa fa-bars fa-lg black"></i>
       </a>
-    </div>
+    </div> -->
 </div>
 <nav>
-  <ul class="list-unstyled main-menu">
+<!--   <ul class="list-unstyled main-menu">
     <li class="text-right"><a href="#" id="nav-close">x</a></li>
     <li><a href="#home">Home <span class="icon"></span></a></li>
     <li><a href="#usrguid">User Guild <span class="icon"></span></a></li>
     <li><a href="#">Learn About TOD <span class="icon"></span></a></li>
     <li><a href="#">Download All Data <span class="icon"></span></a></li>
   </ul>
-</nav>
+</nav> -->
 
 <script type="text/javascript">
 $(document).ready(function(){												
