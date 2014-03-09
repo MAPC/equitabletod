@@ -1,4 +1,4 @@
-@Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
+###@Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 	
 	class Entities.Sidebar extends Entities.Model
 	
@@ -15,4 +15,4 @@
 			]
 	
 	App.reqres.setHandler "sidebar:entities", ->
-		API.getSidebars()
+		API.getSidebars()###

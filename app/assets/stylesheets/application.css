@@ -15,6 +15,7 @@
  *= require ../twitter/bootstrap/dist/css/bootstrap.min.css
  *= require_self
  *= require_tree .
+ *= require ../../../vendor/assets/stylesheets/jquery-ui-1.10.4.custom.min.css
  */
 
 

@@ -6,10 +6,10 @@
       "home": "showHomeRegion"
       "usrguid": "showUsrGuid"
       "map": "provideMap"
-      "search/simple": "showSimpleSearchForm"
+      "search/submit": "searchSubmit"
 #      "map/": "provideMap"
-
-
+  
+  
   API =
     showHomeRegion: ->
       MainApp.Show.Controller.showHomeRegion()
@@ -17,8 +17,12 @@
     showSimpleSearchForm: ->
       MainApp.Search.Controller.showSimpleSearchForm()
 
-    provideMap: ->
-      MainApp.Map.Controller.provideMap()
+#    provideMap: ->
+#      MainApp.Map.Controller.provideMap()
+
+    searchSubmit: ->
+      MainApp.Search.Controller.submit('search:submit')
+
 
 #    removeHomeRegion: =>
 #      @RegionMan.reset()
@@ -33,6 +37,6 @@
 #      MainApp.Map.Controller.provideMap()
   MainApp.on "start", ->
 #    API.showSearchModule()
-    API.provideMap()
+#    API.provideMap()
     API.showHomeRegion()
     API.showSimpleSearchForm()

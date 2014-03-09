@@ -3,7 +3,6 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-0 text-left">
 				<div id="div1"><span>
-					<hr>
 					<p id="p-not-expanded" class="hm1">The Transit-Oriented Development (TOD) Data Portal presents information on over 300 transit station areas in Metro Boston, including the region’s commuter rail, rapid transit, and ferry systems, and for key bus routes. Information includes data on demographics, economics, transportation behavior, and the development context.<a data-toggle="collapse" data-target="#div2"id="more" class="more"> More</></p></span>
 				</div>
 				<div id="div2" class="home-txt-collapse collapse" ><span>
@@ -16,7 +15,8 @@
 				<ul class="list-unstyled">  
 		          <!--Project-->
 		          <li class="col-md-4 thumbs" data-tag="graphics"> 
-		            <img src="../../img/etodThm.jpg" class="img-responsive" alt="Image goes here">
+		          <img src="holder.js/200x100/industrial"href="img/etodThm.png" class="img-responsive" alt="Image goes here">
+		            <img href="img/etodThm.png" class="img-responsive" alt="Image goes here">
 						<a>
 							<span class="title">
 							  <span>

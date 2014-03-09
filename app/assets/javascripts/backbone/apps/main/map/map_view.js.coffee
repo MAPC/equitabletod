@@ -8,6 +8,7 @@
 
 
 
+
 ###  class Map.View extends Backbone.Leaflet.MapView
   	el: "#map"
   	collection: geoCollection
