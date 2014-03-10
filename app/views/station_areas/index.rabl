@@ -1,5 +1,7 @@
-object @station_areas
+object false
+node(:type) { "FeatureCollection" }
 
-extends 'station_areas/show'
+child @station_areas => :features do
+  extends 'station_areas/show'  
+end
 
-attributes :id

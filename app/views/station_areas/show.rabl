@@ -1,6 +1,6 @@
 object @station_area
 
-node :type do ; "Feature" ; end
+node(:type) { "Feature" }
 
 node :geometry do |s|
   attributes location: s.location.split.map{|e| e.to_f},
