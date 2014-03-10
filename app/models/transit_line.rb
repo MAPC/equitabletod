@@ -11,8 +11,4 @@ class TransitLine < ActiveRecord::Base
   def service_type_title
     self.service_type.title
   end
-
-  def as_json(options={})
-  end
-
 end

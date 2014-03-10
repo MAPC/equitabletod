@@ -8,8 +8,4 @@ class StationArea < ActiveRecord::Base
                   :vehicle_ownership
 
   has_and_belongs_to_many :transit_lines
-
-  def as_json(options={})
-    super(options.merge( only: [ :id, :station_name, :location, :vehicle_miles_traveled ] ))
-  end
 end
