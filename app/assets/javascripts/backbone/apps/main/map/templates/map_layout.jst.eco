@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <div id="map" class="map">
+          <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" /> -->
+          <!--[if lte IE 8]>
+              <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+          <![endif]-->
+          <!-- <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js">
+          </script> -->
+            <script type="text/javascript">    
+              var map = L.map('map', {
+                  center: [42.31, -0.077359],
+                  zoom: 2,
+                  scrollWheelZoom: false,
+                  zoomAnimation: false,
+                  closePopupOnClick: true,
+                  dragging : true,
+                  });
+                  L.tileLayer('http://{s}.tile.cloudmade.com/{key}/106695/256/{z}/{x}/{y}.png', {
+                      attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2012 CloudMade',
+                      key: 'da13504e06a041dcb81804e6100c8b55'
+                  }).addTo(map);
+              function onEachFeature(feature, layer) {
+                  // does this feature have a property named ProgramName?
+                   if (feature.properties && feature.properties.LocalCtry) {
+                    layer.bindPopup(feature.properties.PermanentC + " " + '<b>' +feature.properties.LocalCtry + '</b><br />' + feature.properties.ProgramNam + '</b><br />' + 'Entered the program in  ' + '<b>' + feature.properties.Entered_Pr + '</b><br/>' + 'Status: ' + '<b>'+ feature.properties.Status);
+                   }
+                     }
+                        var students = new L.LayerGroup();  
+                  var Pcity = L.geoJson(PcityF, {
+
+                    style: function (feature) {
+                      return feature.properties && feature.properties.style;
+                    },
+                                      onEachFeature: onEachFeature,
+
+
+                    pointToLayer: function (feature, latlng) {
+                      return L.circleMarker(latlng, {
+                        radius: 5,
+                        fillColor: "#ff7800",
+                        color: "#000",
+                        weight: 1,
+                        opacity: 1,
+                        fillOpacity: 0.7
+                      });
+                    }
+                  });
+                      map.addLayer(Pcity);
+            </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      

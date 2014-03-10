@@ -1,0 +1,53 @@
+<div id="home-txt" class="white-bg">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-0 text-left">
+				<div id="div1"><span>
+					<p id="p-not-expanded" class="hm1">The Transit-Oriented Development (TOD) Data Portal presents information on over 300 transit station areas in Metro Boston, including the region’s commuter rail, rapid transit, and ferry systems, and for key bus routes. Information includes data on demographics, economics, transportation behavior, and the development context.<a data-toggle="collapse" data-target="#div2"id="more" class="more"> More</></p></span>
+				</div>
+				<div id="div2" class="home-txt-collapse collapse" ><span>
+					<p id="p-expanded" class="hm1"> Users can: 
+					browse data and maps for all station areas - quickly and easily get detailed data on a specific station area or group of station areas that meet certain criteria - browse data and maps for all station areas. The Portal provides a wealth of information for communities, planners, and businesses to better understand their individual station areas, compare them across the region, and find opportunities for investment.  The Portal also houses information on two key tools developed to help the region’s stakeholders understand their station areas: the eTOD rating system and a Typology of station areas.</p>
+				</div>
+			</div>
+			</br>
+			<div class="col-md-6">
+				<ul class="list-unstyled">  
+		          <!--Project-->
+		          <li class="col-md-4 thumbs" data-tag="graphics"> 
+		          <img src="holder.js/200x100/industrial"href="img/etodThm.png" class="img-responsive" alt="Image goes here">
+		            <img href="img/etodThm.png" class="img-responsive" alt="Image goes here">
+						<a>
+							<span class="title">
+							  <span>
+	    						  <br/>
+	    						  <i class="fa fa-minus white"></i>
+	    						  <span class="project-info">eTOD is a rating system to measure the capacity for "equitable TOD" within a transit station area
+	    						  </span>
+							  </span>
+							</span>	
+						</a>
+		          </li>
+		          <!--Project-->
+		          <li class="col-md-4 thumbs" data-tag="graphics">
+		            <img src="img/portfolio2.jpg" class="img-responsive" alt="Image Title">
+						<a href="portfolio-item.html">
+							<span class="title">
+								<span><br />
+								<i class="fa fa-minus white"></i>
+								<span class="hm1">MAPC's typology helps characterize the different conditions and opportunities for TOD in each station area.</span>
+								</span>
+							</span>	
+						</a>
+		          </li>
+		        </ul> 
+			</div>
+		</div>
+	</div>
+</div>	
+<!--Tumblines-->
+<section id="main" class="white-bg">
+    
+</section>
+
+
