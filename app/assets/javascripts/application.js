@@ -24,7 +24,7 @@
 //= require marionette
 //= require ../../../vendor/assets/javascripts/backbone-validation.js
 //= require ../../../vendor/assets/javascripts/backbone-relational.js
-//= require ../../../vendor/assets/javascripts/backbone.autocomplete-min.js
+//= require ../../../vendor/assets/javascripts/typeahead.bundle.js
 //= require backbone/leaflet.js
 //= require backbone/backbone.leaflet.js
 //= require backbone/app
