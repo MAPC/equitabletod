@@ -70,8 +70,8 @@
   </br>
   <div class="col-xs-offset-1">
         <p>
-          <button type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Search</button>
-          <button type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button>
+          <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Search</button>
+          <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button>
         </p>
   </div>
   </form>

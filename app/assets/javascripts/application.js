@@ -20,6 +20,7 @@
 //= require ../../../vendor/assets/javascripts/holder.js
 //= require underscore
 //= require backbone
+//= require ../../../vendor/assets/javascripts/backbone-forms.js
 //= require marionette
 //= require ../../../vendor/assets/javascripts/backbone-validation.js
 //= require ../../../vendor/assets/javascripts/backbone-relational.js
