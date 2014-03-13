@@ -8,4 +8,6 @@ class StationArea < ActiveRecord::Base
                   :vehicle_ownership
 
   has_and_belongs_to_many :transit_lines
+
+  scope :by_name, -> name { where("station_name LIKE ?", "%#{name}%") }
 end

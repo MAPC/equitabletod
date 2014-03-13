@@ -1,13 +1,16 @@
 class StationAreasController < ApplicationController
 
-after_filter :cors_set_access_control_headers
-
-# For all responses in this controller, return the CORS access control headers.
+  # For all responses in this controller, return the CORS access control headers.
+  after_filter :cors_set_access_control_headers
+  
+  has_scope :by_name
 
   respond_to :json
 
   def index
-    @station_areas = StationArea.all
+    @station_areas = StationArea.scoped
+    @station_areas = @station_areas.by_name(params[:name]) unless params[:name].blank?
+    @station_areas = @station_areas.by_vmt(params[:lower], params[:upper]) unless params[:lower].blank? && params[:upper].blank?
   end
 
   def show
