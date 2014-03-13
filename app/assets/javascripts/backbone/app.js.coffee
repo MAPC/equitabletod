@@ -17,6 +17,7 @@
     mapRegion: "#map"
     homeRegion: "#home"
     simpleSearchRegion: "#simple-search"
+    resultsTableGrid: "#results-table"
 
 
   App.addInitializer ->
