@@ -4,4 +4,11 @@
     template: "main/show/show_layout"
 
 
+    events:
+    	'click #more': 'addMore'
+
+    addMore: (e)=>
+    	$("#more").html("<b> </b>")
+
+    	
 
