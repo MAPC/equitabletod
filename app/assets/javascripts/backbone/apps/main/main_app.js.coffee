@@ -14,11 +14,15 @@
     showHomeRegion: ->
       MainApp.Show.Controller.showHomeRegion()
 
+    showCarousel: ->
+      MainApp.Carousel.Controller.showCarousel()
+
+
     showSimpleSearchForm: ->
       MainApp.Search.Controller.showSimpleSearchForm()
 
-#    provideMap: ->
-#      MainApp.Map.Controller.provideMap()
+    provideMap: ->
+      MainApp.Map.Controller.addMap()
 
     searchSubmit: ->
       MainApp.Search.Controller.submit('search:submit')
@@ -37,6 +41,7 @@
 #      MainApp.Map.Controller.provideMap()
   MainApp.on "start", ->
 #    API.showSearchModule()
-#    API.provideMap()
-    API.showHomeRegion()
+#    API.showHomeRegion()
+    API.showCarousel()
     API.showSimpleSearchForm()
+#    API.provideMap()

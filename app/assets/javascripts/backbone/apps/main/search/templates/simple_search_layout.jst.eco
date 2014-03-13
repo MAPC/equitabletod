@@ -77,16 +77,6 @@
   </form>
 </div>
 <script type="text/javascript">
-  munidata = [
-    'brookline', 
-    'braintree', 
-    'boston'
-  ]
   $(document).ready(function(){
-      $("#searchinput1").autocomplete({
-        source: munidata,
-        minLength: 3
-      })
-  });
       $("[rel=tooltip]").tooltip({ placement: 'top'});
 </script>
