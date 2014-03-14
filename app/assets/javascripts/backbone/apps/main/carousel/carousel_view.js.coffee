@@ -2,3 +2,5 @@
 
   class Carousel.CarouselView extends App.Views.Layout
     template: "main/carousel/carousel_layout"
+
+

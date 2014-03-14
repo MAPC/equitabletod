@@ -1,8 +1,7 @@
 @Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
   class Entities.Fstation extends Entities.Model
-    urlRoot: ->
-      "/station_areas?id=" + @get('id')
+    urlRoot: "/station_areas"
   
   class Entities.FstationsCollection extends Entities.Collection
   	model: Entities.Fstation
@@ -14,7 +13,7 @@
   	    fstations.fetch()
 
   	getFstation: (stn_id) ->
-  	    fstation = new Entities.Fstation({ id: stn_id });
+  	    fstation = new Entities.Fstation({ id: stn_id })
   	    fstation.fetch()
 
   App.reqres.setHandler 'fstation:entities', ->

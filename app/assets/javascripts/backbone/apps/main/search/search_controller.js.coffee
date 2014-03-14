@@ -1,7 +1,7 @@
 @Equitabletod.module "MainApp.Search", (Search, App, Backbone, Marionette, $, _) ->
 	Search.Controller =
 	  	showSimpleSearchForm: ->
-	  		searchargs = App.request 'fstation:entities'
+	  		searchargs = App.request 'searcharg:entity'
 	  		simpleSearchForm = @getSimpleSearchView searchargs
 	  		App.simpleSearchRegion.show simpleSearchForm
 	  		simpleSearchForm.on 'search:query', ->

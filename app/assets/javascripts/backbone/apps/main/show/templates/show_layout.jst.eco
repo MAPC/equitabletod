@@ -15,9 +15,8 @@
 				<ul class="list-unstyled">  
 		          <!--Project-->
 		          <li class="col-md-4 thumbs" data-tag="graphics"> 
-		          <img src="holder.js/200x100/industrial"href="img/etodThm.png" class="img-responsive" alt="Image goes here">
-		            <img href="img/etodThm.png" class="img-responsive" alt="Image goes here">
-						<a>
+		          <img src="img/etodThm.png" class="img-responsive" alt="Image goes here">
+						<a href="dukakisEtodPage.html">
 							<span class="title">
 							  <span>
 	    						  <br/>
@@ -31,7 +30,7 @@
 		          <!--Project-->
 		          <li class="col-md-4 thumbs" data-tag="graphics">
 		            <img src="img/portfolio2.jpg" class="img-responsive" alt="Image Title">
-						<a href="portfolio-item.html">
+						<a href="mapcPage.html">
 							<span class="title">
 								<span><br />
 								<i class="fa fa-minus white"></i>

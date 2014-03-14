@@ -2,14 +2,6 @@
 
     class Search.SimpleSearchFormLayout extends App.Views.Layout
         template: "main/search/templates/simple_search_layout" 
-        initialize: ->
-            collection = @collection
-            @listenTo(collection, 'change', @render)
-        onBeforeRender: (e)=> 
-            munis = []
-            for each in fstations._layers
-                muni = fstations._layers[each].feature.properties.station_name
-                munis.push({label: muni, value: muni})
         itemViewContainer: "#form-horizontal"
         className: "col-sm-6 col-sm-offset-0 text-left"
         events: 

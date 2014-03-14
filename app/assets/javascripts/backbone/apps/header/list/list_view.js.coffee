@@ -9,4 +9,7 @@
 		itemView: List.Header
 		itemViewContainer: "ul"
 		events:
-			"click #li:nth-child(1).a": "remShowUsrGuid"
+			"click #homeClick": "cleanHome"
+
+		cleanHome: (e) =>
+			App.MainApp.vent.trigger "cleanHome"

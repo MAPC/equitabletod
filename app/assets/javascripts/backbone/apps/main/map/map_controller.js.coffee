@@ -10,7 +10,7 @@
       new Map.MapView
 
     addMap: ->
-      fstations = App.request 'fstation:entities'
+      fstations = App.request 'fstation:entity', (2)
       map = @getMap fstations
       App.mapRegion show map
 

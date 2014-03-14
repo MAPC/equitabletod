@@ -7,11 +7,11 @@
   <!-- Carousel items -->
   <div class="carousel-inner">
     <div class="active item">pictures 
-      <img src="" style="background: none repeat scroll 0% 0% #000000">
+      <img src="img/Page1_TOP.jpg" style="background: none repeat scroll 0% 0% #000000">
     </div>
     <div class="item">
-      <img src="" style="background: none repeat scroll 0% 0% #000000"></div>
-    <div class="item"><img src="" style="background: none repeat scroll 0% 0% #000000">
+      <img src="img/Page1_MIDDLE_FanPier_seaport.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
+    <div class="item"><img src="img/Page1_BOTTOM_Weymouth_suburban-transformation.png" style="background: none repeat scroll 0% 0% #000000">
     </div>
   </div>
   <!-- Carousel nav -->

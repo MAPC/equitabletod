@@ -8,7 +8,7 @@ node :geometry do |s|
 end
 
 # List all fields that you want to keep out here
-reject_list = %w( location id created_at updated_at )
+reject_list = %w( location created_at updated_at )
 
 # Remove all fields in the reject_list from the array
 fields = StationArea.attribute_names.reject { |field| reject_list.include? field }

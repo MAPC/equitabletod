@@ -7,8 +7,10 @@
       "usrguid/": "showUsrGuid"
       "map": "provideMap"
       "search/submit": "searchSubmit"
+      "carousel": "showCarousel"
 #      "map/": "provideMap"
   
+  MainApp.vent = new Backbone.Wreqr.EventAggregator()
   
   API =
     showHomeRegion: ->
@@ -30,7 +32,11 @@
 #    removeHomeRegion: =>
 #      @RegionMan.reset()
 
-    
+  MainApp.vent.on "cleanHome", ->
+    App.vent.trigger "cleanHomeRegion"
+    API.showHomeRegion()
+
+
 
     
 #    showSearchModule: ->
@@ -38,18 +44,12 @@
 #    provideMap: ->
 #      MainApp.Map.Controller.provideMap()
   MainApp.on "initialize:before", ->
-    searchargs = App.request 'fstation:entities'
+    fstations = App.request 'fstation:entities'
+    
   MainApp.on "start", ->
-    API.showHomeRegion()
+#    API.showHomeRegion()
 #    API.showSearchModule()
     API.showSimpleSearchForm()   
-#    API.showCarousel()
+    API.showCarousel()
 #    API.showResultsPage()
 #    API.provideMap()
-<<<<<<< HEAD
-#    API.showHomeRegion()
-    API.showSimpleSearchForm()
-=======
-#   API.showUsrGuid()
-
->>>>>>> design

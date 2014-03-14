@@ -4,7 +4,7 @@
 
   	showCarousel: ->
   		carouselView = @getCarousel()
-  		App.homeRegion.show carouselView
+  		App.carouselRegion.show carouselView
   	
   	getCarousel: ->
   		new Carousel.CarouselView
