@@ -1,11 +1,7 @@
 
 body {
-<<<<<<< HEAD
   font: 20px 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
-=======
-  font: 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
   padding: 60px 50px;
 }
 
@@ -44,10 +40,7 @@ body {
 
 #mocha h2 {
   font-size: 12px;
-<<<<<<< HEAD
   font-family: 'Rokkitt';
-=======
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
   font-weight: normal;
   cursor: pointer;
 }

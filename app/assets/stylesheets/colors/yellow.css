@@ -2,7 +2,6 @@
    Red styles
    ========================================================================== */
 .color {
-<<<<<<< HEAD
   color: rgba(243,209,93,1);
 }
 
@@ -22,25 +21,6 @@ a.more {
 
 a:hover.more {
   color: rgba(219,183,61,1);
-=======
-  color: #f9d566;
-}
-
-hr {
-  background: none repeat scroll 0 0 #f9d566;
-  border: 0 none;
-  height: 5px;
-  width: 50px;
-}
-
-a.more {
-  color: #f9d566;
-  text-decoration: none; 
-}
-
-a:hover.more {
-  color: #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
 }
 
 
@@ -48,21 +28,13 @@ a:hover.more {
 /* ---------------  Buttons ----------------- */
 
 .btn-primary {
-<<<<<<< HEAD
   background-color: rgba(243,209,93,1);
-=======
-  background-color: #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
   border-color: rgba(0, 0, 0, 0);
   color: #FFFFFF;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
-<<<<<<< HEAD
   background-color: rgba(219,183,61,1);
-=======
-  background-color: #e9ba2d;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
   border-color: transparent;
   color: #FFFFFF;
   -webkit-transition: all 0.35s ease-in-out;
@@ -74,20 +46,12 @@ a:hover.more {
 
 /* --------------- Main Styles ----------------- */
 .color-bg {
-<<<<<<< HEAD
   background: rgba(243,209,93,1);
-=======
-  background: #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
 }
 
 /* --------------- Home page Icons ----------------- */
 .home-icons {
-<<<<<<< HEAD
   color: rgba(243,209,93,1);
-=======
-  color: #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
   width: 160px;
   height: 160px;
   border: 2px solid #edeef0;
@@ -99,31 +63,19 @@ a:hover.more {
 
 /* --------------- Latest Work Icons ----------------- */
 .thumbs a {
-<<<<<<< HEAD
 	text-decoration: none;
 	border-bottom: 1px solid rgba(243,209,93,1);
 }
 
 .list-inline.filter > li:hover {
     background: none repeat scroll 0 0 rgba(219,183,61,1);
-=======
-	background-color: #f9d566;
-}
-
-.list-inline.filter > li:hover {
-    background: none repeat scroll 0 0 #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
     color: #FFFFFF;
 }
 
 
 /* --------------- Latest News ----------------- */
 .news-link:hover .news-box {
-<<<<<<< HEAD
   border-left: 6px solid rgba(219,183,61,1);
-=======
-  border-left: 6px solid #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
   -o-transition: all 0.35s ease-in-out;
@@ -133,29 +85,20 @@ a:hover.more {
 
 /* --------------- Testimonial Carousel ----------------- */
 .carousel-control {
-<<<<<<< HEAD
     color: rgba(243,209,93,1);
-=======
-    color: #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
     font-size: 30px;
     text-shadow: 0 0px 0px rgba(0, 0, 0, 0.0);
     opacity: 0.5;
 }
 
 .carousel-control:hover, .carousel-control:focus {
-<<<<<<< HEAD
     color: rgba(219,183,61,1);
-=======
-    color: #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
     opacity: 1;
 }
 
 
 /* --------------- Blog Section ----------------- */
 .blog-meta a {
-<<<<<<< HEAD
   color: rgba(243,209,93,1);
 }
 
@@ -169,21 +112,6 @@ a:hover.more {
 
 blockquote {
     border-left: 5px solid rgba(243,209,93,1);
-=======
-  color: #f9d566;
-}
-
-.blog-meta a:hover {
-  color: #e9ba2d;
-}
-
-.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
-    background-color: #f9d566;
-}
-
-blockquote {
-    border-left: 5px solid #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
     margin: 0 0 20px;
     padding: 10px 20px;
 }
@@ -191,17 +119,12 @@ blockquote {
 
 /* --------------- Bottom Section ----------------- */
 .color-box {
-<<<<<<< HEAD
   background: rgba(243,209,93,1);
-=======
-  background: #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
   padding: 15px 20px 5px 20px;
   margin-bottom: 15px;
 }
 
 .bottom-links li a {
-<<<<<<< HEAD
   color: rgba(243,209,93,1);
 }
 
@@ -211,17 +134,6 @@ blockquote {
 
 .social-icons li:hover {
   background: rgba(243,209,93,1);
-=======
-  color: #f9d566;
-}
-
-.bottom-links li a:hover {
- color: #e9ba2d; 
-}
-
-.social-icons li:hover {
-  background: #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -231,11 +143,7 @@ blockquote {
 
 /* --------------- Pricing Tables ----------------- */
 .pricing-table.active .headline {
-<<<<<<< HEAD
   background: rgba(243,209,93,1);
-=======
-  background: #f9d566;
->>>>>>> 1614922278e2870685a9df42c02ea1ca62ec863a
 }
 
 

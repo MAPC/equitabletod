@@ -11,8 +11,8 @@
  *= require ../../../vendor/assets/stylesheets/font-awesome.min.css
  *= require ../../../vendor/assets/stylesheets/owl.carousel.css
  *= require ../../../vendor/assets/stylesheets/animate.css
- *= require ../../../vendor/assets/stylesheets/bootstrap.min.css
- *= require ../twitter/bootstrap/dist/css/bootstrap.min.css
+ *= require ../../../vendor/assets/stylesheets/bootstrap.css
+ *= require ../../../vendor/assets/stylesheets/custom.css
  *= require_self
  *= require_tree .
  */
