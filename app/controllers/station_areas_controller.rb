@@ -5,12 +5,8 @@ class StationAreasController < ApplicationController
   
   has_scope :by_name
 
-  respond_to :json
-
   def index
-    @station_areas = StationArea.scoped
-    @station_areas = @station_areas.by_name(params[:name]) unless params[:name].blank?
-    @station_areas = @station_areas.by_vmt(params[:lower], params[:upper]) unless params[:lower].blank? && params[:upper].blank?
+    @station_areas = apply_scopes(StationArea).all
   end
 
   def show

@@ -43,7 +43,10 @@ bundle install
 
 Then, assuming you have Postgres installed, run `rake db:migrate` to set up the database.
 
-Next, put sample data into the database by running `rake db:seed`.
+
+You can put a backup into the database by running `pg_restore -d newdb db/fixtures/backup.dump`.
+
+Or, put fake sample data into the database by running `rake db:seed`.
 
 When you are ready to run the server, run `rails s` (short for `rails server`).
 
