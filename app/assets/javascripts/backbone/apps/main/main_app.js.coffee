@@ -4,7 +4,6 @@
   class MainApp.Router extends Marionette.AppRouter
     appRoutes:
       "home": "showHomeRegion"
-      "usrguid/": "showUsrGuid"
       "map": "provideMap"
       "search/submit": "searchSubmit"
       "carousel": "showCarousel"
@@ -35,6 +34,9 @@
   MainApp.vent.on "cleanHome", ->
     App.vent.trigger "cleanHomeRegion"
     API.showHomeRegion()
+
+  MainApp.vent.on "cleanForGuid", ->
+    App.vent.trigger "cleanHomeRegion"
 
 
 

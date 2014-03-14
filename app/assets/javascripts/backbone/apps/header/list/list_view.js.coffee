@@ -10,6 +10,10 @@
 		itemViewContainer: "ul"
 		events:
 			"click #homeClick": "cleanHome"
+			"click #guidClick" : "fireGuid"
 
 		cleanHome: (e) =>
 			App.MainApp.vent.trigger "cleanHome"
+
+		fireGuid: (e) =>
+			App.UsrGuidApp.vent.trigger "fireGuid"

@@ -2,15 +2,18 @@
 	@startWithParent = false
 
 	class UsrGuidApp.Router extends Marionette.AppRouter
-		AppRoutes:
-			"show": "showUsrGuid"
-
-
+		appRoutes:
+			"usrguid/usrguid": "showUsrGuid"
+	
+	UsrGuidApp.vent = new Backbone.Wreqr.EventAggregator()
+	
 	API =
 		showUsrGuid: ->
-			UsrGuidApp.Show.Controller.showGuid()
-
+			UsrGuidApp.Show.Controller.showUsrGuid()
 
 	UsrGuidApp.on "start", ->
 		API.showUsrGuid()
-
+	UsrGuidApp.vent.on "fireGuid", ->
+    	MainApp.vent.trigger "cleanForGuid"
+    	MainApp.vent.trigger "fireUsrGuid"
+    	API.showUsrGuid()

@@ -1,10 +1,11 @@
-@Equitabletod.module "UsrGuid.Show", (Show, App, Backbone, Marionette, $, _) ->
+@Equitabletod.module "UsrGuidApp.Show", (Show, App, Backbone, Marionette, $, _) ->
 
   Show.Controller =
   	showUsrGuid: ->
   		usrGuidView = @getUsrGuidView()
-  		App.mainRegion.show usrGuidView
+  		UsrGuidApp.vent.trigger "cleanHomeRegion"
+  		App.usrGuidRegion.show usrGuidView
 
   	getUsrGuidView: ->
-  		new UsrGuid.UsrGuidLayout
+  		new UsrGuidApp.UsrGuidLayout
 
