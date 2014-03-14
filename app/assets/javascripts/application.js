@@ -16,14 +16,13 @@
 //= require ../../../vendor/assets/javascripts/bootstrap.min.js
 //= require ../../../vendor/assets/javascripts/modernizr-2.6.2-respond-1.1.0.min.js
 //= require ../../../vendor/assets/javascripts/jquery.navgoco.js
-//= require ../../../vendor/assets/javascripts/jquery-ui-1.10.4.custom.min.js
-//= require ../../../vendor/assets/javascripts/holder.js
 //= require underscore
 //= require backbone
 //= require marionette
+//= require ../../../vendor/assets/javascripts/jquery.watable.js
 //= require ../../../vendor/assets/javascripts/backbone-validation.js
 //= require ../../../vendor/assets/javascripts/backbone-relational.js
-//= require ../../../vendor/assets/javascripts/backbone.autocomplete-min.js
+//= require ../../../vendor/assets/javascripts/typeahead.bundle.js
 //= require backbone/leaflet.js
 //= require backbone/backbone.leaflet.js
 //= require backbone/app

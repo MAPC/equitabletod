@@ -3,8 +3,10 @@
   Show.Controller =
 
   	showHomeRegion: ->
-  		homeRegionView = @getLayoutView()
+  		collapsterms = App.request "collapsterm:entities"
+  		homeRegionView = @getLayoutView collapsterms
   		App.homeRegion.show homeRegionView
   	
-  	getLayoutView: ->
+  	getLayoutView: (collapsterms) ->
   		new Show.Home
+  			model: collapsterms

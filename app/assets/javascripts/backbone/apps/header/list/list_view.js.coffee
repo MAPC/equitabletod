@@ -8,3 +8,5 @@
 		template: "header/list/templates/headers"
 		itemView: List.Header
 		itemViewContainer: "ul"
+		events:
+			"click #li:nth-child(1).a": "remShowUsrGuid"

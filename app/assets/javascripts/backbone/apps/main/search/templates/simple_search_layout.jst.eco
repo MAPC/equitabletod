@@ -70,23 +70,9 @@
   </br>
   <div class="col-xs-offset-1">
         <p>
-          <button type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Search</button>
-          <button type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button>
+          <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Search</button>
+          <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button>
         </p>
   </div>
   </form>
 </div>
-<script type="text/javascript">
-  munidata = [
-    'brookline', 
-    'braintree', 
-    'boston'
-  ]
-  $(document).ready(function(){
-      $("#searchinput1").autocomplete({
-        source: munidata,
-        minLength: 3
-      })
-  });
-      $("[rel=tooltip]").tooltip({ placement: 'top'});
-</script>

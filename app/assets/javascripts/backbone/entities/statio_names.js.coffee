@@ -1,4 +1,4 @@
-@Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
+###@Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
   class Entities.Fstation extends Backbone.Model
   	name: ->
@@ -21,7 +21,7 @@
       API.getFstationsEntities()
 
   App.reqres.setHandler 'fstation:entity', (fstation) ->
-      API.getFstation(fstation)
+      API.getFstation(fstation)###
 
 ###  	parse: (response)->
     	_.map(response, (fstationJson) ->

@@ -1,14 +1,22 @@
 @Equitabletod.module "MainApp.Map", (Map, App, Backbone, Marionette, $, _) ->
 
   Map.Controller =
-  	provideMap: (fstation) ->
-  		App.request "fstation:entities", fstation, (fstation) ->
-        map = @getMap(collection: fstation)
-  		App.mapRegion.show map
+    
+    addEmptyMap: ->
+      mapEmpty = @getMapEmpty
+      App.mapRegion.show mapEmpty
 
-  	getMap: (collection) ->
-#      App.request "reset:mainRegion"
-  		new Map.Layout(collection: collection)
+    getMapEmpty: ->
+      new Map.MapView
+
+    addMap: ->
+      fstations = App.request 'fstation:entities'
+      map = @getMap fstations
+      App.mapRegion show map
+
+    getMap: (fstations) ->
+      new Map.MapView
+          collection: fstations
 
 ###
     emptyRegion: ->
