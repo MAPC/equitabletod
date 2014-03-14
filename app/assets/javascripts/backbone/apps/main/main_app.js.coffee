@@ -4,7 +4,7 @@
   class MainApp.Router extends Marionette.AppRouter
     appRoutes:
       "home": "showHomeRegion"
-      "usrguid": "showUsrGuid"
+      "usrguid/": "showUsrGuid"
       "map": "provideMap"
       "search/submit": "searchSubmit"
 #      "map/": "provideMap"
@@ -30,19 +30,21 @@
 #    removeHomeRegion: =>
 #      @RegionMan.reset()
 
-    #showUsrGuid: ->
-    #	MainApp.UsrGuid.Controller.showUsrGuid()
+    
 
     
 #    showSearchModule: ->
 #      MainApp.Search.Controller.showSearchModule()
 #    provideMap: ->
 #      MainApp.Map.Controller.provideMap()
+  MainApp.on "initialize:before", ->
+    searchargs = App.request 'fstation:entities'
   MainApp.on "start", ->
+    API.showHomeRegion()
 #    API.showSearchModule()
-#    API.showHomeRegion()
-    API.showCarousel()
-    API.showSimpleSearchForm()
-    API.showResultsPage()
+    API.showSimpleSearchForm()   
+#    API.showCarousel()
+#    API.showResultsPage()
 #    API.provideMap()
+#   API.showUsrGuid()
 
