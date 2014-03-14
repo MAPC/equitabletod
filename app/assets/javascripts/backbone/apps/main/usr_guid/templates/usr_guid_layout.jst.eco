@@ -1,0 +1,165 @@
+<!--Main-->
+<section id="main" class="white-bg">
+  <div class="container">
+    
+    <div class="row margin-20 animated fadeInLeft delay2">
+      <div class="col-sm-12">
+        <ul class="list-inline filter">
+          <li><a href="#" data-toggle="portfilter" data-target="all">All</a></li>
+          <li><a href="#" data-toggle="portfilter" data-target="graphics">Graphics</a></li>
+          <li><a href="#" data-toggle="portfilter" data-target="web">Web</a></li>
+          <li><a href="#" data-toggle="portfilter" data-target="videos">Videos</a></li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <div class="row">
+      <div class="col-sm-12">
+        <ul class="list-unstyled">
+          
+          <!--Project-->
+          <li class="col-sm-6 col-md-4 thumbs" data-tag="graphics"> 
+            <img src="img/portfolio1.jpg" class="img-responsive" alt="Image Title">
+    					<a href="portfolio-item.html">
+    						<span class="title">
+    							<span>Project Title<br />
+    							<i class="fa fa-minus white"></i>
+    							<span class="project-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+    							</span>
+    						</span>	
+    					</a>
+          </li>
+          
+          <!--Project-->
+          <li class="col-sm-6 col-md-4 thumbs" data-tag="graphics">
+            <img src="img/portfolio2.jpg" class="img-responsive" alt="Image Title">
+    					<a href="portfolio-item.html">
+    						<span class="title">
+    							<span>Project Title<br />
+    							<i class="fa fa-minus white"></i>
+    							<span class="project-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+    							</span>
+    						</span>	
+    					</a>
+          </li>
+          
+          <!--Project-->
+          <li class="col-sm-6 col-md-4 thumbs" data-tag="web">
+            <img src="img/portfolio3.jpg" class="img-responsive" alt="Image Title">
+    					<a href="portfolio-item.html">
+    						<span class="title">
+    							<span>Project Title<br />
+    							<i class="fa fa-minus white"></i>
+    							<span class="project-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+    							</span>
+    						</span>	
+    					</a>
+          </li>
+          
+          <!--Project-->
+          <li class="col-sm-6 col-md-4 thumbs" data-tag="videos">
+            <img src="img/portfolio4.jpg" class="img-responsive" alt="Image Title">
+    					<a href="portfolio-item.html">
+    						<span class="title">
+    							<span>Project Title<br />
+    							<i class="fa fa-minus white"></i>
+    							<span class="project-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+    							</span>
+    						</span>	
+    					</a>
+          </li>
+          
+          <!--Project-->
+          <li class="col-sm-6 col-md-4 thumbs" data-tag="web">
+            <img src="img/portfolio5.jpg" class="img-responsive" alt="Image Title">
+    					<a href="portfolio-item.html">
+    						<span class="title">
+    							<span>Project Title<br />
+    							<i class="fa fa-minus white"></i>
+    							<span class="project-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+    							</span>
+    						</span>	
+    					</a>
+          </li>
+          
+          <!--Project-->
+          <li class="col-sm-6 col-md-4 thumbs" data-tag="videos">
+            <img src="img/portfolio6.jpg" class="img-responsive" alt="Image Title">
+    					<a href="portfolio-item.html">
+    						<span class="title">
+    							<span>Project Title<br />
+    							<i class="fa fa-minus white"></i>
+    							<span class="project-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+    							</span>
+    						</span>	
+    					</a>
+          </li>
+
+          
+        </ul> 
+      </div><!--End Col12-->        
+    </div>
+  </div>
+</section>
+    
+
+<!--Bottom-->
+<section id="bottom">
+  <div class="container">
+    <div class="row">
+      
+      <!--Section 1-->
+      <div class="col-sm-3 margin-40">
+        <h3>About Plixis</h3>
+        <div class="gray-box">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat laboris.</p>
+          <a class="more" href="#">More</a>
+        </div>
+      </div>
+      
+      <!--Section 2-->
+      <div class="col-sm-3 margin-40">
+        <h3>Email Sign Up</h3>
+        <form class="form-inline" role="form" id="email-signup">
+          <div class="form-group">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Enter email">
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-chevron-right fa-lg"></i></button>
+        </form>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
+      </div>
+      
+      <!--Section 3-->
+      <div class="col-sm-3 margin-40">
+        <h3>Quick Links</h3>
+        <ul class="list-unstyled bottom-links">
+          <li><a href="http://www.themearmada.com">Theme Armada</a></li>
+          <li><a href="http://wrapbootstrap.com/user/themearmada">Wrap Bootstrap Profile</a></li>
+          <li><a href="#">Other Link Here</a></li>
+          <li><a href="#">Other Link Here</a></li>
+        </ul>
+      </div>
+      
+      <!--Section 4-->
+      <div class="col-sm-3 margin-40">
+        <h3>Contact</h3>
+        <div class="gray-box">
+          <p><i class="fa fa-phone fa-lg"></i> 800.555.5555</p>
+        </div>
+        <div class="color-box">
+          <p><a href="mailto:support@themearmada.com"><i class="fa fa-envelope-o fa-lg"></i> support@themearmada.com</a></p>
+        </div>
+        <ul class="list-inline social-icons">
+          <li><a href="http://www.twitter.com/themearmada"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-github"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-github"></i></a></li>
+        </ul>
+        
+      </div>
+      
+    </div>
+  </div>
+</section>

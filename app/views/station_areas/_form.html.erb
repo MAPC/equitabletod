@@ -1,0 +1,50 @@
+<%= form_for @station_area, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :location, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :location, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :station_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :station_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :etod_score, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :etod_score, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :vehicle_miles_traveled, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :vehicle_miles_traveled, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :transit_commute_share, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :transit_commute_share, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :vehicle_ownership, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :vehicle_ownership, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :transportation_ghgs, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :transportation_ghgs, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                station_areas_path, :class => 'btn' %>
+  </div>
+<% end %>
