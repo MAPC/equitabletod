@@ -8,6 +8,13 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require ../../../vendor/assets/stylesheets/font-awesome.min.css
+ *= require ../../../vendor/assets/stylesheets/owl.carousel.css
+ *= require ../../../vendor/assets/stylesheets/animate.css
+ *= require ../../../vendor/assets/stylesheets/bootstrap.min.css
+ *= require ../twitter/bootstrap/dist/css/bootstrap.min.css
  *= require_self
  *= require_tree .
  */
+
+
