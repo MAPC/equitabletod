@@ -4,16 +4,13 @@
 
 	class Entities.Sugestions extends Entities.Collection
 		model: Entities.Sugestion
+		url: "/suggest.json"
 
 	API =
 		getSugestions: ->
-			new Entities.SimpleSearchArgs [
-				{ munis: ""}
-				{ station_names: ""}
-				{ service_types: ""}
-				{ transit_lines: ""}
-				{ station_types: ""}
-				{ etod_groups: ""}
+			sugestions = new Entities.SimpleSearchArgs [
+				{station_names: ['', '']}
+				{munis: ['', '']}
 			]
 
 

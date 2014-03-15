@@ -71,9 +71,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    multi_json (1.9.0)
     oj (2.5.5)
     pg (0.17.1)
-    multi_json (1.9.0)
     polyglot (0.3.4)
     rabl (0.9.3)
       activesupport (>= 2.3.14)
@@ -154,11 +154,11 @@ DEPENDENCIES
   faker
   has_scope
   jquery-rails
+  less
+  less-rails
   oj
   pg
   rabl
-  less
-  less-rails
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)

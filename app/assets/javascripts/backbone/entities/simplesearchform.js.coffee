@@ -12,12 +12,8 @@
 			#sugestions = new Entities.SimpleSearchArgs
 			#sugestions.festch()
 			sugestions = new Entities.SimpleSearchArgs [
-				{muni: ['Ashburnham', 'Ashland']}
-				{station_names: ['Alewife Station', 'Ashmont Station']}
-			    { service_types: ''}
-				{ transit_lines: ''}
-				{ station_types: ''}
-				{ etod_groups: ''}
+				{station_names: ['', '']}
+				{munis: ['', '']}
 			]
 
 		getSearchArg: ->
