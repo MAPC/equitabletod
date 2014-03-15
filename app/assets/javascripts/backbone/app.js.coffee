@@ -15,7 +15,7 @@
     return
 
   RegionMan.addRegions
-    mapRegion: "#map"
+#    mapRegion: "#map"
     carouselRegion: "#carousel-region"
     homeRegion: "#home"
 #    usrGuidRegion: "#usrguid-region"
