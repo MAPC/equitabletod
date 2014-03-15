@@ -15,12 +15,12 @@
     return
 
   RegionMan.addRegions
-    mapRegion: "#map"
-#    carouselRegion: "#carousel-region"
-#    homeRegion: "#home"
+#    mapRegion: "#map"
+    carouselRegion: "#carousel-region"
+    homeRegion: "#home"
 #    usrGuidRegion: "#usrguid-region"
     simpleSearchRegion: "#simple-search"
-#    resultsTableGrid: "#results-table"
+    resultsTableGrid: "#results-table"
 
   App.vent.on "cleanHomeRegion", ->
     RegionMan.removeRegion "carouselRegion"
