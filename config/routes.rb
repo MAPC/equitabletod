@@ -4,6 +4,8 @@ Equitabletod::Application.routes.draw do
   match '/suggest', to: 'search#suggest'
 
   resources :station_areas
+  root to: 'application#index'
+    
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
