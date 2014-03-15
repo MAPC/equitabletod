@@ -14,6 +14,20 @@
             query = []
             @collection.add 'muni': $('input#searchinput2').val()
             @collection.add 'station_name': $('input#searchinput1').val()
+            @collection.add 'service_type': $('#selectbasic2 option:selected').val()
+            @collection.add 'transit_line': $('#selectbasic1 option:selected').val()
+            @collection.add 'station_type': $('#selectbasic3 option:selected').val()
+            @collection.add 'etod_group': $('#selectbasic4 option:selected').val()
+        
+            _.map @collection.models, (model) ->
+                muni = model.get 'muni'
+                station_name = model.get 'station_name'
+                query = query.concat "/?muni=", muni,"station_name=", station_name
+            
+            MainApp.vant.triggers "searchArgsEnterd"
+            
+            triggers: 
+                'click #searchbuttom': 'search:query'
            
 
 
