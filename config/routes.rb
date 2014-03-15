@@ -1,4 +1,8 @@
 Equitabletod::Application.routes.draw do
+  
+  match '/search',  to: 'station_areas#index'
+  match '/suggest', to: 'search#suggest'
+
   resources :station_areas
   root to: 'application#index'
     

@@ -8,13 +8,19 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'rabl'
 gem 'oj'
+<<<<<<< HEAD
 gem 'sqlite3'
 
+=======
+gem 'has_scope'
+>>>>>>> 15a1ab75fb8b179a0ee2eb70b6ff080b738f3814
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+
+  gem 'sqlite3' # for the convenience of the designer
 end
 
 # Gems used only for assets and not required

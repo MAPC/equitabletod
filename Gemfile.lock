@@ -53,6 +53,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
+    has_scope (0.5.1)
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
@@ -70,9 +71,15 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+<<<<<<< HEAD
     multi_json (1.8.4)
     oj (2.5.5)
     pg (0.17.1)
+=======
+    oj (2.5.5)
+    pg (0.17.1)
+    multi_json (1.9.0)
+>>>>>>> 15a1ab75fb8b179a0ee2eb70b6ff080b738f3814
     polyglot (0.3.4)
     rabl (0.9.3)
       activesupport (>= 2.3.14)
@@ -151,12 +158,21 @@ DEPENDENCIES
   eco
   factory_girl_rails
   faker
+  has_scope
   jquery-rails
+<<<<<<< HEAD
   less
   less-rails
   oj
   pg
   rabl
+=======
+  oj
+  pg
+  rabl
+  less
+  less-rails
+>>>>>>> 15a1ab75fb8b179a0ee2eb70b6ff080b738f3814
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)
