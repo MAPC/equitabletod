@@ -7,6 +7,7 @@
 
 	  	getSimpleSearchView: (searchargs) ->
 	  		new Search.SimpleSearchFormLayout
-	  			model: searchargs
+	  			collection: searchargs
+
 	  	
 

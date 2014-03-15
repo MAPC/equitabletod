@@ -1,8 +1,9 @@
 @Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
-  GeoModel = new Backbone.Leaflet.GeoModel
+  class Entities.Fstation extends Backbone.Leaflet.GeoModel
+
   class Entities.FstationsCollection extends Entities.Collection
-  	url: "/station_areas.json"
+  	url: "/search.json"
 
   API =
   	getFstationsEntities: ->
