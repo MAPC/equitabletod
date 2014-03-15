@@ -18,13 +18,13 @@
 //= require ../../../vendor/assets/javascripts/jquery.navgoco.js
 //= require underscore
 //= require backbone
+//= require backbone/leaflet.js
+//= require backbone/backbone.leaflet.js
 //= require marionette
 //= require ../../../vendor/assets/javascripts/jquery.watable.js
 //= require ../../../vendor/assets/javascripts/backbone-validation.js
 //= require ../../../vendor/assets/javascripts/backbone-relational.js
 //= require ../../../vendor/assets/javascripts/typeahead.bundle.js
-//= require backbone/leaflet.js
-//= require backbone/backbone.leaflet.js
 //= require backbone/app
 //= require_tree ./backbone/config
 //= require_tree ./backbone/views

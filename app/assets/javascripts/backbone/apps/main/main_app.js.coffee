@@ -7,7 +7,7 @@
       "map": "provideMap"
       "search/submit": "searchSubmit"
       "carousel": "showCarousel"
-#      "map/": "provideMap"
+      "map/": "provideMap"
   
   MainApp.vent = new Backbone.Wreqr.EventAggregator()
   
@@ -21,8 +21,8 @@
     showSimpleSearchForm: ->
       MainApp.Search.Controller.showSimpleSearchForm()
 
-#    provideMap: ->
-#      MainApp.Map.Controller.addMap()
+    provideMap: ->
+      MainApp.Map.Controller.addMap()
 
     showResultsPage: ->
       MainApp.Results.Controller.showResultsView()
@@ -51,7 +51,7 @@
   MainApp.on "start", ->
 #    API.showHomeRegion()
 #    API.showSearchModule()
-    API.showSimpleSearchForm()   
-    API.showCarousel()
+#    API.showSimpleSearchForm()   
+#    API.showCarousel()
 #    API.showResultsPage()
-#    API.provideMap()
+    API.provideMap()
