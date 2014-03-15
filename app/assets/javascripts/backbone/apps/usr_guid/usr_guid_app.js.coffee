@@ -12,7 +12,7 @@
 			UsrGuidApp.Show.Controller.showUsrGuid()
 
 	UsrGuidApp.on "start", ->
-		API.showUsrGuid()
+#		API.showUsrGuid()
 	UsrGuidApp.vent.on "fireGuid", ->
     	MainApp.vent.trigger "cleanForGuid"
     	MainApp.vent.trigger "fireUsrGuid"

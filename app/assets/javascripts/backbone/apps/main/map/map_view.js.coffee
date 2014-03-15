@@ -3,7 +3,7 @@
   class Map.MapView extends Backbone.Leaflet.MapView
 		template: "main/map/map_layout"
 		el: "#map"
-
+	
 
 
 

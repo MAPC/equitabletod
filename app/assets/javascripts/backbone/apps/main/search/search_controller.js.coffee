@@ -4,12 +4,9 @@
 	  		searchargs = App.request 'searcharg:entity'
 	  		simpleSearchForm = @getSimpleSearchView searchargs
 	  		App.simpleSearchRegion.show simpleSearchForm
-	  		simpleSearchForm.on 'search:query', ->
-	  			console.log('hwe')
-
 
 	  	getSimpleSearchView: (searchargs) ->
 	  		new Search.SimpleSearchFormLayout
-	  			collection: searchargs
+	  			model: searchargs
 	  	
 

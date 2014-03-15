@@ -1,6 +1,7 @@
 @Equitabletod.module "MainApp.Search", (Search, App, Backbone, Marionette, $, _) ->
 
-    class Search.SimpleSearchFormLayout extends App.Views.Layout
+    class Search.SimpleSearchFormLayout extends App.Views.CollectionView
+
         template: "main/search/templates/simple_search_layout" 
         itemViewContainer: "#form-horizontal"
         className: "col-sm-6 col-sm-offset-0 text-left"
@@ -10,16 +11,9 @@
 
         inputChange: (e)=>
             query = []
-            @collection.add 'muni': $('input#searchinput2').val()
-            @collection.add 'station_name': $('input#searchinput1').val()
-            @collection.add 'service_type': $('#selectbasic2 option:selected').val()
-            @collection.add 'transit_line': $('#selectbasic1 option:selected').val()
-            @collection.add 'station_type': $('#selectbasic3 option:selected').val()
-            @collection.add 'etod_group': $('#selectbasic4 option:selected').val()
-        
-            _.map @collection.models, (model) -> console.log model
-            triggers: 
-                'click #searchbuttom': 'search:query'
+            @model.add 'muni': $('input#searchinput2').val()
+            @model.add 'station_name': $('input#searchinput1').val()
+           
 
 
 
