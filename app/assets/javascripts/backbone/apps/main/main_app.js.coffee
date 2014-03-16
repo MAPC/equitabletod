@@ -7,7 +7,6 @@
       "map": "provideMap"
       "search/submit": "searchSubmit"
       "carousel": "showCarousel"
-#      "map/": "provideMap"
 
   MainApp.vent = new Backbone.Wreqr.EventAggregator()
   
@@ -21,6 +20,7 @@
     showSimpleSearchForm: (searchargs)->
       MainApp.Search.Controller.showSimpleSearchForm()
 
+
 #    provideMap: ->
 #      MainApp.Map.Controller.addMap()
 
@@ -30,6 +30,9 @@
 
 #    removeHomeRegion: =>
 #      @RegionMan.reset()
+
+  MainApp.vent.on "etodpage:clicked", ->
+    App.vent.trigger "cleanhome:needed"
 
   MainApp.vent.on "cleanHome", ->
     App.vent.trigger "cleanHomeRegion"

@@ -30,7 +30,7 @@
 			          <!--Project-->
 			          <li class="col-md-6 thumbs" data-tag="graphics"> 
 			          <img src="img/etodThm.png" class="img-responsive" alt="Image goes here">
-							<a href="http://www.northeastern.edu/dukakiscenter/transportation/etodscore/">
+							<a id ="etodpage" href="#etod">
 								<span class="title">
 								  <span>eTOD
 		    						  <br/>
@@ -43,7 +43,7 @@
 			          </li>
 			          <!--Project-->
 			          <li class="col-md-6 thumbs" data-tag="graphics">
-			            <img src="img/portfolio2.jpg" class="img-responsive" alt="Image Title">
+			            <img src="img/mapc_etod.png" class="img-responsive" alt="Image Title">
 							<a href="mapcPage.html">
 								<span class="title">
 									<span>MAPC's typology <br/>

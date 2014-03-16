@@ -4,17 +4,20 @@
     template: "main/show/show_layout"
     tagName: "home-region"
 
-
     events:
-    	'click #more': 'addMore'
-    	'click #less': 'showLess'
+    	'click #more':'addMore'
+    	'click #less':'showLess'
+        #'click .etodpage': 'showEtodPageClicked'
 
     addMore: (e)=>
     	$("#more").html("<b> </b>")
     	$("#less").html("<b> Less</b>")
 
-    showLess: =>
+    showLess: (e) =>
     	$("#div2").html("<b> </b>")
+
+    showEtodPageClicked: =>
+        MainApp.vent.trigger "etopage:clicked"
 
 
     	

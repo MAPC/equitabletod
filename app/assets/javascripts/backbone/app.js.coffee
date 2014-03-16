@@ -21,6 +21,10 @@
     simpleSearchRegion: "#simple-search"
     usrGuidRegion: "#usrguid-region"
 #    resultsTableGrid: "#results-table"
+  
+  App.vent.on "cleanhome:needed", ->
+    # checks to see what regions are open in the main region
+    console.log(RegionMan.get("mainRegion"))
 
   App.vent.on "cleanHomeRegion", ->
     RegionMan.removeRegion "carouselRegion"
