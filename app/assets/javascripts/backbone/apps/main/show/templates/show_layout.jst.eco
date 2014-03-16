@@ -60,17 +60,19 @@
 	</div>	
 	<!--Tumblines-->
 </div>
-<div id="maphome">
+<container id="maphome">
+	<div id="maphome">
 
-</div>
+	</div>
+</container>
 <script type="text/javascript">
 	var map = L.map('maphome', {
-		center: [42.31, -0.077359],
-		zoom: 2,
+		center: [42.31, -70.007359],
+		zoom: 8,
 		scrollWheelZoom: false,
 		zoomAnimation: false,
 		closePopupOnClick: true,
-		dragging : true,
+		dragging : false,
 		});
 	        L.tileLayer('http://{s}.tile.cloudmade.com/{key}/106695/256/{z}/{x}/{y}.png', {
 			attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2012 CloudMade',
