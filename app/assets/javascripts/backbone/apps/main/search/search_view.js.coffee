@@ -3,7 +3,7 @@
     class Search.SimpleSearchFormLayout extends App.Views.Layout
         template: "main/search/templates/simple_search_layout" 
         itemViewContainer: "#form-horizontal"
-        className: "col-sm-6 col-sm-offset-0 text-left"
+        className: "col-md-12 col-md-offset-0 text-left"
         templateHelpers:->
             sugestions: App.request "sugestion:entities"
         events: 
