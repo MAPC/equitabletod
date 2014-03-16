@@ -17,17 +17,27 @@
   RegionMan.addRegions
     carouselRegion: "#carousel-region"
     homeRegion: "#home-region"
-#    usrGuidRegion: "#usrguid-region"
+    usrGuidRegion: "#usrguid-region"
     simpleSearchRegion: "#simple-search"
+    usrGuidRegion: "#usrguid-region"
 #    resultsTableGrid: "#results-table"
 
   App.vent.on "cleanHomeRegion", ->
     RegionMan.removeRegion "carouselRegion"
   
+  App.vent.on "cleanForGuid", ->
+    App.module("UsrGuid").start()
+    RegionMan.removeRegion "homeRegion"
+    RegionMan.removeRegion "simpleSearchRegion"
 
   App.vent.on "fireHomeRegion", ->
     RegionMan.addRegions 
       homeRegion: "#home-region"
+
+    App.vent.on "fireGuid", ->
+    App.addRegions 
+      usrGuidRegion: "#usrguid-region"
+    App.module("MainApp").stop()
 
 
   App.addInitializer ->

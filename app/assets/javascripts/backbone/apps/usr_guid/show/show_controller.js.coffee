@@ -2,10 +2,10 @@
 
   Show.Controller =
   	showUsrGuid: ->
+  		App.vent.trigger "cleanHomeRegion"
   		usrGuidView = @getUsrGuidView()
-  		UsrGuidApp.vent.trigger "cleanHomeRegion"
   		App.usrGuidRegion.show usrGuidView
 
   	getUsrGuidView: ->
-  		new UsrGuidApp.UsrGuidLayout
+  		new Show.UsrGuidLayout
 

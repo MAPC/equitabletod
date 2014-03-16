@@ -1,5 +1,5 @@
-@Equitabletod.module "UsrGuidApp.UsrGuid", (UsrGuid, App, Backbone, Marionette, $, _) ->
-	@startWithParent = false
-	class UsrGuid.UsrGuidLayout extends App.Views.Layout
-    	template: "main/usr_guid/templates/usr_guid_layout"
+@Equitabletod.module "UsrGuidApp.Show", (Show, App, Backbone, Marionette, $, _) ->
+
+	class Show.UsrGuidLayout extends App.Views.Layout
+    	template: "usr_guid/show/templates/usr_guid_layout"
     	

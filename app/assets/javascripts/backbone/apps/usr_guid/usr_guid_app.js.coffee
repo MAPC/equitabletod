@@ -3,7 +3,7 @@
 
 	class UsrGuidApp.Router extends Marionette.AppRouter
 		appRoutes:
-			"usrguid/usrguid": "showUsrGuid"
+			"guid/": "showUsrGuid"
 	
 	UsrGuidApp.vent = new Backbone.Wreqr.EventAggregator()
 	
@@ -11,9 +11,7 @@
 		showUsrGuid: ->
 			UsrGuidApp.Show.Controller.showUsrGuid()
 
-	UsrGuidApp.on "start", ->
-#		API.showUsrGuid()
 	UsrGuidApp.vent.on "fireGuid", ->
-    	MainApp.vent.trigger "cleanForGuid"
-    	MainApp.vent.trigger "fireUsrGuid"
+    	App.vent.trigger "cleanForGuid"
+    	App.vent.trigger "fireGuid"
     	API.showUsrGuid()

@@ -14,7 +14,7 @@
     	$("#less").html("<b> Less</b>")
 
     showLess: =>
-    	$("#less").html("<b> </b>")
+    	$("#div2").html("<b> </b>")
 
 
     	

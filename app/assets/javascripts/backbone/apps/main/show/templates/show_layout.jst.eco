@@ -4,11 +4,12 @@
 			<div class="row">
 				<div class="col-md-6 col-md-offset-0 text-left">
 					<div id="div1"><span>
-						<p id="p-not-expanded" class="hm1">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½- mile station area. Complete data on each station area (over 150 variables) is available as a free download.<a data-toggle="collapse" data-target="#div2"id="more" class="more"> More</a></p></span>
+						<p id="p-not-expanded" class="hm2">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½- mile station area. Complete data on each station area (over 150 variables) is available as a free download.<a data-toggle="collapse" data-target="#div2"id="more" class="more"> More</a></p></span>
 					</div>
-					<div id="div2" class="home-txt-collapse collapse" ><span>
-						<p id="p-expanded" class="hm1"> 
-							<ul class="hm1">
+					<div id="div2" class="home-txt-collapse collapse" >
+						<span>
+							<p id="p-expanded" class="hm2"> 
+							<ul class="hm2">
 							Users can:
 								<li>  Search for station areas that meet specified criteria </li>
 								<li>  Access key data points for each station area and view an interactive map of the area </li>
@@ -16,6 +17,10 @@
 								<li>  Download comprehensive dataset and detailed data dictionary </li>
 								<li>  Browse selected resources about transit oriented development </li>
 							</ul>
+							<p class="hm2">The Portal also houses information on two key tools developed to help the region’s stakeholders understand their station areas: a typology of station areas, created by the Metropolitan Area Planning Council (MAPC), and the eTOD rating system, created by the Dukakis Center for Urban and Regional Policy at Northeastern University and the Center for Transit Oriented Development. <a id="less" data-target="#div1"class="more"> More</a>
+							</p>
+						</span>
+
 						</p>
 					</div>
 				</div>
@@ -23,7 +28,7 @@
 				<div class="col-md-6">
 					<ul class="list-unstyled">  
 			          <!--Project-->
-			          <li class="col-md-4 thumbs" data-tag="graphics"> 
+			          <li class="col-md-6 thumbs" data-tag="graphics"> 
 			          <img src="img/etodThm.png" class="img-responsive" alt="Image goes here">
 							<a href="http://www.northeastern.edu/dukakiscenter/transportation/etodscore/">
 								<span class="title">
@@ -37,7 +42,7 @@
 							</a>
 			          </li>
 			          <!--Project-->
-			          <li class="col-md-4 thumbs" data-tag="graphics">
+			          <li class="col-md-6 thumbs" data-tag="graphics">
 			            <img src="img/portfolio2.jpg" class="img-responsive" alt="Image Title">
 							<a href="mapcPage.html">
 								<span class="title">
@@ -55,4 +60,21 @@
 	</div>	
 	<!--Tumblines-->
 </div>
+<div id="maphome">
 
+</div>
+<script type="text/javascript">
+	var map = L.map('maphome', {
+		center: [42.31, -0.077359],
+		zoom: 2,
+		scrollWheelZoom: false,
+		zoomAnimation: false,
+		closePopupOnClick: true,
+		dragging : true,
+		});
+	        L.tileLayer('http://{s}.tile.cloudmade.com/{key}/106695/256/{z}/{x}/{y}.png', {
+			attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2012 CloudMade',
+			key: 'da13504e06a041dcb81804e6100c8b55'
+		}).addTo(map);
+
+</script>
