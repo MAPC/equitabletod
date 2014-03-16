@@ -38,8 +38,7 @@
   MainApp.vent.on "cleanForGuid", ->
     App.vent.trigger "cleanHomeRegion"
 
-  MainApp.vant.on "searchArgsEnterd", ->
-    
+
 
 
     

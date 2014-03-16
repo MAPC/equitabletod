@@ -24,8 +24,6 @@
                 station_name = model.get 'station_name'
                 query = query.concat "/?muni=", muni,"station_name=", station_name
             
-            MainApp.vant.triggers "searchArgsEnterd"
-            
             triggers: 
                 'click #searchbuttom': 'search:query'
            
