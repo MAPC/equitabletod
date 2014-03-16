@@ -2,16 +2,20 @@
     <!--Include your brand here-->
   	  <div class="margin--no-lftrght">
         <div class="row animated fadeInBig">
-          <div class="col-sm-8">
-            <h2 class="black">
-              TOD Data
-              <span class="color">PORTAL</span>
+          <div class="col-sm-12">
+            <h5 class="black">
+              InformaⓉion 
+              <span class="color"> STATION</span>
+              <h6 class="black" class="small">
+              Better data for better transit-oriented development
+              <span class="color"></span>
+            </hr>
             </h2>
           </div>
         </div>
         <div class="row margin-10-wb animated fadeInLeft delay2">
           <div class="margin-10">
-            <ul class="list-inline filter">
+            <ul class="list-inline filter small">
               <li><a id ="homeClick" href="#" data-toggle="portfilter" data-target="home">Home</a></li>
               <li><a  id="guidClick" href="#" data-toggle="portfilter" data-target="usrguid">User Guide</a></li>
               <li><a href="#" data-toggle="portfilter" data-target="learn">Learn About TOD</a></li>
