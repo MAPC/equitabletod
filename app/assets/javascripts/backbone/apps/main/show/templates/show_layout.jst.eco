@@ -17,13 +17,37 @@
 								<li>  Download comprehensive dataset and detailed data dictionary </li>
 								<li>  Browse selected resources about transit oriented development </li>
 							</ul>
-							<p class="hm2">The Portal also houses information on two key tools developed to help the region’s stakeholders understand their station areas: a typology of station areas, created by the Metropolitan Area Planning Council (MAPC), and the eTOD rating system, created by the Dukakis Center for Urban and Regional Policy at Northeastern University and the Center for Transit Oriented Development. <a id="less" data-target="#div1"class="more"> More</a>
+							<p class="hm2">The Portal also houses information on two key tools developed to help the region’s stakeholders understand their station areas: a typology of station areas, created by the <a href="http://mapc.org"> Metropolitan Area Planning Council (MAPC) <span class="link"></span></a> , and the eTOD rating system, created by the <a href="http://www.northeastern.edu/dukakiscenter/"> Dukakis Center for Urban and Regional Policy at Northeastern University <span class="link"></span></a> and the <a href="http://ctod.org"> Center for Transit Oriented Development<span class="link"></span></a>. <a id="less" data-target="#div1"class="more"> More</a>
 							</p>
 						</span>
 
 						</p>
 					</div>
 				</div>
+				<div class="col-md-6 col-md-offset-0 text-left">
+					<div id="myCarousel" class="carousel slide">
+					  <ol class="carousel-indicators">
+					    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					    <li data-target="#myCarousel" data-slide-to="1"></li>
+					    <li data-target="#myCarousel" data-slide-to="2"></li>
+					  </ol>
+					  <!-- Carousel items -->
+					  <div class="carousel-inner">
+					    <div class="active item">
+					      <img src="img/Page1_TOP.jpg" style="background: none repeat scroll 0% 0% #000000">
+					    </div>
+					    <div class="item">
+					      <img src="img/Page1_MIDDLE_FanPier_seaport.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
+					    <div class="item"><img src="img/Page1_BOTTOM_Weymouth_suburban-transformation.png" style="background: none repeat scroll 0% 0% #000000">
+					    </div>
+					  </div>
+					  <!-- Carousel nav -->
+					  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+					  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
 				</br>
 				<div class="col-md-6">
 					<ul class="list-unstyled">  
@@ -55,6 +79,7 @@
 			          </li>
 			        </ul> 
 				</div>
+
 			</div>
 		</div>
 	</div>	
