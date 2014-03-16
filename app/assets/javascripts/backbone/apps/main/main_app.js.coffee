@@ -33,26 +33,18 @@
 
   MainApp.vent.on "cleanHome", ->
     App.vent.trigger "cleanHomeRegion"
-    API.showHomeRegion()
 
   MainApp.vent.on "cleanForGuid", ->
     App.vent.trigger "cleanHomeRegion"
 
 
-
-
-    
-#    showSearchModule: ->
-#      MainApp.Search.Controller.showSearchModule()
-#    provideMap: ->
-#      MainApp.Map.Controller.provideMap()
   MainApp.on "initialize:before", ->
     fstations = App.request 'fstation:entities'
     searchargs = App.request 'searcharg:entity'
     
   MainApp.on "start", ->
-#    API.showHomeRegion() 
-    API.showCarousel()
+    API.showHomeRegion() 
+#    API.showCarousel()
 #    API.showResultsPage()
 #    API.provideMap()
     API.showSimpleSearchForm()  

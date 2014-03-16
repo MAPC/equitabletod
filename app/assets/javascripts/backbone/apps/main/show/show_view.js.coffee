@@ -2,6 +2,7 @@
 
   class Show.Home extends App.Views.Layout
     template: "main/show/show_layout"
+    tagName: "home-region"
 
 
     events:

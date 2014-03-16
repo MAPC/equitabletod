@@ -16,16 +16,18 @@
 
   RegionMan.addRegions
     carouselRegion: "#carousel-region"
-    homeRegion: "#home"
+    homeRegion: "#home-region"
 #    usrGuidRegion: "#usrguid-region"
     simpleSearchRegion: "#simple-search"
 #    resultsTableGrid: "#results-table"
 
   App.vent.on "cleanHomeRegion", ->
     RegionMan.removeRegion "carouselRegion"
-    
-#  App.vent.on "fireUsrGuid", ->
-#    RegionMan.addRegion "usrGuidRegion"
+  
+
+  App.vent.on "fireHomeRegion", ->
+    RegionMan.addRegions 
+      homeRegion: "#home-region"
 
 
   App.addInitializer ->
