@@ -9,6 +9,7 @@
 	API =
 		getSearchArgs: ->
 			searchargs = new Entities.SimpleSearchArgs [
+				{query:""}
 				{muni: ""}
 				{station_name: ""}
 				]

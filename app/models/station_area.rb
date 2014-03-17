@@ -22,7 +22,7 @@ class StationArea < ActiveRecord::Base
                   # :station_class
 
   has_and_belongs_to_many :transit_lines
-
+  
 
   # Basic Search
 

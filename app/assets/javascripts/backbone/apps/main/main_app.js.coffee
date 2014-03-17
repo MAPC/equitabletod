@@ -14,8 +14,8 @@
     showHomeRegion: ->
       MainApp.Show.Controller.showHomeRegion()
 
-    showCarousel: ->
-      MainApp.Carousel.Controller.showCarousel()
+    showEtodpage: ->
+      MainApp.Etod.Controller.showEtodpage()
 
     showSimpleSearchForm: (searchargs)->
       MainApp.Search.Controller.showSimpleSearchForm()
@@ -33,6 +33,7 @@
 
   MainApp.vent.on "etodFired", ->
     App.vent.trigger "etodFired"
+    API.showEtodpage()
 
   MainApp.vent.on "homeFired", ->
     App.vent.trigger "homeFired"

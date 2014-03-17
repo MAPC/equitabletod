@@ -24,6 +24,8 @@
   
   App.vent.on "etodFired", ->
     RegionMan.removeRegion "homeRegion"
+    RegionMan.addRegions
+      etodRegion: "#etod-region"
 
 
   App.vent.on "homeFired", ->
