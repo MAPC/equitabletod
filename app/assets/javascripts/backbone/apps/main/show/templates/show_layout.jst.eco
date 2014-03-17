@@ -119,16 +119,15 @@
 </container>
 <script type="text/javascript">
 	var map = L.map('maphome', {
-		center: [42.31, -70.007359],
-		zoom: 8,
+		center: [42.35, -71.06],
+		zoom: 10,
 		scrollWheelZoom: false,
 		zoomAnimation: false,
 		closePopupOnClick: true,
 		dragging : false,
 		});
-	        L.tileLayer('http://{s}.tile.cloudmade.com/{key}/106695/256/{z}/{x}/{y}.png', {
-			attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2012 CloudMade',
-			key: 'da13504e06a041dcb81804e6100c8b55'
+	        L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
+			attribution: 'Tiles by <a href="http://www.mapc.org/">Metropolitan Area Planning Council</a>.'
 		}).addTo(map);
 
 </script>
