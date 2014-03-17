@@ -22,12 +22,13 @@
     usrGuidRegion: "#usrguid-region"
 #    resultsTableGrid: "#results-table"
   
-  App.vent.on "cleanhome:needed", ->
-    # checks to see what regions are open in the main region
-    console.log(RegionMan.get("mainRegion"))
+  App.vent.on "etodFired", ->
+    RegionMan.removeRegion "homeRegion"
 
-  App.vent.on "cleanHomeRegion", ->
-    RegionMan.removeRegion "carouselRegion"
+
+  App.vent.on "homeFired", ->
+    RegionMan.addRegions 
+      homeRegion: "#home-region"
   
   App.vent.on "cleanForGuid", ->
     App.module("UsrGuid").start()

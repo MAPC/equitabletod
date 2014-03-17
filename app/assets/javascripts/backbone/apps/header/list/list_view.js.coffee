@@ -9,11 +9,15 @@
 		itemView: List.Header
 		itemViewContainer: "ul"
 		events:
-			"click #homeClick": "cleanHome"
+			"click #homeClick": "homeFired"
 			"click #guidClick" : "fireGuid"
+			"click #etod" : "etodFired"
 
-		cleanHome: (e) =>
-			App.MainApp.vent.trigger "cleanHome"
+		homeFired: (e) =>
+			App.MainApp.vent.trigger "homeFired"
 
 		fireGuid: (e) =>
 			App.UsrGuidApp.vent.trigger "fireGuid"
+
+		etodFired: (e) =>
+			App.MainApp.vent.trigger "etodFired"

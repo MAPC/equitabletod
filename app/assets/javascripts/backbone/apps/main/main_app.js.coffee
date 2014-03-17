@@ -31,11 +31,12 @@
 #    removeHomeRegion: =>
 #      @RegionMan.reset()
 
-  MainApp.vent.on "etodpage:clicked", ->
-    App.vent.trigger "cleanhome:needed"
+  MainApp.vent.on "etodFired", ->
+    App.vent.trigger "etodFired"
 
-  MainApp.vent.on "cleanHome", ->
-    App.vent.trigger "cleanHomeRegion"
+  MainApp.vent.on "homeFired", ->
+    App.vent.trigger "homeFired"
+    API.showHomeRegion()
 
   MainApp.vent.on "cleanForGuid", ->
     App.vent.trigger "cleanHomeRegion"
