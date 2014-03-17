@@ -21,8 +21,8 @@
       MainApp.Search.Controller.showSimpleSearchForm()
 
 
-#    provideMap: ->
-#      MainApp.Map.Controller.addMap()
+    provideMap: ->
+      MainApp.Map.Controller.addMap()
 
 #    showResultsPage: ->
 #      MainApp.Results.Controller.showResultsView()
@@ -30,6 +30,9 @@
 
 #    removeHomeRegion: =>
 #      @RegionMan.reset()
+  MainApp.vent.on "searchFired", ->
+    App.vent.trigger "searchFired"
+    API.provideMap()
 
   MainApp.vent.on "etodFired", ->
     App.vent.trigger "etodFired"

@@ -4,7 +4,14 @@
 
 	class Entities.SimpleSearchArgs extends Entities.Collection
 		model: Entities.SimpleSearchArg
-		url: "/suggest.json"
+		sync: ->
+			return null
+
+		fetch: ->
+			return null
+
+		save: ->
+			return null
 
 	API =
 		getSearchArgs: ->
