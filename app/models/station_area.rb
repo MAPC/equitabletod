@@ -1,28 +1,14 @@
 class StationArea < ActiveRecord::Base
 
-
-  # attr_accessible :name,
-                  # :DK_STATNAM,
-                  # :location,
-                  # :etod_q0car,
-                  # :etod_q25k,
-                  # :etod_qabc,
-                  # :etod_qaff,
-                  # :etod_qdens,
-                  # :etod_qgrav,
-                  # :etod_qrent,
-                  # :etod_qtas,
-                  # :etod_qtci,
-                  # :etod_qwalk,
-                  # :etod_sub1t,
-                  # :etod_sub2o,
-                  # :etod_sub3d,
-                  # :etod_total,
-                  # :etod_type,
-                  # :station_class
-
   has_and_belongs_to_many :transit_lines
+<<<<<<< HEAD
   
+=======
+
+  def location
+    "#{self.latitude} #{self.longitude}"
+  end
+>>>>>>> develop
 
   # Basic Search
 

@@ -3,7 +3,7 @@ object @station_area
 node(:type) { "Feature" }
 
 node :geometry do |s|
-  { location: s.location.to_s.split.map{|e| e.to_f},
+  { location: [s.latitude, s.longitude],
     type:    "Point" }
 end
 
