@@ -10,16 +10,28 @@
             if match is hit then true else false
 
     class Search.SimpleSearchFormLayout extends App.Views.Layout
-        initialize:->
-            Marionette.bindEntityEvents @, @model, @modelEvents
         template: "main/search/templates/simple_search_layout" 
         itemViewContainer: "#form-horizontal"
         className: "col-md-12 col-md-offset-0 text-left"
-        #templateHelpers:->
-            #sugestions: App.request "sugestion:entities"
+        
+        templateHelpers:->
+            @sugestions = ->
+                console.log('inside the callback function definition in templateHelpers') 
+                fsugestions = App.request "sugestion:entities", (promise) ->
+                    #promise.then (sugestions) ->
+                    $.when(promise).then (sugestions) ->
+                        responseText = "#{sugestions}"
+                        console.log(responseText) 
+                        sugestions
+                fsugestions
+                console.log('inside the callback function definition in templateHelpers after the promise') 
+            
+
+
         events: 
             'click #searchbuttom': 'inputChange'
-            'click #resetbuttom':  'resetFormArgs'    
+            'click #resetbuttom':  'resetFormArgs'
+            'mouseover #searchinput2': 'hoverMuniFired'    
 
         inputChange: (e)=>
             #MainApp.vent.trigger "searchFired"
@@ -49,9 +61,14 @@
             #console.log(query)
             #console.log(myquery)
         
-            
+        hoverMuniFired: (e) =>
+            console.log('inside hover event') 
+            sugestions = @sugestions()
+            console.log('after the call')
+            textSuggestions = "#{sugestions}"
+            console.log(textSuggestions) 
+            console.log(sugestions) 
 
-        
            
 
 
