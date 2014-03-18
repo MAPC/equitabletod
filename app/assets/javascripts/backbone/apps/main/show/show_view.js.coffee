@@ -5,6 +5,7 @@
     tagName: "home-region"
 
     events:
+        'click #etodpage':'fireEtod'
     	'click #more':'addMore'
     	'click #less':'showLess'
 
@@ -15,6 +16,8 @@
     showLess: (e) =>
     	$("#div2").html("<b> </b>")
 
+    fireEtod: (e) =>
+        MainApp.vent.trigger "etodFired"
 
 
     	

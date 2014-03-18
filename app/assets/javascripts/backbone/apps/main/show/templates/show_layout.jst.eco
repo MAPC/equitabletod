@@ -30,7 +30,7 @@
 			          <!--Project-->
 			          <li class="col-md-6 thumbs" data-tag="graphics"> 
 			          <img src="img/etodThm.png" class="img-responsive" alt="Image goes here">
-							<a id ="etodpage" href="#etod">
+							<span><a id="etodpage" data-toggle="portfilter">
 								<span class="title">
 								  <span>eTOD
 		    						  <br/>
@@ -39,7 +39,7 @@
 		    						  </span>
 								  </span>
 								</span>	
-							</a>
+							</a></span>
 			          </li>
 			          <!--Project-->
 			          <li class="col-md-6 thumbs" data-tag="graphics">
