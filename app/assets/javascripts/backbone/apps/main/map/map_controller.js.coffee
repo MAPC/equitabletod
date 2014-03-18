@@ -1,7 +1,6 @@
 @Equitabletod.module "MainApp.Map", (Map, App, Backbone, Marionette, $, _) ->
 
   Map.Controller =
-    
 
     addMap: ->
       fstations = App.request 'fstation:entities'

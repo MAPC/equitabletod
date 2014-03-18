@@ -7,7 +7,6 @@
     events:
     	'click #more':'addMore'
     	'click #less':'showLess'
-        #'click .etodpage': 'showEtodPageClicked'
 
     addMore: (e)=>
     	$("#more").html("<b> </b>")
@@ -16,8 +15,6 @@
     showLess: (e) =>
     	$("#div2").html("<b> </b>")
 
-    showEtodPageClicked: =>
-        MainApp.vent.trigger "etopage:clicked"
 
 
     	

@@ -3,7 +3,7 @@
   <fieldset>
   <!-- Form Name -->
   <h2 class="black" >Search Stations</h2>
-  <h3 class="small">Show me all station areas that meet the following parameters (or <a class="black"href="">browse all stations</a>)</h3>
+  <h3 class="small">Show me all station areas that meet the following parameters (or <a id="browseall" class="black"href="">browse all stations</a>)</h3>
   </hr>
   <!-- Search input-->
   <div class="form-group">

@@ -17,9 +17,9 @@
         templateHelpers:->
             @sugestions = ->
                 console.log('inside the callback function definition in templateHelpers') 
-                fsugestions = App.request "sugestion:entities", (promise) ->
+                fsugestions = App.request "sugestion:entities", (fsugestions) ->
                     #promise.then (sugestions) ->
-                    $.when(promise).then (sugestions) ->
+                    $.when(fsugestions).then (sugestions) ->
                         responseText = "#{sugestions}"
                         console.log(responseText) 
                         sugestions
@@ -31,7 +31,8 @@
         events: 
             'click #searchbuttom': 'inputChange'
             'click #resetbuttom':  'resetFormArgs'
-            'mouseover #searchinput2': 'hoverMuniFired'    
+            'mouseover #searchinput2': 'hoverMuniFired' 
+            'click #mapClick': 'fireMap'   
 
         inputChange: (e)=>
             #MainApp.vent.trigger "searchFired"
@@ -68,6 +69,10 @@
             textSuggestions = "#{sugestions}"
             console.log(textSuggestions) 
             console.log(sugestions) 
+
+        fireMap: (e) =>
+            App.vent.trigger "fireMap"
+
 
            
 

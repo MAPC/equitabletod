@@ -4,7 +4,7 @@
   class MainApp.Router extends Marionette.AppRouter
     appRoutes:
       "home": "showHomeRegion"
-      "map": "provideMap"
+      "map": "addMap"
       "search/submit": "searchSubmit"
       "carousel": "showCarousel"
 
@@ -21,7 +21,7 @@
       MainApp.Search.Controller.showSimpleSearchForm()
 
 
-    provideMap: ->
+    addMap: ->
       MainApp.Map.Controller.addMap()
 
 #    showResultsPage: ->
@@ -32,7 +32,7 @@
 #      @RegionMan.reset()
   MainApp.vent.on "searchFired", ->
     App.vent.trigger "searchFired"
-    API.provideMap()
+    API.addMap()
 
   MainApp.vent.on "etodFired", ->
     App.vent.trigger "etodFired"
