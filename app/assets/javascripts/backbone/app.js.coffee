@@ -29,6 +29,7 @@
 
 
   App.vent.on "homeFired", ->
+    RegionMan.removeRegion "etodRegion"
     RegionMan.addRegions 
       homeRegion: "#home-region"
   
