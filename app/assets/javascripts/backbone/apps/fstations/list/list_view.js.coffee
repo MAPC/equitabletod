@@ -1,11 +1,14 @@
 @Equitabletod.module "FstationsApp.List", (List, App, Backbone, Marionette, $, _) ->
 
-	class List.Fstation extends App.Views.ItemView
-		template: "header/list/templates/_header"
-		tagName: "li"
-	
-	class List.FstationsCollection extends App.Views.CompositeView
-		template: "header/list/templates/headers"
-		itemView: List.Header
-		itemViewContainer: "ul"
+	class List.Layout extends App.Views.Layout
+		template: "fstations/list/templates/list_layout"
+		
+		regions: 
+			panelRegion: "#panel-region"
+			fstationsRegion: "#fstations-region"
 
+	class List.Panel extends App.Views.ItemView
+		template: "fstations/list/templates/_panel"
+
+	class List.Fstations extends App.Views.ItemView
+		template: "fstations/list/templates/_fstations"

@@ -4,6 +4,7 @@
 
   App.on "initialize:before", (options) ->
     @munis = App.request "set:muni", options.munis.munis
+    #@transit_lines = App.request "set:transit_line", options.
 
   RegionMan = new Marionette.RegionManager
   App.vent = new Backbone.Wreqr.EventAggregator()
@@ -19,11 +20,11 @@
     return
 
   RegionMan.addRegions
-    carouselRegion: "#carousel-region"
+    #carouselRegion: "#carousel-region"
     homeRegion: "#home-region"
-    usrGuidRegion: "#usrguid-region"
+    #usrGuidRegion: "#usrguid-region"
     simpleSearchRegion: "#simple-search"
-    usrGuidRegion: "#usrguid-region"
+    #usrGuidRegion: "#usrguid-region"
 #    resultsTableGrid: "#results-table"
   
   App.vent.on "etodFired", ->
@@ -55,12 +56,12 @@
   App.addInitializer ->
     App.module("HeaderApp").start()
     App.module("MainApp").start()
+    #App.module("FstationsApp").start()
 #    App.module("UsrGuid").start()
 
   App.on "initialize:after", (options) ->
     if Backbone.history
       Backbone.history.start()
-      #@navigate(@rootRoute, trigger: true) if @getCurrentRoute() is ""
-
+      @navigate(@rootRoute, trigger: true) if @getCurrentRoute() is ""
 
   App

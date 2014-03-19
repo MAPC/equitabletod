@@ -6,14 +6,10 @@
   	model: Entities.Muni
 
   API = 
-  	setSelectedMuni: (selectedMuni) ->
-  		new Entities.Muni selectedMuni
 
   	setMuni: (munis) ->
   		new Entities.MunisCollection munis
 
-  App.reqres.setHandler "set:selected:muni", (selectedMuni) ->
-  	API.setSelectedMuni selectedMuni
 
   App.reqres.setHandler "set:muni", (munis) ->
   	API.setMuni munis

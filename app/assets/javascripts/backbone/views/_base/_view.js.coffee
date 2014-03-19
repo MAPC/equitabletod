@@ -5,4 +5,4 @@
     templateHelpers: ->
 
     	###munisList:
-    		App.request("get:list:munis").toJSON()###
+    		App.request("get:munis:munis").toJSON()###

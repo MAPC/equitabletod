@@ -6,7 +6,7 @@
 
 	API =
 		listFstations: ->
-			console.log "listFstations"
+			FstationsApp.List.Controller.listFstations() 
 
 	App.addInitializer ->
 		new FstationsApp.Router

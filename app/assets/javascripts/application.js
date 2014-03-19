@@ -10,24 +10,18 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require ../../../vendor/assets/javascripts/owl.carousel.min.js
-//= require ../../../vendor/assets/javascripts/jquery.backstrech.js
-//= require ../../../vendor/assets/javascripts/bootstrap.min.js
-//= require ../../../vendor/assets/javascripts/modernizr-2.6.2-respond-1.1.0.min.js
-//= require ../../../vendor/assets/javascripts/jquery.navgoco.js
+//= require jquery-2.1.0
 //= require underscore
 //= require backbone
-//= require backbone/leaflet.js
-//= require backbone/backbone.leaflet.js
 //= require marionette
-//= require ../../../vendor/assets/javascripts/jquery.watable.js
-//= require ../../../vendor/assets/javascripts/backbone-validation.js
-//= require ../../../vendor/assets/javascripts/backbone-relational.js
-//= require ../../../vendor/assets/javascripts/typeahead.bundle.js
-//= require backbone/app
+//= require js-routes
+//= require ./backbone/leaflet.js
+//= require ./backbone/backbone.leaflet.js
 //= require_tree ./backbone/config
-//= require_tree ./backbone/views
+//= require backbone/app
 //= require_tree ./backbone/entities
+//= require_tree ./backbone/views
 //= require_tree ./backbone/controllers
 //= require_tree ./backbone/apps
+//= require ../../../vendor/assets/javascripts/owl.carousel.min.js
+//= require ../../../vendor/assets/javascripts/modernizr-2.6.2-respond-1.1.0.min.js

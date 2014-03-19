@@ -10,6 +10,7 @@ gem 'rabl'
 gem 'oj'
 gem 'has_scope'
 gem 'gon'
+gem 'js-routes'
 
 group :development, :test do
   gem 'rspec-rails'

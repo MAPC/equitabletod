@@ -37,11 +37,17 @@
     <label class="col-md-4 control-label small" for="selectbasic1">Transit Line</label>
     <div class="col-md-6">
       <select id="selectbasic1" rel="tooltip" title="The name of the transit line on which this station is located" name="selectbasic1" class="form-control">
-        <option value="">Select</option>
-        <option value="Red">Red</option>
-        <option value="Green">Green</option>
-        <option value="Orange">Orange</option>
-        <option value="Blue">Blue</option>
+        <optgroup label = "Rapid Transit">
+          <option value="">Select</option>
+          <option value="Red">Red</option>
+          <option value="Green">Green</option>
+          <option value="Orange">Orange</option>
+          <option value="Blue">Blue</option>
+        </optgroup>
+        <optgroup lable="Commuter Rail">
+          
+
+        </optgroup>
       </select>
     </div>
   </div>

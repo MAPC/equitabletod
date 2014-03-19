@@ -6,6 +6,8 @@ class SearchController < ApplicationController
   def suggest
     # munis will be StationArea.pluck(:municipality).uniq
     render json: ({ station_names: StationArea.pluck(:name).uniq,
+                    etod_types: StationArea.pluck(:etod_type).uniq,
+                    stations_classes: StationArea.pluck(:station_class).uniq,
                     munis:       ["Ashland",
                                   "Bedford",
                                   "Boston",

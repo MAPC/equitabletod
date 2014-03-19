@@ -23,56 +23,7 @@
             </ul>
         </div>
       </div>
-    <!-- <div class="navbar-header pull-right">
-      <a id="nav-expander" class="nav-expander fixed">
-        &nbsp;<i class="fa fa-bars fa-lg black"></i>
-      </a>
-    </div> -->
 </div>
 <nav>
-<!--   <ul class="list-unstyled main-menu">
-    <li class="text-right"><a href="#" id="nav-close">x</a></li>
-    <li><a href="#home">Home <span class="icon"></span></a></li>
-    <li><a href="#usrguid">User Guild <span class="icon"></span></a></li>
-    <li><a href="#">Learn About TOD <span class="icon"></span></a></li>
-    <li><a href="#">Download All Data <span class="icon"></span></a></li>
-  </ul>
-</nav> -->
 
-<script type="text/javascript">
-$(document).ready(function(){												
-       
-       
-     //Navigation Menu Slider
-      $('#nav-expander').on('click',function(e){
-    		e.preventDefault();
-    		$('body').toggleClass('nav-expanded');
-    	});
-    	$('#nav-close').on('click',function(e){
-    		e.preventDefault();
-    		$('body').removeClass('nav-expanded');
-    	});
-    	
-    	
-    	// Initialize navgoco with default options
-      $(".main-menu").navgoco({
-          caret: '<span class="caret"></span>',
-          accordion: false,
-          openClass: 'open',
-          save: true,
-          cookie: {
-              name: 'navgoco',
-              expires: false,
-              path: '/'
-          },
-          slide: {
-              duration: 300,
-              easing: 'swing'
-          }
-      });
 
-      
-      	
-});
-
-</script>

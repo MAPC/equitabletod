@@ -112,22 +112,3 @@
 	</div>	
 	<!--Tumblines-->
 </div>
-<container id="maphome">
-	<div id="maphome">
-
-	</div>
-</container>
-<script type="text/javascript">
-	var map = L.map('maphome', {
-		center: [42.35, -71.06],
-		zoom: 10,
-		scrollWheelZoom: false,
-		zoomAnimation: false,
-		closePopupOnClick: true,
-		dragging : false,
-		});
-	        L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
-			attribution: 'Tiles by <a href="http://www.mapc.org/">Metropolitan Area Planning Council</a>.'
-		}).addTo(map);
-
-</script>

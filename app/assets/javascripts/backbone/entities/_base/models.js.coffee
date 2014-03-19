@@ -1,3 +1,3 @@
 @Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
-  class Entities.Model extends Backbone.Model
+  class Entities.Model extends Backbone.Leaflet.GeoModel
