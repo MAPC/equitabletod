@@ -10,7 +10,9 @@
 
 <%= javascript_tag do %>
   $(function() {
-    Equitabletod.start();
+    Equitabletod.start({
+    	munis: gon.munis
+	});
   });
 <% end %>
 

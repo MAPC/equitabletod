@@ -1,6 +1,10 @@
 @Equitabletod = do (Backbone, Marionette) ->
 
   App = new Marionette.Application 
+
+  App.on "initialize:before", (options) ->
+    @munis = App.request "set:muni", options.munis.munis
+
   RegionMan = new Marionette.RegionManager
   App.vent = new Backbone.Wreqr.EventAggregator()
 

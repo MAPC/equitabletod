@@ -15,7 +15,12 @@
         className: "col-md-12 col-md-offset-0 text-left"
         
         templateHelpers:->
-            @sugestions = ->
+            munis = "#{gon.munis.munis}"
+            console.log munis
+                
+
+
+            ###@sugestions = ->
                 console.log('inside the callback function definition in templateHelpers') 
                 fsugestions = App.request "sugestion:entities", (fsugestions) ->
                     #promise.then (sugestions) ->
@@ -24,7 +29,7 @@
                         console.log(responseText) 
                         sugestions
                 fsugestions
-                console.log('inside the callback function definition in templateHelpers after the promise') 
+                console.log('inside the callback function definition in templateHelpers after the promise')### 
             
 
 
@@ -43,10 +48,12 @@
             transit_line = $('#selectbasic1 option:selected').val()
             station_type = $('#selectbasic3 option:selected').val()
             etod_group = $('#selectbasic4 option:selected').val()
-            mymuni = "#{muni}"
-            mystationname = "#{station_name}"
             @collection.add 'muni': "#{muni}"
             @collection.add 'station_name': "#{station_name}"
+            @collection.add 'service_type': "#{service_type}"
+            @collection.add 'transit_line': "#{transit_line}"
+            @collection.add 'station_type': "#{station_type}"
+            @collection.add 'etod_group': "#{etod_group}"
             ###_.map @collection.models, (model) =>
                 muni = model.get 'muni'
                 _.compact muni
@@ -64,11 +71,11 @@
         
         hoverMuniFired: (e) =>
             console.log('inside hover event') 
-            sugestions = @sugestions()
-            console.log('after the call')
-            textSuggestions = "#{sugestions}"
-            console.log(textSuggestions) 
-            console.log(sugestions) 
+            #sugestions = @sugestions()
+            #console.log('after the call')
+            #textSuggestions = "#{sugestions}"
+            #console.log(textSuggestions) 
+            #console.log(sugestions) 
 
         fireMap: (e) =>
             App.vent.trigger "fireMap"

@@ -1,6 +1,8 @@
 @Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
   class Entities.Fstation extends Backbone.Leaflet.GeoModel
+    #since search may respond with a dingle model it should have a urlRoot which can be a function
+    #urlRoot: -> somefuction
 
   class Entities.FstationsCollection extends Entities.Collection
   	url: "/search.json"

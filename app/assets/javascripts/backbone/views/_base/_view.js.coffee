@@ -3,3 +3,6 @@
   _.extend Marionette.View::,
 
     templateHelpers: ->
+
+    	###munisList:
+    		App.request("get:list:munis").toJSON()###

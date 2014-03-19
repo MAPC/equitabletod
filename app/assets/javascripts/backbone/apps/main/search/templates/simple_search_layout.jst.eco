@@ -25,10 +25,10 @@
     <label class="col-md-4 control-label small" for="selectbasic2">Service Type</label>
     <div class="col-md-6">
       <select id="selectbasic2" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control">
-        <option value="1">All</option>
-        <option value="2">Commuter Rail</option>
-        <option value="3">Rapid Transit</option>
-        <option value="4">Key Bus Routes</option>
+        <option value="">Select</option>
+        <option value="Commuter Rail">Commuter Rail</option>
+        <option value="Rapid Transit">Rapid Transit</option>
+        <option value="Bus">Key Bus Routes</option>
       </select>
     </div>
   </div>
@@ -37,11 +37,11 @@
     <label class="col-md-4 control-label small" for="selectbasic1">Transit Line</label>
     <div class="col-md-6">
       <select id="selectbasic1" rel="tooltip" title="The name of the transit line on which this station is located" name="selectbasic1" class="form-control">
-        <option value="1">All</option>
-        <option value="2">Red</option>
-        <option value="3">Green</option>
-        <option value="4">Orange</option>
-        <option value="5">Blue</option>
+        <option value="">Select</option>
+        <option value="Red">Red</option>
+        <option value="Green">Green</option>
+        <option value="Orange">Orange</option>
+        <option value="Blue">Blue</option>
       </select>
     </div>
   </div>

@@ -1,14 +1,10 @@
 class StationArea < ActiveRecord::Base
 
   has_and_belongs_to_many :transit_lines
-<<<<<<< HEAD
-  
-=======
 
   def location
     "#{self.latitude} #{self.longitude}"
   end
->>>>>>> develop
 
   # Basic Search
 

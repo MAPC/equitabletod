@@ -9,6 +9,7 @@ gem 'pg'
 gem 'rabl'
 gem 'oj'
 gem 'has_scope'
+gem 'gon'
 
 group :development, :test do
   gem 'rspec-rails'
