@@ -95,11 +95,6 @@
   </form>
 </div>
 <script type="text/javascript">
-  munidata = [
-    'brookline', 
-    'braintree', 
-    'boston'
-  ]
 /*  $("[rel=tooltip]").tooltip({ placement: 'top'});*/
   $(document).ready(function(){
       $("#searchinput2").autocomplete({

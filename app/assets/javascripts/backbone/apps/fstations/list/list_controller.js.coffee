@@ -2,7 +2,7 @@
 
 	List.Controller =
 
-		listFstations: ->
+		listFstations: (query) ->
 			App.request "fstation:entities", (fstations) =>
 
 				@layout = @getLayoutView()

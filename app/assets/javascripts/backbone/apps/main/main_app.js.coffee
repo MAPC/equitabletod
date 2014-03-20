@@ -32,7 +32,6 @@
 #      @RegionMan.reset()
   MainApp.vent.on "searchFired", ->
     App.vent.trigger "searchFired"
-    API.addMap()
 
   MainApp.vent.on "etodFired", ->
     App.vent.trigger "etodFired"

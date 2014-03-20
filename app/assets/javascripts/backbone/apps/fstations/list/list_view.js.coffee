@@ -15,9 +15,6 @@
 	class List.Fstation extends App.Views.ItemView
 		template: "fstations/list/templates/_fstation"
 		tagName: "tr"
-		collection: =>
-			@collection.toJSON()
-
 
 	class List.Fstations extends App.Views.CompositeView
 		template: "fstations/list/templates/_fstations"

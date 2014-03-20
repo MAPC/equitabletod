@@ -29,6 +29,11 @@
     RegionMan.addRegions
       etodRegion: "#etod-region"
 
+  App.vent.on "searchFired", ->
+    Backbone.history.navigate "#fstations"
+
+  App.vent.on "search:term", (query) ->
+    
 
   App.vent.on "homeFired", ->
     RegionMan.removeRegion "etodRegion"
