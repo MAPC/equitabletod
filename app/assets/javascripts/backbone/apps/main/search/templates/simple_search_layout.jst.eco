@@ -36,18 +36,21 @@
   <div class="form-group">
     <label class="col-md-4 control-label small" for="selectbasic1">Transit Line</label>
     <div class="col-md-6">
-      <select id="selectbasic1" rel="tooltip" title="The name of the transit line on which this station is located" name="selectbasic1" class="form-control">
-        <optgroup label = "Rapid Transit">
-          <option value="">Select</option>
-          <option value="Red">Red</option>
-          <option value="Green">Green</option>
-          <option value="Orange">Orange</option>
-          <option value="Blue">Blue</option>
-        </optgroup>
-        <optgroup lable="Commuter Rail">
-          
-
-        </optgroup>
+      <select id="selectbasic1" rel="tooltip" title="The name of the transit line on which this station is located" name="selectbasic1" class="form-control " class="selectpicker">
+        <option value="Red">Red</option>
+        <option value="Green">Green</option>
+        <option value="Orange">Orange</option>
+        <option value="Blue">Blue</option>
+        <option value="Fairmount">Fairmount</option>
+        <option value="Franklin">Franklin</option>
+        <option value="Fitchburg">Fitchburg</option>
+        <option value="Framingham / Worcester">Framingham / Worcester</option>
+        <option value="Haverhill">Haverhill</option>
+        <option value="Lowell">Lowell</option>
+        <option value="Kingston / Plymouth">Kingston / Plymouth</option>
+        <option value="Middleborough / Lakeville,">Middleborough / Lakeville</option>
+        <option value="Haverhill">Blue</option>
+        <option value="Haverhill">Blue</option>
       </select>
     </div>
   </div>
@@ -56,8 +59,14 @@
     <label class="col-md-4 control-label small" for="selectbasic3">Station Type</label>
     <div class="col-md-6">
       <select id="selectbasic3" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" name="selectbasic3" class="form-control">
-        <option value="1">All</option>
-        <option value="2">Option two</option>
+        <option value="">Select</option>
+        <option value="Core">Core</option>
+        <option value="Urban Downtown">Urban Downtown</option>
+        <option value="Town Center">Town Center</option>
+        <option value="Subway">Subway</option>
+        <option value="Sub Emp Center">Sub Emp Center</option>
+        <option value="Subway Transformational">Subway Transformational</option>
+        <option value="Undeveloped">Undeveloped</option>
       </select>
     </div>
   </div>
@@ -67,8 +76,11 @@
     <label class="col-md-4 control-label small" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span></label>
     <div class="col-md-6">
       <select id="selectbasic4" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" name="selectbasic4" class="form-control">
-        <option value="1">All</option>
-        <option value="2">Option two</option>
+        <option value="">Select</option>
+        <option value="Transit-Supportive">Transit-Supportive</option>
+        <option value="Transit-Related">Transit-Related</option>
+        <option value="Transit-Oriented">Transit-Oriented</option>
+        <option value="Transit-Adjacent">Transit-Adjacent</option>
       </select>
     </div>
   </div>
@@ -82,3 +94,17 @@
   </div>
   </form>
 </div>
+<script type="text/javascript">
+  munidata = [
+    'brookline', 
+    'braintree', 
+    'boston'
+  ]
+/*  $("[rel=tooltip]").tooltip({ placement: 'top'});*/
+  $(document).ready(function(){
+      $("#searchinput2").autocomplete({
+        source: gon.munis.munis,
+        minLength: 2
+      })
+  });
+</script>

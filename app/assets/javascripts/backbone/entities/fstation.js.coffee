@@ -19,5 +19,5 @@
   App.reqres.setHandler 'fstation:entities', (cb) ->
       API.getFstationsEntities cb
 
-  App.reqres.setHandler 'set:selected:fstation', (selectedFstations) ->
-      API.getFstation(selectedFstations)
+###  App.reqres.setHandler 'fstation:entity', (query, cb) ->
+      API.getFstation(query, cb)###

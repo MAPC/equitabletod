@@ -51,8 +51,8 @@
     searchargs = App.request 'searcharg:entity'
     
   MainApp.on "start", ->
-#    API.showHomeRegion() 
+    API.showHomeRegion() 
 #    API.showCarousel()
 #    API.showResultsPage()
 #    API.provideMap()
-#    API.showSimpleSearchForm()  
+    API.showSimpleSearchForm()  

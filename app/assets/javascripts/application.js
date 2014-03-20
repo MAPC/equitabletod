@@ -15,6 +15,7 @@
 //= require backbone
 //= require marionette
 //= require js-routes
+//= require ../../../vendor/assets/javascripts/jquery-ui-1.10.4.custom.min.js
 //= require ./backbone/leaflet.js
 //= require ./backbone/backbone.leaflet.js
 //= require_tree ./backbone/config
@@ -22,6 +23,6 @@
 //= require_tree ./backbone/entities
 //= require_tree ./backbone/views
 //= require_tree ./backbone/controllers
-//= require_tree ./backbone/apps
 //= require ../../../vendor/assets/javascripts/owl.carousel.min.js
 //= require ../../../vendor/assets/javascripts/modernizr-2.6.2-respond-1.1.0.min.js
+//= require_tree ./backbone/apps

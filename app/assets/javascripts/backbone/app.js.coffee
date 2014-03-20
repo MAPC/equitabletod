@@ -12,7 +12,6 @@
   App.addRegions
     headerRegion: "#header-region"
     mainRegion:   "#main-region"
-      #  sidebarRegion: "#sidebar-region"
 
   RegionMan.on "region:add", (name, region) ->
   # add the region instance to an object
@@ -24,8 +23,6 @@
     homeRegion: "#home-region"
     #usrGuidRegion: "#usrguid-region"
     simpleSearchRegion: "#simple-search"
-    #usrGuidRegion: "#usrguid-region"
-#    resultsTableGrid: "#results-table"
   
   App.vent.on "etodFired", ->
     RegionMan.removeRegion "homeRegion"
