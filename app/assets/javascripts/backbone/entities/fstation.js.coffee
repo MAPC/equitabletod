@@ -6,7 +6,6 @@
     parse: (response) ->
       response.features
 
-
   API =
   	getFstationsEntities: (cb) ->
   	    fstations = new Entities.FstationsFeaturesCollection

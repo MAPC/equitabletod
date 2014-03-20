@@ -9,4 +9,4 @@
 
 	class List.Map extends App.Views.MapView
 		template: "fstations/list/templates/_map"
-		collection: @collection
+		collection: @model

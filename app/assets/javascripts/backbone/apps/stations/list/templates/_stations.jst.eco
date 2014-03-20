@@ -1,8 +1,14 @@
-<table class="table table-striped bordered-table">
-	<thead>
-		<tr>
-			<th>Stations</th>
-		</tr>
-	</thead>
-	<tbody></tbody>
-</table>
+<div class="container-fluid">
+	<div class="col-md-6 col-md-offset-0 text-left">
+		<table class="table table-striped bordered-table">
+			<thead>
+				<tr>
+					<th>Station Name</th>
+					<th>Municipality</th>
+					<th>eTOD Type</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+</div>

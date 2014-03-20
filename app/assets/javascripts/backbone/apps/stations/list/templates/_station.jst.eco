@@ -1,1 +1,3 @@
 <td><%= "#{@properties.name}" %></td>
+<td><%= "#{@properties.muni_name}" %></td>
+<td><%= "#{@properties.etod_type}" %></td>
