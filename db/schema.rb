@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140314214239) do
+ActiveRecord::Schema.define(:version => 20140318212303) do
+
+  create_table "dictionary_entries", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.text     "description"
+    t.text     "importance"
+    t.text     "interpretation"
+    t.text     "technical_notes"
+    t.integer  "order"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "station_areas", :force => true do |t|
     t.string   "name"
