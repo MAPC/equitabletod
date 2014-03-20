@@ -9,7 +9,7 @@
 
 				@layout.on "show", =>
 					@showMap fstations
-					@showFstations fstations
+					#@showFstations fstations
 
 				App.mainRegion.show @layout
 
@@ -17,17 +17,17 @@
 			mapView = @getMapView fstations
 			@layout.mapRegion.show mapView
 
-		showFstations: (fstations) ->
-			fstationsView = @getFstationsView fstations
-			@layout.fstationsRegion.show fstationsView
+		#showFstations: (fstations) ->
+			#fstationsView = @getFstationsView fstations
+			#@layout.fstationsRegion.show fstationsView
 
-		getFstationsView: (fstations) ->
-			new List.Fstations
-				collection: fstations
+		#getFstationsView: (fstations) ->
+			#new List.Fstations
+				#collection: fstations
 
 		getMapView: (fstations) ->
 			new List.Map
-				collection: fstations
+				model: fstations
 
 		getLayoutView: ->
 			new List.Layout

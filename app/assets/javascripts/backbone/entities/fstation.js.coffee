@@ -1,15 +1,15 @@
 @Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
-  class Entities.Fstation extends Entities.Model
-    #since search may respond with a single model it should have a urlRoot which can be a function
-    #urlRoot: -> somefuction
 
-  class Entities.FstationsCollection extends Entities.Collection
+  class Entities.FstationsFeaturesCollection extends Backbone.Leaflet.GeoModel
     url: "search.json?by_name=ash"
+    parse: (response) ->
+      response.features
+
 
   API =
   	getFstationsEntities: (cb) ->
-  	    fstations = new Entities.FstationsCollection
+  	    fstations = new Entities.FstationsFeaturesCollection
   	    fstations.fetch
           success: ->
             cb fstations
