@@ -5,7 +5,6 @@
     tagName: "home-region"
 
     events:
-        'click #etodpage':'fireEtod'
     	'click #more':'addMore'
     	'click #less':'showLess'
 

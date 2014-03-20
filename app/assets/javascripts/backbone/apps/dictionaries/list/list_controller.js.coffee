@@ -1,9 +1,9 @@
-@Equitabletod.module "FstationsApp.List", (List, App, Backbone, Marionette, $, _) ->
+@Equitabletod.module "DictionariesApp.List", (List, App, Backbone, Marionette, $, _) ->
 
 	List.Controller =
 
-		listFstations: ->
-			App.request "fstation:entities", (fstations) =>
+		listDictionaries: ->
+			App.request "dictionary:entities", (fstations) =>
 
 				@layout = @getLayoutView()
 

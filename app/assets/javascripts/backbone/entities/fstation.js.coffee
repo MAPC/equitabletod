@@ -5,7 +5,6 @@
     #urlRoot: -> somefuction
 
   class Entities.FstationsCollection extends Entities.Collection
-    model: Entities.Fstation
     url: "search.json?by_name=ash"
 
   API =
