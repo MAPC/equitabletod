@@ -17,20 +17,6 @@
         templateHelpers:->
             munis = "#{gon.munis.munis}"
             console.log munis
-                
-
-
-            ###@sugestions = ->
-                console.log('inside the callback function definition in templateHelpers') 
-                fsugestions = App.request "sugestion:entities", (fsugestions) ->
-                    #promise.then (sugestions) ->
-                    $.when(fsugestions).then (sugestions) ->
-                        responseText = "#{sugestions}"
-                        console.log(responseText) 
-                        sugestions
-                fsugestions
-                console.log('inside the callback function definition in templateHelpers after the promise')### 
-            
 
 
         events: 

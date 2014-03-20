@@ -1,5 +1,3 @@
 @Equitabletod.module "Views", (Views, App, Backbone, Marionette, $, _) ->
 
-  _.extend Marionette.View::,
-
-    templateHelpers: ->
+	class Views.MapView extends Backbone.Leaflet.MapView

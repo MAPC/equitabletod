@@ -3,19 +3,19 @@
 	List.Controller =
 
 		listFstations: ->
-			fstations = App.request "fstation:entities"
+			fstations = App.request "fstation:entities", (fstations) =>
 
-			@layout = @getLayoutView()
+				@layout = @getLayoutView()
 
-			@layout.on "show", =>
-				@showPanel fstations
-				@showFstations fstations
+				@layout.on "show", =>
+					@showMap fstations
+					@showFstations fstations
 
-			App.mainRegion.show @layout
+				App.mainRegion.show @layout
 
-		showPanel: (fstations) ->
-			PanelView = @getPanelView fstations
-			@layout.panelRegion.show PanelView
+		showMap: (fstations) ->
+			mapView = @getMapView fstations
+			@layout.mapRegion.show mapView
 
 		showFstations: (fstations) ->
 			fstationsView = @getFstationsView fstations
@@ -25,8 +25,8 @@
 			new List.Fstations
 				collection: fstations
 
-		getPanelView: (fstations) ->
-			new List.Panel
+		getMapView: (fstations) ->
+			new List.Map
 				collection: fstations
 
 		getLayoutView: ->

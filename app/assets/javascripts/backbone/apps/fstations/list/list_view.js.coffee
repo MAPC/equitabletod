@@ -4,11 +4,22 @@
 		template: "fstations/list/templates/list_layout"
 		
 		regions: 
-			panelRegion: "#panel-region"
+			mapRegion: "#map-region"
 			fstationsRegion: "#fstations-region"
 
-	class List.Panel extends App.Views.ItemView
-		template: "fstations/list/templates/_panel"
+	class List.Map extends App.Views.MapView
+		template: "fstations/list/templates/_map"
+		collection: =>
+			@collection.toJSON()
 
-	class List.Fstations extends App.Views.ItemView
+	class List.Fstation extends App.Views.ItemView
+		template: "fstations/list/templates/_fstation"
+		tagName: "tr"
+		collection: =>
+			@collection.toJSON()
+
+
+	class List.Fstations extends App.Views.CompositeView
 		template: "fstations/list/templates/_fstations"
+		itemView: List.Fstation
+		itemViewContainer: "tbody"

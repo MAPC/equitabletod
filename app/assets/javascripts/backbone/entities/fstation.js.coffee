@@ -6,16 +6,18 @@
 
   class Entities.FstationsCollection extends Entities.Collection
     model: Entities.Fstation
-    url: "search.json"
+    url: "search.json?by_name=ash"
 
   API =
-  	getFstationsEntities: ->
+  	getFstationsEntities: (cb) ->
   	    fstations = new Entities.FstationsCollection
-  	    fstations.fetch()
+  	    fstations.fetch
+          success: ->
+            cb fstations
 
 
-  App.reqres.setHandler 'fstation:entities', ->
-      API.getFstationsEntities()
+  App.reqres.setHandler 'fstation:entities', (cb) ->
+      API.getFstationsEntities cb
 
   App.reqres.setHandler 'set:selected:fstation', (selectedFstations) ->
       API.getFstation(selectedFstations)

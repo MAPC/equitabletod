@@ -1,1 +1,7 @@
-fstations view
+<%= _.map @properties, (value, key) => %>
+		<%= _.map value, (value, key) => %>
+			<%= _.pluck value, 'name', (name) => %>
+				<% for each in name: %>
+					<td><%= "#{name}"%></td>
+		<% end %>
+<% end %>
