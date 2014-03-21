@@ -4,6 +4,7 @@
 
 		listFstations: ->
 			App.request "fstation:entities", (fstations) =>
+				
 
 				@layout = @getLayoutView()
 
