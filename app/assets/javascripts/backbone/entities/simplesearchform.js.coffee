@@ -10,8 +10,6 @@
 		fetch: ->
 			return null
 
-		save: ->
-			return null
 
 	API =
 		getSearchArgs: ->
@@ -21,15 +19,15 @@
 				{station_name: ""}
 				]
 
-		getSearchArg: ->
-			searcharg = new Entities.SimpleSearchArg(field: muni)
+		getSearchArg: (query) ->
+			searcharg = new Entities.SimpleSearchArg(query: query)
 
 
 	App.reqres.setHandler "searcharg:entities", ->
 		API.getSearchArgs()
 
-	App.reqres.setHandler "searcharg:entity", (muni)->
-		API.getSearchArgs(muni)
+	App.reqres.setHandler "searcharg:entity", (query)->
+		API.getSearchArgs(query)
 
 
 

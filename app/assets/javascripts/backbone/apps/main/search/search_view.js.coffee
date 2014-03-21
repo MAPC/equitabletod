@@ -19,7 +19,7 @@
             #'mouseover #searchinput2': 'hoverMuniFired'
 
         inputChange: (e)=>
-            urlq = "search.json?"
+            urlq = "?"
             muni = $('input#searchinput2').val() 
             station_name = $('input#searchinput1').val()
             transit_line = $('#selectbasic1 option:selected').val()
@@ -34,7 +34,7 @@
             @collection.add 'query': "#{query}"
             query = "#{query}"
             console.log(query)
-            #App.vent.trigger "searchFired"
+            App.vent.trigger "searchFired"
             #App.vent.trigger "search:term", query
             #App.request "fstation:entity" (query)
         

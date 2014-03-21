@@ -20,7 +20,6 @@
     showSimpleSearchForm: (searchargs)->
       MainApp.Search.Controller.showSimpleSearchForm()
 
-
     addMap: ->
       MainApp.Map.Controller.addMap()
 

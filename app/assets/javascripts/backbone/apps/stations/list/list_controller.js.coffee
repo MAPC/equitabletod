@@ -3,15 +3,17 @@
 	List.Controller =
 
 		listStations: ->
-			App.request "station:entities", (stations) =>
+			App.request "searcharg:entity", (query) =>
 
-				@layout = @getLayoutView()
+				App.request "station:entity", (query, stations) =>
 
-				@layout.on "show", =>
-					#@showMap stations
-					@showStations stations
+					@layout = @getLayoutView()
 
-				App.mainRegion.show @layout
+					@layout.on "show", =>
+						#@showMap stations
+						@showStations stations
+
+					App.mainRegion.show @layout
 
 		#showMap: (stations) ->
 			#mapView = @getMapView stations

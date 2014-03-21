@@ -30,7 +30,9 @@
       etodRegion: "#etod-region"
 
   App.vent.on "searchFired", ->
-    Backbone.history.navigate "#fstations"
+    console.log "im inside the app itself"
+    RegionMan.removeRegion "homeRegion"
+    App.navigate "fstations", trigger: true
 
   #App.vent.on "search:term", (query) -> 
 
