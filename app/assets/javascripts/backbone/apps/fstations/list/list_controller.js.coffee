@@ -18,17 +18,10 @@
 			mapView = @getMapView fstations
 			@layout.mapRegion.show mapView
 
-		#showFstations: (fstations) ->
-			#fstationsView = @getFstationsView fstations
-			#@layout.fstationsRegion.show fstationsView
-
-		#getFstationsView: (fstations) ->
-			#new List.Fstations
-				#collection: fstations
 
 		getMapView: (fstations) ->
 			new List.Map
-				model: fstations
+				collection: fstations
 
 		getLayoutView: ->
 			new List.Layout

@@ -1,14 +1,14 @@
 @Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
-  class Entities.FstationsFeatures extends Backbone.Leaflet.GeoModel
+  class Entities.FstationsFeatures extends Backbone.Model
     urlRoot: "station_areas/"
     url: ->
       @urlRoot+@id+'.json' if @id
     parse: (response) ->
-      response.properties
+      response
 
   class Entities.FstationsFeaturesCollection extends Backbone.Leaflet.GeoCollection
-    url: "search.json"
+    url: "search.json?by_name=ash"
     model: Entities.FstationsFeatures
     parse: (response) ->
       response.features
