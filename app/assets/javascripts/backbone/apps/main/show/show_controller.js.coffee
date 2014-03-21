@@ -5,7 +5,7 @@
   	showHomeRegion: ->
   		collapsterms = App.request "collapsterm:entities"
   		homeRegionView = @getLayoutView collapsterms
-  		App.homeRegion.show homeRegionView
+  		App.mainRegion.show homeRegionView
   	
   	getLayoutView: (collapsterms) ->
   		new Show.Home

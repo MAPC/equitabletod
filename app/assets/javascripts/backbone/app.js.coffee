@@ -20,7 +20,7 @@
 
   RegionMan.addRegions
     #carouselRegion: "#carousel-region"
-    homeRegion: "#home-region"
+    #homeRegion: "#home-region"
     #usrGuidRegion: "#usrguid-region"
     simpleSearchRegion: "#simple-search"
   
