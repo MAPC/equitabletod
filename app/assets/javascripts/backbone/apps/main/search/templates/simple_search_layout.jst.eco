@@ -1,5 +1,7 @@
 <div class="container-fluid">
   <div class="row">
+    <div id="map" class="map">
+    </div>
     <div class="col-md-6 col-md-offset-0 text-left">
       <form class="form-horizontal">
       <fieldset>

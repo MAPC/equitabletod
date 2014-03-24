@@ -58,9 +58,8 @@
 
   App.addInitializer ->
     App.module("HeaderApp").start()
+    App.module("FstationsApp").start()
     App.module("MainApp").start()
-    #App.module("FstationsApp").start()
-#    App.module("UsrGuid").start()
 
   App.on "initialize:after", (options) ->
     if Backbone.history

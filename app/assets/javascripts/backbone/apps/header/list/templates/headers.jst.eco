@@ -2,15 +2,6 @@
     <!--Include your brand here-->
   	  <div class="margin--no-lftrght">
         <div class="row animated fadeInBig">
-          <div class="col-sm-12">
-            <h5 class="black">
-              InformaⓉion 
-              <span class="color"> STATION</span>
-              <h6 class="black" class="small">
-              Better data for better transit-oriented development
-              <span class="color"></span>
-            </hr>
-            </h2>
           </div>
         </div>
         <div class="row margin-10-wb animated fadeInLeft delay2">
