@@ -35,10 +35,8 @@
 			###stationGeoCollection = new L.GeoJSON.AJAX(."/station_areas.json")###
 			fstations = new L.GeoJSON geoCollection
 			map.addLayer(fstations)
+			#points = new L.LatLng @collection.toJSON
 			console.log map
-
-		onRender: ->
-			console.log @map
 		
 
 			
