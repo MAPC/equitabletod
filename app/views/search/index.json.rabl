@@ -5,12 +5,9 @@ node do
 		:environment => Rails.env
 	}
 	{
-		:munis => ["Ashland",
-                  "Bedford",
-                  "Boston",
-                  "Cambridge",
-                  "Canton",
-                  "Danvers",
-                  "Reading"]
+		:munis => StationArea.pluck(:muni_name).uniq
+	}
+	{
+		:names => StationArea.pluck(:name).uniq
 	}
 end

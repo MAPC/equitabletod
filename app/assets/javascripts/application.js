@@ -19,6 +19,7 @@
 //= require ../../../vendor/assets/javascripts/jquery-ui-1.10.4.custom.min.js
 //= require ./backbone/leaflet.js
 //= require ../../../vendor/assets/javascripts/leaflet.ajax.js
+//= require ../../../vendor/assets/javascripts/leaflet-search.src.js
 //= require ./backbone/backbone.leaflet.js
 //= require_tree ./backbone/config
 //= require backbone/app

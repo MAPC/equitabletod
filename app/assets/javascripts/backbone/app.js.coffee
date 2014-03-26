@@ -3,7 +3,7 @@
   App = new Marionette.Application 
 
   App.on "initialize:before", (options) ->
-    @munis = App.request "set:muni", options.munis.munis
+    @names = App.request "set:muni", options.names
     #@transit_lines = App.request "set:transit_line", options.
 
   RegionMan = new Marionette.RegionManager
@@ -29,10 +29,14 @@
     RegionMan.addRegions
       etodRegion: "#etod-region"
 
-  App.vent.on "searchFired", ->
+  App.vent.on "searchFired", (query)->
     console.log "im inside the app itself"
-    RegionMan.removeRegion "homeRegion"
-    App.navigate "fstations", trigger: true
+    query = "fstations/" + query
+    console.log query
+    #RegionMan.removeRegion "homeRegion"
+
+    App.navigate query, trigger: true
+
 
   #App.vent.on "search:term", (query) -> 
 

@@ -14,6 +14,19 @@
 
 				App.mainRegion.show @layout
 
+		listFstationsQuery: (query)  ->
+			App.request "fstation:entities", (fstations) =>
+
+				@layout = @getLayoutView()
+
+				@layout.on "show", =>
+					@showMap fstations
+					#@showFstations fstations
+
+				App.mainRegion.show @layout
+
+
+
 		showMap: (fstations) ->
 			mapView = @getMapView fstations
 			@layout.mapRegion.show mapView

@@ -1,9 +1,6 @@
-<!-- <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700' rel='stylesheet' type='text/css'> -->
-<!-- <div id="maphome"></div> -->
 <div id="header-region"></div>
 <div id="main-region"></div>
 <div id="home-region"></div>
-	<!-- <div id="carousel-region"></div> -->	
 <div id="simple-search"></div>
 <div id="etod-region"></div>
 </div></div>
@@ -12,7 +9,7 @@
 <%= javascript_tag do %>
   $(function() {
     Equitabletod.start({
-    	munis: gon.munis
+    	munis: gon.lables.munis
 	});
   });
 <% end %>

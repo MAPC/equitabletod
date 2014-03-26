@@ -13,6 +13,7 @@
  *= require ../../../vendor/assets/stylesheets/owl.carousel.css
  *= require ../../../vendor/assets/stylesheets/animate.css
  *= require ../../../vendor/assets/stylesheets/jquery-ui-1.10.4.custom.min.css
+  *= require ../../../vendor/assets/stylesheets/leaflet-search.src.css
  *= require ../../../vendor/assets/stylesheets/custom.css
  *= require_self
  *= require_tree .

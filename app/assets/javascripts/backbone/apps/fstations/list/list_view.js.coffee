@@ -28,15 +28,38 @@
 			cloudmade = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
 			  attribution: "Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade"
 			).addTo(map)
+			# searchCtrl = L.control.fuseSearch()
+			# searchCtrl.addTo map
 			console.log @collection
 			#fstations = JSON.parse(fstations)
 			geoCollection = @collection.toJSON(cid: true)
 			console.log geoCollection
 			###stationGeoCollection = new L.GeoJSON.AJAX(."/station_areas.json")###
-			fstations = new L.GeoJSON geoCollection
+			fstations = new L.GeoJSON geoCollection,
+				style: (feature) ->
+					feature.properties and feature.properties.style
+				pointToLayer: (feature, latlng) ->
+				    L.circleMarker latlng,
+				      radius: 25
+				      fillColor: "#FFFFFF"
+				      color: "#000"
+				      weight: 1
+				      opacity: 0.9
+				      fillOpacity: 0.2
+				onEachFeature: (feature, layer) ->
+					layer.bindPopup feature.properties.name 
+					return
+				filter: (feature, layer) ->
+					not (feature.properties and feature.properties.isHidden)
+
 			map.addLayer(fstations)
 			#points = new L.LatLng @collection.toJSON
 			console.log map
+			map.addControl new L.Control.Search(layer: fstations)
+###			searchCtrl.indexFeatures geoCollection, [
+			  "name"
+			  #"muni_name"
+			]###
 		
 
 			

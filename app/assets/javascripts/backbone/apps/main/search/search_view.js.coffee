@@ -7,8 +7,13 @@
         className: "col-md-12 col-md-offset-0 text-left"
         
         templateHelpers:->
-            munis = "#{gon.munis.munis}"
-            console.log munis
+            names = "#{gon.lables.names}"
+            console.log names
+            $(document).ready ->
+              $("#searchinput1").autocomplete
+                source: gon.lables.names
+                minLength: 3
+              return
 
 
         events: 
@@ -20,12 +25,12 @@
 
         inputChange: (e)=>
             urlq = "?"
-            muni = $('input#searchinput2').val() 
-            station_name = $('input#searchinput1').val()
-            transit_line = $('#selectbasic1 option:selected').val()
-            station_type = $('#selectbasic3 option:selected').val()
-            etod_group = $('#selectbasic4 option:selected').val()
-            query = "#{urlq}by_muni=#{muni}"
+            muni = $('input#searchinput2').val().toLowerCase()
+            station_name = $('input#searchinput1').val().toLowerCase()
+            transit_line = $('#selectbasic1 option:selected').val().toLowerCase()
+            station_type = $('#selectbasic3 option:selected').val().toLowerCase()
+            etod_group = $('#selectbasic4 option:selected').val().toLowerCase()
+            query = "#{urlq}by_name=#{station_name}"
             @collection.add 'muni': "#{muni}"
             @collection.add 'station_name': "#{station_name}"
             @collection.add 'transit_line': "#{transit_line}"
@@ -34,7 +39,7 @@
             @collection.add 'query': "#{query}"
             query = "#{query}"
             console.log(query)
-            App.vent.trigger "searchFired"
+            App.vent.trigger "searchFired", query
             #App.vent.trigger "search:term", query
             #App.request "fstation:entity" (query)
         

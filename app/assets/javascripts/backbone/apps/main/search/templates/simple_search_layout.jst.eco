@@ -99,11 +99,6 @@
     </form>
 </div>
 <script type="text/javascript">
-    /*  $("[rel=tooltip]").tooltip({ placement: 'top'});*/
-      $(document).ready(function(){
-          $("#searchinput2").autocomplete({
-            source: gon.munis.munis,
-            minLength: 2
-          })
-      });
+      $("[rel=tooltip]").tooltip({ placement: 'top'});
+      
 </script>
