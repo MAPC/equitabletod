@@ -1,5 +1,5 @@
 @Equitabletod.module "FstationsApp", (FstationsApp, App, Backbone, Marionette, $, _) ->
-
+	@startWithParent = false
 	class FstationsApp.Router extends Marionette.AppRouter
 		appRoutes:
 			"fstations" : "listFstations"

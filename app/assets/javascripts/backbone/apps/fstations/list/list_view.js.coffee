@@ -28,8 +28,11 @@
 			cloudmade = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
 			  attribution: "Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade"
 			).addTo(map)
-			# searchCtrl = L.control.fuseSearch()
-			# searchCtrl.addTo map
+			searchCtrl1 = L.control.fuseSearch()
+			searchCtrl2 = L.control.fuseSearch()
+
+			searchCtrl1.addTo map
+			searchCtrl2.addTo map
 			console.log @collection
 			#fstations = JSON.parse(fstations)
 			geoCollection = @collection.toJSON(cid: true)
@@ -38,16 +41,16 @@
 			fstations = new L.GeoJSON geoCollection,
 				style: (feature) ->
 					feature.properties and feature.properties.style
-				pointToLayer: (feature, latlng) ->
+				###pointToLayer: (feature, latlng) ->
 				    L.circleMarker latlng,
 				      radius: 25
 				      fillColor: "#FFFFFF"
 				      color: "#000"
 				      weight: 1
 				      opacity: 0.9
-				      fillOpacity: 0.2
+				      fillOpacity: 0.4###
 				onEachFeature: (feature, layer) ->
-					layer.bindPopup feature.properties.name 
+					layer.bindPopup feature.properties.name + " town of " + feature.properties.muni_name
 					return
 				filter: (feature, layer) ->
 					not (feature.properties and feature.properties.isHidden)
@@ -55,11 +58,13 @@
 			map.addLayer(fstations)
 			#points = new L.LatLng @collection.toJSON
 			console.log map
-			map.addControl new L.Control.Search(layer: fstations)
-###			searchCtrl.indexFeatures geoCollection, [
+			#map.addControl new L.Control.Search(layer: fstations)
+			searchCtrl1.indexFeatures geoCollection, [
+			  "muni_name"
+			]
+			searchCtrl2.indexFeatures geoCollection, [
 			  "name"
-			  #"muni_name"
-			]###
+			]
 		
 
 			

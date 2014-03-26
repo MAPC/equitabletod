@@ -16,10 +16,12 @@
 //= require marionette
 //= require js-routes
 //= require ../../../vendor/assets/javascripts/bootstrap.min.js
+//= require ../../../vendor/assets/javascripts/bootstrap-select.js
 //= require ../../../vendor/assets/javascripts/jquery-ui-1.10.4.custom.min.js
 //= require ./backbone/leaflet.js
 //= require ../../../vendor/assets/javascripts/leaflet.ajax.js
-//= require ../../../vendor/assets/javascripts/leaflet-search.src.js
+//= require ../../../vendor/assets/javascripts/fuse.js
+//= require ../../../vendor/assets/javascripts/leaflet.fusesearch.js
 //= require ./backbone/backbone.leaflet.js
 //= require_tree ./backbone/config
 //= require backbone/app

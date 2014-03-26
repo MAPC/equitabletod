@@ -9,7 +9,8 @@
 <%= javascript_tag do %>
   $(function() {
     Equitabletod.start({
-    	munis: gon.lables.munis
+    	munis: gon.lables.munis,
+    	muni_names: gon.munis.munis
 	});
   });
 <% end %>

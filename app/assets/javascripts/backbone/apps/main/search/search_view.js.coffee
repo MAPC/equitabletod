@@ -14,6 +14,11 @@
                 source: gon.lables.names
                 minLength: 3
               return
+            $(document).ready ->
+              $("#searchinput2").autocomplete
+                source: gon.munis.munis
+                minLength: 3
+              return
 
 
         events: 
@@ -39,6 +44,7 @@
             @collection.add 'query': "#{query}"
             query = "#{query}"
             console.log(query)
+            # here would be the basic validation and if passed the vent will trigger
             App.vent.trigger "searchFired", query
             #App.vent.trigger "search:term", query
             #App.request "fstation:entity" (query)

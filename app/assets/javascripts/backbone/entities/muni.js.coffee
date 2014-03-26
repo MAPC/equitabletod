@@ -11,5 +11,5 @@
   		new Entities.MunisCollection munis
 
 
-  App.reqres.setHandler "set:muni", (munis) ->
+  App.reqres.setHandler "set:muni_name", (munis) ->
   	API.setMuni munis

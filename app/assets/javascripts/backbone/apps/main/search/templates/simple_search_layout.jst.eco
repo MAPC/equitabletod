@@ -1,11 +1,37 @@
 <div class="container-fluid">
   <div class="row">
-    <div id="map" class="map">
+    <div id="map" class="map"></div>
+    <div class="col-md-5 col-md-offset-0 text-left">
+      <div id="div1"><span>
+      </br>
+      <h3>InformaⓉion Station</h3>
+      <h2>Better data for better transit-oriented development</h2>
+        <p id="p-not-expanded" class="hm2">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½- mile station area. Complete data on each station area (over 150 variables) is available as a free download.<a data-toggle="collapse" data-target="#div2"id="more" class="more"> More</a></p></span>
+      </div>
+      <div id="div2" class="home-txt-collapse collapse" >
+        <span>
+          <p id="p-expanded" class="hm2"> 
+          <ul class="hm2">
+          Users can:
+            <li>  Search for station areas that meet specified criteria </li>
+            <li>  Access key data points for each station area and view an interactive map of the area </li>
+            <li>  Generate a Station Area Profile (PDF) with a concise snapshot of each station area </li>
+            <li>  Download comprehensive dataset and detailed data dictionary </li>
+            <li>  Browse selected resources about transit oriented development </li>
+          </ul>
+          <p class="hm2">The Portal also houses information on two key tools developed to help the region’s stakeholders understand their station areas: a typology of station areas, created by the <a href="http://mapc.org" target="_blank"> Metropolitan Area Planning Council (MAPC) <span class="link"></span></a> , and the eTOD rating system, created by the <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank"> Dukakis Center for Urban and Regional Policy at Northeastern University <span class="link"></span></a> and the <a href="http://ctod.org" target="_blank"> Center for Transit Oriented Development<span class="link"></span></a>. <a id="less" data-target="#div1"class="more"> More</a>
+          </p>
+        </span>
+
+        </p>
+      </div>
     </div>
-    <div class="col-md-6 col-md-offset-0 text-left">
+
+    <div class="col-md-5 col-md-offset-1 text-left">
       <form class="form-horizontal">
       <fieldset>
       <!-- Form Name -->
+      </br>
       <h2 class="black" >Search Stations</h2>
       <h3 class="small">Show me all station areas that meet the following parameters (or <a id="browseall" class="black"href="">browse all stations</a>)</h3>
       </hr>
@@ -28,41 +54,32 @@
       <div class="form-group">
         <label class="col-md-4 control-label small" for="selectbasic2">Service Type</label>
         <div class="col-md-6">
-          <select id="selectbasic2" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control">
-            <option value="">Select</option>
-            <option value="Commuter Rail">Commuter Rail</option>
-            <option value="Rapid Transit">Rapid Transit</option>
-            <option value="Bus">Key Bus Routes</option>
+          <select id="selectbasic2" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control selectpicker" multiple>
+            <optgroup label="Commuter Rail">
+              <option value="Fairmount">Fairmount</option>
+              <option value="Fairmount">Fairmount</option>
+              <option value="Lowell">Lowell</option>
+            </optgroup>
+            <optgroup label="Rapid Transit">
+              <option value="Red Line">Red Line</option>
+              <option value="Green Line">Green Line</option>
+              <option value="Orange Line">Orange Line</option>
+              <option value="Blue Line">Blue Line</option>
+            </optgroup>
+            <optgroup label="Bus">
+              <option value="Bus Route 1">Bus Route 1</option>
+              <option value="Bus Route 2">Bus Route 2</option>
+              <option value="Bus Route 3">Bus Route 3</option>
+            </optgroup>
           </select>
         </div>
       </div>
+      
       <!-- Select Basic -->
       <div class="form-group">
-        <label class="col-md-4 control-label small" for="selectbasic1">Transit Line</label>
+        <label class="col-md-4 control-label small" for="selectbasic3">Station Type<span class="glyphicon-class"</span><a href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
-          <select id="selectbasic1" rel="tooltip" title="The name of the transit line on which this station is located" name="selectbasic1" class="form-control " class="selectpicker">
-            <option value="Red">Red</option>
-            <option value="Green">Green</option>
-            <option value="Orange">Orange</option>
-            <option value="Blue">Blue</option>
-            <option value="Fairmount">Fairmount</option>
-            <option value="Franklin">Franklin</option>
-            <option value="Fitchburg">Fitchburg</option>
-            <option value="Framingham / Worcester">Framingham / Worcester</option>
-            <option value="Haverhill">Haverhill</option>
-            <option value="Lowell">Lowell</option>
-            <option value="Kingston / Plymouth">Kingston / Plymouth</option>
-            <option value="Middleborough / Lakeville,">Middleborough / Lakeville</option>
-            <option value="Haverhill">Blue</option>
-            <option value="Haverhill">Blue</option>
-          </select>
-        </div>
-      </div>
-      <!-- Select Basic -->
-      <div class="form-group">
-        <label class="col-md-4 control-label small" for="selectbasic3">Station Type</label>
-        <div class="col-md-6">
-          <select id="selectbasic3" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" name="selectbasic3" class="form-control">
+          <select id="selectbasic3" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" name="selectbasic3" class="form-control selectpicker">
             <option value="">Select</option>
             <option value="Core">Core</option>
             <option value="Urban Downtown">Urban Downtown</option>
@@ -76,10 +93,9 @@
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-          <span class="glyphicon glyphicon-question-sign"></span>
-        <label class="col-md-4 control-label small" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span></label>
+        <label class="col-md-4 control-label small" for="selectbasic4">eTOD Group <span class="glyphicon-class"></span><a href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
-          <select id="selectbasic4" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" name="selectbasic4" class="form-control">
+          <select id="selectbasic4" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" name="selectbasic4" class="form-control selectpicker">
             <option value="">Select</option>
             <option value="Transit-Supportive">Transit-Supportive</option>
             <option value="Transit-Related">Transit-Related</option>
@@ -90,15 +106,26 @@
       </div>
       </fieldset>
       </br>
-      <div class="col-xs-offset-1">
+      </form>
+        <div class="col-xs-offset-1">
             <p>
               <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Search</button>
               <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button>
             </p>
-      </div>
-    </form>
-</div>
+        </div>
+    </div>
+
+
+
+
+  </div>
+</div> 
+    
+
+
+
 <script type="text/javascript">
       $("[rel=tooltip]").tooltip({ placement: 'top'});
+      $('.selectpicker').selectpicker();
       
 </script>
