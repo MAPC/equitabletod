@@ -3,7 +3,7 @@
 	  	showSimpleSearchForm: ->
 	  		searchargs = App.request 'searcharg:entity'
 	  		simpleSearchForm = @getSimpleSearchView searchargs
-	  		App.simpleSearchRegion.show simpleSearchForm
+	  		App.mainRegion.show simpleSearchForm
 
 	  	getSimpleSearchView: (searchargs) ->
 	  		new Search.SimpleSearchFormLayout

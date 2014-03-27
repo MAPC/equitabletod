@@ -6,6 +6,8 @@
 			"fstations/:query" : "listFstationsQuery"
 
 	API =
+		makeMapContainer: ->
+			FstationsApp.List.Controller.makeMapContainer()
 		listFstations: ->
 			FstationsApp.List.Controller.listFstations() 
 
@@ -14,6 +16,10 @@
 			console.log query
 			FstationsApp.List.Controller.listFstationsQuery(query) 
 
+
 	App.addInitializer ->
 		new FstationsApp.Router
 			controller: API 
+
+	FstationsApp.on "start", ->
+    	API.makeMapContainer() 

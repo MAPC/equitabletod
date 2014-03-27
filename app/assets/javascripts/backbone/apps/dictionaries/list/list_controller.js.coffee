@@ -3,31 +3,31 @@
 	List.Controller =
 
 		listDictionaries: ->
-			App.request "dictionary:entities", (fstations) =>
+			App.request "dictionary:entities", (dictionary) =>
 
 				@layout = @getLayoutView()
 
 				@layout.on "show", =>
-					@showMap fstations
-					@showFstations fstations
+					@showModals dictionary
+					#@showFstations dictionary
 
 				App.mainRegion.show @layout
 
-		showMap: (fstations) ->
+		###showMap: (fstations) ->
 			mapView = @getMapView fstations
-			@layout.mapRegion.show mapView
+			@layout.mapRegion.show mapView###
 
-		showFstations: (fstations) ->
-			fstationsView = @getFstationsView fstations
-			@layout.fstationsRegion.show fstationsView
+		showModals: (dictionary) ->
+			modalsView = @getModalsView dictionary
+			@layout.modals.show modalsView
 
-		getFstationsView: (fstations) ->
-			new List.Fstations
-				collection: fstations
+		getModalsView: (dictionary) ->
+			new List.Modal1
+				collection: dictionary
 
-		getMapView: (fstations) ->
+		###getMapView: (fstations) ->
 			new List.Map
-				collection: fstations
+				collection: fstations###
 
 		getLayoutView: ->
 			new List.Layout

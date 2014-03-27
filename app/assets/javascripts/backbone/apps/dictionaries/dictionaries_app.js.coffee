@@ -2,7 +2,7 @@
 
 	class DictionariesApp.Router extends Marionette.AppRouter
 		appRoutes:
-			"dictionries" : "listDictionaries"
+			"dictionaries" : "listDictionaries"
 
 	API =
 		listDictionaries: ->

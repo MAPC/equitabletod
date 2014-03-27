@@ -7,13 +7,18 @@
 			mapRegion: "#map-region"
 			#fstationsRegion: "#fstations-region"
 
+	class List.EmptyMap extends App.Views.Layout
+		template: "fstations/list/templates/_empty_map"
+		
+
+
 	class List.Map extends App.Views.Layout
 		template: "fstations/list/templates/_map"
-		
+		el: "#map"
 		collectionEvents:
 			"change" : "render"
 
-		templateHelpers: ->
+		onShow: ->
 			map = L.map("map",
 			  scrollWheelZoom: false
 			  touchZoom: false
@@ -41,14 +46,14 @@
 			fstations = new L.GeoJSON geoCollection,
 				style: (feature) ->
 					feature.properties and feature.properties.style
-				###pointToLayer: (feature, latlng) ->
+				pointToLayer: (feature, latlng) ->
 				    L.circleMarker latlng,
 				      radius: 25
 				      fillColor: "#FFFFFF"
 				      color: "#000"
 				      weight: 1
 				      opacity: 0.9
-				      fillOpacity: 0.4###
+				      fillOpacity: 0.4
 				onEachFeature: (feature, layer) ->
 					layer.bindPopup feature.properties.name + " town of " + feature.properties.muni_name
 					return

@@ -15,7 +15,7 @@
 
 
   App.reqres.setHandler 'dictionary:entities', (cb) ->
-      API.getictionariesEntities cb
+      API.getDictionariesEntities cb
 
   #App.reqres.setHandler 'dictionary:entity', (cb) ->
       #API.getictionariesEntity cb topic

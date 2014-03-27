@@ -23,6 +23,8 @@
 //= require ../../../vendor/assets/javascripts/fuse.js
 //= require ../../../vendor/assets/javascripts/leaflet.fusesearch.js
 //= require ./backbone/backbone.leaflet.js
+//= require ../../../vendor/assets/javascripts/backbone.modal.js
+//= require ../../../vendor/assets/javascripts/backbone.marionette.modals.js
 //= require_tree ./backbone/config
 //= require backbone/app
 //= require_tree ./backbone/entities
