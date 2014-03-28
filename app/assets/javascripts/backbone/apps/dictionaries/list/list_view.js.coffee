@@ -12,6 +12,19 @@
 		template: "dictionaries/list/templates/_modal1"
 		el: "#modal"
 		submitEl: ".bbm-button"
+		events:
+		    "click .open-2": "openModal"
+
+		  openModal: (e) ->
+		    e.preventDefault()
+		    myLayout.modals.show new Modal2()
+		    return
+		templateHelpers: ->
+			$("body").on "click", ".open-1", ->
+			  myLayout.modals.show new Modal1()
+			  return
+
+			$(".open-1").click()
 
 
 	class List.Modal2 extends Backbone.Modal

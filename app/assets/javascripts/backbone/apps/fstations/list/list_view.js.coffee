@@ -5,12 +5,20 @@
 		
 		regions: 
 			mapRegion: "#map-region"
-			#fstationsRegion: "#fstations-region"
+			fstationsRegion: "#fstations-region"
+
+	class List.Fstation extends App.Views.ItemView
+		template: "fstations/list/templates/_fstation"
+		tagName: "tr"
+
+	class List.Fstations extends App.Views.CompositeView
+		template: "fstations/list/templates/_fstations"
+		itemView: List.Fstation
+		itemViewContainer: "tbody"
 
 	class List.EmptyMap extends App.Views.Layout
 		template: "fstations/list/templates/_empty_map"
 		
-
 
 	class List.Map extends App.Views.Layout
 		template: "fstations/list/templates/_map"
@@ -48,11 +56,11 @@
 					feature.properties and feature.properties.style
 				pointToLayer: (feature, latlng) ->
 				    L.circleMarker latlng,
-				      radius: 25
+				      radius: 10
 				      fillColor: "#FFFFFF"
 				      color: "#000"
 				      weight: 1
-				      opacity: 0.9
+				      opacity: 0.2
 				      fillOpacity: 0.4
 				onEachFeature: (feature, layer) ->
 					layer.bindPopup feature.properties.name + " town of " + feature.properties.muni_name

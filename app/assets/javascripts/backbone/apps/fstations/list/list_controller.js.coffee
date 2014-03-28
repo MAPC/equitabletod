@@ -24,7 +24,7 @@
 				@layout.on "show", =>
 					@showEmptyMap
 					@showMap fstations
-					#@showFstations fstations
+					@showFstations fstations
 
 				App.mainRegion.show @layout
 
@@ -35,11 +35,18 @@
 
 				@layout.on "show", =>
 					@showMap fstations
-					#@showFstations fstations
+					@showFstations fstations
 
 				App.mainRegion.show @layout
 
-		
+		showFstations: (fstations) ->
+			fstationsView = @getFstationsView fstations
+			@layout.fstationsRegion.show fstationsView
+
+		getFstationsView: (fstations) ->
+			new List.Fstations
+				collection: fstations
+
 
 		showMap: (fstations) ->
 			mapView = @getMapView fstations
