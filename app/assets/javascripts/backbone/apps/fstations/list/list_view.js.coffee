@@ -23,8 +23,8 @@
 	class List.Map extends App.Views.Layout
 		template: "fstations/list/templates/_map"
 		el: "#map"
-		collectionEvents:
-			"change" : "render"
+#		collectionEvents:
+#			"change" : "render"
 
 		onShow: ->
 			map = L.map("map",

@@ -15,8 +15,11 @@
 		getSearchArgs: ->
 			searchargs = new Entities.SimpleSearchArgs [
 				{qury: ""}
-				{muni: ""}
-				{station_name: ""}
+				{muni_name: ""}
+				{station: ""}
+				{service_type: ""}
+				{station_type: ""}
+				{etod_group: ""}
 				]
 
 		getSearchArg: (query) ->

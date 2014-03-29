@@ -28,14 +28,20 @@
 
 				App.mainRegion.show @layout
 
-		listFstationsQuery: (query)  ->
-			App.request "fstation:entities", (fstations) =>
+		getFstationById: (id)  ->
+			console.log "inside Controller getFstationById"
+			console.log id
 
+			fstation = App.request "fstation:entity:id", id
+			console.log "afetr Controller getFstationById after request"
+			console.log fstation
+			fstation.success =>
 				@layout = @getLayoutView()
 
 				@layout.on "show", =>
-					@showMap fstations
-					@showFstations fstations
+					@showEmptyMap
+					@showMap fstation
+					@showFstations fstation
 
 				App.mainRegion.show @layout
 

@@ -3,18 +3,20 @@
 	class FstationsApp.Router extends Marionette.AppRouter
 		appRoutes:
 			"fstations" : "listFstations"
-			"fstations/:query" : "listFstationsQuery"
+			"fstations/:id" : "getFstation"
+
+	App.vent.on 'get:fstation', (id) ->
+		Backbone.history.navigate "fstations/#{id}", { trigger: true }
 
 	API =
 		makeMapContainer: ->
 			FstationsApp.List.Controller.makeMapContainer()
+		
 		listFstations: ->
 			FstationsApp.List.Controller.listFstations() 
 
-		listFstationsQuery: (query) ->
-			console.log "im inside the FstationsApp"
-			console.log query
-			FstationsApp.List.Controller.listFstationsQuery(query) 
+		getFstation: (id) ->
+			FstationsApp.List.Controller.getFstationById(id) 
 
 
 	App.addInitializer ->

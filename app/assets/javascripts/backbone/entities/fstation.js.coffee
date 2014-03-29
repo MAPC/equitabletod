@@ -1,15 +1,15 @@
 @Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
-  class Entities.FstationsFeatures extends Backbone.Leaflet.GeoModel
-    urlRoot: "search.json"
-    query: @query
-    url: ->
-      @urlRoot+@query if @query
-
+  class Entities.FstationsFeatures extends Backbone.Leaflet.GeoModel 
+    initialize: ->
+      id = @id
+    url: (id) ->
+      Routes.station_area_path(@id)
 
   class Entities.FstationsFeaturesCollection extends Backbone.Collection
-    url: "search.json"
     model: Entities.FstationsFeatures
+    url: ->
+      Routes.station_areas_path() + ".json"
     parse: (response) ->
       response.features
 
@@ -20,17 +20,18 @@
           success: ->
             cb fstations
 
-    getFstationEntity: (cb, query) ->
-      fstation = new Entities.FstationsFeaturesCollection({query: query})
+    getFstationEntity: (id) =>
+      fstation = new Entities.FstationsFeatures
+               id: id
       fstation.fetch
-        success: ->
-          cb fstations
-
+        sucsess: ->
+          cb fstation
 
   App.reqres.setHandler 'fstation:entities', (cb) ->
       API.getFstationsEntities cb
 
-  App.reqres.setHandler 'fstation:entity', (cb, query) ->
-      console.log "im inside handler definition"
-      console.log query
-      API.getFstationEntity(cb, query)
+  App.reqres.setHandler 'fstation:entity:id', (id) ->
+      console.log "im inside id-handler definition"
+      id = "#{id}"
+      console.log id
+      API.getFstationEntity(id)
