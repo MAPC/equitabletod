@@ -2,56 +2,65 @@
 
 	List.Controller =
 
-		makeMapContainer: ->
-			@layout = @getLayoutView()
-			@layout.on "show", =>
-				@showEmptyMap
-			
-		showEmptyMap: ->
-			emptyMapView = @getEmptyMapView 
-			App.mainRegion.show emptyMapView
 
-		getEmptyMapView: ->
-			new List.EmptyMap
-
-
-		listFstations: ->
-			App.request "fstation:entities", (fstations) =>
-				
-
-				@layout = @getLayoutView()
-
-				@layout.on "show", =>
-					@showEmptyMap
-					@showMap fstations
-					@showFstations fstations
-
-				App.mainRegion.show @layout
-
-		getFstationById: (id)  ->
+		getFstationById: (q) ->
 			console.log "inside Controller getFstationById"
-			console.log id
+			console.log q
+			#searchargs 
+			#searchargs = App.request 'fstation:entities'
+			urlstr = "/search.json?" + "#{q}"
+			console.log urlstr
+			responseFeature = $.ajax
+		          	url: urlstr
+		          	done: (result) =>
+		              	return result
+		    console.log responseFeature
+		 
 
-			fstation = App.request "fstation:entity:id", id
-			console.log "afetr Controller getFstationById after request"
-			console.log fstation
-			fstation.success =>
-				@layout = @getLayoutView()
+		    collection = responseFeature.complete()
+		   	collection.done =>
+				    fstations = collection.responseJSON
+				    console.log fstations
+				    features = _.values fstations.features
+				    gon.features = features
+		    		@layout = @getLayoutView() 
+		    		@layout.on 'show', =>
+		    			@showFstations gon.features
+		    			@showMap gon.features
+		    		App.mainRegion.show @layout
 
-				@layout.on "show", =>
-					@showEmptyMap
-					@showMap fstation
-					@showFstations fstation
 
-				App.mainRegion.show @layout
+		listFstations: (q) ->
+			console.log "isnide listFstations"
+			console.log q
+
+			urlstr = "/search.json?" + "#{q}"
+			console.log urlstr
+			responseFeature = $.ajax
+		          	url: urlstr
+		          	done: (result) =>
+		              	return result
+		    console.log responseFeature
+		 
+
+		    collection = responseFeature.complete()
+		   	collection.done =>
+				    fstations = collection.responseJSON
+				    console.log fstations
+				    @layout = @getLayoutView()
+				    @layout.on "show", =>
+				    	@showFstations gon.features
+				    	@showMap gon.features
+				    App.mainRegion.show @layout
 
 		showFstations: (fstations) ->
 			fstationsView = @getFstationsView fstations
 			@layout.fstationsRegion.show fstationsView
 
 		getFstationsView: (fstations) ->
+			console.log fstations
 			new List.Fstations
-				collection: fstations
+				collection: fstations.toJSON
 
 
 		showMap: (fstations) ->
@@ -62,7 +71,7 @@
 
 		getMapView: (fstations) ->
 			new List.Map
-				collection: fstations
+				collection: fstations.toJSON
 
 		getLayoutView: ->
 			new List.Layout

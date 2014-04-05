@@ -7,6 +7,12 @@
       Routes.station_area_path(@id)
 
   class Entities.FstationsFeaturesCollection extends Backbone.Collection
+    initialize: ->
+      fetch: (options, q) =>
+        @url = @url + '?' + $.param(q) if q
+        @fetch(options)
+
+
     model: Entities.FstationsFeatures
     url: ->
       Routes.station_areas_path() + ".json"
@@ -20,18 +26,22 @@
           success: ->
             cb fstations
 
-    getFstationEntity: (id) =>
-      fstation = new Entities.FstationsFeatures
+    getFstationEntity: (q) =>
+      fstations = new Entities.FstationsFeaturesCollection
+      fstations.fetch q
+          success: ->
+            cb fstations
+
+      ###fstation = new Entities.FstationsFeatures
                id: id
       fstation.fetch
         sucsess: ->
-          cb fstation
+          cb fstation###
 
   App.reqres.setHandler 'fstation:entities', (cb) ->
       API.getFstationsEntities cb
 
-  App.reqres.setHandler 'fstation:entity:id', (id) ->
+  App.reqres.setHandler 'fstation:entity:q', (q, cb) ->
       console.log "im inside id-handler definition"
-      id = "#{id}"
-      console.log id
-      API.getFstationEntity(id)
+      console.log q
+      API.getFstationEntity(q)

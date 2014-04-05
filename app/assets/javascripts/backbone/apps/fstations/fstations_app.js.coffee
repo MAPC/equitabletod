@@ -2,26 +2,25 @@
 	@startWithParent = false
 	class FstationsApp.Router extends Marionette.AppRouter
 		appRoutes:
-			"fstations" : "listFstations"
-			"fstations/:id" : "getFstation"
+			"fstations/:q" : "listFstations"
+			"fss/q/:q" : "getFstation"
 
-	App.vent.on 'get:fstation', (id) ->
-		Backbone.history.navigate "fstations/#{id}", { trigger: true }
+	App.vent.on 'get:fstation', (q) ->
+		Backbone.history.navigate "fstations/#{q}", { trigger: true }
+	App.vent.on 'list:fstations', (q) ->
+		console.log "inside list fstations trigger"
+		console.log q
 
-	API =
-		makeMapContainer: ->
-			FstationsApp.List.Controller.makeMapContainer()
+
+	API = 
+
+		getFstation: (q) ->
+			FstationsApp.List.Controller.getFstationById(q) 
 		
 		listFstations: ->
-			FstationsApp.List.Controller.listFstations() 
-
-		getFstation: (id) ->
-			FstationsApp.List.Controller.getFstationById(id) 
-
+			FstationsApp.List.Controller.listFstations()
 
 	App.addInitializer ->
 		new FstationsApp.Router
 			controller: API 
-
-	FstationsApp.on "start", ->
-    	API.makeMapContainer() 
+ 

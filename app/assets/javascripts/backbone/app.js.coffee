@@ -32,7 +32,7 @@
 
   App.vent.on "searchFired", (query)->
     console.log "im inside the app itself"
-    query = "fstations/" + query
+    query = "fss/q/" + query
     console.log query
     App.navigate query, trigger: true
 
@@ -49,9 +49,7 @@
     RegionMan.removeRegion "homeRegion"
     RegionMan.removeRegion "simpleSearchRegion"
 
-  App.vent.on "fireHomeRegion", ->
-    RegionMan.addRegions 
-      homeRegion: "#home-region"
+
 
     App.vent.on "fireGuid", ->
     App.addRegions 

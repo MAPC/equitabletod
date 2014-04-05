@@ -2,19 +2,18 @@
 
 	class List.Layout extends App.Views.Layout
 		template: "fstations/list/templates/list_layout"
-		
 		regions: 
 			mapRegion: "#map-region"
 			fstationsRegion: "#fstations-region"
+		
 
 	class List.Fstation extends App.Views.ItemView
 		template: "fstations/list/templates/_fstation"
 		tagName: "tr"
 
-	class List.Fstations extends App.Views.CompositeView
+	class List.Fstations extends App.Views.Layout
 		template: "fstations/list/templates/_fstations"
-		itemView: List.Fstation
-		itemViewContainer: "tbody"
+
 
 	class List.EmptyMap extends App.Views.Layout
 		template: "fstations/list/templates/_empty_map"
@@ -23,10 +22,13 @@
 	class List.Map extends App.Views.Layout
 		template: "fstations/list/templates/_map"
 		el: "#map"
-#		collectionEvents:
-#			"change" : "render"
+		collectionEvents:
+			"change" : "render"
 
 		onShow: ->
+			console.log "insede on show enevt list_view"
+			console.log @collection
+			console.log fstations
 			map = L.map("map",
 			  scrollWheelZoom: false
 			  touchZoom: false
@@ -46,9 +48,10 @@
 
 			searchCtrl1.addTo map
 			searchCtrl2.addTo map
+			@collection = gon.features
 			console.log @collection
 			#fstations = JSON.parse(fstations)
-			geoCollection = @collection.toJSON(cid: true)
+			geoCollection = gon.features
 			console.log geoCollection
 			###stationGeoCollection = new L.GeoJSON.AJAX(."/station_areas.json")###
 			fstations = new L.GeoJSON geoCollection,

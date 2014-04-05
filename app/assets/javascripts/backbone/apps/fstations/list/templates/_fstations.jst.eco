@@ -8,7 +8,22 @@
 					<th>eTOD Type</th>
 				</tr>
 			</thead>
-			<tbody></tbody>
+				<tbody>
+					<td>
+						<%= _.map gon.features, (key) -> %>
+							<%= "#{key.properties.name}" %>
+						<% end %>
+					</td>
+					<td>
+						<%= _.map gon.features, (key) -> %>
+							<%= "#{key.properties.muni_name}" %>
+						<% end %>
+					<td>
+						<%= _.map gon.features, (key) -> %>
+							<%= "#{key.properties.etod_type}" %>
+						<% end %>
+					</td>
+				</tbody>
 		</table>
 	</div>
 </div>

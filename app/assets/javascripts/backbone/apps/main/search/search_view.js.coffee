@@ -10,12 +10,12 @@
             #names = "#{gon.lables.names}" # this just makes a list of the names
             $(document).ready ->
               $("#searchinput1").autocomplete
-                source: gon.lables.names
+                source: gon.names.names
                 minLength: 3
               return
             $(document).ready ->
               $("#searchinput2").autocomplete
-                source: gon.munis.munis
+                source: gon.muni_names.muni_names
                 minLength: 3
               return
 
@@ -30,18 +30,14 @@
 
         inputChange: (e)=>
             urlq = "?"
-            muni_name = $('input#searchinput2').val().toLowerCase()
+            muni_name = $('input#searchinput2').val().replace(" ", "%20").toLowerCase()
             name = $('input#searchinput1').val().toLowerCase()
-            service_type = $('#selectbasic2 option:selected').val().toLowerCase()
-            station_type = $('#selectbasic3 option:selected').val().toLowerCase()
+            if service_type 
+                service_type = $('#selectbasic2 option:selected').val().toLowerCase()
+            if station_type
+                station_type = $('#selectbasic3 option:selected').val().toLowerCase()
             etod_group = $('#selectbasic4 option:selected').val().toLowerCase()
-            qury = "#{urlq}by_name=#{name}"
-            @collection.add 'muni_name': "#{muni_name}"
-            @collection.add 'name': "#{name}"
-            @collection.add 'service_type': "#{service_type}"
-            @collection.add 'station_type': "#{station_type}"
-            @collection.add 'etod_group': "#{etod_group}"
-            @collection.add 'qury': "#{qury}"
+            qury = "by_name=#{name}"
             query = "#{qury}"
             console.log(query)
             # here would be the basic validation and if passed the vent will trigger
@@ -64,7 +60,9 @@
                 if sugestion.responseJSON
                     sugestions = sugestion.responseJSON
                     features = _.values sugestions.features # this returns an array of each features obkect
-                console.log features    
+                console.log features 
+                gon.features = features
+
                 muni_names = _.map features, (key, value) ->
                     muni_names = (_.pluck key, 'muni_name')
                     muni_names[2].toLowerCase()
@@ -99,14 +97,10 @@
 
         servicTypeSelected: (e) =>
             service_type = $('#selectbasic2 option:selected').val() 
-            @collection.add 'service_type': "#{service_type}"
             console.log service_type # this logs the first service type selected and will later 
                                      # helps as a boolean value  
             #$("#selectbasic1").html("<option> will load accordingly </option>")
 
-
-        fireMap: (e) =>
-            App.vent.trigger "fireMap"
 
 
            
