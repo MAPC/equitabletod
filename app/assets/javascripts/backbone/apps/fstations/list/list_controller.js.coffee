@@ -23,12 +23,20 @@
 				    console.log fstations
 				    features = _.values fstations.features
 				    gon.features = features
-		    		@layout = @getLayoutView() 
-		    		@layout.on 'show', =>
-		    			@showFstations gon.features
-		    			@showMap gon.features
+				    console.log features.length
+				    if features.length == 1
+				    	gon.feature = gon.features
+		    			@layout = @getLayoutView() 
+		    			@layout.on 'show', =>
+		    				@showFstations gon.features
+		    				@showMap gon.features
+		    				@showChart gon.feature
+		    		else
+		    			@layout = @getLayoutView() 
+		    			@layout.on 'show', =>
+		    				@showFstations gon.features
+		    				@showMap gon.features
 		    		App.mainRegion.show @layout
-
 
 		listFstations: (q) ->
 			console.log "isnide listFstations"
@@ -51,6 +59,7 @@
 				    @layout.on "show", =>
 				    	@showFstations gon.features
 				    	@showMap gon.features
+				    	#@showChart gon.feature
 				    App.mainRegion.show @layout
 
 		showFstations: (fstations) ->
@@ -62,12 +71,17 @@
 			new List.Fstations
 				collection: fstations.toJSON
 
-
 		showMap: (fstations) ->
 			mapView = @getMapView fstations
 			@layout.mapRegion.show mapView
 
+		showChart: (fstation) ->
+			chartView = @getChartView fstation
+			@layout.chartRegion.show chartView
 
+		getChartView: (fstation) ->
+			new List.Chart
+				collection: fstation.toJSON
 
 		getMapView: (fstations) ->
 			new List.Map

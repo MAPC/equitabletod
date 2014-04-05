@@ -61,8 +61,6 @@
                     sugestions = sugestion.responseJSON
                     features = _.values sugestions.features # this returns an array of each features obkect
                 console.log features 
-                gon.features = features
-
                 muni_names = _.map features, (key, value) ->
                     muni_names = (_.pluck key, 'muni_name')
                     muni_names[2].toLowerCase()
