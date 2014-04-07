@@ -23,18 +23,19 @@
 				    console.log fstations
 				    features = _.values fstations.features
 				    gon.features = features
+				    fstationsCollection = new Backbone.Collection features
 				    console.log features.length
 				    if features.length == 1
 				    	gon.feature = gon.features
 		    			@layout = @getLayoutView() 
 		    			@layout.on 'show', =>
-		    				@showFstations gon.features
+		    				@showFstationsTable gon.features
 		    				@showMap gon.features
 		    				@showChart gon.feature
 		    		else
 		    			@layout = @getLayoutView() 
 		    			@layout.on 'show', =>
-		    				@showFstations gon.features
+		    				@showFstations fstationsCollection
 		    				@showMap gon.features
 		    		App.mainRegion.show @layout
 
@@ -62,14 +63,25 @@
 				    	#@showChart gon.feature
 				    App.mainRegion.show @layout
 
+		showFstationsTable: (fstations) ->
+			tableView = @getTableView fstations
+			@layout.fstationsRegion.show tableView
+
+		getTableView: (fstations) ->
+			console.log fstations
+			new List.Table
+				collection: fstations.toJSON
+
 		showFstations: (fstations) ->
 			fstationsView = @getFstationsView fstations
 			@layout.fstationsRegion.show fstationsView
 
 		getFstationsView: (fstations) ->
+			console.log "ikehuiuehrfueih"
+			console.log gon.features
 			console.log fstations
 			new List.Fstations
-				collection: fstations.toJSON
+				collection: fstations
 
 		showMap: (fstations) ->
 			mapView = @getMapView fstations

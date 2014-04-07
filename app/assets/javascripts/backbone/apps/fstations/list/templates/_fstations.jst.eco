@@ -1,29 +1,12 @@
 <div class="container-fluid">
 	<div class="col-md-6 col-md-offset-0 text-left">
-		<table class="table table-striped bordered-table">
+		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
-					<th>Station Name</th>
-					<th>Municipality</th>
-					<th>eTOD Type</th>
+					<th>Name</th>
 				</tr>
 			</thead>
-				<tbody>
-					<td>
-						<%= _.map gon.features, (key) -> %>
-							<%= "#{key.properties.name}" %>
-						<% end %>
-					</td>
-					<td>
-						<%= _.map gon.features, (key) -> %>
-							<%= "#{key.properties.muni_name}" %>
-						<% end %>
-					<td>
-						<%= _.map gon.features, (key) -> %>
-							<%= "#{key.properties.etod_type}" %>
-						<% end %>
-					</td>
-				</tbody>
+			<tbody></tbody>
 		</table>
 	</div>
 </div>

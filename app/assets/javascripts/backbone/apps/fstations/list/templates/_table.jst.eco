@@ -1,0 +1,6 @@
+<div class="container-fluid">
+	<div class="col-md-6 col-md-offset-0 text-left">
+		<table id="table" >
+		</table>
+	</div>
+</div>
