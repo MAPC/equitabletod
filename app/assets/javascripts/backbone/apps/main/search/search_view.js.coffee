@@ -12,32 +12,79 @@
               $("#searchinput1").autocomplete
                 source: gon.names.names
                 minLength: 3
+                select: (event, ui) ->
+                    console.log ui.item.value.toLowerCase()
+                    name = ui.item.value.toLowerCase()
+                    console.log name
+                    urlstr = "/search.json?by_name=" + "#{name}"
+                    console.log urlstr
+                    sugestion = $.ajax
+                        url: urlstr
+                        success: (result) ->
+                            return result
+                    sugestion.done =>
+                        console.log sugestion
+                        if sugestion.responseJSON
+                            sugestions = sugestion.responseJSON
+                            features = _.values sugestions.features # this returns an array of each features obkect
+                            console.log features 
+                            muni_names = _.map features, (key, value) -> key.properties.muni_name.toLowerCase()
+                            event.view.gon.sugestion.muni_names = muni_names
+                            console.log event.view.gon
               return
             $(document).ready ->
               $("#searchinput2").autocomplete
                 source: gon.muni_names.muni_names
                 minLength: 3
+                select: (event, ui) ->
+                    console.log event.view.gon
+                    console.log ui.item.value.toLowerCase()
+                    
               return
-
+            $(document).ready ->
+              $("#accordion").accordion
+              return
 
         events: 
             'change #selectbasic2' : 'servicTypeSelected'
             'click #searchbuttom': 'inputChange'
             'click #resetbuttom':  'resetFormArgs' 
             'click #mapClick': 'fireMap'   
+            'select #searchinput1': 'nameSelected'
             'change #searchinput1': 'nameSelected'
-            'change #searchinput2': 'muniNameSelected'
+            #'change #searchinput2': 'muniNameSelected'
 
         inputChange: (e)=>
             urlq = "?"
-            muni_name = $('input#searchinput2').val().replace(" ", "%20").toLowerCase()
-            name = $('input#searchinput1').val().toLowerCase()
+            muni_name = $('input#searchinput2').val().replace(" ", "%20").toLowerCase() if $('input#searchinput2').val()
+            name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
+            if muni_name is undefined
+                console.log "empty muni name selected"
+            else
+                name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
+                console.log "muni name is not empty and is:"
+                console.log muni_name
+                qury = "by_muni_name=#{muni_name}"
+                console.log qury
+            if name is undefined
+                console.log "empty nameSelected"
+                if muni_name is undefined
+                    console.log "empty nameSelected"
+                    console.log "empty muni name selected"
+                    qury = "by_name="
+                else
+                    qury = "by_muni_name=#{muni_name}"
+            else
+                qury = qury + "&by_name=#{name}"
+                console.log qury
+            service_type = $('#selectbasic2 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic2 option:selected').val()
             if service_type 
-                service_type = $('#selectbasic2 option:selected').val().toLowerCase()
+                console.log "service type:"
+                console.log service_type
+                qury = qury + "&by_type=#{service_type}"
             if station_type
-                station_type = $('#selectbasic3 option:selected').val().toLowerCase()
-            etod_group = $('#selectbasic4 option:selected').val().toLowerCase()
-            qury = "by_name=#{name}"
+                station_type = $('#selectbasic3 option:selected').val().replace(" ", "%20").toLowerCase()
+            etod_group = $('#selectbasic4 option:selected').val().replace(" ", "%20").toLowerCase()
             query = "#{qury}"
             console.log(query)
             # here would be the basic validation and if passed the vent will trigger
@@ -45,7 +92,7 @@
             #App.vent.trigger "search:term", query
             #App.request "fstation:entity" (query)
         
-        nameSelected: (e) =>
+        nameSelected: (e, ui) =>
             console.log "inside name sekected"
             name = $('input#searchinput1').val()
             console.log name 
@@ -61,6 +108,10 @@
                     sugestions = sugestion.responseJSON
                     features = _.values sugestions.features # this returns an array of each features obkect
                 console.log features 
+                muni_names = _.map features, (key, value) -> key.properties.muni_name.toLowerCase()
+                console.log muni_names
+                #console.log "#{suggestionsCollection.models}"
+                #if features.length == 1
                 muni_names = _.map features, (key, value) ->
                     muni_names = (_.pluck key, 'muni_name')
                     muni_names[2].toLowerCase()

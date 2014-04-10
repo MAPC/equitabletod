@@ -6,7 +6,19 @@
 			mapRegion: "#map-region"
 			fstationsRegion: "#fstations-region"
 			chartRegion: "#chart-region"
-		
+	
+	class List.Detstation extends App.Views.ItemView
+		template: "fstations/list/templates/_detstation"
+		tagName: "tr"
+		onShow: ->
+			$("#accordion").accordion header: "hm3", active: "", heightStyle: "content", collapsible: true
+			return
+
+	class List.Detstations extends App.Views.CollectionView
+		template: "fstations/list/templates/_detstations"
+		itemView: List.Detstation
+		itemViewContainer: "tbody"
+
 
 	class List.Fstation extends App.Views.ItemView
 		template: "fstations/list/templates/_fstation"
@@ -79,6 +91,7 @@
 				  {
 				    name: stationfeature.properties.name.toLowerCase()
 				    municipality: stationfeature.properties.muni_name.toLowerCase()
+				    vMT: stationfeature.properties.ov_vmthday
 				  }
 				]
 			else
@@ -108,6 +121,7 @@
 			stationsTable = tabulate(station, [
 			  "name"
 			  "municipality"
+			  "vMT"
 			])
 
 			# uppercase the column headers
@@ -133,8 +147,8 @@
 			console.log stationfeature.properties.etod_sub1t
 			console.log _.values gon.feature.properties
 			console.log _.keys gon.feature
-			w = 300
-			h = 300
+			w = 200
+			h = 200
 			colorscale = d3.scale.category10()
 
 			#Legend titles
@@ -217,7 +231,7 @@
 			  doubleClickZoom: true
 			  zoomControl: true
 			  dragging: true
-			  maxZoom: 16
+			  maxZoom: 18
 			)
 			map.setView [
 			  42.31
@@ -226,6 +240,17 @@
 			cloudmade = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
 			  attribution: "Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade"
 			).addTo(map)
+			LeafIcon = L.Icon.extend(options:
+			  	iconSize: [
+			    	15
+			    	15
+			  	]
+			  	popupAnchor: [
+			    	-3
+			    	-76
+			  	]
+				)
+			stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
 			searchCtrl1 = L.control.fuseSearch()
 			searchCtrl2 = L.control.fuseSearch()
 
@@ -241,7 +266,7 @@
 				style: (feature) ->
 					feature.properties and feature.properties.style
 				pointToLayer: (feature, latlng) ->
-				    L.circle latlng, 200,
+				    L.circle latlng, 250,
 				      fillColor: "#FFFFFF"
 				      color: "#000"
 				      weight: 1
@@ -254,6 +279,12 @@
 					not (feature.properties and feature.properties.isHidden)
 
 			map.addLayer(fstations)
+			fstation = new L.GeoJSON geoCollection,
+				style: (feature) ->
+					feature.properties and feature.properties.style
+				pointToLayer: (feature, latlng) ->
+				    L.marker latlng, icon: stationIcon
+			map.addLayer(fstation)
 			console.log map.getBounds()
 			bbox = fstations.getBounds().toBBoxString()
 			console.log bbox

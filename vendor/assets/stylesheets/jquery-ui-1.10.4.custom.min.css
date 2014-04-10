@@ -86,6 +86,34 @@
 	width: 100%;
 	height: 100%;
 }
+.ui-accordion .ui-accordion-header {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin-top: 2px;
+	padding: .5em .5em .5em .7em;
+	min-height: 0; /* support: IE7 */
+}
+.ui-accordion .ui-accordion-icons {
+	padding-left: 2.2em;
+}
+.ui-accordion .ui-accordion-noicons {
+	padding-left: .7em;
+}
+.ui-accordion .ui-accordion-icons .ui-accordion-icons {
+	padding-left: 2.2em;
+}
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+	position: absolute;
+	left: .5em;
+	top: 50%;
+	margin-top: -8px;
+}
+.ui-accordion .ui-accordion-content {
+	padding: 1em 2.2em;
+	border-top: 0;
+	overflow: auto;
+}
 .ui-resizable {
 	position: relative;
 }
@@ -783,11 +811,9 @@ body .ui-tooltip {
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-family: Helvetica,Arial,sans-serif;
-	font-size: 0.6em;
 }
 .ui-widget .ui-widget {
-	font-size: 0.6em;
+	font-size: 1em;
 }
 .ui-widget input,
 .ui-widget select,
@@ -797,16 +823,16 @@ body .ui-tooltip {
 	font-size: 0.6em;
 }
 .ui-widget-content {
-	border: 1px solid #e0cfc2;
-	background: #f4f0ec url(images/ui-bg_inset-soft_100_f4f0ec_1x100.png) 50% bottom repeat-x;
-	color: #1e1b1d;
+	border: 1px solid #FFFFFF;
+	background: #FFFFFF url(images/ui-bg_inset-soft_100_f4f0ec_1x100.png) 50% bottom repeat-x;
+	color: #FFFFFF;
 }
 .ui-widget-content a {
-	color: #1e1b1d;
+	color: #FFFFFF;
 }
 .ui-widget-header {
 	border: 1px solid #d49768;
-	background: #cb842e url(images/ui-bg_glass_25_cb842e_1x400.png) 50% 50% repeat-x;
+	background: #FFFFFF url(images/ui-bg_glass_25_cb842e_1x400.png) 50% 50% repeat-x;
 	color: #ffffff;
 	font-weight: bold;
 }
@@ -819,15 +845,15 @@ body .ui-tooltip {
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	border: 1px solid #cdc3b7;
-	background: #ede4d4 url(images/ui-bg_glass_70_ede4d4_1x400.png) 50% 50% repeat-x;
+	border: 1px solid #FFFFFF;
+	background: #FFFFFF url(images/ui-bg_glass_70_ede4d4_1x400.png) 50% 50% repeat-x;
 	font-weight: normal;
-	color: #3f3731;
+	color: #000000;
 }
 .ui-state-default a,
 .ui-state-default a:link,
 .ui-state-default a:visited {
-	color: #3f3731;
+	color: #000000;
 	text-decoration: none;
 }
 .ui-state-hover,
@@ -836,10 +862,10 @@ body .ui-tooltip {
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border: 1px solid #f5ad66;
-	background: #f5f0e5 url(images/ui-bg_glass_100_f5f0e5_1x400.png) 50% 50% repeat-x;
+	border: 1px solid #FFFFFF;
+	background: #FFFFFF url(images/ui-bg_glass_100_f5f0e5_1x400.png) 50% 50% repeat-x;
 	font-weight: normal;
-	color: #a46313;
+	color: #000000;
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,
@@ -855,15 +881,15 @@ body .ui-tooltip {
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #e0cfc2;
-	background: #f4f0ec url(images/ui-bg_highlight-hard_100_f4f0ec_1x100.png) 50% 50% repeat-x;
+	border: 1px solid #FFFFFF;
+	background: #FFFFFF url(images/ui-bg_highlight-hard_100_f4f0ec_1x100.png) 50% 50% repeat-x;
 	font-weight: normal;
-	color: #b85700;
+	color: #000000;
 }
 .ui-state-active a,
 .ui-state-active a:link,
 .ui-state-active a:visited {
-	color: #b85700;
+	color: #FFFFFF;
 	text-decoration: none;
 }
 

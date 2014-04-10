@@ -29,7 +29,8 @@
 				    	gon.feature = gon.features
 		    			@layout = @getLayoutView() 
 		    			@layout.on 'show', =>
-		    				@showFstationsTable gon.features
+		    				@showDetstations fstationsCollection
+		    				#@showFstationsTable gon.features
 		    				@showMap gon.features
 		    				@showChart gon.feature
 		    		else
@@ -71,6 +72,18 @@
 			console.log fstations
 			new List.Table
 				collection: fstations.toJSON
+
+		showDetstations: (fstations) ->
+			detstationsView = @getDetstationsView fstations
+			@layout.fstationsRegion.show detstationsView
+
+		getDetstationsView: (fstations) ->
+			console.log "ikehuiuehrfueih"
+			console.log gon.features
+			console.log fstations
+			new List.Detstations
+				collection: fstations
+
 
 		showFstations: (fstations) ->
 			fstationsView = @getFstationsView fstations

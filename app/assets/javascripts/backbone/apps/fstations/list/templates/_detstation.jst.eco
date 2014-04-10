@@ -1,0 +1,71 @@
+<td>
+	<div id="accordion">
+		<hm3>Station Name: <%= "#{@properties.name}" %></hm3>
+			<div>
+				<p class="hm2">
+					Municipality: <%= "#{@properties.muni_name}" %>
+				</p>
+			</div>
+		<hm3>
+			Vehicle Miles Traveled (VMT): <%= "#{@properties.ov_vmthday}" %>
+			<br>
+			Transit Commuter Share: <%= "#{@properties.ov_pcttran}" %>
+		</hm3>
+			<div>
+				<p class="hm2">
+					Vehicle Ownership: <%= "#{@properties.ov_vehphh}" %>
+				<br>
+					Transit Share of Commuting miles: <%= "#{@properties.ov_trnpcmi}" %>
+				<br>
+					Greenhouse Gas Emissions (GHGs) from transportation: <%= "#{@properties.ov_ghg}" %>
+				</p>
+			</div>
+		<hm3>Floor Area Ratio (FAR): <%= "#{@properties.ov_far}" %></hm3>
+				<p></p>
+		<hm3>Surface Parking (acre): <%= "#{@properties.ov_prkac}" %></hm3>
+			<div>
+				<p class="hm2">
+					Current Development Intensity: <%= "#{@properties.ov_intntot}" %>
+				<br>
+					Current Development Mix: <%= "#{@properties.ov_mix}" %>
+				<br>
+					Net Residential Density: <%= "#{@properties.ov_hupac}" %>
+				<br>
+					Net employment Density: <%= "#{@properties.ov_empden}" %>
+				<br>
+					Underutilized Land: 
+				<br>
+					Zoning: 
+				<br>
+					Walkscore: <%= "#{@properties.walkscore}" %>
+				<br>
+					Residential Pipeline: <%= "#{@properties.ov_hucons + @properties.ov_huplan}" %>
+				<br>
+					Commercial Pipeline: <%= "#{@properties.ov_empcons + @properties.ov_empplan}" %>
+				</p>
+			</div>
+		<hm3>Number of Employees: <%= "#{@properties.ov_emp10}" %>
+			<br>
+			Tax Revenue ($): <%= "#{@properties.ex_taxrev}" %></hm3>
+			<div>
+				<p class="hm2">
+					Number of Establishments: <%= "#{@properties.ov_est_10}" %>
+				<br>
+					Assessed Value ($): <%= "#{@properties.ov_aval}" %>
+				</p>
+			</div>
+		<hm3>Number of Households: <%= "#{@properties.ov_hh10}" %>
+			<br>
+			Household Median Income ($): <%= "#{@properties.ov_hhinc}" %></hm3>
+			<div>
+				<p class="hm2">
+					Tenure: <%= "#{@properties.ov_rentocc}" %>
+				<br>
+					Zero-Car Households: <%= "#{@properties.ov_hhnocar}" %>
+				<br>
+					Educational Attainment: <%= "#{@properties.ov_ed_att}" %>
+				</p>
+			</div>
+	</div>
+</td>
+	
