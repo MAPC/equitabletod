@@ -11,8 +11,11 @@
 		template: "fstations/list/templates/_detstation"
 		tagName: "tr"
 		onShow: ->
+			$("[rel=tooltip]").tooltip placement: "left"
+			$("[rel=tooltip]").tooltip track: true
 			$("#accordion").accordion header: "hm3", active: "", heightStyle: "content", collapsible: true
-			return
+			$(".inlinesparkline").sparkline 'html', type: "box", showOutliers: false		
+			return	 
 
 	class List.Detstations extends App.Views.CollectionView
 		template: "fstations/list/templates/_detstations"

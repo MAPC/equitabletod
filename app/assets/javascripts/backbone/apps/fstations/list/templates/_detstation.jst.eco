@@ -1,69 +1,84 @@
 <td>
 	<div id="accordion">
-		<hm3>Station Name: <%= "#{@properties.name}" %></hm3>
+		<hm3><strong>Station Name: </strong><%= "#{@properties.name}" %></hm3>
 			<div>
 				<p class="hm2">
-					Municipality: <%= "#{@properties.muni_name}" %>
+					<strong>Municipality: </strong><%= "#{@properties.muni_name}" %>
 				</p>
 			</div>
 		<hm3>
-			Vehicle Miles Traveled (VMT): <%= "#{@properties.ov_vmthday}" %>
-			<br>
-			Transit Commuter Share: <%= "#{@properties.ov_pcttran}" %>
+			<a href="#" rel="tooltip" title="Transformation Performance">
+				<strong>Vehicle Miles Traveled (VMT): </strong><%= "#{@properties.ov_vmthday.toFixed 2}" %>
+				<br>
+				<strong>Transit Commuter Share: </strong><%= "#{@properties.ov_pcttran.toFixed 2}" %>
+			</a>
 		</hm3>
 			<div>
 				<p class="hm2">
-					Vehicle Ownership: <%= "#{@properties.ov_vehphh}" %>
+					<strong>Vehicle Ownership: </strong><%= "#{@properties.ov_vehphh.toFixed 2}" %>
 				<br>
-					Transit Share of Commuting miles: <%= "#{@properties.ov_trnpcmi}" %>
+					<strong>Transit Share of Commuting miles: </strong><%= "#{@properties.ov_trnpcmi}" %>
 				<br>
-					Greenhouse Gas Emissions (GHGs) from transportation: <%= "#{@properties.ov_ghg}" %>
+					<strong>Greenhouse Gas Emissions (GHGs) from transportation: </strong><%= "#{@properties.ov_ghg.toFixed 2}" %>
 				</p>
 			</div>
-		<hm3>Floor Area Ratio (FAR): <%= "#{@properties.ov_far}" %></hm3>
-				<p></p>
-		<hm3>Surface Parking (acre): <%= "#{@properties.ov_prkac}" %></hm3>
+		<hm3>
+			<a href="#" rel="tooltip" title="Development Context">
+				<strong>Floor Area Ratio (FAR): </strong><%= "#{@properties.ov_far.toFixed 2}" %>
+				<span class="inlinesparkline"> 1,4,4,7,5,9,10</span>
+				<br>
+				<strong>Surface Parking (acre): </strong><%= "#{@properties.ov_prkac.toFixed 2}" %>
+			</a>
+		</hm3>
 			<div>
 				<p class="hm2">
-					Current Development Intensity: <%= "#{@properties.ov_intntot}" %>
+					<strong>Current Development Intensity: </strong><%= "#{@properties.ov_intntot.toFixed 2}" %>
 				<br>
-					Current Development Mix: <%= "#{@properties.ov_mix}" %>
+					<strong>Current Development Mix: </strong><%= "#{@properties.ov_mix.toFixed 2}" %>
 				<br>
-					Net Residential Density: <%= "#{@properties.ov_hupac}" %>
+					<strong>Net Residential Density: </strong><%= "#{@properties.ov_hupac.toFixed 2}" %>
 				<br>
-					Net employment Density: <%= "#{@properties.ov_empden}" %>
+					<strong>Net employment Density: </strong><%= "#{@properties.ov_empden.toFixed 2}" %>
 				<br>
-					Underutilized Land: 
+					<strong>Underutilized Land: </strong>
 				<br>
-					Zoning: 
+					<strong>Zoning: </strong>
 				<br>
-					Walkscore: <%= "#{@properties.walkscore}" %>
+					<strong>Walkscore: </strong><%= "#{@properties.walkscore.toFixed 2}" %>
 				<br>
-					Residential Pipeline: <%= "#{@properties.ov_hucons + @properties.ov_huplan}" %>
+					<strong>Residential Pipeline: </strong><%= "#{@properties.ov_hucons + @properties.ov_huplan}" %>
 				<br>
-					Commercial Pipeline: <%= "#{@properties.ov_empcons + @properties.ov_empplan}" %>
+					<strong>Commercial Pipeline: </strong><%= "#{@properties.ov_empcons + @properties.ov_empplan}" %>
 				</p>
 			</div>
-		<hm3>Number of Employees: <%= "#{@properties.ov_emp10}" %>
-			<br>
-			Tax Revenue ($): <%= "#{@properties.ex_taxrev}" %></hm3>
+		<hm3>
+			<a href="#" rel="tooltip" title="Economics">
+				<strong>Number of Employees: </strong><%= "#{@properties.ov_emp10}" %>
+				<br>
+				<strong>Tax Revenue ($): </strong><%= "#{@properties.ex_taxrev.toFixed 0}" %>
+			</a>
+		</hm3>
 			<div>
 				<p class="hm2">
-					Number of Establishments: <%= "#{@properties.ov_est_10}" %>
+					<strong>Number of Establishments: </strong><%= "#{@properties.ov_est_10}" %>
 				<br>
-					Assessed Value ($): <%= "#{@properties.ov_aval}" %>
+					<strong>Assessed Value ($): </strong><%= "#{@properties.ov_aval.toFixed 0}" %>
 				</p>
 			</div>
-		<hm3>Number of Households: <%= "#{@properties.ov_hh10}" %>
-			<br>
-			Household Median Income ($): <%= "#{@properties.ov_hhinc}" %></hm3>
+		<hm3>
+			<a href="#" rel="tooltip" title="Demographics">
+				<strong>Number of Households: </strong><%= "#{@properties.ov_hh10}" %>
+				<br>
+				<strong>Household Median Income ($): </strong><%= "#{@properties.ov_hhinc}" %>
+			</a>
+		</hm3>
 			<div>
 				<p class="hm2">
-					Tenure: <%= "#{@properties.ov_rentocc}" %>
+					<strong>Tenure: </strong><%= "#{@properties.ov_rentocc.toFixed 2}" %>
 				<br>
-					Zero-Car Households: <%= "#{@properties.ov_hhnocar}" %>
+					<strong>Zero-Car Households: </strong><%= "#{@properties.ov_hhnocar.toFixed 2}" %>
 				<br>
-					Educational Attainment: <%= "#{@properties.ov_ed_att}" %>
+					<strong>Educational Attainment: </strong><%= "#{@properties.ov_ed_att.toFixed 2}" %>
 				</p>
 			</div>
 	</div>

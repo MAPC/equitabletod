@@ -875,7 +875,6 @@ body .ui-tooltip {
 .ui-state-focus a:hover,
 .ui-state-focus a:link,
 .ui-state-focus a:visited {
-	color: #a46313;
 	text-decoration: none;
 }
 .ui-state-active,
@@ -889,7 +888,6 @@ body .ui-tooltip {
 .ui-state-active a,
 .ui-state-active a:link,
 .ui-state-active a:visited {
-	color: #FFFFFF;
 	text-decoration: none;
 }
 

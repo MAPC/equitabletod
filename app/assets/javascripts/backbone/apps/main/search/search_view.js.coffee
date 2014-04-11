@@ -9,6 +9,8 @@
         templateHelpers:->
             #names = "#{gon.lables.names}" # this just makes a list of the names
             $(document).ready ->
+              $("[rel=tooltip]").tooltip placement: "top"
+              $(".selectpicker").selectpicker()
               $("#searchinput1").autocomplete
                 source: gon.names.names
                 minLength: 3
