@@ -11,10 +11,35 @@
 		template: "fstations/list/templates/_detstation"
 		tagName: "tr"
 		onShow: ->
+			allfeaturesResponse = $.ajax
+                	url: "/search.json?by_name="
+                	done: (result) =>
+                    	return result
+            allfeature = allfeaturesResponse.complete()
+            allfeature.done =>
+                allfeatures = allfeature.responseJSON
+                features = _.values allfeatures.features # this returns an array of each features obkect
+                console.log features 
+                fars = _.map features, (key, value) -> key.properties.ov_far.toFixed 2
+                farmax = _.max features, (key, value) -> key.properties.ov_far.toFixed 4
+                farmin = _.min features, (key, value) -> key.properties.ov_far.toFixed 4
+                console.log fars
+                console.log farmax
+                console.log farmin
+                #console.log "#{suggestionsCollection.models}"
+                #if features.length == 1
+                gon.farmin = farmin
+                gon.farmax = farmax
+                gon.fars = fars
+                console.log gon.fars
+                values = gon.fars
+                $(".inlinesparkline").sparkline values, type: "box", showOutliers: false, tooltipFormatFieldlist: ['med', 'lq', 'uq'], tooltipFormatFieldlistKey: 'field'		
+
+
 			$("[rel=tooltip]").tooltip placement: "left"
+			$("[rel=tooltipd]").tooltip placement: "right"
 			$("[rel=tooltip]").tooltip track: true
 			$("#accordion").accordion header: "hm3", active: "", heightStyle: "content", collapsible: true
-			$(".inlinesparkline").sparkline 'html', type: "box", showOutliers: false		
 			return	 
 
 	class List.Detstations extends App.Views.CollectionView

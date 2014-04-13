@@ -15,8 +15,6 @@
 		          	done: (result) =>
 		              	return result
 		    console.log responseFeature
-		 
-
 		    collection = responseFeature.complete()
 		   	collection.done =>
 				    fstations = collection.responseJSON

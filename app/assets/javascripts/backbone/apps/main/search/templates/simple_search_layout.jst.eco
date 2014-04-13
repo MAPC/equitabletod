@@ -125,12 +125,3 @@
 
   </div>
 </div> 
-    
-
-
-
-<script type="text/javascript">
-      $("[rel=tooltip]").tooltip({ placement: 'top'});
-      $('.selectpicker').selectpicker();
-      
-</script>
