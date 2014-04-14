@@ -32,6 +32,8 @@
 		    				@showMap gon.features
 		    				@showChart gon.feature
 		    		else
+		    			console.log "number of search results: "
+		    			console.log features.length
 		    			@layout = @getLayoutView() 
 		    			@layout.on 'show', =>
 		    				@showFstations fstationsCollection

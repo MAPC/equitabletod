@@ -334,18 +334,18 @@
                 whiskerColor: '#000',
                 outlierLineColor: '#333',
                 outlierFillColor: '#fff',
-                medianColor: '#f00',
+                medianColor: '#aa56ff',
                 showOutliers: true,
                 outlierIQR: 1.5,
                 spotRadius: 1.5,
                 target: undefined,
-                targetColor: '#4a2',
+                targetColor: '#bf0000',
                 chartRangeMax: undefined,
                 chartRangeMin: undefined,
                 tooltipFormat: new SPFormat('{{field:fields}}: {{value}}'),
                 tooltipFormatFieldlistKey: 'field',
-                tooltipValueLookups: { fields: { lq: 'Lower Quartile', med: 'Median',
-                    uq: 'Upper Quartile', lo: 'Left Outlier', ro: 'Right Outlier',
+                tooltipValueLookups: { fields: { tg: 'target value', lq: '25th percentile', med: 'Median',
+                    uq: '75th percentile', lo: 'Left Outlier', ro: 'Right Outlier',
                     lw: 'Left Whisker', rw: 'Right Whisker'} }
             }
         };
@@ -365,13 +365,13 @@
             'font: 10px arial, san serif;' +
             'text-align: left;' +
             'white-space: nowrap;' +
-            'padding: 5px;' +
+            'padding: 0px;' +
             'border: 1px solid white;' +
             'z-index: 10000;' +
             '}' +
             '.jqsfield { ' +
             'color: white;' +
-            'font: 10px arial, san serif;' +
+            'font: 12px arial, san serif;' +
             'text-align: left;' +
             '}';
 

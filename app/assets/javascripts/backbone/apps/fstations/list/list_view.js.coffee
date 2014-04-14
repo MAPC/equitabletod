@@ -21,20 +21,193 @@
                 features = _.values allfeatures.features # this returns an array of each features obkect
                 console.log features 
                 fars = _.map features, (key, value) -> key.properties.ov_far.toFixed 2
+                vmts = _.map features, (key, value) -> key.properties.ov_vmthday.toFixed 2
+                pcttrans = _.map features, (key, value) -> key.properties.ov_pcttran.toFixed 2
+                vehphhs = _.map features, (key, value) -> key.properties.ov_vehphh.toFixed 4
+                prkacs = _.map features, (key, value) -> key.properties.ov_prkac.toFixed 2
+                emp10s = _.map features, (key, value) -> key.properties.ov_emp10.toFixed 2
+                extaxrevs = _.map features, (key, value) -> key.properties.ex_taxrev.toFixed 0
+                hh10s = _.map features, (key, value) -> key.properties.ov_hh10.toFixed 0
+                hhincs = _.map features, (key, value) -> key.properties.ov_hhinc.toFixed 0
+                
+                vmtmax = _.max features, (key, value) -> key.properties.ov_vmthday.toFixed 4
+                vmtmin = _.min features, (key, value) -> key.properties.ov_vmthday.toFixed 4
+                pcttranmax = _.max features, (key, value) -> key.properties.ov_pcttran.toFixed 4
+                pcttranmin = _.min features, (key, value) -> key.properties.ov_pcttran.toFixed 4
+                vehphhmax = _.max features, (key, value) -> key.properties.ov_vehphh.toFixed 4
+                vehphhmin = _.min features, (key, value) -> key.properties.ov_vehphh.toFixed 4
+                #trnpcmimax = _.max features, (key, value) -> key.properties.ov_trnpcmi.toFixed 4
+                #trnpcmimin = _.min features, (key, value) -> key.properties.ov_trnpcmi.toFixed 4
+                ghgmax = _.max features, (key, value) -> key.properties.ov_ghg.toFixed 4
+                ghgmin = _.min features, (key, value) -> key.properties.ov_ghg.toFixed 4
                 farmax = _.max features, (key, value) -> key.properties.ov_far.toFixed 4
                 farmin = _.min features, (key, value) -> key.properties.ov_far.toFixed 4
-                console.log fars
-                console.log farmax
+                prkacmax = _.max features, (key, value) -> key.properties.ov_prkac.toFixed 4
+                prkacmin = _.min features, (key, value) -> key.properties.ov_prkac.toFixed 4
+                intntotmax = _.max features, (key, value) -> key.properties.ov_intntot.toFixed 4
+                intntotmin = _.min features, (key, value) -> key.properties.ov_intntot.toFixed 4
+                mixmax = _.max features, (key, value) -> key.properties.ov_mix.toFixed 4
+                mixmin = _.min features, (key, value) -> key.properties.ov_mix.toFixed 4
+                hupacmax = _.max features, (key, value) -> key.properties.ov_hupac.toFixed 4
+                hupacmin = _.min features, (key, value) -> key.properties.ov_hupac.toFixed 4
+                empdenmax = _.max features, (key, value) -> key.properties.ov_empden.toFixed 4
+                empdenmin = _.min features, (key, value) -> key.properties.ov_empden.toFixed 4
+                walkscoremax = _.max features, (key, value) -> key.properties.walkscore.toFixed 4
+                walkscoremin = _.min features, (key, value) -> key.properties.walkscore.toFixed 4
+                #huconsmax = _.max features, (key, value) -> key.properties.ov_hucons.toFixed 4
+                #huconsmin = _.min features, (key, value) -> key.properties.ov_hucons.toFixed 4
+                #empconsmax = _.max features, (key, value) -> key.properties.ov_empcons.toFixed 4
+                #empconsmin = _.min features, (key, value) -> key.properties.ov_empcons.toFixed 4
+                emp10max = _.max features, (key, value) -> key.properties.ov_emp10.toFixed 4
+                emp10min = _.min features, (key, value) -> key.properties.ov_emp10.toFixed 4
+                extaxrevmax = _.max features, (key, value) -> key.properties.ex_taxrev.toFixed 4
+                extaxrevmin = _.min features, (key, value) -> key.properties.ex_taxrev.toFixed 4
+                est10max = _.max features, (key, value) -> key.properties.ov_est_10.toFixed 4
+                est10min = _.min features, (key, value) -> key.properties.ov_est_10.toFixed 4
+                avalmax = _.max features, (key, value) -> key.properties.ov_aval.toFixed 4
+                avalmin = _.min features, (key, value) -> key.properties.ov_aval.toFixed 4
+                hh10max = _.max features, (key, value) -> key.properties.ov_hh10.toFixed 4
+                hh10min = _.min features, (key, value) -> key.properties.ov_hh10.toFixed 4
+                hhincmax = _.max features, (key, value) -> key.properties.ov_hhinc.toFixed 4
+                hhincmin = _.min features, (key, value) -> key.properties.ov_hhinc.toFixed 4
+                rentoccmax = _.max features, (key, value) -> key.properties.ov_rentocc.toFixed 4
+                rentoccmin = _.min features, (key, value) -> key.properties.ov_rentocc.toFixed 4
+                hhnocarmax = _.max features, (key, value) -> key.properties.ov_hhnocar.toFixed 4
+                hhnocarmin = _.min features, (key, value) -> key.properties.ov_hhnocar.toFixed 4
+                edattmax = _.max features, (key, value) -> key.properties.ov_ed_att.toFixed 4
+                edattmin = _.min features, (key, value) -> key.properties.ov_ed_att.toFixed 4
+                
+                console.log @model
+                console.log gon.feature["0"].properties.ov_far.toFixed 4
                 console.log farmin
+                console.log vmtmax
+                console.log vmtmin
+                console.log pcttranmax
+                console.log pcttranmin
+                console.log vehphhmax
+                console.log vehphhmin
+                #console.log trnpcmimax
+                #console.log trnpcmimin
+                console.log ghgmax
+                console.log ghgmin
+                console.log fars
+                console.log prkacmax
+                console.log prkacmin
+                console.log intntotmax
+                console.log intntotmin
+                console.log mixmax
+                console.log mixmin
+                console.log hupacmax
+                console.log hupacmin
+                console.log empdenmax
+                console.log empdenmin
+                console.log walkscoremax
+                console.log walkscoremin
+                #console.log huconsmax
+                #console.log huconsmin
+                #console.log empconsmax
+                #console.log empconsmin
+                console.log emp10max
+                console.log emp10min
+                console.log extaxrevmax
+                console.log extaxrevmin
+                console.log est10max
+                console.log est10min
+                console.log avalmax
+                console.log avalmin
+                console.log hh10max
+                console.log hh10min
+                console.log hhincmax
+                console.log hhincmin
+                console.log rentoccmax
+                console.log rentoccmin
+                console.log hhnocarmax
+                console.log hhnocarmin
+                console.log edattmax
+                console.log edattmin
+
+                console.log farmax
                 #console.log "#{suggestionsCollection.models}"
                 #if features.length == 1
-                gon.farmin = farmin
+                
+                gon.vmtmax = vmtmax
+                gon.vmtmin = vmtmin
+                gon.pcttranmax = pcttranmax
+                gon.pcttranmin = pcttranmin
+                gon.vehphhmax = vehphhmax
+                gon.vehphhmin = vehphhmin
+                #gon.trnpcmimax = trnpcmimax
+                #gon.trnpcmimin = trnpcmimin
+                gon.ghgmax = ghgmax
+                gon.ghgmin = ghgmin
                 gon.farmax = farmax
+                gon.farmin = farmin
+                gon.prkacmax = prkacmax
+                gon.prkacmin = prkacmin 
+                gon.intntotmax = intntotmax
+                gon.intntotmin = intntotmin
+                gon.mixmax = mixmax
+                gon.mixmin = mixmin
+                gon.hupacmax = hupacmax
+                gon.hupacmin = hupacmin
+                gon.empdenmax = empdenmax
+                gon.empdenmin = empdenmin
+                gon.walkscoremax = walkscoremax
+                gon.walkscoremin = walkscoremin
+                #gon.huconsmax = huconsmax
+                #gon.huconsmin = huconsmin
+                #gon.empconsmax = empconsmax
+                #gon.empconsmin = empconsmin
+                gon.emp10max = emp10max
+                gon.emp10min = emp10min
+                gon.extaxrevmax = extaxrevmax
+                gon.extaxrevmin = extaxrevmin
+                gon.est10max = est10max
+                gon.est10min = est10min
+                gon.avalmax = avalmax
+                gon.avalmin = avalmin
+                gon.hh10max = hh10max
+                gon.hh10min = hh10min
+                gon.hhincmax = hhincmax
+                gon.hhincmin = hhincmin
+                gon.rentoccmax = rentoccmax
+                gon.rentoccmin = rentoccmin
+                gon.hhnocarmax = hhnocarmax
+                gon.hhnocarmin = hhnocarmin
+                gon.edattmax = edattmax
+                gon.edattmin = edattmin
+                
+                gon.vmts = vmts
                 gon.fars = fars
+                gon.pcttrans = pcttrans
+                gon.vehphhs = vehphhs
+                gon.prkacs = prkacs
+                gon.emp10s = emp10s
+                gon.extaxrevs = extaxrevs
+                gon.hh10s = hh10s
+                gon.hhincs = hhincs
                 console.log gon.fars
-                values = gon.fars
-                $(".inlinesparkline").sparkline values, type: "box", showOutliers: false, tooltipFormatFieldlist: ['med', 'lq', 'uq'], tooltipFormatFieldlistKey: 'field'		
-
+                console.log gon.vmts
+                #values = gon.fars
+                fvmt = gon.feature["0"].properties.ov_vmthday.toFixed 4
+                ffar = gon.feature["0"].properties.ov_far.toFixed 4
+                fpcttran = gon.feature["0"].properties.ov_pcttran.toFixed 4
+                femp10 = gon.feature["0"].properties.ov_emp10.toFixed 4
+                fvehphh = gon.feature["0"].properties.ov_vehphh.toFixed 4
+                fprkac = gon.feature["0"].properties.ov_prkac.toFixed 4
+                fextaxrev = gon.feature["0"].properties.ex_taxrev.toFixed 4
+                fhh10 = gon.feature["0"].properties.ov_hh10.toFixed 4
+                fhhinc = gon.feature["0"].properties.ov_hhinc.toFixed 4
+                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", target: femp10, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", target: fextaxrev, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinehh10").sparkline gon.hh10s, type: "box", target: fhh10, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", target: fhhinc, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                #tooltipFormatFieldlist: ['med', 'lq', 'uq'],
 
 			$("[rel=tooltip]").tooltip placement: "left"
 			$("[rel=tooltipd]").tooltip placement: "right"
