@@ -6,7 +6,14 @@
 			mapRegion: "#map-region"
 			fstationsRegion: "#fstations-region"
 			chartRegion: "#chart-region"
-	
+       ### previousClicked: (e) =>
+            console.log "inside previousClicked"
+            console.log gon.searchresults  
+        
+
+        nextbuttomClicked: (e) =>
+            console.log "inside nextbuttomClicked"
+            console.log gon.length###
 	class List.Detstation extends App.Views.ItemView
 		template: "fstations/list/templates/_detstation"
 		tagName: "tr"
@@ -77,18 +84,18 @@
                 edattmax = _.max features, (key, value) -> key.properties.ov_ed_att.toFixed 4
                 edattmin = _.min features, (key, value) -> key.properties.ov_ed_att.toFixed 4
                 
-                console.log @model
-                console.log gon.feature["0"].properties.ov_far.toFixed 4
-                console.log farmin
+                #console.log @model
+                #console.log gon.feature["0"].properties.ov_far.toFixed 4
+                ###console.log farmin
                 console.log vmtmax
                 console.log vmtmin
                 console.log pcttranmax
                 console.log pcttranmin
                 console.log vehphhmax
-                console.log vehphhmin
+                console.log vehphhmin###
                 #console.log trnpcmimax
                 #console.log trnpcmimin
-                console.log ghgmax
+                ###console.log ghgmax
                 console.log ghgmin
                 console.log fars
                 console.log prkacmax
@@ -102,14 +109,14 @@
                 console.log empdenmax
                 console.log empdenmin
                 console.log walkscoremax
-                console.log walkscoremin
+                console.log walkscoremin###
                 #console.log huconsmax
                 #console.log huconsmin
                 #console.log empconsmax
                 #console.log empconsmin
-                console.log emp10max
-                console.log emp10min
-                console.log extaxrevmax
+                #console.log emp10max
+                #console.log emp10min
+                ###console.log extaxrevmax
                 console.log extaxrevmin
                 console.log est10max
                 console.log est10min
@@ -124,9 +131,9 @@
                 console.log hhnocarmax
                 console.log hhnocarmin
                 console.log edattmax
-                console.log edattmin
+                console.log edattmin###
 
-                console.log farmax
+                #console.log farmax
                 #console.log "#{suggestionsCollection.models}"
                 #if features.length == 1
                 
@@ -198,22 +205,45 @@
                 fextaxrev = gon.feature["0"].properties.ex_taxrev.toFixed 4
                 fhh10 = gon.feature["0"].properties.ov_hh10.toFixed 4
                 fhhinc = gon.feature["0"].properties.ov_hhinc.toFixed 4
-                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", target: femp10, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", target: fextaxrev, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
-                $(".inlinesparklinehh10").sparkline gon.hh10s, type: "box", target: fhh10, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
-                $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", target: fhhinc, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#e8e9ed', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", target: femp10, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", target: fextaxrev, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinehh10").sparkline gon.hh10s, type: "box", target: fhh10, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", target: fhhinc, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
                 #tooltipFormatFieldlist: ['med', 'lq', 'uq'],
-
+            $(document).ready ->
+                $("#previousbuttom").click ->
+                    console.log "inside previousClicked"
+                    console.log gon.feature["0"].properties.name
+                    thisFeature = _.find gon.searchresults, (key, value) -> gon.feature["0"].properties.name == key.properties.name
+                    otherFeatures = _.without gon.searchresults, thisFeature
+                    priviousFeature = _.first otherFeatures
+                    console.log priviousFeature.properties.name
+                    App.vent.trigger "searchFired", "by_name=#{priviousFeature.properties.name}"
+                    #console.log otherFeatures
+                    #console.log thisFeature
+                    #window.location = "www.example.com/index.php?id=" + @id
+                    #return
+                    #console.log gon.searchresults  
+                $("#nextbuttom").click ->
+                    console.log "inside nextClicked"
+                    console.log gon.length
+                    thisFeature = _.find gon.searchresults, (key, value) -> gon.feature["0"].properties.name == key.properties.name
+                    otherFeatures = _.without gon.searchresults, thisFeature
+                    nextFeature = _.last otherFeatures
+                    console.log nextFeature.properties.name
+                    App.vent.trigger "searchFired", "by_name=#{nextFeature.properties.name}"
 			$("[rel=tooltip]").tooltip placement: "left"
 			$("[rel=tooltipd]").tooltip placement: "right"
 			$("[rel=tooltip]").tooltip track: true
 			$("#accordion").accordion header: "hm3", active: "", heightStyle: "content", collapsible: true
 			return	 
+
+
 
 	class List.Detstations extends App.Views.CollectionView
 		template: "fstations/list/templates/_detstations"
@@ -354,8 +384,9 @@
 
 			#Legend titles
 			LegendOptions = [
-			  "Smartphone"
-			  "Tablet"
+			  "Orientation"
+			  "Transit"
+              "Development"
 			]
 
 			#Data
@@ -396,17 +427,10 @@
 			svg = d3.select("#body").selectAll("svg").append("svg").attr("width", w + 300).attr("height", h)
 
 			#Create the title for the legend
-			text = svg.append("text").attr("class", "title").attr("transform", "translate(90,0)").attr("x", w - 70).attr("y", 10).attr("font-size", "12px").attr("fill", "#404040").text("What % of owners use a specific service in a week")
+			text = svg.append("text").attr("class", "title").attr("transform", "translate(90,0)").attr("x", w - 70).attr("y", 10).attr("font-size", "12px").attr("fill", "#404040").text("eTOD Score Composite")
 
 			#Initiate Legend	
 			legend = svg.append("g").attr("class", "legend").attr("height", 100).attr("width", 200).attr("transform", "translate(90,20)")
-
-			#Create colour squares
-			legend.selectAll("rect").data(LegendOptions).enter().append("rect").attr("x", w - 65).attr("y", (d, i) ->
-			  i * 20
-			).attr("width", 10).attr("height", 10).style "fill", (d, i) ->
-			  colorscale i
-
 
 			#Create text next to squares
 			legend.selectAll("text").data(LegendOptions).enter().append("text").attr("x", w - 52).attr("y", (d, i) ->
@@ -419,8 +443,8 @@
 	class List.Map extends App.Views.Layout
 		template: "fstations/list/templates/_map"
 		el: "#map"
-		collectionEvents:
-			"change" : "render"
+		modelEvents:
+		  "change" : "render"
 
 		onShow: ->
 			console.log "insede on show enevt list_view"
@@ -439,7 +463,7 @@
 			  -71.077359
 			], 10
 			cloudmade = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
-			  attribution: "Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade"
+			  attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
 			).addTo(map)
 			LeafIcon = L.Icon.extend(options:
 			  	iconSize: [
@@ -457,10 +481,13 @@
 
 			#searchCtrl1.addTo map
 			#searchCtrl2.addTo map
-			@collection = gon.features
+			@collection = gon.feature
 			console.log @collection
 			#fstations = JSON.parse(fstations)
-			geoCollection = gon.features
+			geoCollection = switch
+                when gon.length < 2 then gon.feature
+                else gon.features
+            console.log "this is after the swith and the geoCollecyion is:"
 			console.log geoCollection
 			###stationGeoCollection = new L.GeoJSON.AJAX(."/station_areas.json")###
 			fstations = new L.GeoJSON geoCollection,
@@ -474,21 +501,19 @@
 				      opacity: 0.2
 				      fillOpacity: 0.4
 				onEachFeature: (feature, layer) ->
-					layer.bindPopup feature.properties.name + " town of " + feature.properties.muni_name
+					layer.bindPopup feature.properties.name
 					return
 				filter: (feature, layer) ->
 					not (feature.properties and feature.properties.isHidden)
-
 			map.addLayer(fstations)
 			fstation = new L.GeoJSON geoCollection,
-				style: (feature) ->
-					feature.properties and feature.properties.style
 				pointToLayer: (feature, latlng) ->
-				    L.marker latlng, icon: stationIcon
+                    L.marker(latlng, icon: stationIcon).on 'click', (e)->
+                        console.log feature
+                        console.log App.vent.trigger "searchFired", "by_name=#{feature.properties.name}"
+
 			map.addLayer(fstation)
-			console.log map.getBounds()
 			bbox = fstations.getBounds().toBBoxString()
-			console.log bbox
 			map.fitBounds [
 			  [
 			    parseFloat(bbox.split(",")[1])
@@ -499,16 +524,99 @@
 			    parseFloat(bbox.split(",")[2])
 			  ]
 			]
-			#points = new L.LatLng @collection.toJSON
-			console.log map
 			#map.addControl new L.Control.Search(layer: fstations)
-			searchCtrl1.indexFeatures geoCollection, [
-			  "muni_name"
-			]
-			searchCtrl2.indexFeatures geoCollection, [
-			  "name"
-			]
-		
+	class List.MapDetail extends App.Views.Layout
+        template: "fstations/list/templates/_map"
+        el: "#map"
+        modelEvents:
+          "change" : "render"
+
+        onShow: ->
+            console.log "insede on show enevt list_view"
+            console.log @collection
+            console.log fstations
+            map = L.map("map",
+              scrollWheelZoom: false
+              touchZoom: false
+              doubleClickZoom: true
+              zoomControl: true
+              dragging: true
+              maxZoom: 18
+            )
+            map.setView [
+              42.31
+              -71.077359
+            ], 10
+            cloudmade = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
+              attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
+            ).addTo(map)
+            LeafIcon = L.Icon.extend(options:
+                iconSize: [
+                    15
+                    15
+                ]
+                popupAnchor: [
+                    -3
+                    -76
+                ]
+                )
+            stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
+            searchCtrl1 = L.control.fuseSearch()
+            searchCtrl2 = L.control.fuseSearch()
+
+            #searchCtrl1.addTo map
+            #searchCtrl2.addTo map
+            @collection = gon.feature
+            console.log @collection
+            #fstations = JSON.parse(fstations)
+            geoCollection = gon.feature
+            console.log "this is after the swith and the geoCollecyion is:"
+            console.log geoCollection
+            ###stationGeoCollection = new L.GeoJSON.AJAX(."/station_areas.json")###
+            fstations = new L.GeoJSON geoCollection,
+                style: (feature) ->
+                    feature.properties and feature.properties.style
+                pointToLayer: (feature, latlng) ->
+                    L.circle latlng, 250,
+                      fillColor: "#FFFFFF"
+                      color: "#000"
+                      weight: 1
+                      opacity: 0.2
+                      fillOpacity: 0.4
+                onEachFeature: (feature, layer) ->
+                    layer.bindPopup feature.properties.name 
+                    return
+                filter: (feature, layer) ->
+                    not (feature.properties and feature.properties.isHidden)
+            map.addLayer(fstations)
+            fstation = new L.GeoJSON geoCollection,
+                style: (feature) ->
+                    feature.properties and feature.properties.style
+                pointToLayer: (feature, latlng) ->
+                    L.marker latlng, icon: stationIcon
+            map.addLayer(fstation)
+            console.log map.getBounds()
+            bbox = fstations.getBounds().toBBoxString()
+            console.log bbox
+            map.fitBounds [
+              [
+                parseFloat(bbox.split(",")[1])
+                parseFloat(bbox.split(",")[0])
+              ]
+              [
+                parseFloat(bbox.split(",")[3])
+                parseFloat(bbox.split(",")[2])
+              ]
+            ]
+            #points = new L.LatLng @collection.toJSON
+            console.log map
+            #map.addControl new L.Control.Search(layer: fstations)
+            searchCtrl1.indexFeatures geoCollection, [
+              "muni_name"
+            ]
+            searchCtrl2.indexFeatures geoCollection, [
+              "name"
+            ]	
 
 			
 

@@ -3,15 +3,13 @@
 
     class Search.SimpleSearchFormLayout extends App.Views.Layout
         template: "main/search/templates/simple_search_layout" 
-        itemViewContainer: "#form-horizontal"
-        className: "col-md-12 col-md-offset-0 text-left"
         
         templateHelpers:->
             #names = "#{gon.lables.names}" # this just makes a list of the names
             $(document).ready ->
               $("[rel=tooltip]").tooltip placement: "top"
               $(".selectpicker").selectpicker()
-              $("#searchinput1").autocomplete
+              ###$("#searchinput1").autocomplete
                 source: gon.names.names
                 minLength: 3
                 select: (event, ui) ->
@@ -32,7 +30,7 @@
                             console.log features 
                             muni_names = _.map features, (key, value) -> key.properties.muni_name.toLowerCase()
                             event.view.gon.sugestion.muni_names = muni_names
-                            console.log event.view.gon
+                            console.log event.view.gon###
               return
             $(document).ready ->
               $("#searchinput2").autocomplete
@@ -59,34 +57,31 @@
         inputChange: (e)=>
             urlq = "?"
             muni_name = $('input#searchinput2').val().replace(" ", "%20").toLowerCase() if $('input#searchinput2').val()
-            name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
             if muni_name is undefined
-                console.log "empty muni name selected"
+                qury = "by_muni_name="
             else
-                name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
-                console.log "muni name is not empty and is:"
-                console.log muni_name
+                #name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
                 qury = "by_muni_name=#{muni_name}"
-                console.log qury
+            name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
             if name is undefined
-                console.log "empty nameSelected"
-                if muni_name is undefined
-                    console.log "empty nameSelected"
-                    console.log "empty muni name selected"
-                    qury = "by_name="
-                else
-                    qury = "by_muni_name=#{muni_name}"
+                qury = qury + "&by_name="
             else
                 qury = qury + "&by_name=#{name}"
-                console.log qury
             service_type = $('#selectbasic2 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic2 option:selected').val()
-            if service_type 
-                console.log "service type:"
-                console.log service_type
-                qury = qury + "&by_type=#{service_type}"
-            if station_type
-                station_type = $('#selectbasic3 option:selected').val().replace(" ", "%20").toLowerCase()
-            etod_group = $('#selectbasic4 option:selected').val().replace(" ", "%20").toLowerCase()
+            if service_type is undefined
+                qury = qury + "&by_line="
+            else    
+                qury = qury + "&by_line=#{service_type}"
+            station_type = $('#selectbasic3 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic3 option:selected').val()
+            if station_type is undefined
+                qury = qury + "&by_service="
+            else
+                qury = qury + "&by_station_type=#{station_type}"
+            etod_group = $('#selectbasic4 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic4 option:selected').val()
+            if etod_group is undefined
+                qury = qury + "&by_etod_category="
+            else
+                qury = qury + "&by_etod_category=#{etod_group}"
             query = "#{qury}"
             console.log(query)
             # here would be the basic validation and if passed the vent will trigger
@@ -138,13 +133,6 @@
                 @validatedAs = false
                 console.log "this is validated as:"
                 console.log @validatedAs
-
-
-            #sugestions = @sugestions()
-            #console.log('after the call')
-            #textSuggestions = "#{sugestions}"
-            #console.log(textSuggestions) 
-            #console.log(sugestions) 
 
         servicTypeSelected: (e) =>
             service_type = $('#selectbasic2 option:selected').val() 

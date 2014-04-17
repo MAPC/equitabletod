@@ -2,7 +2,6 @@
 
 	List.Controller =
 
-
 		getFstationById: (q) ->
 			console.log "inside Controller getFstationById"
 			console.log q
@@ -21,48 +20,31 @@
 				    console.log fstations
 				    features = _.values fstations.features
 				    gon.features = features
+				    #gon.searchresults = features
 				    fstationsCollection = new Backbone.Collection features
 				    console.log features.length
 				    if features.length == 1
 				    	gon.feature = gon.features
+				    	gon.features = gon.searchresults if gon.searchresults
+		    			console.log "this is gon.features being re populated using the gon.searchresults"
+		    			console.log gon.features
 		    			@layout = @getLayoutView() 
+		    			fstationCollection = new Backbone.Collection gon.feature
 		    			@layout.on 'show', =>
-		    				@showDetstations fstationsCollection
+		    				@showDetstations fstationCollection
 		    				#@showFstationsTable gon.features
-		    				@showMap gon.features
+		    				@showDetailMap fstationCollection
 		    				@showChart gon.feature
 		    		else
 		    			console.log "number of search results: "
 		    			console.log features.length
+		    			gon.searchresults = features
+		    			gon.length = features.length
 		    			@layout = @getLayoutView() 
 		    			@layout.on 'show', =>
 		    				@showFstations fstationsCollection
-		    				@showMap gon.features
+		    				@showMap fstationsCollection
 		    		App.mainRegion.show @layout
-
-		listFstations: (q) ->
-			console.log "isnide listFstations"
-			console.log q
-
-			urlstr = "/search.json?" + "#{q}"
-			console.log urlstr
-			responseFeature = $.ajax
-		          	url: urlstr
-		          	done: (result) =>
-		              	return result
-		    console.log responseFeature
-		 
-
-		    collection = responseFeature.complete()
-		   	collection.done =>
-				    fstations = collection.responseJSON
-				    console.log fstations
-				    @layout = @getLayoutView()
-				    @layout.on "show", =>
-				    	@showFstations gon.features
-				    	@showMap gon.features
-				    	#@showChart gon.feature
-				    App.mainRegion.show @layout
 
 		showFstationsTable: (fstations) ->
 			tableView = @getTableView fstations
@@ -84,7 +66,6 @@
 			new List.Detstations
 				collection: fstations
 
-
 		showFstations: (fstations) ->
 			fstationsView = @getFstationsView fstations
 			@layout.fstationsRegion.show fstationsView
@@ -95,10 +76,13 @@
 			console.log fstations
 			new List.Fstations
 				collection: fstations
-
 		showMap: (fstations) ->
 			mapView = @getMapView fstations
 			@layout.mapRegion.show mapView
+
+		showDetailMap: (fstation) ->
+			detailMapView = @getDetailMapView fstation
+			@layout.mapRegion.show detailMapView
 
 		showChart: (fstation) ->
 			chartView = @getChartView fstation
@@ -110,7 +94,11 @@
 
 		getMapView: (fstations) ->
 			new List.Map
-				collection: fstations.toJSON
+				collection: fstations
+
+		getDetailMapView: (fstation) ->
+			new List.MapDetail
+				collection: fstation
 
 		getLayoutView: ->
 			new List.Layout

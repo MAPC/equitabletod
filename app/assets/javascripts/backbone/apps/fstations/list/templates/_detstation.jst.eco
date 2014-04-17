@@ -1,9 +1,6 @@
 <td>
-	<div class="col-xs-offset-1">
-		<p>
-			<button id="previousbuttom" type="button" class="btn btn-default btn-lg btn3d"><<</button>
-			<button id="nextbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-8">>></button>
-		</p>
+	<div class="col-xs-offset-2">
+		<hm2><button id="previousbuttom" type="button" class="btn btn-default btn-lg btn3d"><<</button><strong class="col-xs-offset-1"><%= "#{@properties.name}" %></strong><button id="nextbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">>></button></hm2>
 	</div>
 	<div id="accordion">
 		<hm3><strong>Station Name: </strong><%= "#{@properties.name}" %></hm3>
@@ -28,7 +25,7 @@
 				<br>
 					<strong>Transit Share of Commuting miles </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Percentage of total communig miles for which transit was used"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_trnpcmi}" %></a>
 				<br>
-					<strong>Greenhouse Gas Emissions (GHGs) from transportation: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_ghg.toFixed 2}" %></a>
+					<strong>Greenhouse Gas Emissions from transportation: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_ghg.toFixed 2}" %></a>
 				</p>
 			</div>
 		<hm3>

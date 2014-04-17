@@ -1,5 +1,5 @@
 @Equitabletod.module "DictionariesApp", (DictionariesApp, App, Backbone, Marionette, $, _) ->
-
+	@startWithParent = false
 	class DictionariesApp.Router extends Marionette.AppRouter
 		appRoutes:
 			"dictionaries" : "listDictionaries"
