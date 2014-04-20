@@ -237,10 +237,50 @@
                     nextFeature = _.last otherFeatures
                     console.log nextFeature.properties.name
                     App.vent.trigger "searchFired", "by_name=#{nextFeature.properties.name}"
+                $("#dialog-modal").dialog 
+                    position:
+                        at: "right"
+                    autoOpen: false
+                    show:
+                        effect: "blind"
+                        duration: 100  
+                    hide:
+                        effect: "blind"
+                        duration: 100
+                    title: 
+                        $("[rel=tooltip]").title
+
+                $("#dialog-modal").dialog open: (event, ui) ->
+                    dictionaryResponse = $.ajax
+                            url: "/dictionary_entries.json?by_name="
+                            done: (result) =>
+                                return result
+                    dictionary = dictionaryResponse.complete()
+                    dictionary.done =>
+                        dictionaries = dictionary.responseJSON
+                        console.log dictionaries["0"].description
+                        $("#dialog-modal").html("'#{dictionaries["0"].description}'")
+                        $("#ui-id-2").html("'#{dictionaries["0"].name}'")
+                $("#dialog-modal").dialog beforeClose: (event, ui) ->
+                    $("#accordion").accordion "enable"
+
+                $("[rel=tooltipd]").click ->
+                    $("#accordion").accordion "disable"
+                    $("#dialog-modal").dialog 
+                    $("#dialog-modal").dialog "open"
+                        
+
 			$("[rel=tooltip]").tooltip placement: "left"
-			$("[rel=tooltipd]").tooltip placement: "right"
+			#$("[rel=tooltipd]").tooltip placement: "right"
 			$("[rel=tooltip]").tooltip track: true
-			$("#accordion").accordion header: "hm3", active: "", heightStyle: "content", collapsible: true
+			$("#accordion").accordion 
+                header: "hm3" 
+                active: ""
+                heightStyle: "content"
+                collapsible: true
+                icons:
+                    header: "ui-icon-plus"
+                    activeHeader: "ui-icon-minus"
 			return	 
 
 
@@ -372,12 +412,7 @@
 	class List.Chart extends App.Views.Layout
 		template: "fstations/list/templates/_chart"
 		onShow: ->
-			console.log gon.feature
-			console.log gon.feature["0"]
-			stationfeature = gon.feature["0"]
-			console.log stationfeature.properties.etod_sub1t
-			console.log _.values gon.feature.properties
-			console.log _.keys gon.feature
+			stationfeature = gon.feature["0"] 
 			w = 200
 			h = 200
 			colorscale = d3.scale.category10()
@@ -476,11 +511,6 @@
 			  	]
 				)
 			stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
-			searchCtrl1 = L.control.fuseSearch()
-			searchCtrl2 = L.control.fuseSearch()
-
-			#searchCtrl1.addTo map
-			#searchCtrl2.addTo map
 			@collection = gon.feature
 			console.log @collection
 			#fstations = JSON.parse(fstations)
@@ -489,7 +519,6 @@
                 else gon.features
             console.log "this is after the swith and the geoCollecyion is:"
 			console.log geoCollection
-			###stationGeoCollection = new L.GeoJSON.AJAX(."/station_areas.json")###
 			fstations = new L.GeoJSON geoCollection,
 				style: (feature) ->
 					feature.properties and feature.properties.style
@@ -511,7 +540,8 @@
                     L.marker(latlng, icon: stationIcon).on 'click', (e)->
                         console.log feature
                         console.log App.vent.trigger "searchFired", "by_name=#{feature.properties.name}"
-
+            
+                       
 			map.addLayer(fstation)
 			bbox = fstations.getBounds().toBBoxString()
 			map.fitBounds [
@@ -561,18 +591,11 @@
                 ]
                 )
             stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
-            searchCtrl1 = L.control.fuseSearch()
-            searchCtrl2 = L.control.fuseSearch()
-
-            #searchCtrl1.addTo map
-            #searchCtrl2.addTo map
             @collection = gon.feature
             console.log @collection
-            #fstations = JSON.parse(fstations)
-            geoCollection = gon.feature
-            console.log "this is after the swith and the geoCollecyion is:"
-            console.log geoCollection
-            ###stationGeoCollection = new L.GeoJSON.AJAX(."/station_areas.json")###
+            geoCollection = switch
+                when gon.length < 2 then gon.feature
+                else gon.features
             fstations = new L.GeoJSON geoCollection,
                 style: (feature) ->
                     feature.properties and feature.properties.style
@@ -608,15 +631,6 @@
                 parseFloat(bbox.split(",")[2])
               ]
             ]
-            #points = new L.LatLng @collection.toJSON
-            console.log map
-            #map.addControl new L.Control.Search(layer: fstations)
-            searchCtrl1.indexFeatures geoCollection, [
-              "muni_name"
-            ]
-            searchCtrl2.indexFeatures geoCollection, [
-              "name"
-            ]	
 
 			
 

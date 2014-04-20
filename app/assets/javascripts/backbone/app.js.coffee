@@ -17,6 +17,9 @@
   RegionMan.on "region:add", (name, region) ->
     App[name] = region
     return
+
+  App.vent.on "abouttodFired", ->
+    App.navigate "abouttod/", trigger: true
   
   App.vent.on "etodFired", ->
     App.navigate "etod/", trigger: true

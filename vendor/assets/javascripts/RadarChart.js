@@ -2,7 +2,7 @@ var RadarChart = {
   draw: function(id, d, options){
   var cfg = {
 	 radius: 5,
-	 w: 600,
+	 w: 400,
 	 h: 600,
 	 factor: 1,
 	 factorLegend: .85,
@@ -28,7 +28,7 @@ var RadarChart = {
 	cfg.maxValue = Math.max(cfg.maxValue, d3.max(d, function(i){return d3.max(i.map(function(o){return o.value;}))}));
 	var allAxis = (d[0].map(function(i, j){return i.axis}));
 	var total = allAxis.length;
-	var radius = cfg.factor*Math.min(cfg.w/2, cfg.h/2);
+	var radius = cfg.factor*Math.min(cfg.w, cfg.h/2);
 	var Format = d3.format('g');
 	d3.select(id).select("svg").remove();
 	
@@ -43,7 +43,7 @@ var RadarChart = {
 	var tooltip;
 	
 	//Circular segments
-	for(var j=0; j<cfg.levels-1; j++){
+	for(var j=0; j<cfg.levels; j++){
 	  var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
 	  g.selectAll(".levels")
 	   .data(allAxis)
@@ -55,8 +55,8 @@ var RadarChart = {
 	   .attr("y2", function(d, i){return levelFactor*(1-cfg.factor*Math.cos((i+1)*cfg.radians/total));})
 	   .attr("class", "line")
 	   .style("stroke", "grey")
-	   .style("stroke-opacity", "0.75")
-	   .style("stroke-width", "0.3px")
+	   .style("stroke-opacity", "1")
+	   .style("stroke-width", "0.4px")
 	   .attr("transform", "translate(" + (cfg.w/2-levelFactor) + ", " + (cfg.h/2-levelFactor) + ")");
 	}
 
@@ -73,6 +73,36 @@ var RadarChart = {
 	   .style("font-family", "sans-serif")
 	   .style("font-size", "10px")
 	   .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight) + ", " + (cfg.h/2-levelFactor) + ")")
+	   .attr("fill", "#737373")
+	   .text(Format((j+1)*cfg.maxValue/cfg.levels));
+	}
+	for(var j=0; j<cfg.levels-1; j++){
+	  var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
+	  g.selectAll(".levels")
+	   .data([1]) //dummy data
+	   .enter()
+	   .append("svg:text")
+	   .attr("x", function(d){return levelFactor*(1-cfg.factor*Math.sin(90));})
+	   .attr("y", function(d){return levelFactor*(1-cfg.factor*Math.cos(90));})
+	   .attr("class", "legend")
+	   .style("font-family", "sans-serif")
+	   .style("font-size", "10px")
+	   .attr("transform", "translate(" + (cfg.w/2-levelFactor - 6) + ", " + (cfg.h/2-levelFactor + 2) + ")")
+	   .attr("fill", "#737373")
+	   .text(Format((j+1)*cfg.maxValue/cfg.levels));
+	}
+	for(var j=0; j<cfg.levels-1; j++){
+	  var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
+	  g.selectAll(".levels")
+	   .data([1]) //dummy data
+	   .enter()
+	   .append("svg:text")
+	   .attr("x", function(d){return levelFactor*(1-cfg.factor*Math.sin(180));})
+	   .attr("y", function(d){return levelFactor*(1-cfg.factor*Math.cos(180));})
+	   .attr("class", "legend")
+	   .style("font-family", "sans-serif")
+	   .style("font-size", "10px")
+	   .attr("transform", "translate(" + (cfg.w/2-levelFactor + cfg.ToRight -1) + ", " + (cfg.h/2-levelFactor - 7) + ")")
 	   .attr("fill", "#737373")
 	   .text(Format((j+1)*cfg.maxValue/cfg.levels));
 	}
@@ -122,8 +152,8 @@ var RadarChart = {
 					 .enter()
 					 .append("polygon")
 					 .attr("class", "radar-chart-serie"+series)
-					 .style("stroke-width", "2px")
-					 .style("stroke", cfg.color(series))
+					 .style("stroke-width", ".5px")
+					 .style("stroke", "red")
 					 .attr("points",function(d) {
 						 var str="";
 						 for(var pti=0;pti<d.length;pti++){
@@ -131,7 +161,7 @@ var RadarChart = {
 						 }
 						 return str;
 					  })
-					 .style("fill", function(j, i){return cfg.color(series)})
+					 .style("fill", function(j, i){return "red"})
 					 .style("fill-opacity", cfg.opacityArea)
 					 .on('mouseover', function (d){
 										z = "polygon."+d3.select(this).attr("class");
@@ -157,7 +187,7 @@ var RadarChart = {
 		.data(y).enter()
 		.append("svg:circle")
 		.attr("class", "radar-chart-serie"+series)
-		.attr('r', cfg.radius)
+		.attr('r', cfg.radius-3)
 		.attr("alt", function(j){return Math.max(j.value, 0)})
 		.attr("cx", function(j, i){
 		  dataValues.push([
@@ -170,7 +200,7 @@ var RadarChart = {
 		  return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));
 		})
 		.attr("data-id", function(j){return j.axis})
-		.style("fill", cfg.color(series)).style("fill-opacity", .9)
+		.style("fill", "red").style("fill-opacity", 0.8)
 		.on('mouseover', function (d){
 					newX =  parseFloat(d3.select(this).attr('cx')) - 10;
 					newY =  parseFloat(d3.select(this).attr('cy')) - 5;

@@ -44,6 +44,7 @@
 		    			@layout.on 'show', =>
 		    				@showFstations fstationsCollection
 		    				@showMap fstationsCollection
+		    				#@showChart gon.searchresults["0"]
 		    		App.mainRegion.show @layout
 
 		showFstationsTable: (fstations) ->

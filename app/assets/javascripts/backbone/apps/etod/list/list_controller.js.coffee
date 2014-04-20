@@ -3,16 +3,16 @@
 	List.Controller =
 		showEtodPage: ->
 			@layout = @getLayoutView() 
-			@layout.on 'show', =>
+			@layout.on 'show', ->
 				@showEtod 
 			App.mainRegion.show @layout
 
 		showEtod: ->
 			etodLayout = @getEtodLayout
-			@layout.etodRegion.show etodLayout
+			@layout.etodRegion.show etodView
 		
-		getEtodLayout: ->
-			new List.Etod
+		getEtodView: ->
+			new List.Layout
 
 		getLayoutView: ->
 			new List.Layout 

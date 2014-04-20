@@ -1,6 +1,10 @@
 <td>
+	<div id="dialog-modal">
+  	<p></p>
+	</div>
+ 
 	<div class="col-xs-offset-2">
-		<hm2><button id="previousbuttom" type="button" class="btn btn-default btn-lg btn3d"><<</button><strong class="col-xs-offset-1"><%= "#{@properties.name}" %></strong><button id="nextbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">>></button></hm2>
+		<hm2><button id="previousbuttom" type="button" class="btn btn-default btn-lg btn3d"><</button><strong class="col-xs-offset-1"><%= "#{@properties.name}" %></strong><button id="nextbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">></button></hm2>
 	</div>
 	<div id="accordion">
 		<hm3><strong>Station Name: </strong><%= "#{@properties.name}" %></hm3>
@@ -11,21 +15,21 @@
 			</div>
 		<hm3>
 			<a href="#" rel="tooltip" title="Transformation Performance">
-				<strong>Vehicle Miles Traveled (VMT)</strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Average miles driven per day using personal automobiles, per household"><span class="glyphicon glyphicon-question-sign"></span></a><%= "#{@properties.ov_vmthday.toFixed 2}" %></a>
+				<strong href="#" rel="tooltipd" title="Average miles driven per day using personal automobiles, per household">Vehicle Miles Traveled (VMT)</strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="VMT" class="glyphicon glyphicon-question-sign"></span><%= "#{@properties.ov_vmthday.toFixed 2}" %>
 				<span class="inlinesparklinevmt"></span>
 				<br>
-				<strong>Transit Commuter Share </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Share of all commuters in the station area who use public transit for their work commute"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_pcttran.toFixed 2}" %></a>
+				<span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Share of all commuters in the station area who use public transit for their work commute" class="glyphicon glyphicon-question-sign"></span><strong>Transit Commuter Share </strong> <%= "#{@properties.ov_pcttran.toFixed 2}" %>
 				<span class="inlinesparklinepcttran"></span>
 			</a>
 		</hm3>
 			<div>
-				<p class="hm21">
-					<strong>Vehicle Ownership </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Average number of vehicles owned per household"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_vehphh.toFixed 2}" %></a>
+				<p class="hm21" href="#" rel="tooltip" title="Transformation Performance">
+					<strong>Vehicle Ownership </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Average number of vehicles owned per household" class="glyphicon glyphicon-question-sign"></span><%= "#{@properties.ov_vehphh.toFixed 2}" %>
 					<span class="inlinesparklinevehphh"></span>
 				<br>
-					<strong>Transit Share of Commuting miles </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Percentage of total communig miles for which transit was used"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_trnpcmi}" %></a>
+					<strong>Transit Share of Commuting miles </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Percentage of total communig miles for which transit was used" class="glyphicon glyphicon-question-sign"></span> <%= "#{@properties.ov_trnpcmi}" %>
 				<br>
-					<strong>Greenhouse Gas Emissions from transportation: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_ghg.toFixed 2}" %></a>
+					<strong>Greenhouse Gas Emissions from transportation: </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" class="glyphicon glyphicon-question-sign"></span><%= "#{@properties.ov_ghg.toFixed 2}" %>
 				</p>
 			</div>
 		<hm3>

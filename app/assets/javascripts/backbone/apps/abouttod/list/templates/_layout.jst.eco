@@ -1,4 +1,4 @@
-<div id="etod-region">
+<div id="abouttod-region">
 	<div>
 		<div id="home-txt" class="white-bg">
 			<div class="container-fluid">
@@ -6,13 +6,20 @@
 					<div class="col-md-6 col-md-offset-0 text-left">
 						<div id="etodpagetext">
 							<p class="h2">
-								Equitable Transit Oriented Development (eTOD)
+								Learn About TOD
 							</p>
-							<p class="hm2"> The Dukakis Center for Urban and Regional Policy at Northeastern University and the Center for Transit Oriented Development <a href="http://ctod.org" target="_blank"> (CTOD) <span class="link"></span></a>have collaborated to produce a “rating system” designed to identify station areas with the physical attributes, social characteristics, and transit service correlated with lower vehicle miles travelled, higher transit ridership, improved transit equity, and greater accessibility.
+							<p class="hm2"> Transit Oriented Development (TOD) is a strategy for developing residential and commercial areas in places that are already accessible by public transit, in ways that reduce congestion, improve affordability, support ridership, and create neighborhoods where people want to live. 
 							</p>
-							<img src="img/etodcats.png" class="img-responsive" alt="Image Title">
+						</br>
 							<p class = "hm2">
-								eTOD Score is a composite score based on 10 attributes grouped into three categories (Transit, Orientation, and Development, the three components of TOD). Station areas are ranked against each other to earn a score for each attribute. The composite eTOD Score then provides a single-number rating of the station area based on the 10 attributes.
+							The Boston region is transit-rich, with 25% of housing units and 37% of employment within a half-mile of a rapid transit or commuter rail station, and every day sees new growth around stations.  However, achieving sustainable and equitable TOD in the Boston region requires varied strategies. Defining these strategies requires a detailed understanding of factors such as land use, demographics, and development plans in existing station areas. Fortunately, much has been learned over the last few decades about what does and does not work, the components of successful TOD, and how to measure outcomes and impacts. 
+							</p>
+						</br>
+							<p class = "hm2">
+							The resources below provide a general introduction to TOD, and information on some of MAPC’s current efforts to support TOD in the region.
+							</p>
+							<p class="h2">
+								General Introduction to TOD
 							</p>
 						</div>
 					</div>
@@ -20,7 +27,11 @@
 				<div class="row">
 					<div class="col-md-3 col-md-offset-0 text-left">
 						<p class="hm2">
-							The composite score, ranging from 10 to 50, is divided into four types of station areas: transit-adjacent (score between 10 and 20), transit-related (21-30), transit-supportive (31-40), and transit-oriented (41-50). The composite score reflects driving behavior: higher eTOD Score values are correlated with lower household VMT.
+							TOD 101: Why TOD? Why Now?
+						</p>
+					</br>
+						<p class="hm2">
+						The first in a series of short publications on TOD funded by the Federal Transit Administration.  In an easy-to-read format, concisely explains what TOD is and how shifting demographics and a changing real estate market have increased TOD opportunities. (2007, 24 pp.)
 						</p>
 					</div>
 					<div class="col-md-3 col-md-offset-0 text-left">
