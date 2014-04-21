@@ -24,6 +24,9 @@
   App.vent.on "etodFired", ->
     App.navigate "etod/", trigger: true
 
+  App.vent.on "guidFired", ->
+    App.navigate "guid/", trigger: true
+
   App.vent.on "searchFired", (query)->
     console.log "im inside the app itself"
     query = "fss/q/" + query

@@ -10,6 +10,7 @@
 		itemViewContainer: "ul"
 		events:
 			"click #homeClick": "homeFired"
+			"click #guidClick": "guidFired"
 			"click #abouttod" : "abouttodFired"
 
 		homeFired: (e) =>
@@ -20,3 +21,6 @@
 
 		abouttodFired: (e) =>
 			App.vent.trigger "abouttodFired"
+
+		guidFired: (e) =>
+			App.vent.trigger "guidFired"
