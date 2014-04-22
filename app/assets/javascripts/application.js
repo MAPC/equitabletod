@@ -25,6 +25,7 @@
 //= require ../../../vendor/assets/javascripts/RadarChart.js
 //= require ../../../vendor/assets/javascripts/Semicircle.js
 //= require ../../../vendor/assets/javascripts/jquery.sparkline.js
+//= require ../../../vendor/assets/javascripts/leaflet.print-src.js
 //= require_tree ./backbone/config
 //= require backbone/app
 //= require_tree ./backbone/entities

@@ -86,6 +86,7 @@
             'change #selectbasic2' : 'servicTypeSelected'
             'click #searchbuttom': 'inputChange'
             'click #etod': 'etodFired'
+            'click #gsa': 'gsaFired'
             'click #resetbuttom':  'resetFormArgs' 
             'click #mapClick': 'fireMap'   
             'select #searchinput1': 'nameSelected'
@@ -178,9 +179,11 @@
                                      # helps as a boolean value  
             #$("#selectbasic1").html("<option> will load accordingly </option>")
 
-
         etodFired: (e) =>
             App.vent.trigger "etodFired"
+
+        gsaFired: (e) =>
+            App.vent.trigger "gsaFired"
            
 
 

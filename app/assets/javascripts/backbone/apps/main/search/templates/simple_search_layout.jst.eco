@@ -74,7 +74,7 @@
             <!--Project-->
             <li class="col-md-6 thumbs" data-tag="graphics">
               <img src="img/mapc_etod.png" class="img-responsive" alt="Image Title">
-          <a href="mapcPage.html">
+          <a href="#gsa" id="gsa" data-toggle="portfilter">
             <span class="title">
               <span>MAPC's typology <br/>
               <i class="fa fa-minus white"></i>

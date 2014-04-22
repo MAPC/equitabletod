@@ -344,9 +344,9 @@
                 chartRangeMin: undefined,
                 tooltipFormat: new SPFormat('{{field:fields}}: {{value}}'),
                 tooltipFormatFieldlistKey: 'field',
-                tooltipValueLookups: { fields: { tg: 'target value', lq: '25th percentile', med: 'Median',
-                    uq: '75th percentile', lo: 'Left Outlier', ro: 'Right Outlier',
-                    lw: 'Left Whisker', rw: 'Right Whisker'} }
+                tooltipValueLookups: { fields: { tg: 'target value', lq: '25th Percentile', med: 'Median',
+                    uq: '75th Percentile', lo: 'Left Outlier', ro: 'Right Outlier',
+                    lw: 'Min Value', rw: 'Max Value'} }
             }
         };
     };
@@ -354,8 +354,8 @@
     // You can have tooltips use a css class other than jqstooltip by specifying tooltipClassname
     defaultStyles = '.jqstooltip { ' +
             'position: absolute;' +
-            'left: 0px;' +
-            'top: 0px;' +
+            'left: 10px;' +
+            'top: 10px;' +
             'visibility: hidden;' +
             'background: rgb(0, 0, 0) transparent;' +
             'background-color: rgba(0,0,0,0.6);' +
@@ -365,7 +365,7 @@
             'font: 10px arial, san serif;' +
             'text-align: left;' +
             'white-space: nowrap;' +
-            'padding: 0px;' +
+            'padding: 5px;' +
             'border: 1px solid white;' +
             'z-index: 10000;' +
             '}' +
@@ -866,8 +866,8 @@
 
         getSize: function (content) {
             this.sizetip.html(content).appendTo(this.container);
-            this.width = this.sizetip.width() + 1;
-            this.height = this.sizetip.height();
+            this.width = this.sizetip.width() + 10;
+            this.height = this.sizetip.height() + 10;
             this.sizetip.remove();
         },
 

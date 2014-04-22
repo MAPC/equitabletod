@@ -30,13 +30,16 @@
                 fars = _.map features, (key, value) -> key.properties.ov_far.toFixed 2
                 vmts = _.map features, (key, value) -> key.properties.ov_vmthday.toFixed 2
                 pcttrans = _.map features, (key, value) -> key.properties.ov_pcttran.toFixed 2
-                vehphhs = _.map features, (key, value) -> key.properties.ov_vehphh.toFixed 4
                 prkacs = _.map features, (key, value) -> key.properties.ov_prkac.toFixed 2
                 emp10s = _.map features, (key, value) -> key.properties.ov_emp10.toFixed 2
                 extaxrevs = _.map features, (key, value) -> key.properties.ex_taxrev.toFixed 0
                 hh10s = _.map features, (key, value) -> key.properties.ov_hh10.toFixed 0
                 hhincs = _.map features, (key, value) -> key.properties.ov_hhinc.toFixed 0
-                
+                vehphhs = _.map features, (key, value) -> key.properties.ov_vehphh.toFixed 4
+                trnpcmis = _.map features, (key, value) -> key.properties.ov_trnpcmi.toFixed 4 if key.properties.ov_trnpcmi
+                ghgs = _.map features, (key, value) -> key.properties.ov_ghg.toFixed 4 if key.properties.ov_ghg
+                intntots = _.map features, (key, value) -> key.properties.ov_intntot if key.properties.ov_intntot
+
                 vmtmax = _.max features, (key, value) -> key.properties.ov_vmthday.toFixed 4
                 vmtmin = _.min features, (key, value) -> key.properties.ov_vmthday.toFixed 4
                 pcttranmax = _.max features, (key, value) -> key.properties.ov_pcttran.toFixed 4
@@ -183,38 +186,47 @@
                 gon.hhnocarmin = hhnocarmin
                 gon.edattmax = edattmax
                 gon.edattmin = edattmin
-                
+                gon.vehphhs = vehphhs
                 gon.vmts = vmts
                 gon.fars = fars
                 gon.pcttrans = pcttrans
-                gon.vehphhs = vehphhs
                 gon.prkacs = prkacs
                 gon.emp10s = emp10s
                 gon.extaxrevs = extaxrevs
                 gon.hh10s = hh10s
                 gon.hhincs = hhincs
-                console.log gon.fars
-                console.log gon.vmts
+                gon.trnpcmis = trnpcmis
+                gon.ghgs = ghgs
+                gon.intntots = intntots
                 #values = gon.fars
                 fvmt = gon.feature["0"].properties.ov_vmthday.toFixed 4
                 ffar = gon.feature["0"].properties.ov_far.toFixed 4
                 fpcttran = gon.feature["0"].properties.ov_pcttran.toFixed 4
                 femp10 = gon.feature["0"].properties.ov_emp10.toFixed 4
-                fvehphh = gon.feature["0"].properties.ov_vehphh.toFixed 4
                 fprkac = gon.feature["0"].properties.ov_prkac.toFixed 4
                 fextaxrev = gon.feature["0"].properties.ex_taxrev.toFixed 4
                 fhh10 = gon.feature["0"].properties.ov_hh10.toFixed 4
                 fhhinc = gon.feature["0"].properties.ov_hhinc.toFixed 4
-                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", target: femp10, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", target: fextaxrev, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
-                $(".inlinesparklinehh10").sparkline gon.hh10s, type: "box", target: fhh10, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
-                $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", target: fhhinc, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", target: femp10, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", target: fextaxrev, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinehh10").sparkline gon.hh10s, type: "box", target: fhh10, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", target: fhhinc, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
                 #tooltipFormatFieldlist: ['med', 'lq', 'uq'],
+                $("#accordion").accordion activate: (event, ui) ->
+                    $("#accordion").accordion "refresh"
+                    fvehphh = gon.feature["0"].properties.ov_vehphh.toFixed 4
+                    ftrnpcmi = gon.feature["0"].properties.ov_trnpcmi.toFixed 4 if gon.feature["0"].properties.ov_trnpcmi
+                    fghg = gon.feature["0"].properties.ov_ghg.toFixed 4 if gon.feature["0"].properties.ov_ghg
+                    fintntot = gon.feature["0"].properties.ov_intntot if gon.feature["0"].properties.ov_intntot
+                    
+                    $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000' 
+                    $(".inlinesparklinetrnpcmi").sparkline gon.trnpcmis, type: "box", target: ftrnpcmi, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000' 
+                    $(".inlinesparklineghg").sparkline gon.ghgs, type: "box", target: fghg, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'    
+                    $(".inlinesparklineintntot").sparkline gon.intntots, type: "box", target: fintntot, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'    
             $(document).ready ->
                 $("[rel=tooltipu]").tooltip placement: "top"
                 $("#previousbuttom").click ->
@@ -281,7 +293,7 @@
 			$("[rel=tooltip]").tooltip track: true
 			$("#accordion").accordion 
                 header: "hm3" 
-                active: ""
+                active: "false"
                 heightStyle: "content"
                 collapsible: true
                 icons:
@@ -476,7 +488,7 @@
 			#Create text next to squares
 			legend.selectAll("text").data(LegendOptions).enter().append("text").attr("x", w - 52).attr("y", (d, i) ->
 			  i * 20 + 9
-			).attr("font-size", "11px").attr("fill", "#737373").text (d) ->
+			).attr("font-size", "18px").attr("fill", "#737373").text (d) ->
 			  d
 
 
@@ -535,19 +547,12 @@
 				      weight: 1
 				      opacity: 0.2
 				      fillOpacity: 0.4
-				onEachFeature: (feature, layer) ->
-					layer.bindPopup feature.properties.name
-					return
-				filter: (feature, layer) ->
-					not (feature.properties and feature.properties.isHidden)
 			map.addLayer(fstations)
 			fstation = new L.GeoJSON geoCollection,
 				pointToLayer: (feature, latlng) ->
                     L.marker(latlng, icon: stationIcon).on 'click', (e)->
                         console.log feature
                         console.log App.vent.trigger "searchFired", "by_name=#{feature.properties.name}"
-            
-                       
 			map.addLayer(fstation)
 			bbox = fstations.getBounds().toBBoxString()
 			map.fitBounds [
@@ -560,7 +565,7 @@
 			    parseFloat(bbox.split(",")[2])
 			  ]
 			]
-			#map.addControl new L.Control.Search(layer: fstations)
+
 	class List.MapDetail extends App.Views.Layout
         template: "fstations/list/templates/_map"
         el: "#map"
@@ -602,6 +607,12 @@
             geoCollection = switch
                 when gon.length < 2 then gon.feature
                 else gon.features
+            #printProvider = L.print.provider(
+            #    method: "GET"
+            #    url: " http://path/to/mapfish/print"
+            #    autoLoad: true
+            #    dpi: 90
+            #)
             fstations = new L.GeoJSON geoCollection,
                 style: (feature) ->
                     feature.properties and feature.properties.style
@@ -612,11 +623,6 @@
                       weight: 1
                       opacity: 0.2
                       fillOpacity: 0.4
-                onEachFeature: (feature, layer) ->
-                    layer.bindPopup feature.properties.name 
-                    return
-                filter: (feature, layer) ->
-                    not (feature.properties and feature.properties.isHidden)
             map.addLayer(fstations)
             fstation = new L.GeoJSON geoCollection,
                 style: (feature) ->
@@ -637,6 +643,8 @@
                 parseFloat(bbox.split(",")[2])
               ]
             ]
+            #printControl = L.control.print(provider: printProvider)
+            #map.addControl printControl
 
 			
 

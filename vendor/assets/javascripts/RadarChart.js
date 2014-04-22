@@ -187,7 +187,7 @@ var RadarChart = {
 		.data(y).enter()
 		.append("svg:circle")
 		.attr("class", "radar-chart-serie"+series)
-		.attr('r', cfg.radius-3)
+		.attr('r', cfg.radius+6)
 		.attr("alt", function(j){return Math.max(j.value, 0)})
 		.attr("cx", function(j, i){
 		  dataValues.push([
@@ -200,7 +200,7 @@ var RadarChart = {
 		  return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));
 		})
 		.attr("data-id", function(j){return j.axis})
-		.style("fill", "red").style("fill-opacity", 0.8)
+		.style("fill", "red").style("fill-opacity", 0.01)
 		.on('mouseover', function (d){
 					newX =  parseFloat(d3.select(this).attr('cx')) - 10;
 					newY =  parseFloat(d3.select(this).attr('cy')) - 5;

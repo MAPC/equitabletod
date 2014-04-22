@@ -24,6 +24,9 @@
   App.vent.on "etodFired", ->
     App.navigate "etod/", trigger: true
 
+  App.vent.on "gsaFired", ->
+    App.navigate "gsa/", trigger: true
+
   App.vent.on "guidFired", ->
     App.navigate "guid/", trigger: true
 
