@@ -1,9 +1,0 @@
-<div class="bbm-modal__topbar">
-      <h3 class="bbm-modal__title">Stacked modals with Backbone.Marionette</h3>
-    </div>
-    <div class="bbm-modal__section">
-      <p>Go ahead and open the <a href="#" class="open-2">second modal</a>.</p>
-    </div>
-    <div class="bbm-modal__bottombar">
-      <a href="#" class="bbm-button">Done</a>
-</div>

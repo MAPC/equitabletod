@@ -15,10 +15,10 @@
 			</div>
 		<hm3>
 			<a href="#" rel="tooltip" title="Transformation Performance">
-				<strong href="#" rel="tooltipd" title="Average miles driven per day using personal automobiles, per household">Vehicle Miles Traveled (VMT)</strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="VMT" class="glyphicon glyphicon-question-sign"></span><%= "#{@properties.ov_vmthday.toFixed 2}" %>
+				<strong href="#" rel="tooltipu" title="Average miles driven per day using personal automobiles, per household">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="VMT" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_vmthday.toFixed 2}" %>
 				<span class="inlinesparklinevmt"></span>
 				<br>
-				<span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Share of all commuters in the station area who use public transit for their work commute" class="glyphicon glyphicon-question-sign"></span><strong>Transit Commuter Share </strong> <%= "#{@properties.ov_pcttran.toFixed 2}" %>
+				<strong href="#" rel="tooltipu" title="Share of all commuters in the station area who use public transit for their work commute">Transit Commuter Share <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="transit share" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_pcttran.toFixed 2}" %>
 				<span class="inlinesparklinepcttran"></span>
 			</a>
 		</hm3>
@@ -34,10 +34,10 @@
 			</div>
 		<hm3>
 			<a href="#" rel="tooltip" title="Development Context">
-				<strong>Floor Area Ratio (FAR) </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_far.toFixed 2}" %></a>
+				<strong href="#" rel="tooltipu" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located">Floor Area Ratio (FAR) </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="FAR" class="glyphicon glyphicon-question-sign"></span><%= "#{@properties.ov_far.toFixed 2}" %>
 				<span class="inlinesparklinefar"></span>
 				<br>
-				<strong>Surface Parking (acre) </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Acres of surface parking within the station area"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_prkac.toFixed 2}" %></a>
+				<strong href="#" rel="tooltipu" title="Acres of surface parking within the station area">Surface Parking (acre) </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="surface parking" class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_prkac.toFixed 2}" %>
 				<span class="inlinesparklineprkac"></span>
 			</a>
 		</hm3>
@@ -64,10 +64,10 @@
 			</div>
 		<hm3>
 			<a href="#" rel="tooltip" title="Economics">
-				<strong>Number of Employees: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Current employment in the station area"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_emp10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
+				<strong href="#" rel="tooltipu" title="Current employment in the station area">Number of Employees: <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Current employment"class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_emp10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 				<span class="inlinesparklineemp10"></span>
 				<br>
-				<strong>Tax Revenue ($): </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Annual total property tax revenue generated in the station area, average per acre"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ex_taxrev.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}"%>
+				<strong href="#" rel="tooltipu" title="Annual total property tax revenue generated in the station area, average per acre">Tax Revenue ($): <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="tax revenue" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ex_taxrev.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}"%>
 				<span class="inlinesparklineextaxrev"></span>
 			</a>
 		</hm3>
@@ -80,10 +80,10 @@
 			</div>
 		<hm3>
 			<a href="#" rel="tooltip" title="Demographics">
-				<strong>Number of Households: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Total number of housholds in station area"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_hh10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
+				<strong href="#" rel="tooltipu" title="Total number of housholds in station area">Number of Households: <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="housholds"class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_hh10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 				<span class="inlinesparklinehh10"></span>
 				<br>
-				<strong>Household Median Income ($): </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Median household income, calculated as the average for all census tracts that intersect with this station area"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_hhinc.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
+				<strong href="#" rel="tooltipu" title="Median household income, calculated as the average for all census tracts that intersect with this station area">Household Median Income ($): <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Median household income"class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_hhinc.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 				<span class="inlinesparklinehhinc"></span>
 			</a>
 		</hm3>

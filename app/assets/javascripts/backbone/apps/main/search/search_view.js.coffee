@@ -4,12 +4,49 @@
     class Search.SimpleSearchFormLayout extends App.Views.Layout
         template: "main/search/templates/simple_search_layout" 
         
-        templateHelpers:->
+        onShow: ->
             #names = "#{gon.lables.names}" # this just makes a list of the names
             $(document).ready ->
               $("[rel=tooltip]").tooltip placement: "top"
+              $("#dialog-modal").dialog 
+                    position:
+                        my: "center"
+                        at: "center"
+                        of: "#main-region"
+                    autoOpen: false
+                    closeOnEscape: true
+                    height: 400
+                    width: 600
+                    show:
+                        effect: "blind"
+                        duration: 100  
+                    hide:
+                        effect: "blind"
+                        duration: 100
+                    title: 
+                        $("[rel=tooltipd]").title
+
+               
+                $("#dialog-modal").dialog beforeClose: (event, ui) ->
+                    $("#accordion").accordion "enable"
+
+                $("[rel=tooltipd]").click (event, ui) ->
+                    console.log @
+                    console.log @.title
+                    $("#dialog-modal").dialog 
+                    dictionaryResponse = $.ajax
+                            url: "/dictionary_entries.json?by_name=#{@.title}"
+                            done: (result) =>
+                                return result
+                    dictionary = dictionaryResponse.complete()
+                    dictionary.done =>
+                        dictionaries = dictionary.responseJSON
+                        console.log dictionaries["0"].description if dictionaries["0"]
+                        $("#dialog-modal").dialog "open"
+                        $("#dialog-modal").html("'#{dictionaries["0"].description}'")
+                        $("#ui-id-2").html("'#{dictionaries["0"].name}'")
               $(".selectpicker").selectpicker()
-              ###$("#searchinput1").autocomplete
+              $("#searchinput1").autocomplete
                 source: gon.names.names
                 minLength: 3
                 select: (event, ui) ->
@@ -30,7 +67,7 @@
                             console.log features 
                             muni_names = _.map features, (key, value) -> key.properties.muni_name.toLowerCase()
                             event.view.gon.sugestion.muni_names = muni_names
-                            console.log event.view.gon###
+                            console.log event.view.gon
               return
             $(document).ready ->
               $("#searchinput2").autocomplete
@@ -48,6 +85,7 @@
         events: 
             'change #selectbasic2' : 'servicTypeSelected'
             'click #searchbuttom': 'inputChange'
+            'click #etod': 'etodFired'
             'click #resetbuttom':  'resetFormArgs' 
             'click #mapClick': 'fireMap'   
             'select #searchinput1': 'nameSelected'
@@ -141,7 +179,8 @@
             #$("#selectbasic1").html("<option> will load accordingly </option>")
 
 
-
+        etodFired: (e) =>
+            App.vent.trigger "etodFired"
            
 
 

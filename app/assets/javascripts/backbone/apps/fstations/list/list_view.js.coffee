@@ -205,17 +205,18 @@
                 fextaxrev = gon.feature["0"].properties.ex_taxrev.toFixed 4
                 fhh10 = gon.feature["0"].properties.ov_hh10.toFixed 4
                 fhhinc = gon.feature["0"].properties.ov_hhinc.toFixed 4
-                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", target: femp10, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", target: fextaxrev, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
-                $(".inlinesparklinehh10").sparkline gon.hh10s, type: "box", target: fhh10, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
-                $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", target: fhhinc, lineColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
+                $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", target: femp10, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
+                $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", target: fextaxrev, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinehh10").sparkline gon.hh10s, type: "box", target: fhh10, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", target: fhhinc, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 1.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
                 #tooltipFormatFieldlist: ['med', 'lq', 'uq'],
             $(document).ready ->
+                $("[rel=tooltipu]").tooltip placement: "top"
                 $("#previousbuttom").click ->
                     console.log "inside previousClicked"
                     console.log gon.feature["0"].properties.name
@@ -239,8 +240,11 @@
                     App.vent.trigger "searchFired", "by_name=#{nextFeature.properties.name}"
                 $("#dialog-modal").dialog 
                     position:
-                        at: "right"
+                        at: "center"
                     autoOpen: false
+                    closeOnEscape: true
+                    height: 400
+                    width: 600
                     show:
                         effect: "blind"
                         duration: 100  
@@ -250,24 +254,26 @@
                     title: 
                         $("[rel=tooltip]").title
 
-                $("#dialog-modal").dialog open: (event, ui) ->
+               
+                $("#dialog-modal").dialog beforeClose: (event, ui) ->
+                    $("#accordion").accordion "enable"
+
+                $("[rel=tooltipd]").click (event, ui) ->
+                    console.log @.title
+                    $("#accordion").accordion "disable"
+                    $("#dialog-modal").dialog 
                     dictionaryResponse = $.ajax
-                            url: "/dictionary_entries.json?by_name="
+                            url: "/dictionary_entries.json?by_name=#{@.title}"
                             done: (result) =>
                                 return result
                     dictionary = dictionaryResponse.complete()
                     dictionary.done =>
                         dictionaries = dictionary.responseJSON
-                        console.log dictionaries["0"].description
+                        console.log dictionaries["0"].description if dictionaries["0"]
+                        $("#dialog-modal").dialog "open"
                         $("#dialog-modal").html("'#{dictionaries["0"].description}'")
                         $("#ui-id-2").html("'#{dictionaries["0"].name}'")
-                $("#dialog-modal").dialog beforeClose: (event, ui) ->
-                    $("#accordion").accordion "enable"
-
-                $("[rel=tooltipd]").click ->
-                    $("#accordion").accordion "disable"
-                    $("#dialog-modal").dialog 
-                    $("#dialog-modal").dialog "open"
+                    
                         
 
 			$("[rel=tooltip]").tooltip placement: "left"

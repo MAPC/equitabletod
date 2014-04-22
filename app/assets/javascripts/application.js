@@ -19,12 +19,8 @@
 //= require ../../../vendor/assets/javascripts/bootstrap-select.js
 //= require ../../../vendor/assets/javascripts/jquery-ui-1.10.4.custom.min.js
 //= require ./backbone/leaflet.js
-//= require ../../../vendor/assets/javascripts/leaflet.ajax.js
-//= require ../../../vendor/assets/javascripts/fuse.js
-//= require ../../../vendor/assets/javascripts/leaflet.fusesearch.js
 //= require ./backbone/backbone.leaflet.js
-//= require ../../../vendor/assets/javascripts/backbone.modal.js
-//= require ../../../vendor/assets/javascripts/backbone.marionette.modals.js
+//= require ../../../vendor/assets/javascripts/jquery.jcarousel-core.js
 //= require ../../../vendor/assets/javascripts/d3.js
 //= require ../../../vendor/assets/javascripts/RadarChart.js
 //= require ../../../vendor/assets/javascripts/Semicircle.js
