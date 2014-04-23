@@ -52,11 +52,14 @@
 					<strong href="#" rel="tooltipu" title="Conveys the extent of existing development: the sum of population and employment within the station area">Current Development Intensity <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="development intensity" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_intntot.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 					<span class="inlinesparklineintntot"></span>
 				<br>
-					<strong>Current Development Mix </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Ratio of employment to current development intensity"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_mix.toFixed 2}" %></a>
+					<strong href="#" rel="tooltipu" title="Ratio of employment to current development intensity">Current Development Mix <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Development Mix" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_mix.toFixed 2}" %>
+					<span class="inlinesparklinemix"></span>
 				<br>
-					<strong>Net Residential Density </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Average number of housing units per acre zoned for residential use"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_hupac.toFixed 2}" %></a>
+					<strong href="#" rel="tooltipu" title="Average number of housing units per acre zoned for residential use">Net Residential Density <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Residential Density" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_hupac.toFixed 2}" %>
+					<span class="inlinesparklinehupac"></span>
 				<br>
-					<strong>Net employment Density </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Average number of Employees per acre zoned for commercial, industrial, or institutional use"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_empden.toFixed 2}" %></a>
+					<strong href="#" rel="tooltipu" title="Average number of Employees per acre zoned for commercial, industrial, or institutional use">Net employment Density <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Employment Density"class="glyphicon glyphicon-question-sign"></span> </strong><%= "#{@properties.ov_empden.toFixed 2}" %>
+					<span class="inlinesparklineempden"></span>
 				<br>
 					<strong>Underutilized Land: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Acreage of all parcels where the value of the improvements is less than the value of the land"><span class="glyphicon glyphicon-question-sign"></span> </a>
 				<br>
@@ -82,9 +85,11 @@
 		</hm3>
 			<div>
 				<p class="hm21">
-					<strong>Number of Establishments: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Number of public, private, and non-profit organizations located in the station area"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_est_10}" %>
+					<strong href="#" rel="tooltipu" title="Number of public, private, and non-profit organizations located in the station area">Number of Establishments: </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Establishments" class="glyphicon glyphicon-question-sign"></span> <%= "#{@properties.ov_est_10}" %>
+					<span class="inlinesparklineest10"></span>
 				<br>
-					<strong>Assessed Value ($): </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Total assessed value of all parcels in station area"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_aval.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
+					<strong href="#" rel="tooltipu" title="Total assessed value of all parcels in station area">Assessed Value ($): </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Assessed Value" class="glyphicon glyphicon-question-sign"></span> <%= "#{@properties.ov_aval.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
+					<span class="inlinesparklineaval"></span>
 				</p>
 			</div>
 		<hm3>
@@ -100,11 +105,14 @@
 		</hm3>
 			<div>
 				<p class="hm21">
-					<strong>Tenure: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Percentage of housing units that are renter-occupied"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_rentocc.toFixed 2}" %>
+					<strong href="#" rel="tooltipu" title="Percentage of housing units that are renter-occupied">Tenure: <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Tenure" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_rentocc.toFixed 2}" %>
+					<span class="inlinesparklinerentocc"></span>
 				<br>
-					<strong>Zero-Car Households: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Percentage of all households in station area that do not own a car"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_hhnocar.toFixed 2}" %>
+					<strong href="#" rel="tooltipu" title="Percentage of all households in station area that do not own a car">Zero-Car Households: <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Zero Car" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_hhnocar.toFixed 2}" %>
+					<span class="inlinesparklinehhnocar"></span>
 				<br>
-					<strong>Educational Attainment: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Percentage of households with at least one bachelors degree"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_ed_att.toFixed 2}" %>
+					<strong href="#" rel="tooltipd" title="Percentage of households with at least one bachelors degree">Educational Attainment: <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Educational Attainment" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_ed_att.toFixed 2}" %>
+					<span class="inlinesparklineedatt"></span>
 				</p>
 			</div>
 	</div>

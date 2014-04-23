@@ -165,6 +165,12 @@ var RadarChart = {
 					 .style("fill-opacity", cfg.opacityArea)
 					 .on('mouseover', function (d){
 										z = "polygon."+d3.select(this).attr("class");
+										tooltip
+											.attr('x', x+150)
+											.attr('y', y["0"])
+											.text("Click to see breakdown of the score values")
+											.transition(200)
+											.style('opacity', 1);
 										g.selectAll("polygon")
 										 .transition(200)
 										 .style("fill-opacity", 0.1); 
@@ -173,9 +179,12 @@ var RadarChart = {
 										 .style("fill-opacity", .7);
 									  })
 					 .on('mouseout', function(){
+									 	tooltip
+											.transition(200)
+											.style('opacity', 0);
 										g.selectAll("polygon")
-										 .transition(200)
-										 .style("fill-opacity", cfg.opacityArea);
+										 	.transition(200)
+										 	.style("fill-opacity", cfg.opacityArea);
 					 });
 	  series++;
 	});

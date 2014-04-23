@@ -9,7 +9,7 @@
 		</div>		
 		<div class="col-md-8 col-md-offset-0 text-left">	
 			<div id="fstations-region"></div>
-			<div id="chart"></div>
+			<div id="chart"></div><div id="dialog-chart"></div>
 		</div>
 	</div>
 </div>		

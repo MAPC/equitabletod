@@ -5,7 +5,15 @@
         template: "main/search/templates/simple_search_layout" 
         
         onShow: ->
-            #names = "#{gon.lables.names}" # this just makes a list of the names
+            $(document).ready ->
+                $("#accordion").accordion 
+                    header: "hm2" 
+                    active: "false"
+                    heightStyle: "content"
+                    collapsible: true
+                    icons:
+                        header: "ui-icon-plus"
+                        activeHeader: "ui-icon-minus"
             $(document).ready ->
               $("[rel=tooltip]").tooltip placement: "top"
               $("#dialog-modal").dialog 
@@ -77,9 +85,6 @@
                     console.log event.view.gon
                     console.log ui.item.value.toLowerCase()
                     
-              return
-            $(document).ready ->
-              $("#accordion").accordion
               return
 
         events: 
