@@ -6,7 +6,7 @@
         
         onShow: ->
             $(document).ready ->
-                $("#accordion").accordion 
+                $("#fpaccordion").accordion 
                     header: "hm2" 
                     active: "false"
                     heightStyle: "content"
@@ -23,8 +23,7 @@
                         of: "#main-region"
                     autoOpen: false
                     closeOnEscape: true
-                    height: 400
-                    width: 600
+   
                     show:
                         effect: "blind"
                         duration: 100  
@@ -51,32 +50,22 @@
                         dictionaries = dictionary.responseJSON
                         console.log dictionaries["0"].description if dictionaries["0"]
                         $("#dialog-modal").dialog "open"
-                        $("#dialog-modal").html("'#{dictionaries["0"].description}'")
-                        $("#ui-id-2").html("'#{dictionaries["0"].name}'")
+                        $("#dialog-modal").dialog title: "Data Dictionary"
+                        $("#dialog-modal").html("")
+                        $("#dialog-modal").html("#{dictionaries["0"].description}")
               $(".selectpicker").selectpicker()
               $("#searchinput1").autocomplete
                 source: gon.names.names
                 minLength: 3
                 select: (event, ui) ->
                     console.log ui.item.value.toLowerCase()
-                    name = ui.item.value.toLowerCase()
+                    name = ui.item.value.replace(" ", "%20").toLowerCase()
                     console.log name
-                    urlstr = "/search.json?by_name=" + "#{name}"
+                    urlstr = "by_name=" + "#{name}"
                     console.log urlstr
-                    sugestion = $.ajax
-                        url: urlstr
-                        success: (result) ->
-                            return result
-                    sugestion.done =>
-                        console.log sugestion
-                        if sugestion.responseJSON
-                            sugestions = sugestion.responseJSON
-                            features = _.values sugestions.features # this returns an array of each features obkect
-                            console.log features 
-                            muni_names = _.map features, (key, value) -> key.properties.muni_name.toLowerCase()
-                            event.view.gon.sugestion.muni_names = muni_names
-                            console.log event.view.gon
-              return
+                    query = "#{urlstr}"
+                    App.vent.trigger "searchFired", query
+              
             $(document).ready ->
               $("#searchinput2").autocomplete
                 source: gon.muni_names.muni_names
@@ -94,9 +83,8 @@
             'click #gsa': 'gsaFired'
             'click #resetbuttom':  'resetFormArgs' 
             'click #mapClick': 'fireMap'   
-            'select #searchinput1': 'nameSelected'
-            'change #searchinput1': 'nameSelected'
-            #'change #searchinput2': 'muniNameSelected'
+            'select #searchinput1': 'inputChange'
+
 
         inputChange: (e)=>
             urlq = "?"

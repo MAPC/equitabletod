@@ -147,12 +147,13 @@
                     hide:
                         effect: "blind"
                         duration: 100
-                    title: 
-                        $("[rel=tooltip]").title
+    
 
                 $("#dialog-chart").dialog 
                     position:
-                        at: "right"
+                        at: "left"
+                        my: "center"
+                        of: $("#chart")
                     autoOpen: false
                     closeOnEscape: true
                     height: 200
@@ -170,9 +171,12 @@
                     $("#accordion").accordion "enable"
 
                 $("#chart").click (event, ui) ->
-                    console.log event
+                    sub1 = gon.feature["0"].properties.etod_sub1t
+                    sub2 = gon.feature["0"].properties.etod_sub2o
+                    sub3 = gon.feature["0"].properties.etod_sub3d
+                    totscore = gon.feature["0"].properties.etod_total
                     $("#dialog-chart").dialog "open"
-                    $("#dialog-chart").html("here goes the breakdown values")
+                    $("#dialog-chart").html("Transit Score: #{sub1}<br>Orientation Score: #{sub2}<br>Development Score: #{sub3}<br><hr>Total Score: #{totscore}")
 
                 $("[rel=tooltipd]").click (event, ui) ->
                     console.log @.title
@@ -187,8 +191,9 @@
                         dictionaries = dictionary.responseJSON
                         console.log dictionaries["0"].description if dictionaries["0"]
                         $("#dialog-modal").dialog "open"
-                        $("#dialog-modal").html("'#{dictionaries["0"].description}'")
-                        $("#ui-id-2").html("'#{dictionaries["0"].name}'")
+                        $("#dialog-modal").dialog title: "Data Dictionary"
+                        $("#dialog-modal").html("")
+                        $("#dialog-modal").html("#{dictionaries["0"].description}")
                     
                         
 
@@ -199,6 +204,7 @@
                 header: "hm3" 
                 active: "false"
                 heightStyle: "content"
+                width: 600
                 collapsible: true
                 icons:
                     header: "ui-icon-plus"

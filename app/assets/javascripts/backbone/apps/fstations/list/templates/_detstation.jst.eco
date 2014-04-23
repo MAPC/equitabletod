@@ -7,20 +7,44 @@
 		<hm2><button id="previousbuttom" type="button" class="btn btn-default btn-lg btn3d"><</button><strong class="col-xs-offset-1"><%= "#{@properties.name}" %></strong><button id="nextbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">></button></hm2>
 	</div>
 	<div id="accordion">
-		<hm3><strong>Station Name: </strong><%= "#{@properties.name}" %></hm3>
+		<hm3>
+			<p>Basic Info</p>
+			<strong>Station Name: </strong><%= "#{@properties.name}" %>
+		</hm3>
 			<div>
 				<p class="hm2">
-					<strong>Municipality: </strong><%= "#{@properties.muni_name}" %>
+					<strong href="#" rel="tooltipu" title="The name of the municipality in which the station is principally or wholly located">Municipality: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.muni_name}" %>
+				</p>
+				<br>
+				<p class="hm2">
+					<strong href="#" rel="tooltipu" title="The type(s) of transit service available at this station" >Service Type: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a> </strong>  <%= "#{@properties.muni_name}" %>
+				</p>
+				<br>
+				<p class="hm2">
+					<strong href="#" rel="tooltipu" title="The group of stations to which this station belongs based on its TOD-supportive characteristics">Station Type: <span class="glyphicon-class"> </span><a href="#" rel="tooltipd" title="Station Type"><span class="glyphicon glyphicon-question-sign"></span></a> </strong>  <%= "#{@properties.station_class}" %>
+				</p>
+				<br>
+				<p class="hm2">
+					<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD">eTOD Group: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.etod_type}" %>
+				</p>
+				<br>
+				<p class="hm2">
+					<strong href="#" rel="tooltipu" title="">Community Type: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Community Type"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.community_type_description}" %>
+				</p>
+				<br>
+				<p class="hm2">
+					<strong href="#" rel="tooltipu" title="">Subcommunity Type: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Subcommunity Type"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.subcommunity_type_description}" %>
 				</p>
 			</div>
+		<hr>
 		<hm3>
 			<a>
 				<p>Transformation Performance</p>
-				<strong href="#" rel="tooltipu" title="Average miles driven per day using personal automobiles, per household">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="VMT" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_vmthday.toFixed 2}" %>
+				<strong href="#" rel="tooltipu" title="Average miles driven per day using personal automobiles, per household">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="VMT" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_vmthday.toFixed 2}" %>
 				<span class="inlinesparklinevmt"></span>
 				<br>
 			</br>
-				<strong href="#" rel="tooltipu" title="Share of all commuters in the station area who use public transit for their work commute">Transit Commuter Share <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="transit share" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_pcttran.toFixed 2}" %>
+				<strong href="#" rel="tooltipu" title="Share of all commuters in the station area who use public transit for their work commute">Transit Commuter Share <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="transit share" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_pcttran.toFixed 2}" %>
 				<span class="inlinesparklinepcttran"></span>
 			</a>
 		</hm3>
@@ -36,6 +60,7 @@
 					<span class="inlinesparklineghg"></span>
 				</p>
 			</div>
+		<hr>
 		<hm3>
 			<a>
 				<p>Development Context</p>
@@ -72,6 +97,7 @@
 					<strong>Commercial Pipeline: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Estimated employment in developments planned or under construction"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_empcons + @properties.ov_empplan}" %>
 				</p>
 			</div>
+		<hr>
 		<hm3>
 			<a>
 				<p>Economics</p>
@@ -92,6 +118,7 @@
 					<span class="inlinesparklineaval"></span>
 				</p>
 			</div>
+		<hr>
 		<hm3>
 			<a>
 				<p>Demographics</p>

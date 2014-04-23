@@ -19,6 +19,8 @@
 				    fstations = collection.responseJSON
 				    console.log fstations
 				    features = _.values fstations.features
+				    #window.features = Backbone.Collection.extend(localStorage: new Backbone.LocalStorage("features"))
+				    #window.features = features
 				    gon.features = features
 				    #gon.searchresults = features
 				    fstationsCollection = new Backbone.Collection features
