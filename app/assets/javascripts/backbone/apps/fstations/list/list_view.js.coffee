@@ -134,9 +134,11 @@
                     nextFeature = _.last otherFeatures
                     console.log nextFeature.properties.name
                     App.vent.trigger "searchFired", "by_name=#{nextFeature.properties.name}"
+                
                 $("#dialog-modal").dialog 
                     position:
-                        at: "center"
+                        at: "left top"
+                        of: $("#map")
                     autoOpen: false
                     closeOnEscape: true
                     height: 400
@@ -148,14 +150,14 @@
                         effect: "blind"
                         duration: 100
     
-
                 $("#dialog-chart").dialog 
                     position:
-                        at: "left"
-                        my: "center"
-                        of: $("#chart")
+                        at: "bottom"
+                        of: $("#info-region")
+
                     autoOpen: false
                     closeOnEscape: true
+                    draggable: false
                     height: 200
                     width: 300
                     show:
@@ -181,7 +183,6 @@
                 $("[rel=tooltipd]").click (event, ui) ->
                     console.log @.title
                     $("#accordion").accordion "disable"
-                    $("#dialog-modal").dialog 
                     dictionaryResponse = $.ajax
                             url: "/dictionary_entries.json?by_name=#{@.title}"
                             done: (result) =>
@@ -405,15 +406,12 @@
 
 	class List.Map extends App.Views.Layout
 		template: "fstations/list/templates/_map"
-		el: "#map"
+		el: "#maplist"
 		modelEvents:
 		  "change" : "render"
 
 		onShow: ->
-			console.log "insede on show enevt list_view"
-			console.log @collection
-			console.log fstations
-			map = L.map("map",
+			maplist = L.map("maplist",
 			  scrollWheelZoom: false
 			  touchZoom: false
 			  doubleClickZoom: true
@@ -421,13 +419,11 @@
 			  dragging: true
 			  maxZoom: 18
 			)
-			map.setView [
-			  42.31
-			  -71.077359
-			], 10
-			cloudmade = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
+
+			L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
 			  attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
-			).addTo(map)
+			).addTo maplist
+
 			LeafIcon = L.Icon.extend(options:
 			  	iconSize: [
 			    	15
@@ -439,33 +435,18 @@
 			  	]
 				)
 			stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
-			@collection = gon.feature
-			console.log @collection
-			#fstations = JSON.parse(fstations)
-			geoCollection = switch
-                when gon.length < 2 then gon.feature
-                else gon.features
-            console.log "this is after the swith and the geoCollecyion is:"
-			console.log geoCollection
-			fstations = new L.GeoJSON geoCollection,
-				style: (feature) ->
-					feature.properties and feature.properties.style
-				pointToLayer: (feature, latlng) ->
-				    L.circle latlng, 250,
-				      fillColor: "#FFFFFF"
-				      color: "#000"
-				      weight: 1
-				      opacity: 0.2
-				      fillOpacity: 0.4
-			map.addLayer(fstations)
-			fstation = new L.GeoJSON geoCollection,
+
+			geoCollection = gon.features
+			fstations = new L.GeoJSON geoCollection,   
 				pointToLayer: (feature, latlng) ->
                     L.marker(latlng, icon: stationIcon).on 'click', (e)->
                         console.log feature
                         console.log App.vent.trigger "searchFired", "by_name=#{feature.properties.name}"
-			map.addLayer(fstation)
+                    L.marker(latlng, icon: stationIcon).on 'mouseover', (e) ->
+                        popup = L.popup().setLatLng(latlng).setContent("#{feature.properties.name}").openOn(maplist)    
+			maplist.addLayer(fstations)
 			bbox = fstations.getBounds().toBBoxString()
-			map.fitBounds [
+			maplist.fitBounds [
 			  [
 			    parseFloat(bbox.split(",")[1])
 			    parseFloat(bbox.split(",")[0])
@@ -485,7 +466,6 @@
         onShow: ->
             console.log "insede on show enevt list_view"
             console.log @collection
-            console.log fstations
             map = L.map("map",
               scrollWheelZoom: false
               touchZoom: false
@@ -501,6 +481,7 @@
             cloudmade = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
               attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
             ).addTo(map)
+
             LeafIcon = L.Icon.extend(options:
                 iconSize: [
                     15
@@ -511,19 +492,12 @@
                     -76
                 ]
                 )
+
             stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
-            @collection = gon.feature
-            console.log @collection
-            geoCollection = switch
-                when gon.length < 2 then gon.feature
-                else gon.features
-            #printProvider = L.print.provider(
-            #    method: "GET"
-            #    url: " http://path/to/mapfish/print"
-            #    autoLoad: true
-            #    dpi: 90
-            #)
-            fstations = new L.GeoJSON geoCollection,
+
+            geoCollection =  gon.feature
+
+            fstation = new L.GeoJSON geoCollection,
                 style: (feature) ->
                     feature.properties and feature.properties.style
                 pointToLayer: (feature, latlng) ->
@@ -533,15 +507,9 @@
                       weight: 1
                       opacity: 0.2
                       fillOpacity: 0.4
-            map.addLayer(fstations)
-            fstation = new L.GeoJSON geoCollection,
-                style: (feature) ->
-                    feature.properties and feature.properties.style
-                pointToLayer: (feature, latlng) ->
-                    L.marker latlng, icon: stationIcon
             map.addLayer(fstation)
-            console.log map.getBounds()
-            bbox = fstations.getBounds().toBBoxString()
+
+            bbox = fstation.getBounds().toBBoxString()
             console.log bbox
             map.fitBounds [
               [

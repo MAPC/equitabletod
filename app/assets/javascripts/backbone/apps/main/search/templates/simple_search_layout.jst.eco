@@ -3,7 +3,7 @@
 </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-5 col-md-offset-0 text-left">
+    <div class="col-md-6 col-md-offset-0 text-left">
       <h3>InformaⓉion Station</h3>
         <h2>Better data for better transit-oriented development</h2>
         <div id="fpaccordion">
@@ -24,9 +24,8 @@
             </p>
           </div>
         </div>
-    </div>
+
     <!-- simple search form - start -->
-    <div class="col-md-5 col-md-offset-1 text-left">
       <form class="form-horizontal">
       <fieldset>
       <!-- Form Name -->
@@ -138,10 +137,10 @@
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
             </p>
         </div>
-    </div>
+
     <!-- simple search form - end -->
     <!-- the courocel - start -->
-    <div class="col-md-5 col-md-offset-1 text-left">
+
       <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
