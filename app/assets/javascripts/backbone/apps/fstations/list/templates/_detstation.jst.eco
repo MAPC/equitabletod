@@ -4,7 +4,7 @@
 	</div>
  
 	<div class="col-xs-offset-2">
-		<hm2><button id="previousbuttom" type="button" class="btn btn-default btn-lg btn3d"><</button><strong class="col-xs-offset-1"><%= "#{@properties.name}" %></strong><button id="nextbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">></button></hm2>
+		<hm2><button id="previousbuttom" type="button" class="btn btn-default btn-lg btn3d"><</button><strong class="col-xs-offset-1"><a class="hm2" href="#fss/q/by_name=<%= "#{@properties.name}" %>"><%= "#{@properties.name}" %></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">></button></hm2>
 	</div>
 	<div id="accordion">
 		<hm3>
@@ -13,7 +13,7 @@
 		</hm3>
 			<div>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="The name of the municipality in which the station is principally or wholly located">Municipality: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.muni_name}" %>
+					<strong href="#" rel="tooltipu" title="The name of the municipality in which the station is principally or wholly located"><a href="#" rel="filter" title=<%="#{@properties.muni_name}"%>><span class="glyphicon glyphicon-filter"></a></span> Municipality: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.muni_name}" %>
 				</p>
 				<br>
 				<p class="hm2">

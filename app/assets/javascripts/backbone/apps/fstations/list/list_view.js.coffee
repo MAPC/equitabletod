@@ -6,17 +6,11 @@
 			mapRegion: "#map-region"
 			fstationsRegion: "#fstations-region"
 			chartRegion: "#chart-region"
-       ### previousClicked: (e) =>
-            console.log "inside previousClicked"
-            console.log gon.searchresults  
-        
 
-        nextbuttomClicked: (e) =>
-            console.log "inside nextbuttomClicked"
-            console.log gon.length###
 	class List.Detstation extends App.Views.ItemView
 		template: "fstations/list/templates/_detstation"
 		tagName: "tr"
+
 		onShow: ->
 			allfeaturesResponse = $.ajax
                 	url: "/search.json?by_name="
@@ -24,9 +18,16 @@
                     	return result
             allfeature = allfeaturesResponse.complete()
             allfeature.done =>
-                allfeatures = allfeature.responseJSON
-                features = _.values allfeatures.features # this returns an array of each features obkect
+                if _.isEmpty gon.features
+                    allfeatures = allfeature.responseJSON
+                    features = _.values allfeatures.features
+                else if (gon.feature != gon.features) and (gon.searchresults = [])
+                    features = gon.features 
+                else
+                    allfeatures = allfeature.responseJSON
+                    features = _.values allfeatures.features # this returns an array of each features obkect
                 console.log features 
+                console.log gon.features
                 fars = _.map features, (key, value) -> key.properties.ov_far.toFixed 2
                 vmts = _.map features, (key, value) -> key.properties.ov_vmthday.toFixed 2
                 pcttrans = _.map features, (key, value) -> key.properties.ov_pcttran.toFixed 2
@@ -111,13 +112,23 @@
                     $(".inlinesparklinerentocc").sparkline gon.rentoccs, type: "box", target: frentocc, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'   
                     $(".inlinesparklinehhnocar").sparkline gon.hhnocars, type: "box", target: fhhnocar, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'   
                     $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", target: fedatt, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'  
-            $(document).ready ->
+            $(document).ready -> 
+                $("#fstations-region").prepend '<a class="print-preview">Print this page</a>'
+                $("a.print-preview").printPreview()
+                $(document).bind "keydown", (e) ->
+                  code = ((if e.keyCode then e.keyCode else e.which))
+                  if code is 80 and not $("#print-modal").length
+                    $.printPreview.loadPrintPreview()
+                    false
                 $("[rel=tooltipu]").tooltip placement: "top"
                 $("#previousbuttom").click ->
+                    gon.searchresults = gon.features
                     console.log "inside previousClicked"
                     console.log gon.feature["0"].properties.name
-                    thisFeature = _.find gon.searchresults, (key, value) -> gon.feature["0"].properties.name == key.properties.name
-                    otherFeatures = _.without gon.searchresults, thisFeature
+                    thisFeature = _.find gon.features, (key, value) -> gon.feature["0"].properties.name == key.properties.name
+                    firstFeature = _.first gon.features 
+
+                    otherFeatures = _.without gon.features, thisFeature
                     priviousFeature = _.first otherFeatures
                     console.log priviousFeature.properties.name
                     App.vent.trigger "searchFired", "by_name=#{priviousFeature.properties.name}"
@@ -127,10 +138,11 @@
                     #return
                     #console.log gon.searchresults  
                 $("#nextbuttom").click ->
+                    gon.searchresults = gon.features
                     console.log "inside nextClicked"
                     console.log gon.length
-                    thisFeature = _.find gon.searchresults, (key, value) -> gon.feature["0"].properties.name == key.properties.name
-                    otherFeatures = _.without gon.searchresults, thisFeature
+                    thisFeature = _.find gon.features, (key, value) -> gon.feature["0"].properties.name == key.properties.name
+                    otherFeatures = _.without gon.features, thisFeature
                     nextFeature = _.last otherFeatures
                     console.log nextFeature.properties.name
                     App.vent.trigger "searchFired", "by_name=#{nextFeature.properties.name}"
@@ -179,6 +191,9 @@
                     totscore = gon.feature["0"].properties.etod_total
                     $("#dialog-chart").dialog "open"
                     $("#dialog-chart").html("Transit Score: #{sub1}<br>Orientation Score: #{sub2}<br>Development Score: #{sub3}<br><hr>Total Score: #{totscore}")
+ 
+                ###$("[rel=filter]").click (event, ui) ->
+                    console.log @.title###
 
                 $("[rel=tooltipd]").click (event, ui) ->
                     console.log @.title
@@ -195,8 +210,6 @@
                         $("#dialog-modal").dialog title: "Data Dictionary"
                         $("#dialog-modal").html("")
                         $("#dialog-modal").html("#{dictionaries["0"].description}")
-                    
-                        
 
 			$("[rel=tooltip]").tooltip placement: "left"
 			#$("[rel=tooltipd]").tooltip placement: "right"
@@ -213,12 +226,10 @@
 			return	 
 
 
-
 	class List.Detstations extends App.Views.CollectionView
 		template: "fstations/list/templates/_detstations"
 		itemView: List.Detstation
 		itemViewContainer: "tbody"
-
 
 	class List.Fstation extends App.Views.ItemView
 		template: "fstations/list/templates/_fstation"
@@ -410,7 +421,7 @@
 		modelEvents:
 		  "change" : "render"
 
-		onShow: ->
+		onShow: -> 
 			maplist = L.map("maplist",
 			  scrollWheelZoom: false
 			  touchZoom: false
@@ -439,11 +450,9 @@
 			geoCollection = gon.features
 			fstations = new L.GeoJSON geoCollection,   
 				pointToLayer: (feature, latlng) ->
-                    L.marker(latlng, icon: stationIcon).on 'click', (e)->
-                        console.log feature
-                        console.log App.vent.trigger "searchFired", "by_name=#{feature.properties.name}"
                     L.marker(latlng, icon: stationIcon).on 'mouseover', (e) ->
-                        popup = L.popup().setLatLng(latlng).setContent("#{feature.properties.name}").openOn(maplist)    
+                        popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}").openOn(maplist)    
+
 			maplist.addLayer(fstations)
 			bbox = fstations.getBounds().toBBoxString()
 			maplist.fitBounds [
@@ -455,7 +464,7 @@
 			    parseFloat(bbox.split(",")[3])
 			    parseFloat(bbox.split(",")[2])
 			  ]
-			]
+			] 
 
 	class List.MapDetail extends App.Views.Layout
         template: "fstations/list/templates/_map"

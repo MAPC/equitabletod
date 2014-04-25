@@ -28,6 +28,7 @@
 				    if features.length == 1
 				    	gon.feature = gon.features
 				    	gon.features = gon.searchresults if gon.searchresults
+				    	gon.searchresults = []
 		    			console.log "this is gon.features being re populated using the gon.searchresults"
 		    			console.log gon.features
 		    			@layout = @getLayoutView() 

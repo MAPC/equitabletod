@@ -2497,9 +2497,9 @@
                 options.get('boxFillColor')).append();
             // left whisker
             target.drawLine(
-                Math.round((lwhisker - minValue) * unitSize + canvasLeft),
+                Math.round((lwhisker - minValue) * unitSize + canvasLeft+1),
                 Math.round(canvasHeight / 2),
-                Math.round((q1 - minValue) * unitSize + canvasLeft),
+                Math.round((q1 - minValue) * unitSize + canvasLeft+1),
                 Math.round(canvasHeight / 2),
                 options.get('lineColor')).append();
             target.drawLine(
@@ -2509,15 +2509,15 @@
                 Math.round(canvasHeight - canvasHeight / 4),
                 options.get('whiskerColor')).append();
             // right whisker
-            target.drawLine(Math.round((rwhisker - minValue) * unitSize + canvasLeft),
+            target.drawLine(Math.round((rwhisker - minValue) * unitSize + canvasLeft-2),
                 Math.round(canvasHeight / 2),
-                Math.round((q3 - minValue) * unitSize + canvasLeft),
+                Math.round((q3 - minValue) * unitSize + canvasLeft-2),
                 Math.round(canvasHeight / 2),
                 options.get('lineColor')).append();
             target.drawLine(
-                Math.round((rwhisker - minValue) * unitSize + canvasLeft),
+                Math.round((rwhisker - minValue) * unitSize + canvasLeft-1),
                 Math.round(canvasHeight / 4),
-                Math.round((rwhisker - minValue) * unitSize + canvasLeft),
+                Math.round((rwhisker - minValue) * unitSize + canvasLeft-1),
                 Math.round(canvasHeight - canvasHeight / 4),
                 options.get('whiskerColor')).append();
             // median line
@@ -2531,14 +2531,14 @@
                 size = Math.ceil(options.get('spotRadius'));
                 target.drawLine(
                     Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
-                    Math.round((canvasHeight / 2) - size),
+                    Math.round((canvasHeight / 2) - size*2),
                     Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
-                    Math.round((canvasHeight / 2) + size),
+                    Math.round((canvasHeight / 2) + size*2),
                     options.get('targetColor')).append();
                 target.drawLine(
-                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft - size),
+                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft - size*2),
                     Math.round(canvasHeight / 2),
-                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft + size),
+                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft + size*2),
                     Math.round(canvasHeight / 2),
                     options.get('targetColor')).append();
             }
