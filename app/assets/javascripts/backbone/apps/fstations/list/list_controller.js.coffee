@@ -38,9 +38,20 @@
 		    				#@showFstationsTable gon.features
 		    				@showDetailMap fstationCollection
 		    				@showChart gon.feature
-		    		else
+		    		else if features.length < 20
 		    			console.log "number of search results: "
 		    			console.log features.length
+		    			gon.searchresults = features
+		    			gon.length = features.length
+		    			@layout = @getLayoutView() 
+		    			@layout.on 'show', =>
+		    				@showFstations fstationsCollection
+		    				@showMap fstationsCollection
+		    				#@showChart gon.searchresults["0"]
+		    		else 
+		    			console.log "number of search results: "
+		    			console.log features.length
+		    			gon.lengthsects /= features.length
 		    			gon.searchresults = features
 		    			gon.length = features.length
 		    			@layout = @getLayoutView() 

@@ -1,1 +1,5 @@
-<td><a class="hm2" href="#fss/q/by_name=<%= "#{@properties.name}" %>"><%= "#{@properties.name}" %></a></td>
+<td>
+	<p>
+		<a class="hm2" href="#fss/q/by_name=<%= "#{@properties.name}" %>"><%= "#{@properties.name}" %></a>
+	</p>
+</td>

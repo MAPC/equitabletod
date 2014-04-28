@@ -58,12 +58,12 @@
             
             // Grab contents and apply stylesheet
             var $iframe_head = $('head link[media*=print], head link[media=all]').clone(),
-                $iframe_body = $('body > *:not(#print-modal):not(script)').clone();
+                $iframe_body = $('body > *:not(#print-modal, #header-region):not(script)').clone();
             $iframe_head.each(function() {
                 $(this).attr('media', 'all');
             });
 
-            $('body > *:not(#print-modal):not(script)').clone().each(function() {
+            $('body > *:not(#print-modal, #header-region):not(script)').clone().each(function() {
                 $('body', print_frame_ref).append(this.outerHTML);
             });
             $('head link[media*=print], head link[media=all]').each(function() {

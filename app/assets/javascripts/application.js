@@ -26,6 +26,7 @@
 //= require ../../../vendor/assets/javascripts/Semicircle.js
 //= require ../../../vendor/assets/javascripts/jquery.sparkline.js
 //= require ../../../vendor/assets/javascripts/jquery.print-preview.js
+//= require ../../../vendor/assets/javascripts/table2CSV.js
 //= require_tree ./backbone/config
 //= require backbone/app
 //= require_tree ./backbone/entities

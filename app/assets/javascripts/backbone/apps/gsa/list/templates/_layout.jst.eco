@@ -3,13 +3,17 @@
 		<div id="gsa-txt" class="white-bg">
 			<div class="container-fluid">
 				<div class="row">
-					<p class="h2">
-								Growing Station Areas
-							</p>
-							<p class="h2">
-								The Variety and Potential of Transit Oriented Development in Metro Boston
-							</p>
-					<div class="col-md-3 col-md-offset-0 text-left">
+					<div class="col-md-6 col-md-offset-3 text-left">
+						<p class="h2">
+							Growing Station Areas
+						</p>
+						<p class="h2">
+							The Variety and Potential of Transit Oriented Development in Metro Boston
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-3 text-left">
 						<div id="etodpagetext">
 							<p class="hm2"> The Boston area is among the most transit-oriented regions in the country, with 25% of housing units and 37% of employment within a half-mile of a rapid transit or commuter rail station. In other words, a large proportion of our residents and jobs are already located in station areas.  With major bus stations included in consideration, the figures are even higher. 
 							</p>
@@ -20,7 +24,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-0 text-left">
+					<div class="col-md-6 col-md-offset-3 text-left">
 						<div id="etodpagetext">
 						</br>
 							<p class="hm2">
@@ -44,7 +48,10 @@
 				              	<li>  Municipalities and stakeholders can use the analysis to evaluate specific development proposals against the range of densities and project attributes appropriate for the station area type. </li>
 				              	<li>  •	The MBTA can use the analysis of TOD potential to plan for capacity expansion or to evaluate the potential development impacts of service changes. </li>
 				            	</ul>
-				          </p>
+				          	</p>
+				          	<p class = "hm2">
+							The station area types are introduced briefly below.  Download the full report <a href="#">here</a>
+							</p>
 						</div>
 					</div>
 				</div>

@@ -3,7 +3,7 @@
 		<div id="home-txt" class="white-bg">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-6 col-md-offset-0 text-left">
+					<div class="col-md-6 col-md-offset-3 text-left">
 						<div id="usrguidtext">
 							<p class="h2">
 								User Guide

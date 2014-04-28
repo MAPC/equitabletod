@@ -106,7 +106,7 @@
 .ui-accordion .ui-accordion-header .ui-accordion-header-icon {
 	position: absolute;
 	left: .5em;
-	top: 50%;
+	top: 20%;
 	margin-top: -8px;
 }
 .ui-accordion .ui-accordion-content {
@@ -207,7 +207,7 @@
 .ui-accordion .ui-accordion-header .ui-accordion-header-icon {
 	position: absolute;
 	left: .5em;
-	top: 50%;
+	top: 18px;
 	margin-top: -8px;
 }
 .ui-accordion .ui-accordion-content {
@@ -824,7 +824,7 @@ body .ui-tooltip {
 	font-size: 0.6em;
 }
 .ui-widget-content {
-	border: 1px solid #FFFFFF;
+	border: 0px solid #FFFFFF;
 	background: #FFFFFF url(images/ui-bg_inset-soft_100_f4f0ec_1x100.png) 50% bottom repeat-x;
 	color: #858585;
 }
@@ -832,7 +832,7 @@ body .ui-tooltip {
 	color: #858585;
 }
 .ui-widget-header {
-	border: 1px solid #d49768;
+	border: 0px solid #d49768;
 	background: #FFFFFF url(images/ui-bg_glass_25_cb842e_1x400.png) 50% 50% repeat-x;
 	color: #858585;
 	font-weight: bold;
@@ -846,7 +846,7 @@ body .ui-tooltip {
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	border: 1px solid #FFFFFF;
+	border: 0px solid #FFFFFF;
 	background: #FFFFFF url(images/ui-bg_glass_70_ede4d4_1x400.png) 50% 50% repeat-x;
 	font-weight: normal;
 	color: #000000;
@@ -863,7 +863,7 @@ body .ui-tooltip {
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border: 1px solid #FFFFFF;
+	border: 0px solid #FFFFFF;
 	background: #FFFFFF url(images/ui-bg_glass_100_f5f0e5_1x400.png) 50% 50% repeat-x;
 	font-weight: normal;
 	color: #000000;
@@ -881,7 +881,7 @@ body .ui-tooltip {
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #FFFFFF;
+	border: 0px solid #FFFFFF;
 	background: #FFFFFF url(images/ui-bg_highlight-hard_100_f4f0ec_1x100.png) 50% 50% repeat-x;
 	font-weight: normal;
 	color: #000000;
@@ -897,7 +897,7 @@ body .ui-tooltip {
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-	border: 1px solid #d9bb73;
+	border: 0px solid #d9bb73;
 	background: #f5f5b5 url(images/ui-bg_highlight-hard_75_f5f5b5_1x100.png) 50% top repeat-x;
 	color: #060200;
 }

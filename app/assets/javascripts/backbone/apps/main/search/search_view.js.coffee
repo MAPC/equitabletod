@@ -72,8 +72,7 @@
                 minLength: 3
                 select: (event, ui) ->
                     console.log event.view.gon
-                    console.log ui.item.value.toLowerCase()
-                    
+                    console.log ui.item.value.toLowerCase()      
               return
 
         events: 
@@ -84,7 +83,8 @@
             'click #resetbuttom':  'resetFormArgs' 
             'click #mapClick': 'fireMap'   
             'select #searchinput1': 'inputChange'
-
+            'click #ui-accordion-fpaccordion-header-0': 'moreText'
+            'click #ui-accordion-header-icon ui-icon ui-icon-minus': 'lessText'
 
         inputChange: (e)=>
             urlq = "?"
@@ -171,6 +171,12 @@
             console.log service_type # this logs the first service type selected and will later 
                                      # helps as a boolean value  
             #$("#selectbasic1").html("<option> will load accordingly </option>")
+
+        moreText: (e) =>
+            $("#ui-accordion-fpaccordion-header-0 > a").html '<a id="less-text"></a> '
+
+        lessText: (e) =>
+            $("#ui-accordion-fpaccordion-header-0 > a").html '<a id="More-text">More</a> '
 
         etodFired: (e) =>
             App.vent.trigger "etodFired"

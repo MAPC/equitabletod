@@ -18,19 +18,19 @@
                     	return result
             allfeature = allfeaturesResponse.complete()
             allfeature.done =>
-                if _.isEmpty gon.features
+                ###if _.isEmpty gon.features
                     allfeatures = allfeature.responseJSON
                     features = _.values allfeatures.features
                 else if (gon.feature != gon.features) and (gon.searchresults = [])
                     features = gon.features 
-                else
-                    allfeatures = allfeature.responseJSON
-                    features = _.values allfeatures.features # this returns an array of each features obkect
+                else###
+                allfeatures = allfeature.responseJSON
+                features = _.values allfeatures.features # this returns an array of each features obkect
                 console.log features 
                 console.log gon.features
                 fars = _.map features, (key, value) -> key.properties.ov_far.toFixed 2
                 vmts = _.map features, (key, value) -> key.properties.ov_vmthday.toFixed 2
-                pcttrans = _.map features, (key, value) -> key.properties.ov_pcttran.toFixed 2
+                pcttrans = _.map features, (key, value) -> (key.properties.ov_pcttran.toFixed 2) * 100
                 prkacs = _.map features, (key, value) -> key.properties.ov_prkac.toFixed 2
                 emp10s = _.map features, (key, value) -> key.properties.ov_emp10.toFixed 2
                 extaxrevs = _.map features, (key, value) -> key.properties.ex_taxrev.toFixed 0
@@ -72,20 +72,20 @@
 
                 fvmt = gon.feature["0"].properties.ov_vmthday.toFixed 4
                 ffar = gon.feature["0"].properties.ov_far.toFixed 4
-                fpcttran = gon.feature["0"].properties.ov_pcttran.toFixed 4
+                fpcttran = (gon.feature["0"].properties.ov_pcttran.toFixed 4) * 100
                 femp10 = gon.feature["0"].properties.ov_emp10.toFixed 4
                 fprkac = gon.feature["0"].properties.ov_prkac.toFixed 4
                 fextaxrev = gon.feature["0"].properties.ex_taxrev.toFixed 4
                 fhh10 = gon.feature["0"].properties.ov_hh10.toFixed 4
                 fhhinc = gon.feature["0"].properties.ov_hhinc.toFixed 4
-                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'
-                $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", target: femp10, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'		
-                $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", target: fextaxrev, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
-                $(".inlinesparklinehh10").sparkline gon.hh10s, type: "box", target: fhh10, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
-                $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", target: fhhinc, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'      
+                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'		
+                $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
+                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
+                $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'		
+                $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", target: femp10, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'		
+                $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", target: fextaxrev, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'      
+                $(".inlinesparklinehh10").sparkline gon.hh10s, type: "box", target: fhh10, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'      
+                $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", target: fhhinc, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'      
                 $("#accordion").accordion activate: (event, ui) ->
                     $("#accordion").accordion "refresh"
                     fvehphh = gon.feature["0"].properties.ov_vehphh.toFixed 4
@@ -100,20 +100,21 @@
                     frentocc = gon.feature["0"].properties.ov_rentocc.toFixed 2 if gon.feature["0"].properties.ov_rentocc
                     fhhnocar = gon.feature["0"].properties.ov_hhnocar.toFixed 2 if gon.feature["0"].properties.ov_hhnocar
                     fedatt = gon.feature["0"].properties.ov_ed_att.toFixed 2 if gon.feature["0"].properties.ov_ed_att
-                    $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000' 
-                    $(".inlinesparklinetrnpcmi").sparkline gon.trnpcmis, type: "box", target: ftrnpcmi, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000' 
-                    $(".inlinesparklineghg").sparkline gon.ghgs, type: "box", target: fghg, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'    
-                    $(".inlinesparklineintntot").sparkline gon.intntots, type: "box", target: fintntot, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'    
-                    $(".inlinesparklinemix").sparkline gon.mixs, type: "box", target: fmix, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'   
-                    $(".inlinesparklinehupac").sparkline gon.hupacs, type: "box", target: fhupac, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'   
-                    $(".inlinesparklineempden").sparkline gon.empdens, type: "box", target: fempden, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'   
-                    $(".inlinesparklineest10").sparkline gon.est10s, type: "box", target: fest10, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'   
-                    $(".inlinesparklineaval").sparkline gon.avals, type: "box", target: faval, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'   
-                    $(".inlinesparklinerentocc").sparkline gon.rentoccs, type: "box", target: frentocc, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'   
-                    $(".inlinesparklinehhnocar").sparkline gon.hhnocars, type: "box", target: fhhnocar, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'   
-                    $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", target: fedatt, lineColor: '#c6c6c6', whiskerColor: '#c6c6c6', boxFillColor: '#e8e9ed', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#0015ff', targetColor: '#bf0000'  
+                    $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                    $(".inlinesparklinetrnpcmi").sparkline gon.trnpcmis, type: "box", target: ftrnpcmi, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                    $(".inlinesparklineghg").sparkline gon.ghgs, type: "box", target: fghg, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
+                    $(".inlinesparklineintntot").sparkline gon.intntots, type: "box", target: fintntot, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
+                    $(".inlinesparklinemix").sparkline gon.mixs, type: "box", target: fmix, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklinehupac").sparkline gon.hupacs, type: "box", target: fhupac, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklineempden").sparkline gon.empdens, type: "box", target: fempden, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklineest10").sparkline gon.est10s, type: "box", target: fest10, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklineaval").sparkline gon.avals, type: "box", target: faval, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklinerentocc").sparkline gon.rentoccs, type: "box", target: frentocc, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklinehhnocar").sparkline gon.hhnocars, type: "box", target: fhhnocar, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", target: fedatt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'  
+           
             $(document).ready -> 
-                $("#fstations-region").prepend '<a class="print-preview">Print this page</a>'
+                $("#print-region").prepend '<a class="print-preview">Print this page</a>'
                 $("a.print-preview").printPreview()
                 $(document).bind "keydown", (e) ->
                   code = ((if e.keyCode then e.keyCode else e.which))
@@ -162,16 +163,35 @@
                         effect: "blind"
                         duration: 100
     
-                $("#dialog-chart").dialog 
+                $("#dialog-radar").dialog 
+                    appendTo: "#radar-region"
                     position:
-                        at: "bottom"
-                        of: $("#info-region")
+                        at: "botton"
+                        of: $("#map-region")
+                    autoOpen: true
+                    closeOnEscape: true
+                    draggable: false
+                    height: 300
+                    width: 300
+                    show:
+                        effect: "blind"
+                        duration: 100  
+                    hide:
+                        effect: "blind"
+                        duration: 100
+                    title: 
+                        "eTOD Score RadarChart"
 
+                $("#dialog-chart").dialog 
+                    appendTo: "#radar-region"
+                    position:
+                        at: "right top"
+                        of: $("#map")
                     autoOpen: false
                     closeOnEscape: true
                     draggable: false
-                    height: 200
-                    width: 300
+                    height: 300
+                    width: 240
                     show:
                         effect: "blind"
                         duration: 100  
@@ -216,10 +236,10 @@
 			$("[rel=tooltip]").tooltip track: true
 			$("#accordion").accordion 
                 header: "hm3" 
-                active: "false"
+                active: 0
                 heightStyle: "content"
                 width: 600
-                collapsible: true
+                collapsible: false
                 icons:
                     header: "ui-icon-plus"
                     activeHeader: "ui-icon-minus"
@@ -264,6 +284,7 @@
 			console.log station
 		
 		onShow: ->
+            $("#panel").html "#{gon.length} stations found <button id='searchrefine' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-1'>Refine Results</button>"
 			#@collection = gon.features
 			console.log @collection
 
@@ -353,8 +374,8 @@
 		template: "fstations/list/templates/_chart"
 		onShow: ->
 			stationfeature = gon.feature["0"] 
-			w = 200
-			h = 200
+			w = 150
+			h = 150
 			colorscale = d3.scale.category10()
 
 			#Legend titles
@@ -395,25 +416,6 @@
 			#Call function to draw the Radar chart
 			#Will expect that data is in %'s
 			RadarChart.draw "#chart", d, mycfg
-
-			#//////////////////////////////////////////
-			#///////// Initiate legend ////////////////
-			#//////////////////////////////////////////
-			svg = d3.select("#body").selectAll("svg").append("svg").attr("width", w + 300).attr("height", h)
-
-			#Create the title for the legend
-			text = svg.append("text").attr("class", "title").attr("transform", "translate(90,0)").attr("x", w - 70).attr("y", 10).attr("font-size", "12px").attr("fill", "#404040").text("eTOD Score Composite")
-
-			#Initiate Legend	
-			legend = svg.append("g").attr("class", "legend").attr("height", 100).attr("width", 200).attr("transform", "translate(90,20)")
-
-			#Create text next to squares
-			legend.selectAll("text").data(LegendOptions).enter().append("text").attr("x", w - 52).attr("y", (d, i) ->
-			  i * 20 + 9
-			).attr("font-size", "18px").attr("fill", "#737373").text (d) ->
-			  d
-
-
 
 	class List.Map extends App.Views.Layout
 		template: "fstations/list/templates/_map"

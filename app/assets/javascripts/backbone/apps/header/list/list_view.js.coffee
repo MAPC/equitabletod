@@ -12,6 +12,7 @@
 			"click #homeClick": "homeFired"
 			"click #guidClick": "guidFired"
 			"click #abouttod" : "abouttodFired"
+			"click #datadl" : "datadlFired"
 
 		homeFired: (e) =>
 			App.vent.trigger "homeFired"
@@ -24,3 +25,6 @@
 
 		guidFired: (e) =>
 			App.vent.trigger "guidFired"
+
+		datadlFired: (e) =>
+			App.vent.trigger "datadlFired"

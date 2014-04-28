@@ -1,18 +1,23 @@
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <div class="container-fluid">
 	<div class="row">
-    	<div class="col-md-4 col-md-offset-0 text-left">
+    	<div class="col-md-10 col-md-offset-0 text-left">
     		<div id="map-region">
 				<div id="map-container">
 					<div id="maplist"></div>
-					<div id="map">
-					</div>
+					<div id="map"></div>
+					<div id="map-canvas"></div>
 				</div>
 			</div>
-			<div id="info-region"></div>
 		</div>		
-		<div class="col-md-8 col-md-offset-0 text-left">	
+		<div class="col-md-4 col-md-offset-8 text-left">
+			<div id="dialog-chart"></div>	
+			<div id="radar-region">
+				<div id="chart"></div>
+			</div>
+			<div id="panel"></div>
 			<div id="fstations-region"></div>
-			<div id="chart"></div><div id="dialog-chart"></div>
+			<div id="print-region"></div>
 		</div>
 	</div>
 </div>		
