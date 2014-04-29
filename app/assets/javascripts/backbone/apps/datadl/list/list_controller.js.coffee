@@ -11,7 +11,7 @@
 			DatadlLayout = @getDatadlLayout
 			@layout.datadlRegion.show datadlView
 		
-		getdatadlView: ->
+		getDatadlView: ->
 			new List.Layout
 
 		getLayoutView: ->

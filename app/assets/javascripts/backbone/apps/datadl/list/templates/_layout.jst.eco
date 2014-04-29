@@ -17,6 +17,16 @@
 					For GIS users, the necessary shapefiles are available for download here:  
 					<button id='downloadshapefile' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-1'>Download Data</button>
 				</p>
+				<textarea id="json" class="text"></textarea>
+				<br />
+				<input id="quote" type="checkbox" checked="true" /> Wrap values in double quotes
+				<br />
+				<input id="labels" type="checkbox" checked="true" /> Include labels in first row
+				<br />
+				<button id="convert">Convert to CSV</button>
+				&nbsp;&nbsp;
+				<button id="download">Download CSV</button>
+				<textarea id="csv" class="text"></textarea>
 			</div>
 		</div>
 	</div>

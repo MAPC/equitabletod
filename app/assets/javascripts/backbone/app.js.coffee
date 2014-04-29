@@ -33,6 +33,9 @@
   App.vent.on "datadlFired", ->
     App.navigate "datadl/", trigger: true
 
+  App.vent.on "searchrefineFired", ->
+    App.navigate "advsearch/", trigger: true
+
   App.vent.on "searchFired", (query)->
     console.log "im inside the app itself"
     query = "fss/q/" + query

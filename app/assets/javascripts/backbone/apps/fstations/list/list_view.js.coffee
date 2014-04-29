@@ -284,10 +284,11 @@
 			console.log station
 		
 		onShow: ->
-            $("#panel").html "#{gon.length} stations found <button id='searchrefine' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-1'>Refine Results</button>"
+            $("#panel").html "#{gon.length} stations found <a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn-lg btn3d col-xs-offset-1'>Refine Results</button></a>"
 			#@collection = gon.features
-			console.log @collection
-
+			$("#searchrefine").click (event, ui) ->
+                console.log "it gets the click"
+                App.vent.trigger "searchrefineFired"
 
 	class List.Table extends App.Views.Layout
 		template: "fstations/list/templates/_table"

@@ -28,3 +28,14 @@
 
 		datadlFired: (e) =>
 			App.vent.trigger "datadlFired"
+
+		onShow: ->
+			$("body").toggleClass "nav-expanded"
+			$("#nav-expander").on "click", (e) ->
+			  $("body").toggleClass "nav-expanded"
+			  return
+
+			$("#nav-close").on "click", (e) ->
+			  e.preventDefault()
+			  $("body").removeClass "nav-expanded"
+			  return

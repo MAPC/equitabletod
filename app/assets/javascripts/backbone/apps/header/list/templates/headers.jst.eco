@@ -1,5 +1,4 @@
-<div class="navbar navbar-inverse navbar-fixed-top padding-2">      
-    <!--Include your brand here-->
+<!-- <div class="navbar navbar-inverse navbar-fixed-top padding-2">      
   	  <div class="margin--no-lftrght">
         <div class="row animated fadeInBig">
           </div>
@@ -15,6 +14,21 @@
         </div>
       </div>
 </div>
+<nav> -->
+<div class="navbar-header pull-right">
+      <a id="nav-expander" class="nav-expander fixed">
+        &nbsp;<i class="fa fa-bars fa-lg black"></i>
+      </a>
+</div>
 <nav>
+  <ul class="list-unstyled main-menu">
+    <li class="text-right"><a href="#" id="nav-close">&nbsp;<i class="fa fa-bars fa-md black"></i></a></li>
+    <li><a id ="homeClick" href="#home" data-toggle="portfilter" data-target="home">Home</a></li>
+    <li><a  id="guidClick" href="#guid" data-toggle="portfilter" data-target="usrguid">User Guide</a></li>
+    <li><a id="abouttod" href="#abouttod/" data-toggle="portfilter" data-target="learn">Learn About TOD</a></li>
+    <li><a id="datadl" href="#datadl/" data-toggle="portfilter" data-target="download">Download All Data</a></li>
+  </ul>
+</nav> 
+
 
 
