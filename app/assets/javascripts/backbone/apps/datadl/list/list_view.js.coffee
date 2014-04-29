@@ -20,8 +20,10 @@
                 else###
                 allfeatures = allfeature.responseJSON
                 features = _.values allfeatures.features
-                jfeatures = JSON.stringify(features)
-                console.log jfeatures
+                pfeatures = _.values allfeatures.features
+                pjfeatures = pfeatures.map (pf) -> pf.properties
+                jfeatures = JSON.stringify(pjfeatures)
+                #console.log jfeatures
                 $("#json").html "#{jfeatures}"
 
 			JSON2CSV = (objArray) ->
