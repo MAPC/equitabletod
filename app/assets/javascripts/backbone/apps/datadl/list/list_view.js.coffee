@@ -22,9 +22,9 @@
                 features = _.values allfeatures.features
                 pfeatures = _.values allfeatures.features
                 pjfeatures = pfeatures.map (pf) -> pf.properties
-                jfeatures = JSON.stringify(pjfeatures)
+                gon.jfeatures = JSON.stringify(pjfeatures)
                 #console.log jfeatures
-                $("#json").html "#{jfeatures}"
+                #$("#json").html "#{jfeatures}"
 
 			JSON2CSV = (objArray) ->
 			  array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
@@ -57,14 +57,8 @@
 			    i++
 			  str
 
-			$("#convert").click ->
-			  json = $.parseJSON($("#json").val())
-			  csv = JSON2CSV(json)
-			  $("#csv").val csv
-			  return
-
 			$("#download").click ->
-			  json = $.parseJSON($("#json").val())
+			  json = $.parseJSON(gon.jfeatures)
 			  csv = JSON2CSV(json)
 			  window.open "data:text/csv;charset=utf-8," + escape(csv)
 			  return

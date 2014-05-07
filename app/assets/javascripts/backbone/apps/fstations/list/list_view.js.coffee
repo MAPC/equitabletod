@@ -114,6 +114,8 @@
                     $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", target: fedatt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'  
            
             $(document).ready -> 
+                $("body").removeClass "nav-expanded"
+                $("#titles").html "<p class='h2'>Station Area Details</p>"
                 $("#print-region").prepend '<a class="print-preview">Print this page</a>'
                 $("a.print-preview").printPreview()
                 $(document).bind "keydown", (e) ->
@@ -185,8 +187,8 @@
                 $("#dialog-chart").dialog 
                     appendTo: "#radar-region"
                     position:
-                        at: "right top"
-                        of: $("#map")
+                        at: "top"
+                        of: $("#fstations-region")
                     autoOpen: false
                     closeOnEscape: true
                     draggable: false
@@ -236,10 +238,10 @@
 			$("[rel=tooltip]").tooltip track: true
 			$("#accordion").accordion 
                 header: "hm3" 
-                active: 0
+                active: ""
                 heightStyle: "content"
                 width: 600
-                collapsible: false
+                collapsible: true
                 icons:
                     header: "ui-icon-plus"
                     activeHeader: "ui-icon-minus"
@@ -253,7 +255,7 @@
 
 	class List.Fstation extends App.Views.ItemView
 		template: "fstations/list/templates/_fstation"
-		tagName: "tr"
+		tagName: "tr"            
 
 	class List.Fstations extends App.Views.CollectionView
 		template: "fstations/list/templates/_fstations"
@@ -282,10 +284,48 @@
 			]
 			console.log stationfeature
 			console.log station
-		
+
 		onShow: ->
-            $("#panel").html "#{gon.length} stations found <a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn-lg btn3d col-xs-offset-1'>Refine Results</button></a>"
-			#@collection = gon.features
+            pfeatures = _.values gon.features
+            pjfeatures = pfeatures.map (pf) -> pf.properties
+            jfeatures = JSON.stringify(pjfeatures)
+            console.log jfeatures
+            $("#titles").html "<p class='h2'>Search Results</p>"
+            $("#dllink").html "<br /><p> Download CSV Data For Selected Stations</p>&nbsp;&nbsp;<button id='download' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Data</button>"
+            $("#panel").html "<br><p>#{gon.length} stations found </p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Refine Results</button></a>"
+            
+            JSON2CSV = (objArray) ->
+              array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
+              str = ""
+              line = ""
+              head = array[0]
+
+              for index of array[0]
+                value = index + ""
+                line += "\"" + value.replace(/"/g, "\"\"") + "\","
+              line = line.slice(0, -1)
+              str += line + "\r\n"
+              i = 0
+
+              while i < array.length
+                line = ""
+                for index of array[i]
+                    value = array[i][index] + ""
+                    line += "\"" + value.replace(/"/g, "\"\"") + "\","
+                line = line.slice(0, -1)
+                str += line + "\r\n"
+                i++
+              str
+
+            $(document).ready -> 
+                $("body").removeClass "nav-expanded"
+
+            $("#download").click ->
+              json = $.parseJSON(jfeatures)
+              csv = JSON2CSV(json)
+              window.open "data:text/csv;charset=utf-8," + escape(csv)
+              return
+
 			$("#searchrefine").click (event, ui) ->
                 console.log "it gets the click"
                 App.vent.trigger "searchrefineFired"

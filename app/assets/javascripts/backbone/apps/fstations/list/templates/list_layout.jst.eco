@@ -10,13 +10,15 @@
 			</div>
 		</div>		
 		<div class="col-md-4 col-md-offset-8 text-left">
-			<div id="dialog-chart"></div>	
+			<div id="titles"></div>
 			<div id="radar-region">
+				<div id="dialog-chart"></div>	
 				<div id="chart"></div>
 			</div>
 			<div id="panel"></div>
 			<div id="fstations-region"></div>
 			<div id="print-region"></div>
+			<div id="dllink"></div>
 		</div>
 	</div>
 </div>		

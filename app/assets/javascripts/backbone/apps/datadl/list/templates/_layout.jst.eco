@@ -12,23 +12,18 @@
 				<p class="hm2">
 					Due to overlapping boundaries among station areas, it is not possible to add or average certain values across station areas.  Be sure to download the User Guide, which provides guidance on boundaries and includes a detailed data dictionary explaining the source, meaning, and importance of each data element. 
 				</p>
-				<textarea id="json" class="text"></textarea>
 				<br />
-				<input id="quote" type="checkbox" checked="true" /> Wrap values in double quotes
 				<br />
-				<input id="labels" type="checkbox" checked="true" /> Include labels in first row
 				<br />
-				<button id="convert" type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Convert to CSV</button>
 				&nbsp;&nbsp;
 				<button id="download" type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download CSV</button>
 			</br>
 			<br>
-				<textarea id="csv" class="text"></textarea>
 				<br>
 				<p class="hm2">
 					For GIS users, the necessary shapefiles are available for download here:  
 				</p>
-				<button id='downloadshapefile' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Data</button>
+				<button id='downloadshapefile' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Shapefile</button>
 			</div>
 		</div>
 	</div>

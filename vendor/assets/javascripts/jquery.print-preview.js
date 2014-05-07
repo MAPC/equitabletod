@@ -42,6 +42,7 @@
                 .appendTo('body');
 
             // The frame lives
+            // print_frame_ref = print_frame[0].contentWindow.document;
             for (var i=0; i < window.frames.length; i++) {
                 if (window.frames[i].name == "print-frame") {    
                     var print_frame_ref = window.frames[i].document;

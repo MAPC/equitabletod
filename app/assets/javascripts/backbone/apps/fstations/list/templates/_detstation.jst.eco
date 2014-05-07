@@ -144,8 +144,10 @@
 				</p>
 			</div>
 	</div>
-	<div class="col-xs-offset-0">
-		<hm2><button id="previousbuttom" type="button" class="btn btn-default btn-lg btn3d"><</button><strong class="col-xs-offset-1"><a class="hm2" href="#fss/q/by_name=<%= "#{@properties.name}" %>"><%= "#{@properties.name}" %></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">></button></hm2>
+	<div class="col-xs-offset-2">
+	</br>
+</br>
+		<hm2><button id="previousbuttom" type="button" class="btn btn-default btn-lg btn3d">&lsaquo;</button><strong class="col-xs-offset-1"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">&rsaquo;</button></hm2>
 	</div>
 </td>
 	
