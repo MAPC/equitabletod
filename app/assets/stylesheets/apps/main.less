@@ -1,3 +1,7 @@
+body {
+  font-weight: 400;
+  padding: 60px 50px;
+}
 #main-region {
 	width: inherit;
     margin-top: 10px;
@@ -7,6 +11,90 @@
 }
 #info-panel{
     margin-top: 20px;
+}
+#simple-search {
+  size: inherete;
+
+}
+#map {
+  position: fixed;
+  padding:0px;
+  margin:0px;
+}
+#maplist {
+  position: fixed;
+  padding:0px;
+  margin:0px;
+}
+#map-canvas {
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+.leaflet-container {
+  width: 60%;
+  height: 85%;
+}
+.leaflet-layer {
+    position: initial;
+}
+#maphome {
+  position: fixed;
+  height: 100%;
+  width: 92%;
+  padding:0px;
+  margin-top:50px;
+}
+#chart {
+          position: relative;
+          top: 20px;
+}
+#dialog-chart {
+          position: initial; 
+          top: 20px; 
+          left: -267px; 
+}
+#radar-region {
+          position: initial; 
+}
+#fstations-region {
+    position: relative; 
+    padding-top: 20px;
+}
+#accordion {
+  position: relative;
+  padding:0px;
+  margin:0px;
+  width: relative;
+}
+#fpaccordion {
+  position: relative;
+  padding:0px;
+  margin:0px;
+}
+.glyphicon{
+    font-size: small;
+    color: gray;
+    padding-left: 3px;
+}
+.btn{
+    font-size: 16px;
+    padding-top: 7px;
+}
+.span.filter-option.pull-left{
+    font-size: 16px;
+}
+.tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-top-color: #fff;
+  border-width: 5px 5px 0;
+}
+.tooltip-inner {
+  color: #000;
+  background: #fff;
+  border: solid 1px #fff;
 }
 a.print-preview {
     background: url(img/icon-print-preview.png);
@@ -74,108 +162,6 @@ hr {
     height: 5px;
     width: 50px;
 }
-a.more {
-    color: #F0626A;
-    text-decoration: none;
-}
-a:hover.more {
-    color: #F0626A;
-}
-.btn-primary {
-    background-color: #F0626A;
-    border-color: rgba(0, 0, 0, 0);
-    color: #FFFFFF;
-}
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
-    background-color: #d1565c;
-    border-color: transparent;
-    color: #FFFFFF;
-    -webkit-transition: all 0.35s ease-in-out;
-    -moz-transition: all 0.35s ease-in-out;
-    -o-transition: all 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
-}
-.color-bg {
-    background: #F0626A;
-}
-.home-icons {
-    color: #F0626A;
-    width: 160px;
-    height: 160px;
-    border: 2px solid #edeef0;
-    border-radius: 80px;
-    padding-top: 50px;
-}
-.list-inline.filter {
-    & > li:hover {
-        background: none repeat scroll 0 0 #F0626A;
-        color: #FFFFFF;
-    }
-}
-.news-link:hover {
-    .news-box {
-        border-left: 6px solid #F0626A;
-        -webkit-transition: all 0.35s ease-in-out;
-        -moz-transition: all 0.35s ease-in-out;
-        -o-transition: all 0.35s ease-in-out;
-        transition: all 0.35s ease-in-out;
-    }
-}
-.carousel-control {
-    color: #F0626A;
-    font-size: 30px;
-    text-shadow: 0 0px 0px rgba(0, 0, 0, 0.0);
-    opacity: 0.5;
-}
-.carousel-control:hover, .carousel-control:focus {
-    color: #F0626A;
-    opacity: 1;
-}
-.blog-meta {
-    a {
-        color: #F0626A;
-    }
-    a:hover {
-        color: #d1565c;
-    }
-}
-.pagination &>li &>a:hover, .pagination &>li &>span:hover, .pagination &>li &>a:focus, .pagination &>li &>span:focus {
-    background-color: #F0626A;
-}
-blockquote {
-    border-left: 5px solid #F0626A;
-    margin: 0 0 20px;
-    padding: 10px 20px;
-}
-.color-box {
-    background: #F0626A;
-    padding: 15px 20px 5px 20px;
-    margin-bottom: 15px;
-}
-.bottom-links {
-    li {
-        a {
-            color: #F0626A;
-        }
-        a:hover {
-            color: #d1565c;
-        }
-    }
-}
-.social-icons {
-    li:hover {
-        background: #F0626A;
-        -webkit-transition: all 0.2s ease-in-out;
-        -moz-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-}
-.pricing-table.active {
-    .headline {
-        background: #F0626A;
-    }
-}
 .thumbs {
     padding: 0px;
     overflow: hidden;
@@ -220,44 +206,10 @@ blockquote {
         transition: opacity 0.30s ease-in-out 0s, bottom 0.4s cubic-bezier(0.25, 0.840, 0, 1) 0s;
     }
 }
-.owl-item {
-    .thumbs {
-        width: 100%;
-    }
+.thumbs a {
+    background-color: #17b3f4;
 }
-.owl-theme {
-    .owl-controls {
-        margin-top: 20px;
-        text-align: center;
-        .owl-page {
-            display: inline-block;
-            zoom: 1;
-            *display: inline;
-            span {
-                display: block;
-                width: 12px;
-                height: 12px;
-                margin: 5px 7px;
-                filter: Alpha(Opacity=50);
-                opacity: 0.5;
-                -webkit-border-radius: 20px;
-                -moz-border-radius: 20px;
-                border-radius: 20px;
-                background: #869791;
-            }
-        }
-    }
-    .owl-controls.clickable {
-        .owl-buttons {
-            div:hover {
-                filter: Alpha(Opacity=100);
-                opacity: 1;
-                text-decoration: none;
-            }
-        }
-    }
-}
-.owl-theme .owl-controls .owl-page.active span,.owl-theme .owl-controls.clickable .owl-page:hover span {
-    filter: Alpha(Opacity=100);
-    opacity: 1;
+.list-inline.filter > li:hover {
+    background: none repeat scroll 0 0 #17b3f4;
+    color: #FFFFFF;
 }
