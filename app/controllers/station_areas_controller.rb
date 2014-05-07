@@ -1,12 +1,30 @@
 class StationAreasController < ApplicationController
 
-  respond_to :html, :json
+  # For all responses in this controller, return the CORS access control headers.
+  after_filter :cors_set_access_control_headers
+  
+  # Basic Search
+  has_scope :by_name
+  has_scope :by_line
+  has_scope :by_service
+  has_scope :by_etod_category
+
+  # Advanced Search
+  has_scope :by_rent, using: [:min, :max], type: :hash
 
   def index
-    respond_with(@station_areas = StationArea.all)
+    @station_areas = apply_scopes(StationArea).all
   end
 
   def show
-    respond_with(@station_area = StationArea.find(params[:id]))
+    @station_area = StationArea.find(params[:id])
   end
 end
+
+private
+
+  def cors_set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
+    headers['Access-Control-Max-Age'] = "1728000"
+  end
