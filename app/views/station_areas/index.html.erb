@@ -6,14 +6,24 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:station_name) %></th>
-      <th><%= model_class.human_attribute_name(:etod_score) %></th>
-      <th><%= model_class.human_attribute_name(:vehicle_miles_traveled) %></th>
-      <th><%= model_class.human_attribute_name(:transit_commute_share) %></th>
-      <th><%= model_class.human_attribute_name(:vehicle_ownership) %></th>
-      <th><%= model_class.human_attribute_name(:transportation_ghgs) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:etod_q0car) %></th>
+      <th><%= model_class.human_attribute_name(:etod_q25k) %></th>
+      <th><%= model_class.human_attribute_name(:etod_qabc) %></th>
+      <th><%= model_class.human_attribute_name(:etod_qaff) %></th>
+      <th><%= model_class.human_attribute_name(:etod_qdens) %></th>
+      <th><%= model_class.human_attribute_name(:etod_qgrav) %></th>
+      <th><%= model_class.human_attribute_name(:etod_qrent) %></th>
+      <th><%= model_class.human_attribute_name(:etod_qtas) %></th>
+      <th><%= model_class.human_attribute_name(:etod_qtci) %></th>
+      <th><%= model_class.human_attribute_name(:etod_qwalk) %></th>
+      <th><%= model_class.human_attribute_name(:etod_sub1t) %></th>
+      <th><%= model_class.human_attribute_name(:etod_sub2o) %></th>
+      <th><%= model_class.human_attribute_name(:etod_sub3d) %></th>
+      <th><%= model_class.human_attribute_name(:etod_total) %></th>
+      <th><%= model_class.human_attribute_name(:etod_type) %></th>
+      <th><%= model_class.human_attribute_name(:station_class) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -21,14 +31,25 @@
     <% @station_areas.each do |station_area| %>
       <tr>
         <td><%= link_to station_area.id, station_area_path(station_area) %></td>
+
         <td><%= station_area.location %></td>
-        <td><%= station_area.station_name %></td>
-        <td><%= station_area.etod_score %></td>
-        <td><%= station_area.vehicle_miles_traveled %></td>
-        <td><%= station_area.transit_commute_share %></td>
-        <td><%= station_area.vehicle_ownership %></td>
-        <td><%= station_area.transportation_ghgs %></td>
-        <td><%=l station_area.created_at %></td>
+        <td><%= station_area.etod_q0car %></td>
+        <td><%= station_area.etod_q25k %></td>
+        <td><%= station_area.etod_qabc %></td>
+        <td><%= station_area.etod_qaff %></td>
+        <td><%= station_area.etod_qdens %></td>
+        <td><%= station_area.etod_qgrav %></td>
+        <td><%= station_area.etod_qrent %></td>
+        <td><%= station_area.etod_qtas %></td>
+        <td><%= station_area.etod_qtci %></td>
+        <td><%= station_area.etod_qwalk %></td>
+        <td><%= station_area.etod_sub1t %></td>
+        <td><%= station_area.etod_sub2o %></td>
+        <td><%= station_area.etod_sub3d %></td>
+        <td><%= station_area.etod_total %></td>
+        <td><%= station_area.etod_type %></td>
+        <td><%= station_area.station_class %></td>
+
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_station_area_path(station_area), :class => 'btn btn-mini' %>

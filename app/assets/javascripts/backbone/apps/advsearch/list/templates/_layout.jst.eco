@@ -1,0 +1,171 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-left">
+<!-- simple search form - start -->
+      <form class="form-horizontal">
+      <fieldset>
+      <!-- Form Name -->
+      </br>
+      <h2 class="black" >Advanced Search</h2> 
+      <!-- <h3 class="small">Search by:</h3> -->
+      <!-- Search input-->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label small" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <input id="searchinput1" rel="tooltip" title="The name of the station stop" name="searchinput1" placeholder="<%="#{gon.name}" if "#{gon.name}" != 'undefined'%>" class="form-control input-md" type="search">
+        </div>
+      </div>
+      <!-- <h3 class="small">Or:</h3> -->
+      </hr>
+      </hr>
+     <!--  <h3 class="small"><a id="browseall" class="black"href="">browse all stations</a></h3> -->
+      <!-- Search input-->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label small" for="searchinput2">Municipality  <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <input id="searchinput2" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" name="searchinput2" placeholder="<%="#{gon.muni_name}" if "#{gon.muni_name}" != 'undefined'%>" class="form-control input-md" type="search">
+          <p class="help-block"></p>
+        </div>
+      </div>
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label small" for="selectbasic2">Service Type <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <select id="selectbasic2" data-filter="true" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control selectpicker" multiple>
+            <optgroup label="">
+              <option value="Fairmount Line">Fairmount Line</option>
+              <option value="Fitchburg South Acton Line">Fitchburg/South Acton Line</option>
+              <option value="Framingham Worcester Line">Framingham/Worcester Line</option>
+              <option value="Franklin Line">Franklin Line</option>
+              <option value="Greenbush Line">Greenbush Line</option>
+              <option value="Haverhill Line">Haverhill Line</option>
+              <option value="Kingston Plymouth Line">Kingston/Plymouth Line</option>
+              <option value="Lowell Line">Lowell Line</option>
+              <option value="Middleborough Lakeville Line">Middleborough/Lakeville Line</option>
+              <option value="Needham Line">Needham Line</option>
+              <option value="Newburyport Rockport Line">Newburyport/Rockport Line</option>
+              <option value="Providence Stoughton Line">Providence/Stoughton Line</option>
+            </optgroup>
+            <optgroup label="Rapid Transit">
+              <option value="Blue Line">Blue Line</option>
+              <option value="Green Line">Green Line</option>
+              <option value="Orange Line">Orange Line</option>
+              <option value="Red Line">Red Line</option>
+            </optgroup>
+            <optgroup label="Bus Routes">
+              <option value="22">Route 22</option>
+              <option value="23">Route 23</option>
+              <option value="28">Route 28</option>
+              <option value="32">Route 32</option>
+              <option value="57">Route 57</option>
+              <option value="57A">Route 57A</option>
+              <option value="66">Route 66</option>
+              <option value="71">Route 71</option>
+              <option value="73">Route 73</option>
+              <option value="77">Route 77</option>
+              <option value="111">Route 111</option>
+              <option value="116">Route 116</option>
+              <option value="117">Route 117</option>
+              <option value="SL1">SL1</option>
+              <option value="SL2">SL2</option>
+              <option value="SL4">SL4</option>
+              <option value="SL5">SL5</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label small" for="selectbasic3">Station Type<span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Station Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
+            <option value=""><%="#{gon.station_type}" if "#{gon.station_type}" != 'undefined'%></option>
+            <option value="Core">Core</option>
+            <option value="Urban Downtown">Urban Downtown</option>
+            <option value="Town Center">Town Center</option>
+            <option value="Subway">Subway</option>
+            <option value="Sub Emp Center">Sub Emp Center</option>
+            <option value="Subway Transformational">Subway Transformational</option>
+            <option value="Undeveloped">Undeveloped</option>
+          </select>
+        </div>
+      </div>
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label small" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <select id="selectbasic4" name="selectbasic4" class="form-control selectpicker">
+            <option value=""><%="#{gon.etod_group}" if "#{gon.etod_group}" != 'undefined'%></option>
+            <option value="Transit-Supportive">Transit-Supportive</option>
+            <option value="Transit-Related">Transit-Related</option>
+            <option value="Transit-Oriented">Transit-Oriented</option>
+            <option value="Transit-Adjacent">Transit-Adjacent</option>
+          </select>
+        </div>
+        <!-- Select Basic -->
+      </div>
+
+      <!-- Advanced Search input-->
+      <div class="form-group">
+        <br>
+        <p class="col-md-offset-2 text-left"><strong>Transportation</strong></p>
+        <label href="#" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" class="col-md-4 control-label small" for="searchinput5">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="VMT"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+      
+        <div class="col-md-2">
+          <select id="selectbasic5" name="selectbasic5" class="form-control bootstrap-selectpicker">
+            <option value=">">></option>
+            <option value="<"><</option>
+            <option value="=">=</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <input id="searchinput6" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" name="searchinput6" placeholder="<%="#{gon.name}" if "#{gon.name}" != 'undefined'%>" class="form-control input-md" type="search">
+      </div>
+      </div>
+
+      <!-- Advanced Search input-->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" class="col-md-4 control-label small" for="searchinput7">Transit Commuter Share <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="transit share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+      
+        <div class="col-md-2">
+          <select id="selectbasic7" name="selectbasic7" class="form-control bootstrap-selectpicker">
+            <option value=">">></option>
+            <option value="<"><</option>
+            <option value="=">=</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <input id="searchinput8" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" name="searchinput8" placeholder="<%="#{gon.name}" if "#{gon.name}" != 'undefined'%>" class="form-control input-md" type="search">
+      </div>
+      </div>
+
+      <!-- Advanced Search input-->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" class="col-md-4 control-label small" for="searchinput7">Transit Commuter Share <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="transit share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+      
+        <div class="col-md-2">
+          <select id="selectbasic7" name="selectbasic7" class="form-control bootstrap-selectpicker">
+            <option value=">">></option>
+            <option value="<"><</option>
+            <option value="=">=</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <input id="searchinput8" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" name="searchinput8" placeholder="<%="#{gon.name}" if "#{gon.name}" != 'undefined'%>" class="form-control input-md" type="search">
+      </div>
+      </div>
+
+      </fieldset>
+      </br>
+      </form>
+        <div class="col-xs-offset-1">
+            <p>
+              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-8">Search</button>
+              <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
+            </p>
+        </div>
+    </div>
+  </div>
+</div>
+    <!-- simple search form - end -->

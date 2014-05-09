@@ -1,0 +1,31 @@
+<div id="guid-region">
+	<div>
+		<div id="home-txt" class="white-bg">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-left">
+						<div id="usrguidtext">
+							<p class="h2">
+								User Guide
+							</p>
+							<p class="hm2">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½- mile station area. Complete data on each station area (over 150 variables) is available as a free download.
+          					</p>
+          					<h2>Users can</h2>
+          					<p class="hm2"> 
+				            <ul class="hm2">
+				              <li>  Search for station areas that meet specified criteria </li>
+				              <li>  Access key data points for each station area and view an interactive map of the area </li>
+				              <li>  Generate a Station Area Profile (PDF) with a concise snapshot of each station area </li>
+				              <li>  Download comprehensive dataset and detailed data dictionary </li>
+				              <li>  Browse selected resources about transit oriented development </li>
+				            </ul>
+					         </p>
+					         <p class="hm2">The Portal also houses information on two key tools developed to help the region’s stakeholders understand their station areas: a typology of station areas, created by the <a href="http://mapc.org" target="_blank"> Metropolitan Area Planning Council (MAPC) <span class="link"></span></a> , and the eTOD rating system, created by the <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank"> Dukakis Center for Urban and Regional Policy at Northeastern University <span class="link"></span></a> and the <a href="http://ctod.org" target="_blank"> Center for Transit Oriented Development<span class="link"></span></a>.
+					          </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

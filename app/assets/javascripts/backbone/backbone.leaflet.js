@@ -220,8 +220,8 @@
 
     // Default options used to create the Leaflet map.
     defaultMapOptions: {
-      center: [ -23.5, -46.6167 ],
-      zoom: 14
+      center: [42.35, -71.06],
+      zoom: 10
     },
 
     redraw: function () {
@@ -293,7 +293,7 @@
     // Override this to use a custom tile layer.
     getTileLayer: function () {
       return new L.TileLayer(
-        'http:///{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+        'http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
           attribution: 'Data, imagery and map information provided by ' +
                        '<a href="http://www.mapquest.com/">MapQuest</a>, ' +
                        '<a href="http://www.openstreetmap.org/">' +

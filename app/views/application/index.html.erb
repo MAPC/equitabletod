@@ -1,16 +1,15 @@
-<!-- <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,300,700' rel='stylesheet' type='text/css'> -->
 <div id="header-region"></div>
 <div id="main-region">
-	<section id="home"></section>
-	<div id="map"></div>
+	<div id="home-region"></div>
 	<div id="simple-search"></div>
-</div></div>
-<div id="sidebar-region"></div>
-
+</div>
 
 <%= javascript_tag do %>
   $(function() {
-    Equitabletod.start();
+    Equitabletod.start({
+    	names: gon.names.names,
+    	muni_names: gon.muni_names.muni_names
+	});
   });
 <% end %>
 
