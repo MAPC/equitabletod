@@ -10,7 +10,6 @@
 			</div>
 		</div>		
 		<div class="col-md-4 col-md-offset-8 text-left">
-			<div id="titles"></div>
 			<div id="radar-region">
 				<div id="dialog-chart"></div>	
 				<div id="chart"></div>

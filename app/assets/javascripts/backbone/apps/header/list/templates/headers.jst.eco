@@ -1,9 +1,5 @@
-<!-- <div class="navbar navbar-inverse navbar-fixed-top padding-2">      
-  	  <div class="margin--no-lftrght">
-        <div class="row animated fadeInBig">
-          </div>
-        </div>
-        <div class="row margin-10-wb animated fadeInLeft delay2">
+
+      <!--  <div class="row margin-10-wb animated fadeInLeft delay2">
           <div class="margin-10">
             <ul class="list-inline filter small">
               <li><a id ="homeClick" href="#home" data-toggle="portfilter" data-target="home">Home</a></li>
@@ -15,6 +11,7 @@
       </div>
 </div>
 <nav> -->
+
 <div class="navbar-header pull-right">
       <a id="nav-expander" class="nav-expander fixed">
         &nbsp;<i class="fa fa-bars fa-lg black"></i>
@@ -29,6 +26,14 @@
     <li><a id="datadl" href="#datadl/" data-toggle="portfilter" data-target="download">Download All Data</a></li>
   </ul>
 </nav> 
-
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-8 text-left">    
+            <div class="margin--no-lftrght">
+              <div id="titles" class="row animated fadeInBig">
+              </div>
+      </div>
+    </div>
+  </div>
+</div>
 
