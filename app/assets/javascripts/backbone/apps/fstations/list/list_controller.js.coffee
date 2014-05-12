@@ -13,6 +13,7 @@
 		          	url: urlstr
 		          	done: (result) =>
 		              	return result
+		    console.log "response to the ajax call"
 		    console.log responseFeature
 		    collection = responseFeature.complete()
 		   	collection.done =>
@@ -41,8 +42,8 @@
 		    		else if features.length < 20
 		    			console.log "number of search results: "
 		    			console.log features.length
-		    			gon.searchresults = features
 		    			gon.length = features.length
+		    			gon.searchresults = features
 		    			@layout = @getLayoutView() 
 		    			@layout.on 'show', =>
 		    				@showFstations fstationsCollection
@@ -51,7 +52,7 @@
 		    		else 
 		    			console.log "number of search results: "
 		    			console.log features.length
-		    			gon.lengthsects /= features.length
+		    			gon.lengthsects = features.length
 		    			gon.searchresults = features
 		    			gon.length = features.length
 		    			@layout = @getLayoutView() 

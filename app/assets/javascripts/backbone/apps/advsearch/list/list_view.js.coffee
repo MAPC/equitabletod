@@ -8,6 +8,8 @@
 
 		onShow: ->
             $(document).ready ->
+                $("#titles").html "<p class='h2'></p>"
+            $(document).ready ->
                 $("#fpaccordion").accordion 
                     header: "hm2" 
                     active: "false"

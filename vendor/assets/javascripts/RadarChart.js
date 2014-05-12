@@ -166,9 +166,9 @@ var RadarChart = {
 					 .on('mouseover', function (d){
 										z = "polygon."+d3.select(this).attr("class");
 										tooltip
-											.attr('x', x+150)
+											.attr('x', x-10)
 											.attr('y', y["0"])
-											.text("Click to see breakdown of the score values")
+											.text("")
 											.transition(200)
 											.style('opacity', 1);
 										g.selectAll("polygon")

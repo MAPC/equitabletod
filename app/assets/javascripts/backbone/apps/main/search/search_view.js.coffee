@@ -15,6 +15,7 @@
                         header: "ui-icon-plus"
                         activeHeader: "ui-icon-minus"
             $(document).ready ->
+              $("#titles").html "<p class='h2'></p>"
               $("[rel=tooltip]").tooltip placement: "top"
               $("#dialog-modal").dialog 
                     position:
@@ -121,8 +122,32 @@
             gon.etod_group = "#{etod_group}"
             query = "#{qury}"
             console.log(query)
-            # here would be the basic validation and if passed the vent will trigger
-            App.vent.trigger "searchFired", query
+            # here would are the basic validation and if passed the vent will trigger
+            urlstr = "/search.json?" + "#{query}"
+            #console.log urlstr
+            responseFeature = $.ajax
+                    url: urlstr
+                    done: (result) =>
+                        return result
+            console.log "response to the ajax call"
+            #console.log responseFeature
+            collection = responseFeature.complete()
+            collection.done =>
+                    fstations = collection.responseJSON
+                    console.log fstations
+                    features = _.values fstations.features
+                    #window.features = Backbone.Collection.extend(localStorage: new Backbone.LocalStorage("features"))
+                    #window.features = features
+                    if features.length > 0
+                        gon.features = features
+                        App.vent.trigger "searchFired", query
+                    else
+                        console.log "error"
+                        $("#dialog-modal").dialog "open"
+                        $("#dialog-modal").dialog title: "Error"
+                        $("#dialog-modal").html("")
+                        $("#dialog-modal").html("Search has no results, Please try again with different parameteres")
+
             #App.vent.trigger "search:term", query
             #App.request "fstation:entity" (query)
         

@@ -4,5 +4,8 @@
 		template: "abouttod/list/templates/_layout"
 		regions: 
 			abouttodRegion: "#abouttod-region"
+		onShow: ->
+			$(document).ready ->
+				$("#titles").html "<p class='h2'></p>"
 
 

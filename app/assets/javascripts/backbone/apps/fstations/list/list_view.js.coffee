@@ -115,8 +115,7 @@
            
             $(document).ready -> 
                 $("body").removeClass "nav-expanded"
-                $("#titles").html "<p class='h2'>Station Area Details</p>"
-                $("#print-region").prepend '<a class="print-preview">Print this page</a>'
+                $("#print-region").prepend '<a class="print-preview"><p></p>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-default btn-lg btn3d col-xs-offset-0">Print this page</button></a>'
                 $("a.print-preview").printPreview()
                 $(document).bind "keydown", (e) ->
                   code = ((if e.keyCode then e.keyCode else e.which))
@@ -124,6 +123,7 @@
                     $.printPreview.loadPrintPreview()
                     false
                 $("[rel=tooltipu]").tooltip placement: "top"
+                $("#navigationsb").html "<p></p>" if gon.features.length < 2
                 $("#previousbuttom").click ->
                     gon.searchresults = gon.features
                     console.log "inside previousClicked"
@@ -149,7 +149,47 @@
                     nextFeature = _.last otherFeatures
                     console.log nextFeature.properties.name
                     App.vent.trigger "searchFired", "by_name=#{nextFeature.properties.name}"
-                
+                pfeature = _.values gon.feature
+                pjfeature = pfeature.map (pf) -> pf.properties
+                jfeature = JSON.stringify(pjfeature)
+                $("#titles").html "<p class='h2'>Stations Area Details</br> #{gon.feature['0'].properties.name}</p>"
+                $("#dllink").html "<p></p>&nbsp;&nbsp;<button id='download' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Data</button>"
+                $("#panel").html "<a href='#advsearch/' id='searchrefine'><p></p>&nbsp;&nbsp;<button type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Refine Results</button></a>"
+                JSON2CSV = (objArray) ->
+                  array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
+                  str = ""
+                  line = ""
+                  head = array[0]
+
+                  for index of array[0]
+                    value = index + ""
+                    line += "\"" + value.replace(/"/g, "\"\"") + "\","
+                  line = line.slice(0, -1)
+                  str += line + "\r\n"
+                  i = 0
+
+                  while i < array.length
+                    line = ""
+                    for index of array[i]
+                        value = array[i][index] + ""
+                        line += "\"" + value.replace(/"/g, "\"\"") + "\","
+                    line = line.slice(0, -1)
+                    str += line + "\r\n"
+                    i++
+                  str
+
+                $(document).ready -> 
+                    $("body").removeClass "nav-expanded"
+
+                $("#download").click ->
+                  json = $.parseJSON(jfeature)
+                  csv = JSON2CSV(json)
+                  window.open "data:text/csv;charset=utf-8," + escape(csv)
+                  return
+
+                $("#searchrefine").click (event, ui) ->
+                    console.log "it gets the click"
+                    App.vent.trigger "searchrefineFired"
                 $("#dialog-modal").dialog 
                     position:
                         at: "left top"
@@ -187,8 +227,8 @@
                 $("#dialog-chart").dialog 
                     appendTo: "#radar-region"
                     position:
-                        at: "top"
-                        of: $("#fstations-region")
+                        at: "botton"
+                        of: $("#map-region")
                     autoOpen: false
                     closeOnEscape: true
                     draggable: false
@@ -207,6 +247,7 @@
                     $("#accordion").accordion "enable"
 
                 $("#chart").click (event, ui) ->
+                    console.log "chart clicked"
                     sub1 = gon.feature["0"].properties.etod_sub1t
                     sub2 = gon.feature["0"].properties.etod_sub2o
                     sub3 = gon.feature["0"].properties.etod_sub3d
@@ -291,8 +332,8 @@
             jfeatures = JSON.stringify(pjfeatures)
             console.log jfeatures
             $("#titles").html "<p class='h2'>Search Results</p>"
-            $("#dllink").html "<br /><p> Download CSV Data For Selected Stations</p>&nbsp;&nbsp;<button id='download' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Data</button>"
-            $("#panel").html "<br><p>#{gon.length} stations found </p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Refine Results</button></a>"
+            $("#dllink").html "&nbsp;&nbsp;<button id='download' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Data</button>"
+            $("#panel").html "&nbsp;&nbsp;<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Refine Results</button></a>"
             
             JSON2CSV = (objArray) ->
               array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
@@ -451,7 +492,7 @@
 			  h: h
 			  maxValue: 20
 			  levels: 4
-			  ExtraWidthX: 300
+			  ExtraWidthX: 160
 
 
 			#Call function to draw the Radar chart
@@ -516,8 +557,6 @@
           "change" : "render"
 
         onShow: ->
-            console.log "insede on show enevt list_view"
-            console.log @collection
             map = L.map("map",
               scrollWheelZoom: false
               touchZoom: false
@@ -533,6 +572,16 @@
             cloudmade = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
               attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
             ).addTo(map)
+
+            info = L.control()
+            info.onAdd = (map) ->
+              @_div = L.DomUtil.create("div", "info")
+              @update()
+              @_div
+            info.update = (props) ->
+              @_div.innerHTML = '<div id="chart"> </div>' 
+              return
+            info.addTo map
 
             LeafIcon = L.Icon.extend(options:
                 iconSize: [
@@ -573,6 +622,14 @@
                 parseFloat(bbox.split(",")[2])
               ]
             ]
+            $("#chart").click (event, ui) ->
+                    console.log "chart clicked"
+                    sub1 = gon.feature["0"].properties.etod_sub1t
+                    sub2 = gon.feature["0"].properties.etod_sub2o
+                    sub3 = gon.feature["0"].properties.etod_sub3d
+                    totscore = gon.feature["0"].properties.etod_total
+                    $("#dialog-chart").dialog "open"
+                    $("#dialog-chart").html("Transit Score: #{sub1}<br>Orientation Score: #{sub2}<br>Development Score: #{sub3}<br><hr>Total Score: #{totscore}")
             #printControl = L.control.print(provider: printProvider)
             #map.addControl printControl
 
