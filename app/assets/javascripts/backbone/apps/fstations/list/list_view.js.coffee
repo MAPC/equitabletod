@@ -78,7 +78,7 @@
                 fextaxrev = gon.feature["0"].properties.ex_taxrev.toFixed 4
                 fhh10 = gon.feature["0"].properties.ov_hh10.toFixed 4
                 fhhinc = gon.feature["0"].properties.ov_hhinc.toFixed 4
-                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'		
+                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'		
                 $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
                 $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
                 $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'		
@@ -100,7 +100,7 @@
                     frentocc = gon.feature["0"].properties.ov_rentocc.toFixed 2 if gon.feature["0"].properties.ov_rentocc
                     fhhnocar = gon.feature["0"].properties.ov_hhnocar.toFixed 2 if gon.feature["0"].properties.ov_hhnocar
                     fedatt = gon.feature["0"].properties.ov_ed_att.toFixed 2 if gon.feature["0"].properties.ov_ed_att
-                    $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                    $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 1.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                     $(".inlinesparklinetrnpcmi").sparkline gon.trnpcmis, type: "box", target: ftrnpcmi, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                     $(".inlinesparklineghg").sparkline gon.ghgs, type: "box", target: fghg, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
                     $(".inlinesparklineintntot").sparkline gon.intntots, type: "box", target: fintntot, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
@@ -115,7 +115,7 @@
            
             $(document).ready -> 
                 $("body").removeClass "nav-expanded"
-                $("#print-region").prepend '<a class="print-preview"><p></p>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-default btn-lg btn3d col-xs-offset-0">Print this page</button></a>'
+                $("#print-region").prepend '<a class="print-preview"><p></p>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-default btn3d col-xs-offset-0">Print this page</button></a>'
                 $("a.print-preview").printPreview()
                 $(document).bind "keydown", (e) ->
                   code = ((if e.keyCode then e.keyCode else e.which))
@@ -153,8 +153,8 @@
                 pjfeature = pfeature.map (pf) -> pf.properties
                 jfeature = JSON.stringify(pjfeature)
                 $("#titles").html "<p class='h2'>Stations Area Details</br> #{gon.feature['0'].properties.name}</p>"
-                $("#dllink").html "<p></p>&nbsp;&nbsp;<button id='download' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Data</button>"
-                $("#panel").html "<a href='#advsearch/' id='searchrefine'><p></p>&nbsp;&nbsp;<button type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Refine Results</button></a>"
+                $("#dllink").html "<p></p>&nbsp;&nbsp;<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download Data</button>"
+                $("#panel").html "<a href='#advsearch/' id='searchrefine'><p></p>&nbsp;&nbsp;<button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
                 JSON2CSV = (objArray) ->
                   array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
                   str = ""
@@ -602,7 +602,7 @@
                 style: (feature) ->
                     feature.properties and feature.properties.style
                 pointToLayer: (feature, latlng) ->
-                    L.circle latlng, 250,
+                    L.circle latlng, 804.672,
                       fillColor: "#FFFFFF"
                       color: "#000"
                       weight: 1

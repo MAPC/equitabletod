@@ -13,6 +13,7 @@
   App.addRegions
     headerRegion: "#header-region"
     mainRegion:   "#main-region"
+    footerRegion: "#footer-region"
 
   RegionMan.on "region:add", (name, region) ->
     App[name] = region
@@ -50,6 +51,7 @@
 
   App.addInitializer ->
     App.module("HeaderApp").start()
+    #App.module("FooterApp").start()
     App.module("MainApp").start()
     App.module("FstationsApp").start()
 

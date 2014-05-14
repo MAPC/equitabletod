@@ -41,6 +41,10 @@
                 $("#dialog-modal").dialog beforeClose: (event, ui) ->
                     $("#accordion").accordion "enable"
 
+                $("#searchbuttom").click (event, ui) ->
+                    console.log "advanced search clicked"
+
+
                 $("[rel=tooltipd]").click (event, ui) ->
                     console.log @
                     console.log @.title
