@@ -152,9 +152,9 @@
                 pfeature = _.values gon.feature
                 pjfeature = pfeature.map (pf) -> pf.properties
                 jfeature = JSON.stringify(pjfeature)
-                $("#titles").html "<p class='h2'>Stations Area Details</br> #{gon.feature['0'].properties.name}</p>"
-                $("#dllink").html "<p></p>&nbsp;&nbsp;<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download Data For This Station</button>"
-                $("#panel").html "<a href='#advsearch/' id='searchrefine'><p></p>&nbsp;&nbsp;<button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
+                $("#titles").html "<p class='h4'>Stations Area Details</br> #{gon.feature['0'].properties.name}</p>"
+                $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download Data For This Station</button>"
+                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
                 JSON2CSV = (objArray) ->
                   array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
                   str = ""
@@ -192,8 +192,9 @@
                     App.vent.trigger "searchrefineFired"
                 $("#dialog-modal").dialog 
                     position:
-                        at: "left top"
-                        of: $("#map")
+                        at: "center"
+                        my: "center"
+                        of: $("#accordion")
                     autoOpen: false
                     closeOnEscape: true
                     height: 400
@@ -332,8 +333,8 @@
             jfeatures = JSON.stringify(pjfeatures)
             console.log jfeatures
             $("#titles").html "<p class='h2'>Search Results</p>"
-            $("#dllink").html "&nbsp;&nbsp;<button id='download' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Data For These Stations</button>"
-            $("#panel").html "&nbsp;&nbsp;<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Refine Results</button></a>"
+            $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download This Data</button>"
+            $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
             
             JSON2CSV = (objArray) ->
               array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
@@ -585,14 +586,12 @@
             #defaultLayer = L.tileLayer.provider("OpenStreetMap.Mapnik").addTo(map)
             streets = L.tileLayer.provider "MapBox.arminavn.i0bjhjd1"
             esri = L.tileLayer.provider "Esri.WorldImagery"
-            esring = L.tileLayer.provider "Esri.NatGeoWorldMap"
-            esrism = L.tileLayer.provider "Esri.WorldStreetMap"
+            #esring = L.tileLayer.provider "Esri.NatGeoWorldMap"
+            #esrism = L.tileLayer.provider "Esri.WorldStreetMap"
             baseMaps =
-                MAPC: mapc
+                MAPCBaseMap: mapc
                 EsriAerial: esri
-                NatGeoWorldMap: esring
                 MapBoxStreetMap: streets
-                EsriStreetMap: esrism
             L.control.layers(baseMaps).addTo map
             LeafIcon = L.Icon.extend(options:
                 iconSize: [
@@ -627,8 +626,8 @@
                     L.circle latlng, 804.672,
                       fillColor: "#FFFFFF"
                       color: "#000"
-                      weight: 1
-                      opacity: 0.6
+                      weight: 2
+                      opacity: 0.5
                       fillOpacity: 0
             L.control.scale().addTo(map)
 

@@ -1,6 +1,3 @@
-<div id="dialog-modal">
-    <p></p>
-</div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6 col-md-offset-2 text-left">
@@ -28,6 +25,9 @@
 
     <!-- simple search form - start -->
       <form class="form-horizontal">
+        <div id="dialog-modal">
+        <p></p>
+        </div>
       <fieldset>
       <!-- Form Name -->
       </br>

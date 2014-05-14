@@ -1,6 +1,6 @@
-
-      <!--  <div class="row margin-10-wb animated fadeInLeft delay2">
-          <div class="margin-10">
+<!-- <div class="navbar navbar-inverse navbar-fixed-top padding-2">  
+      <div class="row margin-10-wb animated fadeInLeft delay2">
+        <div class="margin-10">
             <ul class="list-inline filter small">
               <li><a id ="homeClick" href="#home" data-toggle="portfilter" data-target="home">Home</a></li>
               <li><a  id="guidClick" href="#guid" data-toggle="portfilter" data-target="usrguid">User Guide</a></li>
@@ -9,14 +9,11 @@
             </ul>
         </div>
       </div>
-</div>
-<nav> -->
+</div> -->
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4 col-md-offset-0 text-left">    
-        <div id="titles" class="row animated fadeInBig">
-        </div>
-    </div>
+        <div id="titles"></div>
   </div>
 </div>
 <div class="navbar-header pull-right">

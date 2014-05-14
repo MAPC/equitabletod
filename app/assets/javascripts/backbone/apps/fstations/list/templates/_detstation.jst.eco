@@ -1,8 +1,5 @@
 <td>
-	<div id="dialog-modal">
-  	<p></p>
-	</div>
- 	<div class="col-xs-offset-0">
+ 	<div class="col-xs-offset-1">
 		<div id="navigationsb">
 			<hm2><button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button></hm2>
 		</div>
@@ -26,10 +23,6 @@
 				</p>
 				<br>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD">eTOD Group: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.etod_type}" %>
-				</p>
-				<br>
-				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="">Community Type: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Community Type"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.community_type_description}" %>
 				</p>
 				<br>
@@ -39,7 +32,7 @@
 			</div>
 		<hm3>
 				<p class="hm5">eTOD</p>
-				<p class="hm2"><strong>eTOD Score </strong><%= "#{@properties.etod_total}" %></p>
+				<p class="hm2"><strong>Total eTOD Score: </strong><%= "#{@properties.etod_total}" %></p>
 		</hm3>
 				<div>
 					<div id="radar-region">
@@ -51,9 +44,16 @@
 					</p>
 					<br>
 					<p class="hm2">
-						<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_type}" %>
+						<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="transitscore"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub1t}" %>
 					</p>
-
+					<br>
+					<p class="hm2">
+						<strong href="#" rel="tooltipu" title="eTOD metric's orientation score"> Orientation Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="orientationscore"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub2o}" %>
+					</p>
+					<br>
+					<p class="hm2">
+						<strong href="#" rel="tooltipu" title="eTOD metric's development score"> Development Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="developmentscore"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub3d}" %>
+					</p>
 				</div>		
 		<hm3>
 			<a>

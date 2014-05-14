@@ -20,38 +20,51 @@ body {
   position: relative;
 }
 #titles {
-  position: fixed;
+  position: absolute;
   background: #FFFFFF;
   display: block;
-  height: 6em;
+  height: 5em;
   overflow: auto;
   position: fixed;
   left: 6%;
-  top: 0;
+  top: 0px;
   width: 100%;
   z-index: 2000;
 }
-#detailscol {
+#panel {
   position: absolute;
+  background: #FFFFFF;
+  height: 6em;
+  top: 0;
+}
+#dlink {
+  position: fixed;
+  background: #FFFFFF;
+  height: 6em;
+  top: 0;
+}
+#detailscol {
+  position: relative;
 }
 #map {
-  position: fixed;
-  padding:0px;
-  margin:0px;
+  border: 0px solid black;
+  width: 900px;
+  height: 700px;
+  position: relative;
 }
 #maplist {
-  position: fixed;
-  padding:0px;
-  margin:0px;
+  border: 0px solid black;
+  width: 900px;
+  height: 700px;
+  position: relative;
 }
 #map-canvas {
-    height: 66%;
+    height: 100%;
     margin: 0px;
     padding: 0px
 }
 .leaflet-container {
-  width: 60%;
-  height: 85%;
+  overflow: hidden;
 }
 #maphome {
   position: fixed;
