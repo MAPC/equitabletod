@@ -496,7 +496,7 @@
       <!-- Advanced Search input-->
       <!-- Demographics -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="Percentage of housing units that are renter-occupied" class="col-md-4 control-label small" for="searchinput28">Tenure <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Tenure"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="Percentage of housing units that are renter-occupied" class="col-md-4 control-label small" for="searchinput28">Renter Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Tenure"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
           <select id="selectbasic28" name="selectbasic28" class="form-control bootstrap-selectpicker">

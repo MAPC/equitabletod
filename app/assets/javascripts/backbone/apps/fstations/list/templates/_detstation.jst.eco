@@ -9,7 +9,7 @@
 	</div>
 	<div id="accordion">
 		<hm3>
-			<p>Basic Info</p>
+			<p class="hm5">Basic Info</p>
 			<p class="hm2"><strong>Station Name: </strong><%= "#{@properties.name}" %></p>
 		</hm3>
 			<div>
@@ -34,12 +34,30 @@
 				</p>
 				<br>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="">Subcommunity Type: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Subcommunity Type"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.subcommunity_type_description}" %>
+					<strong href="#" rel="tooltipu" title="">Community Subtype: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Subcommunity Type"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.subcommunity_type_description}" %>
 				</p>
 			</div>
 		<hm3>
+				<p class="hm5">eTOD</p>
+				<p class="hm2"><strong>eTOD Score </strong><%= "#{@properties.etod_total}" %></p>
+		</hm3>
+				<div>
+					<div id="radar-region">
+					<div id="dialog-chart"></div>
+					<div id="chart"></div>
+					</div>
+					<p class="hm2">
+						<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_type}" %>
+					</p>
+					<br>
+					<p class="hm2">
+						<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_type}" %>
+					</p>
+
+				</div>		
+		<hm3>
 			<a>
-				<p>Transformation Performance</p>
+				<p class="hm5">Transformation Performance</p>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Average miles driven per day using personal automobiles, per household">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="VMT" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_vmthday.toFixed 2}" %>
 					<br><span class="inlinesparklinevmt"></span>
@@ -64,7 +82,7 @@
 			</div>
 		<hm3>
 			<a>
-				<p>Development Context</p>
+				<p class="hm5">Development Context</p>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located">Floor Area Ratio (FAR) </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="FAR" class="glyphicon glyphicon-question-sign"></span><%= "#{@properties.ov_far.toFixed 2}" %>
 					<br><span class="inlinesparklinefar"></span>
@@ -102,7 +120,7 @@
 			</div>
 		<hm3>
 			<a>
-				<p>Economics</p>
+				<p class="hm5">Economics</p>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Current employment in the station area">Number of Employees <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="emp"class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_emp10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 					<br><span class="inlinesparklineemp10"></span>
@@ -124,7 +142,7 @@
 			</div>
 		<hm3>
 			<a>
-				<p>Demographics</p>
+				<p class="hm5">Demographics</p>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Total number of households in station area">Number of Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="households"class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_hh10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 					<br><span class="inlinesparklinehh10"></span>
@@ -137,7 +155,7 @@
 		</hm3>
 			<div>
 				<p class="hm21">
-					<strong href="#" rel="tooltipu" title="Percentage of housing units that are renter-occupied">Tenure <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Tenure" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_rentocc.toFixed 2}" %>
+					<strong href="#" rel="tooltipu" title="Percentage of housing units that are renter-occupied">Renter Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Tenure" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_rentocc.toFixed 2}" %>
 					<br><span class="inlinesparklinerentocc"></span>
 				<br>
 					<strong href="#" rel="tooltipu" title="Percentage of all households in station area that do not own a car">Zero-Car Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Zero Car" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_hhnocar.toFixed 2}" %>
