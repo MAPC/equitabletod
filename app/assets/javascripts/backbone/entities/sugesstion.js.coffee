@@ -1,9 +1,14 @@
 @Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 	
 	class Entities.Sugestion extends Entities.Model
-		default: ->
+		defaults: ->
+			station_names: []
+			munis: []
+		initialize: ->
 			@get('station_names')
 			@get('munis')
+		localStorage: -> 
+			new Backbone.LocalStorage("SugestionsLocal")
 
 	class Entities.Sugestions extends Entities.Collection
 		model: Entities.Sugestion

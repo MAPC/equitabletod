@@ -1,0 +1,61 @@
+<div id="gsa-region">
+	<div>
+		<div id="gsa-txt" class="white-bg">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-2 text-left">
+						<p class="h2">
+							Growing Station Areas
+						</p>
+						<p class="h2">
+							The Variety and Potential of Transit Oriented Development in Metro Boston
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2 text-left">
+						<div id="etodpagetext">
+							<p class="hm2"> The Boston area is among the most transit-oriented regions in the country, with 25% of housing units and 37% of employment within a half-mile of a rapid transit or commuter rail station. In other words, a large proportion of our residents and jobs are already located in station areas.  With major bus stations included in consideration, the figures are even higher. 
+							</p>
+						</div>
+					</div>
+					<div class="col-md-3 col-md-offset-0 text-left">
+						<img src="img/mapc_etod.png" class="img-responsive" alt="Image Title">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-2 text-left">
+						<div id="etodpagetext">
+						</br>
+							<p class="hm2">
+							Currently, as in many parts of the country, Metro Boston is experiencing a new wave of growth near transit as municipalities and State agencies take steps to unlock the development potential of transit station areas. As the supply and demand sides of the TOD market grow, there is a clear need to establish standards and guidelines for successful station areas.  The intensity, mix, and phasing of development that may make sense in one kind of station area and maximize its TOD potential may not work in another station area with other characteristics. With over 250 rapid transit and commuter rail stations in the MBTA system, there is no one-size-fits-all approach.
+							</p>
+						</br>
+							<p class = "hm2">
+							The typology created by MAPC offers developers, local planners, funders, and community stakeholders a way to understand the region’s station areas and their potential.  The typology identifies ten different station area types based on a detailed analysis of existing conditions and the nature and magnitude of potential development over the next few decades.
+							</p>
+						</br>
+							<img src="img/gsatyp.png" class="img-responsive" alt="Image Title">
+						</br>
+							<p class = "hm2">
+							The transit station area typology can help advance equitable and sustainable TOD in a variety of ways:
+							</p>
+				          	<p class="hm2"> 
+				            	<ul class="hm2">
+				              	<li>  Housing, economic development, and infrastructure programs can use the typology to establish funding criteria that reflect both local conditions as well as regional TOD goals. </li>
+				              	<li>  Analysis of TOD financing needs and the design of potential new TOD finance products can acknowledge the distinct station area types and the different finance/market conditions that exist in each one. </li>
+				              	<li>  Technical assistance from MAPC and other partners can be targeted to station areas with strong potential for TOD but few developments in the pipeline. </li>
+				              	<li>  Municipalities and stakeholders can use the analysis to evaluate specific development proposals against the range of densities and project attributes appropriate for the station area type. </li>
+				              	<li>  •	The MBTA can use the analysis of TOD potential to plan for capacity expansion or to evaluate the potential development impacts of service changes. </li>
+				            	</ul>
+				          	</p>
+				          	<p class = "hm2">
+							The station area types are introduced briefly below.  Download the full report <a href="#">here</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

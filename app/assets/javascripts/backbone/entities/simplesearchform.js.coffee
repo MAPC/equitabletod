@@ -4,24 +4,33 @@
 
 	class Entities.SimpleSearchArgs extends Entities.Collection
 		model: Entities.SimpleSearchArg
-		url: "/suggest.json"
+		sync: ->
+			return null
+
+		fetch: ->
+			return null
+
 
 	API =
 		getSearchArgs: ->
 			searchargs = new Entities.SimpleSearchArgs [
-				{muni: ""}
-				{station_name: ""}
+				{qury: ""}
+				{muni_name: ""}
+				{station: ""}
+				{service_type: ""}
+				{station_type: ""}
+				{etod_group: ""}
 				]
 
-		getSearchArg: ->
-			searcharg = new Entities.SimpleSearchArg(field: muni)
+		getSearchArg: (query) ->
+			searcharg = new Entities.SimpleSearchArg(query: query)
 
 
 	App.reqres.setHandler "searcharg:entities", ->
 		API.getSearchArgs()
 
-	App.reqres.setHandler "searcharg:entity", (muni)->
-		API.getSearchArgs(muni)
+	App.reqres.setHandler "searcharg:entity", (query)->
+		API.getSearchArgs(query)
 
 
 

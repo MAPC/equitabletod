@@ -9,13 +9,15 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require ../../../vendor/assets/stylesheets/font-awesome.min.css
+ *= require ../../../vendor/assets/stylesheets/bootstrap.css
+ *= require ../../../vendor/assets/stylesheets/bootstrap-select.css
  *= require ../../../vendor/assets/stylesheets/owl.carousel.css
  *= require ../../../vendor/assets/stylesheets/animate.css
- *= require ../../../vendor/assets/stylesheets/bootstrap.css
- *= require ../../../vendor/assets/stylesheets/custom.css
- *= require_self
- *= require_tree .
+ *= require ../../../vendor/assets/stylesheets/leaflet.css
  *= require ../../../vendor/assets/stylesheets/jquery-ui-1.10.4.custom.min.css
+ *= require ../../../vendor/assets/stylesheets/custom.css
+  *= require ../../../vendor/assets/stylesheets/print-preview.css
+ *= require_tree .
  */
 
 

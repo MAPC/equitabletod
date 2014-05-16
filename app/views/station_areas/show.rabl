@@ -3,7 +3,7 @@ object @station_area
 node(:type) { "Feature" }
 
 node :geometry do |s|
-  { location: [s.latitude, s.longitude],
+  { coordinates: [s.longitude, s.latitude],
     type:    "Point" }
 end
 

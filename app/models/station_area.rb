@@ -9,16 +9,16 @@ class StationArea < ActiveRecord::Base
   # Basic Search
 
   scope :by_name, -> name { where("station_areas.name ~* ?", name) }
-  # scope :by_muni, -> muni { where("muni ~* ?", muni) }
+  scope :by_muni_name, -> muni_name { where("station_areas.muni_name ~* ?", muni_name) }
   scope :by_line, -> line { includes(:transit_lines).where("transit_lines.name ~* ?", line) }
   
   scope :by_service, -> service_type {
     includes(:transit_lines).where("transit_lines.service_type ~* ?", service_type) }
   
   # TODO: once database is fixed, attr in quotes will be station_type
-  scope :by_station_type, -> station_type { where("station_class ~* ?", station_type) }
+  scope :by_station_class, -> station_class { where("station_areas.station_class ~* ?", station_class) }
 
-  scope :by_etod_category, -> etod_category { where("etod_type ~* ?", etod_category) }
+  scope :by_etod_category, -> etod_category { where("station_areas.etod_type ~* ?", etod_category) }
 
   # Advanced Search
 
