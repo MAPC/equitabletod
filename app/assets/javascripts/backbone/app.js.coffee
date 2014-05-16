@@ -54,7 +54,7 @@
 
   App.addInitializer ->
     App.module("HeaderApp").start()
-    #App.module("FooterApp").start()
+    App.module("FooterApp").start()
     App.module("MainApp").start()
     App.module("FstationsApp").start()
 

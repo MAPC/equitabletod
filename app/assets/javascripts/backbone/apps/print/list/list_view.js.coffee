@@ -10,7 +10,6 @@
 	class List.Detstation extends App.Views.ItemView
 		template: "print/list/templates/_detstation"
 		tagName: "tr"
-
 		onShow: ->
 			allfeaturesResponse = $.ajax
                 	url: "/search.json?by_name="
@@ -118,6 +117,7 @@
                 $("a.print-preview").printPreview()
                 $("#titles").html "<p class='h4'>Stations Area Details</br> #{gon.feature['0'].properties.name}</p>"
                 $("#navigationsb").html "<p></p>"
+                $("#header-region").html "<p></p>"
                 setTimeout (->
                     console.log "inside the timeout"
                     $("#print-preview").click()
@@ -286,8 +286,8 @@
 		template: "print/list/templates/_chart"
 		onShow: ->
 			stationfeature = gon.feature["0"] 
-			w = 150
-			h = 150
+			w = 105
+			h = 105
 			colorscale = d3.scale.category10()
 
 			#Legend titles
@@ -327,7 +327,7 @@
 
 			#Call function to draw the Radar chart
 			#Will expect that data is in %'s
-			RadarChart.draw "#chart", d, mycfg
+			RadarChart.draw "#chartprint", d, mycfg
 
 
 	class List.MapDetail extends App.Views.Layout

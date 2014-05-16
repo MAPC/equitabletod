@@ -1,37 +1,13 @@
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-4 col-md-offset-0 text-left">
-    		<div id="map-region">
-				<div id="map-container">
-					<div id="maplist"></div>
-					<div id="mapPrint"></div>
-					<div id="map-canvas"></div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 col-md-offset-0 text-left">
-			<div id="radar-region">
-				<div id="dialog-chart"></div>
-				<div id="chart"></div>
-			</div>
-		</div>		
-		<div id="detailscol" class="col-md-6 col-md-offset-1 text-left">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-3 col-md-offset-0 text-left">
-						<div id="panel"></div>
+		<div class="row">	
+			<div id="detailscolprint">
+				<div id="fstations-region">
+					<div id="dialog-modal">
+	  					<p></p>
 					</div>
-					<div class="col-md-3 col-md-offset-1 text-left">
-						<div id="dllink"></div>
-					</div>	
 				</div>
+				<div id="print-region"></div>
 			</div>
-			<div id="fstations-region">
-				<div id="dialog-modal">
-  					<p></p>
-				</div>
-			</div>
-			<div id="print-region"></div>
 		</div>
 	</div>
 </div>		
