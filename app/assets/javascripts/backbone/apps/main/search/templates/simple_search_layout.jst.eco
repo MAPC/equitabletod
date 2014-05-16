@@ -1,0 +1,206 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-2 text-left">
+      <h3>InformaⓉion Station</h3>
+        <h2>Better data for better transit-oriented development</h2>
+        <div id="fpaccordion">
+            <p id="p-not-expanded" class="hm2">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½- mile station area. Complete data on each station area (over 150 variables) is available as a free download.
+            </p>
+          <hm2><a>More </a></hm2>
+          <div>
+            <p class="hm2"> 
+              <strong>Users can </strong>
+              <ul class="hm2">
+                <li>  Search for station areas that meet specified criteria </li>
+                <li>  Access key data points for each station area and view an interactive map of the area </li>
+                <li>  Generate a Station Area Profile (PDF) with a concise snapshot of each station area </li>
+                <li>  Download comprehensive dataset and detailed data dictionary </li>
+                <li>  Browse selected resources about transit oriented development </li>
+              </ul>
+            </p>
+            <p class="hm2">The Portal also houses information on two key tools developed to help the region’s stakeholders understand their station areas: a typology of station areas, created by the <a href="http://mapc.org" target="_blank"> Metropolitan Area Planning Council (MAPC) <span class="link"></span></a> , and the eTOD rating system, created by the <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank"> Dukakis Center for Urban and Regional Policy at Northeastern University <span class="link"></span></a> and the <a href="http://ctod.org" target="_blank"> Center for Transit Oriented Development<span class="link"></span></a>.
+            </p>
+          </div>
+        </div>
+
+    <!-- simple search form - start -->
+      <form class="form-horizontal">
+        <div id="dialog-modal">
+        <p></p>
+        </div>
+      <fieldset>
+      <!-- Form Name -->
+      </br>
+      <h2 class="black" >Search Stations</h2> 
+      <!-- <h3 class="small">Search by:</h3> -->
+      <!-- Search input-->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label small" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <input id="searchinput1" rel="tooltip" title="The name of the station stop" name="searchinput1" placeholder="" class="form-control input-md" type="search">
+        </div>
+      </div>
+      <!-- <h3 class="small">Or:</h3> -->
+      </hr>
+      </hr>
+     <!--  <h3 class="small"><a id="browseall" class="black"href="">browse all stations</a></h3> -->
+      <!-- Search input-->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label small" for="searchinput2">Municipality  <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <input id="searchinput2" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" name="searchinput2" placeholder="" class="form-control input-md" type="search">
+          <p class="help-block"></p>
+        </div>
+      </div>
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label small" for="selectbasic2">Service Type <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <select id="selectbasic2" data-filter="true" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control selectpicker" multiple>
+            <optgroup label="Commuter Rail">
+              <option value="Fairmount Line">Fairmount Line</option>
+              <option value="Fitchburg South Acton Line">Fitchburg/South Acton Line</option>
+              <option value="Framingham Worcester Line">Framingham/Worcester Line</option>
+              <option value="Franklin Line">Franklin Line</option>
+              <option value="Greenbush Line">Greenbush Line</option>
+              <option value="Haverhill Line">Haverhill Line</option>
+              <option value="Kingston Plymouth Line">Kingston/Plymouth Line</option>
+              <option value="Lowell Line">Lowell Line</option>
+              <option value="Middleborough Lakeville Line">Middleborough/Lakeville Line</option>
+              <option value="Needham Line">Needham Line</option>
+              <option value="Newburyport Rockport Line">Newburyport/Rockport Line</option>
+              <option value="Providence Stoughton Line">Providence/Stoughton Line</option>
+            </optgroup>
+            <optgroup label="Rapid Transit">
+              <option value="Blue Line">Blue Line</option>
+              <option value="Green Line">Green Line</option>
+              <option value="Orange Line">Orange Line</option>
+              <option value="Red Line">Red Line</option>
+            </optgroup>
+            <optgroup label="Bus Routes">
+              <option value="22">Route 22</option>
+              <option value="23">Route 23</option>
+              <option value="28">Route 28</option>
+              <option value="32">Route 32</option>
+              <option value="57">Route 57</option>
+              <option value="57A">Route 57A</option>
+              <option value="66">Route 66</option>
+              <option value="71">Route 71</option>
+              <option value="73">Route 73</option>
+              <option value="77">Route 77</option>
+              <option value="111">Route 111</option>
+              <option value="116">Route 116</option>
+              <option value="117">Route 117</option>
+              <option value="SL1">SL1</option>
+              <option value="SL2">SL2</option>
+              <option value="SL4">SL4</option>
+              <option value="SL5">SL5</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label small" for="selectbasic3">Station Type<span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Station Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
+            <option value="">Select</option>
+            <option value="Neighborhood Subway ">Neighborhood Subway </option>
+            <option value="Town & Village">Town & Village</option>
+            <option value="Transformational Subway">Transformational Subway</option>
+            <option value="Metro Core">Metro Core</option>
+            <option value="Undeveloped">Undeveloped</option>
+            <option value="Commerce Park">Commerce Park</option>
+            <option value="Urban Gateway">Urban Gateway</option>
+            <option value="Trolley Suburb">Trolley Suburb</option>
+            <option value="Seaport / Airport">Seaport / Airport</option>
+            <option value="Suburban Transformation">Suburban Transformation</option>
+          </select>
+        </div>
+      </div>
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label small" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <select id="selectbasic4" name="selectbasic4" class="form-control selectpicker">
+            <option value="">Select</option>
+            <option value="Transit-Supportive">Transit-Supportive</option>
+            <option value="Transit-Related">Transit-Related</option>
+            <option value="Transit-Oriented">Transit-Oriented</option>
+            <option value="Transit-Adjacent">Transit-Adjacent</option>
+          </select>
+        </div>
+      </div>
+      </fieldset>
+      </br>
+      </form>
+        <div class="col-xs-offset-1">
+            <p>
+              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-8">Search</button>
+              <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
+            </p>
+        </div>
+
+    <!-- simple search form - end -->
+    <!-- the courocel - start -->
+
+      <!-- <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="active item">
+            <img src="img/Page1_TOP.jpg" style="background: none repeat scroll 0% 0% #000000">
+          </div>
+          <div class="item">
+            <img src="img/Page1_MIDDLE_FanPier_seaport.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
+          <div class="item"><img src="img/Page1_BOTTOM_Weymouth_suburban-transformation.png" style="background: none repeat scroll 0% 0% #000000">
+          </div>
+        </div>
+
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div> -->
+      
+    <!-- caroucel -end -->
+    </br>
+    </br>
+    <!-- thumblines - start -->
+      <ul class="list-unstyled">  
+            <!--Project-->
+            <li class="col-md-6 thumbs" data-tag="graphics"> 
+            <img src="img/etodThm.png" class="img-responsive" alt="Image goes here">
+          <span><a href="#etod" id="etod" data-toggle="portfilter">
+            <span class="title">
+              <span>eTOD
+                  <br/>
+                  <i class="fa fa-minus white"></i>
+                  <span class="project-info">eTOD is a rating system to measure the capacity for "equitable TOD" within a transit station area
+                  </span>
+              </span>
+            </span> 
+          </a></span>
+            </li>
+            <!--Project-->
+            <li class="col-md-6 thumbs" data-tag="graphics">
+              <img src="img/mapc_etod.png" class="img-responsive" alt="Image Title">
+          <span><a href="#gsa" id="gsa" data-toggle="portfilter">
+            <span class="title">
+              <span>MAPC's typology 
+                <br/>
+                <i class="fa fa-minus white"></i>
+                <span>MAPC's typology helps characterize the different conditions and opportunities for TOD in each station area.
+                </span>
+              </span>
+            </span> 
+          </a></span>
+            </li>
+          </ul> 
+    </div>
+    <!-- thumbnals - end -->
+
+  </div>
+</div> 

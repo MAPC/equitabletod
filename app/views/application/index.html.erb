@@ -1,0 +1,17 @@
+<div id="header-region"></div>
+<div id="main-region">
+	<div id="home-region"></div>
+	<div id="simple-search"></div>
+</div>
+<div id="footer-region"></div>
+
+<%= javascript_tag do %>
+  $(function() {
+    Equitabletod.start({
+    	names: gon.names.names,
+    	muni_names: gon.muni_names.muni_names
+	});
+  });
+<% end %>
+
+

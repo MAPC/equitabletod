@@ -1,5 +1,12 @@
 Equitabletod::Application.routes.draw do
+  
+  match '/search',  to: 'station_areas#index'
+  match '/suggest', to: 'search#suggest'
+
   resources :station_areas
+  resources :dictionary_entries
+  root to: 'application#index'
+    
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
