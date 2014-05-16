@@ -177,6 +177,12 @@
                     #window.features = features
                     if features.length > 0
                         gon.features = features
+                        num_pages = features.length / 10
+                        num = num_pages.toString()
+                        num = num.slice(0, (num.indexOf(".")) + 0)  if num.indexOf(".") > 0
+                        num = Number(num) + 1 if num_pages > num
+                        gon.num_pages = num
+                        gon.query = query
                         App.vent.trigger "searchFired", query
                     else
                         console.log "error"

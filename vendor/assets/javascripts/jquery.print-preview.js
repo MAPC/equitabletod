@@ -152,11 +152,15 @@
             // Bind closure
             $('a', print_controls).bind('click', function(e) {
                 e.preventDefault();
-                if ($(this).hasClass('print')) { window.print(); }
-                else { $.printPreview.distroyPrintPreview(); }
+                if ($(this).hasClass('print')) { 
+                    window.print();
+                    }
+                else { 
+                    $.printPreview.distroyPrintPreview();
+                    }
             });
     	},
-    	
+    	// aakhavan: added a browser back event excuted when closing the print mask
     	distroyPrintPreview: function() {
     	    print_controls.fadeOut(100);
     	    print_modal.animate({ top: $(window).scrollTop() - $(window).height(), opacity: 1}, 400, 'linear', function(){
@@ -165,6 +169,7 @@
     	    });
     	    mask.fadeOut('slow', function()  {
     			mask.remove();
+                window.history.back();
     		});				
 
     		$(document).unbind("keydown.printPreview.mask");

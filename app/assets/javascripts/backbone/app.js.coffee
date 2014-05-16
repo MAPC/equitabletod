@@ -37,6 +37,9 @@
   App.vent.on "searchrefineFired", ->
     App.navigate "advsearch/", trigger: true
 
+  App.vent.on "printFired", ->
+    App.navigate "print/q/", trigger: true
+
   App.vent.on "searchFired", (query)->
     console.log "im inside the app itself"
     query = "fss/q/" + query

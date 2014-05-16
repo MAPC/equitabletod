@@ -115,15 +115,13 @@
            
             $(document).ready -> 
                 $("body").removeClass "nav-expanded"
-                #$("#print-region").prepend '<a class="print-preview"><p></p>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-default btn3d col-xs-offset-0">Print this page</button></a>'
-                #$("a.print-preview").printPreview()
-                $(document).bind "keydown", (e) ->
-                  code = ((if e.keyCode then e.keyCode else e.which))
-                  if code is 80 and not $("#print-modal").length
-                    $.printPreview.loadPrintPreview()
-                    false
+                $("#print-region").prepend '<a id="printpaker" class="print-preview"><button type="button" class="btn btn-default btn3d col-xs-offset-0">Print PDF</button></a>'
+                $("#printpaker").click ->
+                    $("a.print-preview").printPreview()
+                    App.vent.trigger "printFired"                    
                 $("[rel=tooltipu]").tooltip placement: "top"
-                $("#navigationsb").html "<p></p>" if gon.features.length < 2
+                $("#navigationsb").html '<p></p>'
+                $("#navigationsb").html '<hm2><button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button></hm2>' if gon.features.length > 1
                 $("#previousbuttom").click ->
                     gon.searchresults = gon.features
                     console.log "inside previousClicked"
@@ -310,8 +308,6 @@
                 muni_names[2].toLowerCase()
                 names = (_.pluck key, 'name')
                 names[2].toLowerCase()
-            console.log muni_names
-            console.log names
             #@collection = names
             names = _.map stationfeature, (key, value) ->
                     names = (_.pluck key, 'name')
@@ -324,18 +320,32 @@
 			    municipality: muni_names
 			  }
 			]
-			console.log stationfeature
-			console.log station
 
 		onShow: ->
             pfeatures = _.values gon.features
             pjfeatures = pfeatures.map (pf) -> pf.properties
             jfeatures = JSON.stringify(pjfeatures)
-            console.log jfeatures
-            $("#titles").html "<p class='h2'>Search Results</p>"
+            $("#titles").html "<p class='h2'>Search Results <a>Page #{gon.page_number} of #{gon.num_pages} </a></p>"
             $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download This Data</button>"
-            $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
-            
+            if gon.paginate == true
+                $("#navigationsb").html '<button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button>'
+                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
+                $("#nextbuttom").click ->
+                    if gon.num_pages > gon.page_number is true
+                        App.vent.trigger "searchFired", gon.query
+                    else
+                        gon.page_number = gon.page_number + 1 
+                        App.vent.trigger "searchFired", "pgr" + "#{gon.page_number}"
+                $("#previousbuttom").click ->
+                    if gon.num_pages > gon.page_number is true
+                        App.vent.trigger "searchFired", gon.query
+                    else
+                        gon.page_number = gon.page_number - 1 if gon.page_number > 1
+                        App.vent.trigger "searchFired", "pgr" + "#{gon.page_number}"
+
+            else
+                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a> "
+
             JSON2CSV = (objArray) ->
               array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
               str = ""
@@ -519,7 +529,6 @@
 			L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
 			  attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
 			).addTo maplist
-
 			LeafIcon = L.Icon.extend(options:
 			  	iconSize: [
 			    	15
@@ -532,7 +541,10 @@
 				)
 			stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
 
-			geoCollection = gon.features
+			if gon.paginate == true 
+                geoCollection = gon.features_sliced 
+            else 
+                geoCollection = gon.features 
 			fstations = new L.GeoJSON geoCollection,   
 				pointToLayer: (feature, latlng) ->
                     L.marker(latlng, icon: stationIcon).on 'mouseover', (e) ->
@@ -584,7 +596,7 @@
               attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
             ).addTo(map)
             #defaultLayer = L.tileLayer.provider("OpenStreetMap.Mapnik").addTo(map)
-            streets = L.tileLayer.provider "MapBox.arminavn.i0bjhjd1"
+            streets = L.tileLayer.provider "MapBox.mapc.i8ddbf5a"
             esri = L.tileLayer.provider "Esri.WorldImagery"
             #esring = L.tileLayer.provider "Esri.NatGeoWorldMap"
             #esrism = L.tileLayer.provider "Esri.WorldStreetMap"
