@@ -15,6 +15,15 @@ gem 'has_scope',  '0.5.1'
 gem 'gon',        '5.0.4'
 gem 'js-routes',  '0.9.7'
 
+
+group :development do
+  gem 'capistrano',      '~> 2.0'
+  gem 'net-ssh',         '2.7.0'
+  gem 'net-ssh-gateway', '1.2.0'
+  gem 'capistrano-unicorn', '0.2.0', :require => false
+end
+
+
 group :development, :test do
   gem 'rspec-rails',        '2.14.1'
   gem 'factory_girl_rails', '4.4.0'
