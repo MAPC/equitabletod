@@ -113,11 +113,12 @@
            
             $(document).ready -> 
                 $("body").removeClass "nav-expanded"
-                $("#print-region").prepend '<a class="print-preview"><p></p>&nbsp;&nbsp;&nbsp;&nbsp;<button id="print-preview" type="button" class="btn btn-default btn3d col-xs-offset-0">Print this page</button></a>'
+                $("#print-region").prepend '<a class="print-preview"><p></p>&nbsp;&nbsp;&nbsp;&nbsp;<button id="print-preview" type="button" class="btn btn-default btn3d col-xs-offset-0">Printed With Browser</button></a>'
                 $("a.print-preview").printPreview()
                 $("#titles").html "<p class='h4'>Stations Area Details</br> #{gon.feature['0'].properties.name}</p>"
                 $("#navigationsb").html "<p></p>"
                 $("#header-region").html "<p></p>"
+                #$("#footer").html "<p></p>"
                 setTimeout (->
                     console.log "inside the timeout"
                     $("#print-preview").click()
@@ -286,8 +287,8 @@
 		template: "print/list/templates/_chart"
 		onShow: ->
 			stationfeature = gon.feature["0"] 
-			w = 105
-			h = 105
+			w = 100
+			h = 100
 			colorscale = d3.scale.category10()
 
 			#Legend titles

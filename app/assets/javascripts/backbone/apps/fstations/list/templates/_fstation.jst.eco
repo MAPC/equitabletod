@@ -1,9 +1,9 @@
 <td>
 		<p>
 			<a class="hm2" href="#fss/q/by_name=<%= "#{@properties.name}" %>"><%= "#{@properties.name}" %>
-			</a>
+			</a> <%= ", #{@properties.muni_name}" %>
 		</p>
 		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;<%= "Municipality: #{@properties.muni_name}" %>
+			
 		</p>
 </td>

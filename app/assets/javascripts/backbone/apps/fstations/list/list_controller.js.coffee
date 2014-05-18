@@ -7,6 +7,7 @@
 			if gon.page_qn == "pgr"
     			if gon.page_number > 1  
     				if "#{q}".slice(3, 4) > gon.num_pages
+    					gon.page_number = -1
     					App.vent.trigger "searchFired", gon.query
     				else 
     					gon.features_sliced = gon.unsliced.slice((gon.page_number - 1 ) * 10, (gon.page_number) * 10)
@@ -48,7 +49,7 @@
 			    				#@showFstationsTable gon.features
 			    				@showDetailMap fstationCollection
 			    				@showChart gon.feature
-			    		else if features.length < 10
+			    		else #if features.length < 10
 			    			gon.paginate == false
 			    			fstationsCollection = new Backbone.Collection features
 			    			gon.length = features.length
@@ -57,11 +58,10 @@
 			    			@layout.on 'show', =>
 			    				@showFstations fstationsCollection
 			    				@showMap fstationsCollection
-			    				#@showChart gon.searchresults["0"]
-			    		else 
+			    		###else 
 			    			console.log "gon.page_number: "
 			    			console.log gon.page_number
-			    			if _.isUndefined gon.page_number 
+			    			if gon.page_number == -1
 			    				gon.page_number = 1 
 			    				gon.features_sliced = features.slice((gon.page_number - 1 ) * 10, (gon.page_number) * 10)
 			    			else if gon.page_number > 1
@@ -74,8 +74,7 @@
 			    			@layout = @getLayoutView() 
 			    			@layout.on 'show', =>
 			    				@showFstations fstationsCollection
-			    				@showMap fstationsCollection
-			    				#@showChart gon.searchresults["0"]
+			    				@showMap fstationsCollection###
 			    		App.mainRegion.show @layout
 
 		showFstationsTable: (fstations) ->

@@ -2,13 +2,17 @@
   <hr>
 
 	<div id="footer">
-
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2 logo">
+        <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank">
+          <img src="http://www.northeastern.edu/dukakiscenter/wp-content/themes/dcurp/images/logo-dcurp.png" />
+        </a>
     <div class="row">
       <div class="col-md-2 col-md-offset-4 logo">
         <!-- <a href="http://bostonbuilt.org/" target="_blank">
           Built in Boston
         </a> by -->
-        <a href="http://mapc.org">
+        <a href="http://mapc.org" target="_blank">
           <img src="http://www.mapc.org/sites/default/files/mapc_logo.png" />
         </a>
       </div>

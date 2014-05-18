@@ -46,6 +46,10 @@ body {
   position: relative;
 }
 #mapPrint {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
   border: 0px solid black;
   width: 200px;
   height: 200px;
@@ -54,9 +58,11 @@ body {
 #detailscolprint {
 }
 #printbasic {
-  width: 200px;
+  width: 500px;
   position: fixed;
   left: 300px;
+  display: block;
+  border: 0px solid grey;
 }
 #maplist {
   border: 0px solid black;
@@ -85,8 +91,8 @@ body {
 }
 #chartprint {
   position: absolute;
-  top: 20px;
-  left: 200px;
+  top: 50px;
+  left: 170px;
 }
 #dialog-chart {
           position: initial; 
@@ -99,12 +105,30 @@ body {
 #fstations-region {
     position: relative; 
     padding-top: 20px;
+    height: 600px;
+    overflow: scroll;
 }
 #accordion {
   position: relative;
   padding:0px;
   margin:0px;
   width: relative;
+}
+#accordionPrint {
+  position: relative;
+  border: 0px solid grey;
+  padding: 20px;
+  margin: 20px;
+  width: relative;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+#etodPrint {
+  border: 1px solid grey;
+  padding: 27px;
+  margin: 10px;
+  margin-left: 0px;
+  padding-left: 10px;
 }
 #fpaccordion {
   position: relative;
@@ -147,6 +171,13 @@ a.print-preview {
 .container .credit {
   margin: 20px 0;
 }
+.ui-dialog {
+  position: fixed;
+  z-index: 2001;
+  opacity: 0.99;
+  min-height: 550px;
+  max-height: 550px;
+  }
 row-thums {
 	min-width: 200px;
 }
@@ -183,18 +214,27 @@ p {
 }
 .hp2 {
     color: #000;
-    font-size: 10px;
+    font-size: 9px;
     text-align: left;
-    line-height: 16px;
+    line-height: 14px;
     font-weight: 300;
     margin-bottom: 0px;
     padding-left: 0.1px;
 }
 .hp21 {
     color: #000;
-    font-size: 10px;
+    font-size: 9px;
     text-align: left;
-    line-height: 16px;
+    line-height: 14px;
+    font-weight: 300;
+    margin-bottom: 0px;
+    padding-left: 0.1px;
+}
+.hp221 {
+    color: #000;
+    font-size: 12px;
+    text-align: left;
+    line-height: 30px;
     font-weight: 300;
     margin-bottom: 0px;
     padding-left: 0.1px;

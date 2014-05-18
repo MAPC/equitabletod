@@ -1,4 +1,21 @@
 <div class="container-fluid">
+		<!-- <div class="row">
+			<div id="footerPrint">
+			    <div class="row">
+			      <div class="col-md-2 col-md-offset-0 logo">
+			          <img src="http://www.northeastern.edu/dukakiscenter/wp-content/themes/dcurp/images/logo-dcurp.png" />
+			    <div class="row">
+			      <div class="col-md-2 col-md-offset-0 logo">
+			          <img src="http://www.mapc.org/sites/default/files/mapc_logo.png" />
+			      </div>
+			    </div>
+			</div>
+		</div> -->
+		<div class="row">
+			<h3>InformaⓉion Station</h3>
+	        <h2>Better data for better transit-oriented development</h2>
+	        <div id="titles"></div>
+	    </div>
 		<div class="row">	
 			<div id="detailscolprint">
 				<div id="fstations-region">

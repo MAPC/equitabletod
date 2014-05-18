@@ -4,20 +4,20 @@
 			<div class="col-md-4 col-md-offset-0 text-left">
 				<div id="printbasic">
 					<!-- <p class="hm5">Basic Info</p> -->
-					<p class="hp2"><strong>Station Name: </strong><%= "#{@properties.name}" %></p>
-					<p class="hp2">
+					<p class="hp221"><strong>Station Name: </strong><%= "#{@properties.name}" %></p>
+					<p class="hp221">
 						<strong href="#" rel="tooltipu" title="The name of the municipality in which the station is principally or wholly located"> Municipality: </strong> <%= "#{@properties.muni_name}" %>
 					</p>
-					<p class="hp2">
+					<p class="hp221">
 						<strong href="#" rel="tooltipu" title="The type(s) of transit service available at this station" >Service Type: </strong>  <%= "#{@properties.muni_name}" %>
 					</p>
-					<p class="hp2">
+					<p class="hp221">
 						<strong href="#" rel="tooltipu" title="The group of stations to which this station belongs based on its TOD-supportive characteristics">Station Type: </strong>  <%= "#{@properties.station_class}" %>
 					</p>
-					<p class="hp2">
+					<p class="hp221">
 						<strong href="#" rel="tooltipu" title="">Community Type: </strong>  <%= "#{@properties.community_type_description}" %>
 					</p>
-					<p class="hp2">
+					<p class="hp221">
 						<strong href="#" rel="tooltipu" title="">Community Subtype: </strong>  <%= "#{@properties.subcommunity_type_description}" %>
 					</p>
 				</div>
@@ -34,27 +34,23 @@
 			</div>
 		</div>
 	</div>
-	<div id="accordion">
-		<br>
-		<br>
-		<hm3>
+	<div id="accordionPrint">
+		<div id="etodPrint">
 				<!-- <p class="hm5">eTOD</p> -->
 				<p class="hp2"><strong>Total eTOD Score: </strong><%= "#{@properties.etod_total}" %></p>
-		</hm3>
-				<div>
-					<p class="hp2">
-						<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group </strong> <%= "#{@properties.etod_type}" %>
-					</p>
-					<p class="hp2">
-						<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score </strong> <%= "#{@properties.etod_sub1t}" %>
-					</p>
-					<p class="hp2">
-						<strong href="#" rel="tooltipu" title="eTOD metric's orientation score"> Orientation Score </strong> <%= "#{@properties.etod_sub2o}" %>
-					</p>
-					<p class="hp2">
-						<strong href="#" rel="tooltipu" title="eTOD metric's development score"> Development Score </strong> <%= "#{@properties.etod_sub3d}" %>
-					</p>
-				</div>		
+				<p class="hp2">
+					<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group </strong> <%= "#{@properties.etod_type}" %>
+				</p>
+				<p class="hp2">
+					<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score </strong> <%= "#{@properties.etod_sub1t}" %>
+				</p>
+				<p class="hp2">
+					<strong href="#" rel="tooltipu" title="eTOD metric's orientation score"> Orientation Score </strong> <%= "#{@properties.etod_sub2o}" %>
+				</p>
+				<p class="hp2">
+					<strong href="#" rel="tooltipu" title="eTOD metric's development score"> Development Score </strong> <%= "#{@properties.etod_sub3d}" %>
+				</p>
+		</div>		
 		<hm3>
 			<a>
 				<br>
