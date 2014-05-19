@@ -344,8 +344,8 @@
                 chartRangeMin: undefined,
                 tooltipFormat: new SPFormat('{{field:fields}}: {{value}}'),
                 tooltipFormatFieldlistKey: 'field',
-                tooltipValueLookups: { fields: { tg: 'target value', lq: '25th Percentile', med: 'Median',
-                    uq: '75th Percentile', lo: 'Left Outlier', ro: 'Right Outlier',
+                tooltipValueLookups: { fields: { lq: '25th percentile', med: 'Median',
+                    uq: '75th percentile', lo: 'Left Outlier', ro: 'Right Outlier',
                     lw: 'Min Value', rw: 'Max Value'} }
             }
         };

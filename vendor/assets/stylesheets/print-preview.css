@@ -45,8 +45,8 @@ a.print-preview {
         opacity: 0.75;
     }
     #print-modal-controls a.print {
-        background: url(img/icon-print.png) no-repeat 50% 50%;
+        background: url(images/icon-print.png) no-repeat 50% 50%;
     }
     #print-modal-controls a.close {
-        background: url(img/icon-close.png) no-repeat 50% 50%;
+        background: url(images/icon-close.png) no-repeat 50% 50%;
     }

@@ -127,14 +127,13 @@ var RadarChart = {
 	axis.append("text")
 		.attr("class", "legend")
 		.text(function(d){return d})
-		.style("font-family", "sans-serif")
-		.style("font-size", "11px")
+		.style("font-family", "Lato", "Helvetica Neue")
+		.style("font-size", "9px")
 		.attr("text-anchor", "middle")
 		.attr("dy", "1.5em")
 		.attr("transform", function(d, i){return "translate(0, -10)"})
 		.attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
 		.attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
-
 
  
 	d.forEach(function(y, x){
@@ -166,9 +165,9 @@ var RadarChart = {
 					 .on('mouseover', function (d){
 										z = "polygon."+d3.select(this).attr("class");
 										tooltip
-											.attr('x', x+150)
+											.attr('x', x-10)
 											.attr('y', y["0"])
-											.text("Click to see breakdown of the score values")
+											.text("")
 											.transition(200)
 											.style('opacity', 1);
 										g.selectAll("polygon")

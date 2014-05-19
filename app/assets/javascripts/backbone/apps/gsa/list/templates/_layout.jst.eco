@@ -3,7 +3,7 @@
 		<div id="gsa-txt" class="white-bg">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="h2">
 							Growing Station Areas
 						</p>
@@ -13,7 +13,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3 col-md-offset-3 text-left">
+					<div class="col-md-3 col-md-offset-2 text-left">
 						<div id="etodpagetext">
 							<p class="hm2"> The Boston area is among the most transit-oriented regions in the country, with 25% of housing units and 37% of employment within a half-mile of a rapid transit or commuter rail station. In other words, a large proportion of our residents and jobs are already located in station areas.  With major bus stations included in consideration, the figures are even higher. 
 							</p>
@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<div id="etodpagetext">
 						</br>
 							<p class="hm2">

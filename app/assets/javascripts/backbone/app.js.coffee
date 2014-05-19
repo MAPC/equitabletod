@@ -3,8 +3,12 @@
   App = new Marionette.Application 
 
   App.on "initialize:before", (options) ->
-    @names = App.request "set:name", options.names
-    @muni_names = App.request "set:muni_name", options.muni_names
+    console.log "options:"
+    console.log options
+    #@names = App.request "set:name", options.names
+    #@muni_names = App.request "set:muni_name", options.muni_names
+    #console.log "@muni_names: "
+    #console.log @muni_names
     #@transit_lines = App.request "set:transit_line", options.
 
   RegionMan = new Marionette.RegionManager
@@ -13,6 +17,7 @@
   App.addRegions
     headerRegion: "#header-region"
     mainRegion:   "#main-region"
+    footerRegion: "#footer-region"
 
   RegionMan.on "region:add", (name, region) ->
     App[name] = region
@@ -36,6 +41,9 @@
   App.vent.on "searchrefineFired", ->
     App.navigate "advsearch/", trigger: true
 
+  App.vent.on "printFired", ->
+    App.navigate "print/q/", trigger: true
+
   App.vent.on "searchFired", (query)->
     console.log "im inside the app itself"
     query = "fss/q/" + query
@@ -50,6 +58,7 @@
 
   App.addInitializer ->
     App.module("HeaderApp").start()
+    App.module("FooterApp").start()
     App.module("MainApp").start()
     App.module("FstationsApp").start()
 

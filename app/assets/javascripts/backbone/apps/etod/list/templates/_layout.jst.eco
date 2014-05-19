@@ -3,7 +3,7 @@
 		<div id="home-txt" class="white-bg">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<div id="etodpagetext">
 							<p class="h2">
 								Equitable Transit Oriented Development (eTOD)
@@ -18,7 +18,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-3 col-md-offset-3 text-left">
+					<div class="col-md-3 col-md-offset-2 text-left">
 						<p class="hm2">
 							The composite score, ranging from 10 to 50, is divided into four types of station areas: transit-adjacent (score between 10 and 20), transit-related (21-30), transit-supportive (31-40), and transit-oriented (41-50). The composite score reflects driving behavior: higher eTOD Score values are correlated with lower household VMT.
 						</p>
@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							The ten attributes are also used to create three sub-scores that provide a more nuanced view of the station area in terms of the three components of TOD: Transit, Orientation, and Development:
 						</p>
