@@ -56,6 +56,11 @@
                         $("#dialog-modal").html("")
                         $("#dialog-modal").html("#{dictionaries["0"].description}")
               $(".selectpicker").selectpicker()
+              $("#resetfields").on "click", ->
+                $("#searchinput1").val ""
+                $("#searchinput2").val ""
+                $("#selectbasic4").val "Select"
+                return
               $("#searchinput1").on "keypress", (e) ->
                 p = e.which
                 if p is 13
