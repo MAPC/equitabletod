@@ -4,15 +4,14 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 text-left">
-      <h3>InformaⓉion Station</h3>
-        <h2>Better data for better transit-oriented development</h2>
+      <h1>InformaⓉion Station</h1>
+        <h3>Better data for better transit-oriented development</h3>
         <div id="fpaccordion">
             <p id="p-not-expanded" class="hm2">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½- mile station area. Complete data on each station area (over 150 variables) is available as a free download.
             </p>
           <hm2><a>More </a></hm2>
           <div>
-            <p class="hm2"> 
-              <strong>Users can </strong>
+            <p class="hm2"> Users can
               <ul class="hm2">
                 <li>  Search for station areas that meet specified criteria </li>
                 <li>  Access key data points for each station area and view an interactive map of the area </li>
@@ -27,7 +26,7 @@
         </div>
 
     <!-- simple search form - start -->
-      <form class="form-horizontal">
+      <form class="form-horizontal well well-lg">
       <fieldset>
       <!-- Form Name -->
       </br>
@@ -35,9 +34,10 @@
       <!-- <h3 class="small">Search by:</h3> -->
       <!-- Search input-->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label small" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <input id="searchinput1" rel="tooltip" title="The name of the station stop" name="searchinput1" placeholder="" class="form-control input-md" type="search">
+          <p class="small">The name of the station stop</p>
         </div>
       </div>
       <!-- <h3 class="small">Or:</h3> -->
@@ -46,17 +46,19 @@
      <!--  <h3 class="small"><a id="browseall" class="black"href="">browse all stations</a></h3> -->
       <!-- Search input-->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label small" for="searchinput2">Municipality  <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality  <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <input id="searchinput2" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" name="searchinput2" placeholder="" class="form-control input-md" type="search">
+          <p class="small">The name of the municipality in which the station is principally or wholly located</p>
           <p class="help-block"></p>
         </div>
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label small" for="selectbasic2">Service Type <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <select id="selectbasic2" data-filter="true" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control selectpicker" multiple>
+          <option value="">Select</option>
             <optgroup label="Commuter Rail">
               <option value="Fairmount Line">Fairmount Line</option>
               <option value="Fitchburg South Acton Line">Fitchburg/South Acton Line</option>
@@ -97,12 +99,13 @@
               <option value="SL5">SL5</option>
             </optgroup>
           </select>
+          <p class="small">The type(s) of transit service available at this station</p>
         </div>
       </div>
       
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label small" for="selectbasic3">Station Type<span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Station Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label" for="selectbasic3">Station Type<span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Station Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
             <option value="">Select</option>
@@ -114,6 +117,7 @@
             <option value="Subway Transformational">Subway Transformational</option>
             <option value="Undeveloped">Undeveloped</option>
           </select>
+          <p class="small">The group of stations to which this station belongs based on its TOD-supportive characteristics</p>
         </div>
       </div>
       <!-- Select Basic -->
@@ -127,18 +131,19 @@
             <option value="Transit-Oriented">Transit-Oriented</option>
             <option value="Transit-Adjacent">Transit-Adjacent</option>
           </select>
+          <p class="small">eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD</p>
         </div>
       </div>
       </fieldset>
       </br>
-      </form>
+      
         <div class="col-xs-offset-1">
             <p>
               <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-8">Search</button>
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
             </p>
         </div>
-
+</form>
     <!-- simple search form - end -->
     <!-- the courocel - start -->
 
@@ -188,7 +193,7 @@
             <span class="title">
               <span>MAPC's typology <br/>
               <i class="fa fa-minus white"></i>
-              <span class="hm1">MAPC's typology helps characterize the different conditions and opportunities for TOD in each station area.</span>
+              <span class="project-info">MAPC's typology helps characterize the different conditions and opportunities for TOD in each station area.</span>
               </span>
             </span> 
           </a>
