@@ -5,6 +5,8 @@ class StationAreasController < ApplicationController
   
   # Basic Search
   has_scope :by_name
+  has_scope :by_muni_name
+  has_scope :by_station_class
   has_scope :by_line
   has_scope :by_service
   has_scope :by_etod_category

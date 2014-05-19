@@ -1,11 +1,35 @@
-<div id="dialog-modal">
-    <p></p>
-</div>
 <div class="container-fluid">
+  <!-- the courocel - start -->
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 text-left">
+      <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="active item">
+            <img src="img/Page1_TOP.jpg" style="background: none repeat scroll 10% 0% #000000">
+          </div>
+          <div class="item">
+            <img src="img/Page1_MIDDLE_FanPier_seaport.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
+          <div class="item"><img src="img/Page1_BOTTOM_Weymouth_suburban-transformation.png" style="background: none repeat scroll 0% 0% #000000">
+          </div>
+        </div>
+
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>
+      
+    <!-- caroucel -end -->
+  
+    <div id="logo-titles" class="col-md-6 col-md-offset-2 text-left">
       <h1>InformaⓉion Station</h1>
-        <h3>Better data for better transit-oriented development</h3>
+        <h2>Better data for better transit-oriented development</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-2 text-left">
         <div id="fpaccordion">
             <p id="p-not-expanded" class="hm2">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½- mile station area. Complete data on each station area (over 150 variables) is available as a free download.
             </p>
@@ -26,7 +50,11 @@
         </div>
 
     <!-- simple search form - start -->
+        
       <form class="form-horizontal well well-lg">
+        <div id="dialog-modal">
+        <p></p>
+        </div>
       <fieldset>
       <!-- Form Name -->
       </br>
@@ -109,13 +137,16 @@
         <div class="col-md-6">
           <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
             <option value="">Select</option>
-            <option value="Core">Core</option>
-            <option value="Urban Downtown">Urban Downtown</option>
-            <option value="Town Center">Town Center</option>
-            <option value="Subway">Subway</option>
-            <option value="Sub Emp Center">Sub Emp Center</option>
-            <option value="Subway Transformational">Subway Transformational</option>
+            <option value="Neighborhood Subway ">Neighborhood Subway </option>
+            <option value="Town & Village">Town & Village</option>
+            <option value="Transformational Subway">Transformational Subway</option>
+            <option value="Metro Core">Metro Core</option>
             <option value="Undeveloped">Undeveloped</option>
+            <option value="Commerce Park">Commerce Park</option>
+            <option value="Urban Gateway">Urban Gateway</option>
+            <option value="Trolley Suburb">Trolley Suburb</option>
+            <option value="Seaport / Airport">Seaport / Airport</option>
+            <option value="Suburban Transformation">Suburban Transformation</option>
           </select>
           <p class="small">The group of stations to which this station belongs based on its TOD-supportive characteristics</p>
         </div>
@@ -145,29 +176,6 @@
         </div>
 </form>
     <!-- simple search form - end -->
-    <!-- the courocel - start -->
-
-      <div id="myCarousel" class="carousel slide">
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <!-- Carousel items -->
-        <div class="carousel-inner">
-          <div class="active item">
-            <img src="img/Page1_TOP.jpg" style="background: none repeat scroll 0% 0% #000000">
-          </div>
-          <div class="item">
-            <img src="img/Page1_MIDDLE_FanPier_seaport.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
-          <div class="item"><img src="img/Page1_BOTTOM_Weymouth_suburban-transformation.png" style="background: none repeat scroll 0% 0% #000000">
-          </div>
-        </div>
-        <!-- Carousel nav -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-      </div>
-    <!-- caroucel -end -->
     </br>
     </br>
     <!-- thumblines - start -->
@@ -189,14 +197,14 @@
             <!--Project-->
             <li class="col-md-6 thumbs" data-tag="graphics">
               <img src="img/mapc_etod.png" class="img-responsive" alt="Image Title">
-          <a href="#gsa" id="gsa" data-toggle="portfilter">
+          <span><a href="#gsa" id="gsa" data-toggle="portfilter">
             <span class="title">
               <span>MAPC's typology <br/>
               <i class="fa fa-minus white"></i>
               <span class="project-info">MAPC's typology helps characterize the different conditions and opportunities for TOD in each station area.</span>
               </span>
             </span> 
-          </a>
+          </a></span>
             </li>
           </ul> 
     </div>

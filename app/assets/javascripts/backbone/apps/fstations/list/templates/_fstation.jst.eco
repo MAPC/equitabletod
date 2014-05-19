@@ -1,9 +1,11 @@
 <td>
 		<p>
 			<a class="hm2" href="#fss/q/by_name=<%= "#{@properties.name}" %>"><%= "#{@properties.name}" %>
-			</a>
+			</a> <a rel="tooltipu" title="Refine Results by Municipality" href="#"><%= ", #{@properties.muni_name}" %></a>
+		
+		<br><a class="hp21" rel="tooltipu" title="Refine Results by eTOD Group" href="#">eTOD Group
+			<%= "#{@properties.etod_type}" %></a>
+		<hr>
 		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;<%= "Municipality: #{@properties.muni_name}" %>
-		</p>
+
 </td>

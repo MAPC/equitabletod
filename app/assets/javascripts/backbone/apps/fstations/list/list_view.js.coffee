@@ -78,7 +78,7 @@
                 fextaxrev = gon.feature["0"].properties.ex_taxrev.toFixed 4
                 fhh10 = gon.feature["0"].properties.ov_hh10.toFixed 4
                 fhhinc = gon.feature["0"].properties.ov_hhinc.toFixed 4
-                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'		
+                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'		
                 $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
                 $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
                 $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", target: fprkac, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'		
@@ -100,7 +100,7 @@
                     frentocc = gon.feature["0"].properties.ov_rentocc.toFixed 2 if gon.feature["0"].properties.ov_rentocc
                     fhhnocar = gon.feature["0"].properties.ov_hhnocar.toFixed 2 if gon.feature["0"].properties.ov_hhnocar
                     fedatt = gon.feature["0"].properties.ov_ed_att.toFixed 2 if gon.feature["0"].properties.ov_ed_att
-                    $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                    $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 1.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                     $(".inlinesparklinetrnpcmi").sparkline gon.trnpcmis, type: "box", target: ftrnpcmi, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                     $(".inlinesparklineghg").sparkline gon.ghgs, type: "box", target: fghg, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
                     $(".inlinesparklineintntot").sparkline gon.intntots, type: "box", target: fintntot, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
@@ -115,15 +115,13 @@
            
             $(document).ready -> 
                 $("body").removeClass "nav-expanded"
-                $("#titles").html "<p class='h2'>Station Area Details</p>"
-                $("#print-region").prepend '<a class="print-preview">Print this page</a>'
-                $("a.print-preview").printPreview()
-                $(document).bind "keydown", (e) ->
-                  code = ((if e.keyCode then e.keyCode else e.which))
-                  if code is 80 and not $("#print-modal").length
-                    $.printPreview.loadPrintPreview()
-                    false
+                $("#print-region").prepend '<a id="printpaker" class="print-preview"><button type="button" class="btn btn-default btn3d col-xs-offset-0">Print PDF</button></a>'
+                $("#printpaker").click ->
+                    $("a.print-preview").printPreview()
+                    App.vent.trigger "printFired"                    
                 $("[rel=tooltipu]").tooltip placement: "top"
+                $("#navigationsb").html '<p></p>'
+                $("#navigationsb").html '<hm2><button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button></hm2>' if gon.features.length > 1
                 $("#previousbuttom").click ->
                     gon.searchresults = gon.features
                     console.log "inside previousClicked"
@@ -149,74 +147,71 @@
                     nextFeature = _.last otherFeatures
                     console.log nextFeature.properties.name
                     App.vent.trigger "searchFired", "by_name=#{nextFeature.properties.name}"
-                
+                pfeature = _.values gon.feature
+                pjfeature = pfeature.map (pf) -> pf.properties
+                jfeature = JSON.stringify(pjfeature)
+                $("#titles").html "<p class='h4'>Stations Area Details</br> #{gon.feature['0'].properties.name}</p>"
+                $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download Data For This Station</button>"
+                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
+                JSON2CSV = (objArray) ->
+                  array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
+                  str = ""
+                  line = ""
+                  head = array[0]
+
+                  for index of array[0]
+                    value = index + ""
+                    line += "\"" + value.replace(/"/g, "\"\"") + "\","
+                  line = line.slice(0, -1)
+                  str += line + "\r\n"
+                  i = 0
+
+                  while i < array.length
+                    line = ""
+                    for index of array[i]
+                        value = array[i][index] + ""
+                        line += "\"" + value.replace(/"/g, "\"\"") + "\","
+                    line = line.slice(0, -1)
+                    str += line + "\r\n"
+                    i++
+                  str
+
+                $(document).ready -> 
+                    $("body").removeClass "nav-expanded"
+
+                $("#download").click ->
+                  json = $.parseJSON(jfeature)
+                  csv = JSON2CSV(json)
+                  window.open "data:text/csv;charset=utf-8," + escape(csv)
+                  return
+
+                $("#searchrefine").click (event, ui) ->
+                    console.log "it gets the click"
+                    App.vent.trigger "searchrefineFired"
                 $("#dialog-modal").dialog 
                     position:
-                        at: "left top"
-                        of: $("#map")
+                        my: "center"
                     autoOpen: false
                     closeOnEscape: true
-                    height: 400
-                    width: 600
+                    height: 950
+                    width: 950
                     show:
-                        effect: "blind"
+                        effect: "fade"
                         duration: 100  
                     hide:
-                        effect: "blind"
+                        effect: "fade"
                         duration: 100
-    
-                $("#dialog-radar").dialog 
-                    appendTo: "#radar-region"
-                    position:
-                        at: "botton"
-                        of: $("#map-region")
-                    autoOpen: true
-                    closeOnEscape: true
-                    draggable: false
-                    height: 300
-                    width: 300
-                    show:
-                        effect: "blind"
-                        duration: 100  
-                    hide:
-                        effect: "blind"
-                        duration: 100
-                    title: 
-                        "eTOD Score RadarChart"
 
-                $("#dialog-chart").dialog 
-                    appendTo: "#radar-region"
-                    position:
-                        at: "top"
-                        of: $("#fstations-region")
-                    autoOpen: false
-                    closeOnEscape: true
-                    draggable: false
-                    height: 300
-                    width: 240
-                    show:
-                        effect: "blind"
-                        duration: 100  
-                    hide:
-                        effect: "blind"
-                        duration: 100
-                    title: 
-                        "eTOD Score Components"
 
                 $("#dialog-modal").dialog beforeClose: (event, ui) ->
                     $("#accordion").accordion "enable"
 
-                $("#chart").click (event, ui) ->
-                    sub1 = gon.feature["0"].properties.etod_sub1t
-                    sub2 = gon.feature["0"].properties.etod_sub2o
-                    sub3 = gon.feature["0"].properties.etod_sub3d
-                    totscore = gon.feature["0"].properties.etod_total
-                    $("#dialog-chart").dialog "open"
-                    $("#dialog-chart").html("Transit Score: #{sub1}<br>Orientation Score: #{sub2}<br>Development Score: #{sub3}<br><hr>Total Score: #{totscore}")
- 
-                ###$("[rel=filter]").click (event, ui) ->
-                    console.log @.title###
-
+                $("[rel=tooltipr]").tooltip placement: "top"
+                $("[rel=tooltiprf]").click (event, ui) ->
+                    $("#accordion").accordion "disable"
+                    gon.query = "#{@.title}&" + gon.query
+                    console.log "custom rel clicjing"
+                    App.vent.trigger "searchFired", gon.query
                 $("[rel=tooltipd]").click (event, ui) ->
                     console.log @.title
                     $("#accordion").accordion "disable"
@@ -268,8 +263,6 @@
                 muni_names[2].toLowerCase()
                 names = (_.pluck key, 'name')
                 names[2].toLowerCase()
-            console.log muni_names
-            console.log names
             #@collection = names
             names = _.map stationfeature, (key, value) ->
                     names = (_.pluck key, 'name')
@@ -282,18 +275,33 @@
 			    municipality: muni_names
 			  }
 			]
-			console.log stationfeature
-			console.log station
 
 		onShow: ->
             pfeatures = _.values gon.features
             pjfeatures = pfeatures.map (pf) -> pf.properties
             jfeatures = JSON.stringify(pjfeatures)
-            console.log jfeatures
-            $("#titles").html "<p class='h2'>Search Results</p>"
-            $("#dllink").html "<br /><p> Download CSV Data For Selected Stations</p>&nbsp;&nbsp;<button id='download' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Data</button>"
-            $("#panel").html "<br><p>#{gon.length} stations found </p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Refine Results</button></a>"
-            
+            $("#titles").html "<p class='h2'>Search Results </p><p>#{gon.query}</p>" #<a>Page #{gon.page_number} of #{gon.num_pages} </a>"
+            $("[rel=tooltipu]").tooltip placement: "top"
+            $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download This Data</button>"
+            if gon.paginate == true
+                $("#navigationsb").html '<button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button>'
+                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
+                $("#nextbuttom").click ->
+                    if gon.num_pages > gon.page_number is true
+                        App.vent.trigger "searchFired", gon.query
+                    else
+                        gon.page_number = gon.page_number + 1 
+                        App.vent.trigger "searchFired", "pgr" + "#{gon.page_number}"
+                $("#previousbuttom").click ->
+                    if gon.num_pages > gon.page_number is true
+                        App.vent.trigger "searchFired", gon.query
+                    else
+                        gon.page_number = gon.page_number - 1 if gon.page_number > 1
+                        App.vent.trigger "searchFired", "pgr" + "#{gon.page_number}"
+
+            else
+                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a> "
+
             JSON2CSV = (objArray) ->
               array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
               str = ""
@@ -326,90 +334,10 @@
               window.open "data:text/csv;charset=utf-8," + escape(csv)
               return
 
-			$("#searchrefine").click (event, ui) ->
+            $("#searchrefine").click (event, ui) ->
                 console.log "it gets the click"
                 App.vent.trigger "searchrefineFired"
 
-	class List.Table extends App.Views.Layout
-		template: "fstations/list/templates/_table"
-		onShow: ->
-			tabulate = (data, columns) ->
-			  table = d3.select("#table").append("table")
-			  thead = table.append("thead")
-			  tbody = table.append("tbody")
-			  
-			  # append the header row
-			  thead.append("tr").selectAll("th").data(columns).enter().append("th").text (column) ->
-			    column
-
-			  
-			  # create a row for each object in the data
-			  rows = tbody.selectAll("tr").data(data).enter().append("tr")
-			  
-			  # create a cell in each row for each column
-			  cells = rows.selectAll("td").data((row) ->
-			    columns.map (column) ->
-			      column: column
-			      value: row[column]
-
-			  ).enter().append("td").text((d) ->
-			    d.value
-			  )
-			  table
-
-			features = gon.features
-			if features.length == 1
-				stationfeature = gon.feature["0"]
-				station = [
-				  {
-				    name: stationfeature.properties.name.toLowerCase()
-				    municipality: stationfeature.properties.muni_name.toLowerCase()
-				    vMT: stationfeature.properties.ov_vmthday
-				  }
-				]
-			else
-				stationfeature = gon.features
-				muni_names = _.map stationfeature, (key, value) ->
-                    muni_names = (_.pluck key, 'muni_name')
-                    muni_names[2].toLowerCase()
-                    names = (_.pluck key, 'name')
-                    names[2].toLowerCase()
-                console.log muni_names
-                console.log names
-	            names = _.map stationfeature, (key, value) ->
-	                    names = (_.pluck key, 'name')
-	                    names[2].toLowerCase()
-	                console.log names
-				# create some people
-				station = [
-				  {
-				    name: names
-				    municipality: muni_names
-				  }
-				]
-			console.log stationfeature
-			
-
-			# render the table
-			stationsTable = tabulate(station, [
-			  "name"
-			  "municipality"
-			  "vMT"
-			])
-
-			# uppercase the column headers
-			stationsTable.selectAll("thead th").text (column) ->
-			  column.charAt(0).toUpperCase() + column.substr(1)
-
-
-			# sort by age
-			stationsTable.selectAll("tbody tr").sort (a, b) ->
-			  d3.descending a.age, b.age
-
-
-
-	class List.EmptyMap extends App.Views.Layout
-		template: "fstations/list/templates/_empty_map"
 		
 	class List.Chart extends App.Views.Layout
 		template: "fstations/list/templates/_chart"
@@ -451,7 +379,7 @@
 			  h: h
 			  maxValue: 20
 			  levels: 4
-			  ExtraWidthX: 300
+			  ExtraWidthX: 160
 
 
 			#Call function to draw the Radar chart
@@ -478,23 +406,23 @@
 			  attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
 			).addTo maplist
 
-			LeafIcon = L.Icon.extend(options:
-			  	iconSize: [
-			    	15
-			    	15
-			  	]
-			  	popupAnchor: [
-			    	-3
-			    	-76
-			  	]
-				)
-			stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
-
-			geoCollection = gon.features
+			if gon.paginate == true 
+                geoCollection = gon.features_sliced 
+            else 
+                geoCollection = gon.features 
 			fstations = new L.GeoJSON geoCollection,   
 				pointToLayer: (feature, latlng) ->
-                    L.marker(latlng, icon: stationIcon).on 'mouseover', (e) ->
+                    ###L.circle latlng, 804.672,
+                      fillColor: "#FFFFFF"
+                      color: "#000"
+                      weight: 1
+                      opacity: 0.3
+                      fillOpacity: 0.5###
+
+                    L.marker(latlng).on 'mouseover', (e) ->
                         popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}").openOn(maplist)    
+                    
+
 
 			maplist.addLayer(fstations)
 			bbox = fstations.getBounds().toBBoxString()
@@ -516,36 +444,41 @@
           "change" : "render"
 
         onShow: ->
-            console.log "insede on show enevt list_view"
-            console.log @collection
             map = L.map("map",
               scrollWheelZoom: false
               touchZoom: false
               doubleClickZoom: true
               zoomControl: true
               dragging: true
-              maxZoom: 18
             )
             map.setView [
               42.31
               -71.077359
             ], 10
-            cloudmade = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
+            
+
+            info = L.control()
+            info.onAdd = (map) ->
+              @_div = L.DomUtil.create("div", "info")
+              @update()
+              @_div
+            info.update = (props) ->
+              @_div.innerHTML = '<div id="chart"> </div>' 
+              return
+            #info.addTo map
+            mapc = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
               attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
             ).addTo(map)
-
-            LeafIcon = L.Icon.extend(options:
-                iconSize: [
-                    15
-                    15
-                ]
-                popupAnchor: [
-                    -3
-                    -76
-                ]
-                )
-
-            stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
+            #defaultLayer = L.tileLayer.provider("OpenStreetMap.Mapnik").addTo(map)
+            streets = L.tileLayer.provider "MapBox.mapc.i8ddbf5a"
+            esri = L.tileLayer.provider "Esri.WorldImagery"
+            #esring = L.tileLayer.provider "Esri.NatGeoWorldMap"
+            #esrism = L.tileLayer.provider "Esri.WorldStreetMap"
+            baseMaps =
+                MAPCBaseMap: mapc
+                EsriAerial: esri
+                MapBoxStreetMap: streets
+            L.control.layers(baseMaps).addTo map
 
             geoCollection =  gon.feature
 
@@ -553,13 +486,25 @@
                 style: (feature) ->
                     feature.properties and feature.properties.style
                 pointToLayer: (feature, latlng) ->
-                    L.circle latlng, 250,
+                    L.circle latlng, 804.672,
                       fillColor: "#FFFFFF"
                       color: "#000"
                       weight: 1
-                      opacity: 0.2
-                      fillOpacity: 0.4
+                      opacity: 0.3
+                      fillOpacity: 0.5
+                    
             map.addLayer(fstation)
+            fstationZoom = new L.GeoJSON geoCollection,
+                style: (feature) ->
+                    feature.properties and feature.properties.style
+                pointToLayer: (feature, latlng) ->
+                    L.circle latlng, 804.672,
+                      fillColor: "#FFFFFF"
+                      color: "#000"
+                      weight: 2
+                      opacity: 0.5
+                      fillOpacity: 0
+            L.control.scale().addTo(map)
 
             bbox = fstation.getBounds().toBBoxString()
             console.log bbox
@@ -573,6 +518,24 @@
                 parseFloat(bbox.split(",")[2])
               ]
             ]
+            onZoomend = ->
+                zoom = map.getZoom()
+                if zoom >= 16
+                    map.removeLayer fstation
+                    fstationZoom.addTo map
+                else
+                    map.removeLayer fstationZoom
+                    fstation.addTo map
+                return
+            map.on "zoomend", onZoomend
+            $("#chart").click (event, ui) ->
+                    console.log "chart clicked"
+                    sub1 = gon.feature["0"].properties.etod_sub1t
+                    sub2 = gon.feature["0"].properties.etod_sub2o
+                    sub3 = gon.feature["0"].properties.etod_sub3d
+                    totscore = gon.feature["0"].properties.etod_total
+                    $("#dialog-chart").dialog "open"
+                    $("#dialog-chart").html("Transit Score: #{sub1}<br>Orientation Score: #{sub2}<br>Development Score: #{sub3}<br><hr>Total Score: #{totscore}")
             #printControl = L.control.print(provider: printProvider)
             #map.addControl printControl
 
