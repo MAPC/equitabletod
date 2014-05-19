@@ -63,7 +63,7 @@
 			</a>
 		</hm3>
 			<div>
-				<p class="hm21">
+				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Average number of vehicles owned per household">Vehicle Ownership <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Vehicle Ownership" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_vehphh.toFixed 2}" %>
 					<br><span class="inlinesparklinevehphh"></span>
 				<br>
@@ -88,7 +88,7 @@
 			</a>
 		</hm3>
 			<div>
-				<p class="hm21">
+				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Conveys the extent of existing development: the sum of population and employment within the station area">Current Development Intensity <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="development intensity" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_intntot.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 					<br><span class="inlinesparklineintntot"></span>
 				<br>
@@ -126,7 +126,7 @@
 			</a>
 		</hm3>
 			<div>
-				<p class="hm21">
+				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Number of public, private, and non-profit organizations located in the station area">Number of Establishments </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Establishments" class="glyphicon glyphicon-question-sign"></span> <%= "#{@properties.ov_est_10}" %>
 					<br><span class="inlinesparklineest10"></span>
 				<br>
@@ -148,7 +148,7 @@
 			</a>
 		</hm3>
 			<div>
-				<p class="hm21">
+				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Percentage of housing units that are renter-occupied">Renter Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Tenure" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_rentocc.toFixed 2}" %>
 					<br><span class="inlinesparklinerentocc"></span>
 				<br>
