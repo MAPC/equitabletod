@@ -6,8 +6,7 @@
 		</hm3>
 			<div>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="The name of the municipality in which the station is principally or wholly located"> Municipality: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.muni_name}" %>
-				</p>
+					<strong href="#" rel="tooltipu" title="The name of the municipality in which the station is principally or wholly located"> Municipality: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.muni_name}" %>
 				<br>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="The type(s) of transit service available at this station" >Service Type: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a> </strong>  <%= "#{@properties.muni_name}" %>
@@ -27,16 +26,16 @@
 			</div>
 		<hm3>
 				<p class="hm5">eTOD</p>
-				<p class="hm2"><strong>Total eTOD Score: </strong><%= "#{@properties.etod_total}" %></p>
+				<p class="hm2">
+					<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong><a href="#" rel="tooltipr" title="Refine by <%= "#{@properties.etod_type}" %>"><%= "#{@properties.etod_type}" %></a><a href="#" rel="tooltiprf" title="by_etod_category=<%= "#{@properties.etod_type}" %>"><span class="glyphicon glyphicon-filter"></span></a>
+				</p>
 		</hm3>
 				<div>
 					<div id="radar-region">
 					<div id="dialog-chart"></div>
 					<div id="chart"></div>
 					</div>
-					<p class="hm2">
-						<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_type}" %>
-					</p>
+					<p class="hm2"><strong>Total eTOD Score: </strong><%= "#{@properties.etod_total}" %></p>
 					<br>
 					<p class="hm2">
 						<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="transitscore"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub1t}" %>

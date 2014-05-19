@@ -1,9 +1,12 @@
-<ul class="list-inline filter small">
-  <li><a id="homeClick" href="#home/" data-toggle="portfilter" data-target="home">Home</a></li>
-  <li><a id="guidClick" href="#guid/" data-toggle="portfilter" data-target="usrguid">User Guide</a></li>
-  <li><a id="abouttod" href="#abouttod/" data-toggle="portfilter" data-target="learn">Learn About TOD</a></li>
-  <li><a id="datadl" href="#datadl/" data-toggle="portfilter" data-target="download">Download All Data</a></li>
-</ul>
+<div id="innheader">
+	<ul class="list-inline filter small" class="offset-2">
+		  <li><a id="homeClick" href="#home/" data-toggle="portfilter" data-target="home">Home</a></li>
+		  <li><a id="guidClick" href="#guid/" data-toggle="portfilter" data-target="usrguid">User Guide</a></li>
+		  <li><a id="abouttod" href="#abouttod/" data-toggle="portfilter" data-target="learn">Learn About TOD</a></li>
+		  <li><a id="datadl" href="#datadl/" data-toggle="portfilter" data-target="download">Download All Data</a></li>
+		 </div>
+	</ul>
+</div>
 
 
 

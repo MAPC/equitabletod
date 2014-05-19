@@ -1,12 +1,28 @@
 body {
   height: 100%;
   font-weight: 400;
-  padding: 60px 50px;
+  padding: 60px 0px;
   padding-top: 0;
+}
+#header-region {
+  background-color: black;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+#innheader {
+  background-color: white;
+  width: 50%;
+  margin-left: 17%;
+  padding-left: 6px;
 }
 #main-region {
     width: inherit;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 #etod-region {
     margin-top: 50px;
@@ -27,6 +43,19 @@ body {
   overflow: auto;
   width: 100%;
   z-index: 2000;
+}
+#logo-titles {
+  top: 200px;
+  position: absolute;
+  background-color: white;
+}
+#myCarousel {
+  position: inherit;
+  width: 100%
+}
+.carousel-control {
+  top: 66%;
+  width: 4%;
 }
 #panel {
   position: relative;
@@ -69,6 +98,7 @@ body {
   width: 900px;
   height: 700px;
   position: relative;
+  padding-top: 20px;
 }
 #map-canvas {
     height: 100%;
@@ -165,9 +195,6 @@ a.print-preview {
     display: block;
     padding: 0 0 0 0px;
 }
-.container-fluid {
-    padding-top: 10px;
-}
 .container .credit {
   margin: 20px 0;
 }
@@ -262,10 +289,10 @@ p {
     color: #F0626A;
 }
 hr {
-    background: none repeat scroll 0 0 #F0626A;
+    background: none repeat scroll 0 0 gray;
     border: 0 none;
-    height: 5px;
-    width: 50px;
+    height: 2px;
+    width: 250px;
 }
 .thumbs {
     padding: 0px;
