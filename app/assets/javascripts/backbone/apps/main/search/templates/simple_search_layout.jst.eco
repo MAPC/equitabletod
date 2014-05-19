@@ -9,11 +9,11 @@
         </ol>
         <div class="carousel-inner">
           <div class="active item">
-            <img src="img/Page1_TOP.jpg" style="background: none repeat scroll 10% 0% #000000">
+            <img src="img/Jumbotron1.jpg" style="background: none repeat scroll 10% 0% #000000">
           </div>
           <div class="item">
-            <img src="img/Page1_MIDDLE_FanPier_seaport.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
-          <div class="item"><img src="img/Page1_BOTTOM_Weymouth_suburban-transformation.png" style="background: none repeat scroll 0% 0% #000000">
+            <img src="img/Jumbotron2.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
+          <div class="item"><img src="img/Jumbotron3.jpg" style="background: none repeat scroll 0% 0% #000000">
           </div>
         </div>
 
@@ -21,17 +21,16 @@
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>
       
-    <!-- caroucel -end -->
-  
+    <!-- carousel -end -->
     <div id="logo-titles" class="col-md-6 col-md-offset-2 text-left">
-      <h1>InformaⓉion Station</h1>
+      <h1>Informa<b>Ⓣ</b>ion Station</h1>
         <h2>Better data for better transit-oriented development</h2>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6 col-md-offset-2 text-left">
         <div id="fpaccordion">
-            <p id="p-not-expanded" class="hm2">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½- mile station area. Complete data on each station area (over 150 variables) is available as a free download.
+            <p id="p-not-expanded" class="hm2">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½-mile station area. Complete data on each station area (over 150 variables) is available as a free download.
             </p>
           <hm2><a>More </a></hm2>
           <div>
