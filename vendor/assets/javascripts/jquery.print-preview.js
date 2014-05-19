@@ -116,8 +116,7 @@
             
             // Introduce print styles
             $('head').append('<style type="text/css">' +
-                '@media print {' +
-                    '/* -- Print Preview --*/' +
+                '@media print {' +'/* -- Print Preview --*/' +
                     '#print-modal-mask,' +
                     '#print-modal {' +
                         'display: none !important;' +
@@ -153,11 +152,15 @@
             // Bind closure
             $('a', print_controls).bind('click', function(e) {
                 e.preventDefault();
-                if ($(this).hasClass('print')) { window.print(); }
-                else { $.printPreview.distroyPrintPreview(); }
+                if ($(this).hasClass('print')) { 
+                    window.print();
+                    }
+                else { 
+                    $.printPreview.distroyPrintPreview();
+                    }
             });
     	},
-    	
+    	// aakhavan: added a browser back event excuted when closing the print mask
     	distroyPrintPreview: function() {
     	    print_controls.fadeOut(100);
     	    print_modal.animate({ top: $(window).scrollTop() - $(window).height(), opacity: 1}, 400, 'linear', function(){
@@ -166,6 +169,8 @@
     	    });
     	    mask.fadeOut('slow', function()  {
     			mask.remove();
+                $("#header-region").html('<ul class="list-inline filter small"> <li><a id="homeClick" href="#home/" data-toggle="portfilter" data-target="home">Home</a></li> <li><a id="guidClick" href="#guid/" data-toggle="portfilter" data-target="usrguid">User Guide</a></li> <li><a id="abouttod" href="#abouttod/" data-toggle="portfilter" data-target="learn">Learn About TOD</a></li> <li><a id="datadl" href="#datadl/" data-toggle="portfilter" data-target="download">Download All Data</a></li> </ul>');
+                window.history.back();
     		});				
 
     		$(document).unbind("keydown.printPreview.mask");
