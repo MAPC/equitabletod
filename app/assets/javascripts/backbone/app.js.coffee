@@ -3,8 +3,12 @@
   App = new Marionette.Application 
 
   App.on "initialize:before", (options) ->
-    @names = App.request "set:name", options.names
-    @muni_names = App.request "set:muni_name", options.muni_names
+    console.log "options:"
+    console.log options
+    #@names = App.request "set:name", options.names
+    #@muni_names = App.request "set:muni_name", options.muni_names
+    #console.log "@muni_names: "
+    #console.log @muni_names
     #@transit_lines = App.request "set:transit_line", options.
 
   RegionMan = new Marionette.RegionManager
@@ -54,7 +58,7 @@
 
   App.addInitializer ->
     App.module("HeaderApp").start()
-    #App.module("FooterApp").start()
+    App.module("FooterApp").start()
     App.module("MainApp").start()
     App.module("FstationsApp").start()
 

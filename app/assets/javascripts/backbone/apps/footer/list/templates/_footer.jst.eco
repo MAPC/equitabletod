@@ -1,7 +1,23 @@
-<div id="footer">
-	<div class="container">
-		<p class="muted credit">
-			Development of the TOD Data Portal was supported by the U.S. Housing and Urban Development Sustainable Communities Initiative through a grant awarded to a consortium of organizations in the Boston region led by MAPC.  For more information on activities undertaken as part of that grant, go here.
-		</p>
+<div class="container">
+  <hr>
+
+	<div id="footer">
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2 logo">
+        <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank">
+          <img src="http://www.northeastern.edu/dukakiscenter/wp-content/themes/dcurp/images/logo-dcurp.png" />
+        </a>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-4 logo">
+        <!-- <a href="http://bostonbuilt.org/" target="_blank">
+          Built in Boston
+        </a> by -->
+        <a href="http://mapc.org" target="_blank">
+          <img src="http://www.mapc.org/sites/default/files/mapc_logo.png" />
+        </a>
+      </div>
+    </div>
+
 	</div>
+
 </div>

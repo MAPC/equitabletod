@@ -10,7 +10,6 @@
 	class List.Detstation extends App.Views.ItemView
 		template: "print/list/templates/_detstation"
 		tagName: "tr"
-
 		onShow: ->
 			allfeaturesResponse = $.ajax
                 	url: "/search.json?by_name="
@@ -114,10 +113,12 @@
            
             $(document).ready -> 
                 $("body").removeClass "nav-expanded"
-                $("#print-region").prepend '<a class="print-preview"><p></p>&nbsp;&nbsp;&nbsp;&nbsp;<button id="print-preview" type="button" class="btn btn-default btn3d col-xs-offset-0">Print this page</button></a>'
+                $("#print-region").prepend '<a class="print-preview"><p></p>&nbsp;&nbsp;&nbsp;&nbsp;<button id="print-preview" type="button" class="btn btn-default btn3d col-xs-offset-0">Printed With Browser</button></a>'
                 $("a.print-preview").printPreview()
                 $("#titles").html "<p class='h4'>Stations Area Details</br> #{gon.feature['0'].properties.name}</p>"
                 $("#navigationsb").html "<p></p>"
+                $("#header-region").html "<p></p>"
+                #$("#footer").html "<p></p>"
                 setTimeout (->
                     console.log "inside the timeout"
                     $("#print-preview").click()
@@ -286,8 +287,8 @@
 		template: "print/list/templates/_chart"
 		onShow: ->
 			stationfeature = gon.feature["0"] 
-			w = 150
-			h = 150
+			w = 100
+			h = 100
 			colorscale = d3.scale.category10()
 
 			#Legend titles
@@ -327,7 +328,7 @@
 
 			#Call function to draw the Radar chart
 			#Will expect that data is in %'s
-			RadarChart.draw "#chart", d, mycfg
+			RadarChart.draw "#chartprint", d, mycfg
 
 
 	class List.MapDetail extends App.Views.Layout

@@ -190,73 +190,28 @@
                     App.vent.trigger "searchrefineFired"
                 $("#dialog-modal").dialog 
                     position:
-                        at: "center"
                         my: "center"
-                        of: $("#accordion")
                     autoOpen: false
                     closeOnEscape: true
-                    height: 400
-                    width: 600
+                    height: 950
+                    width: 950
                     show:
-                        effect: "blind"
+                        effect: "fade"
                         duration: 100  
                     hide:
-                        effect: "blind"
+                        effect: "fade"
                         duration: 100
-    
-                $("#dialog-radar").dialog 
-                    appendTo: "#radar-region"
-                    position:
-                        at: "botton"
-                        of: $("#map-region")
-                    autoOpen: true
-                    closeOnEscape: true
-                    draggable: false
-                    height: 300
-                    width: 300
-                    show:
-                        effect: "blind"
-                        duration: 100  
-                    hide:
-                        effect: "blind"
-                        duration: 100
-                    title: 
-                        "eTOD Score RadarChart"
 
-                $("#dialog-chart").dialog 
-                    appendTo: "#accordion"
-                    position:
-                        at: "botton"
-                        of: $("#accordion")
-                    autoOpen: false
-                    closeOnEscape: true
-                    draggable: false
-                    height: 300
-                    width: 240
-                    show:
-                        effect: "blind"
-                        duration: 100  
-                    hide:
-                        effect: "blind"
-                        duration: 100
-                    title: 
-                        "eTOD Score Components"
 
                 $("#dialog-modal").dialog beforeClose: (event, ui) ->
                     $("#accordion").accordion "enable"
 
-                $("#chart").click (event, ui) ->
-                    console.log "chart clicked"
-                    sub1 = gon.feature["0"].properties.etod_sub1t
-                    sub2 = gon.feature["0"].properties.etod_sub2o
-                    sub3 = gon.feature["0"].properties.etod_sub3d
-                    totscore = gon.feature["0"].properties.etod_total
-                    $("#dialog-chart").dialog "open"
-                    $("#dialog-chart").html("Transit Score: #{sub1}<br>Orientation Score: #{sub2}<br>Development Score: #{sub3}<br><hr>Total Score: #{totscore}")
- 
-                ###$("[rel=filter]").click (event, ui) ->
-                    console.log @.title###
-
+                $("[rel=tooltipr]").tooltip placement: "top"
+                $("[rel=tooltiprf]").click (event, ui) ->
+                    $("#accordion").accordion "disable"
+                    gon.query = "#{@.title}&" + gon.query
+                    console.log "custom rel clicjing"
+                    App.vent.trigger "searchFired", gon.query
                 $("[rel=tooltipd]").click (event, ui) ->
                     console.log @.title
                     $("#accordion").accordion "disable"
@@ -325,7 +280,8 @@
             pfeatures = _.values gon.features
             pjfeatures = pfeatures.map (pf) -> pf.properties
             jfeatures = JSON.stringify(pjfeatures)
-            $("#titles").html "<p class='h2'>Search Results <a>Page #{gon.page_number} of #{gon.num_pages} </a></p>"
+            $("#titles").html "<p class='h2'>Search Results </p><p>#{gon.query}</p>" #<a>Page #{gon.page_number} of #{gon.num_pages} </a>"
+            $("[rel=tooltipu]").tooltip placement: "top"
             $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download This Data</button>"
             if gon.paginate == true
                 $("#navigationsb").html '<button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button>'
@@ -378,90 +334,10 @@
               window.open "data:text/csv;charset=utf-8," + escape(csv)
               return
 
-			$("#searchrefine").click (event, ui) ->
+            $("#searchrefine").click (event, ui) ->
                 console.log "it gets the click"
                 App.vent.trigger "searchrefineFired"
 
-	class List.Table extends App.Views.Layout
-		template: "fstations/list/templates/_table"
-		onShow: ->
-			tabulate = (data, columns) ->
-			  table = d3.select("#table").append("table")
-			  thead = table.append("thead")
-			  tbody = table.append("tbody")
-			  
-			  # append the header row
-			  thead.append("tr").selectAll("th").data(columns).enter().append("th").text (column) ->
-			    column
-
-			  
-			  # create a row for each object in the data
-			  rows = tbody.selectAll("tr").data(data).enter().append("tr")
-			  
-			  # create a cell in each row for each column
-			  cells = rows.selectAll("td").data((row) ->
-			    columns.map (column) ->
-			      column: column
-			      value: row[column]
-
-			  ).enter().append("td").text((d) ->
-			    d.value
-			  )
-			  table
-
-			features = gon.features
-			if features.length == 1
-				stationfeature = gon.feature["0"]
-				station = [
-				  {
-				    name: stationfeature.properties.name.toLowerCase()
-				    municipality: stationfeature.properties.muni_name.toLowerCase()
-				    vMT: stationfeature.properties.ov_vmthday
-				  }
-				]
-			else
-				stationfeature = gon.features
-				muni_names = _.map stationfeature, (key, value) ->
-                    muni_names = (_.pluck key, 'muni_name')
-                    muni_names[2].toLowerCase()
-                    names = (_.pluck key, 'name')
-                    names[2].toLowerCase()
-                console.log muni_names
-                console.log names
-	            names = _.map stationfeature, (key, value) ->
-	                    names = (_.pluck key, 'name')
-	                    names[2].toLowerCase()
-	                console.log names
-				# create some people
-				station = [
-				  {
-				    name: names
-				    municipality: muni_names
-				  }
-				]
-			console.log stationfeature
-			
-
-			# render the table
-			stationsTable = tabulate(station, [
-			  "name"
-			  "municipality"
-			  "vMT"
-			])
-
-			# uppercase the column headers
-			stationsTable.selectAll("thead th").text (column) ->
-			  column.charAt(0).toUpperCase() + column.substr(1)
-
-
-			# sort by age
-			stationsTable.selectAll("tbody tr").sort (a, b) ->
-			  d3.descending a.age, b.age
-
-
-
-	class List.EmptyMap extends App.Views.Layout
-		template: "fstations/list/templates/_empty_map"
 		
 	class List.Chart extends App.Views.Layout
 		template: "fstations/list/templates/_chart"
@@ -529,17 +405,6 @@
 			L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
 			  attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
 			).addTo maplist
-			LeafIcon = L.Icon.extend(options:
-			  	iconSize: [
-			    	15
-			    	15
-			  	]
-			  	popupAnchor: [
-			    	-3
-			    	-76
-			  	]
-				)
-			stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
 
 			if gon.paginate == true 
                 geoCollection = gon.features_sliced 
@@ -547,8 +412,17 @@
                 geoCollection = gon.features 
 			fstations = new L.GeoJSON geoCollection,   
 				pointToLayer: (feature, latlng) ->
-                    L.marker(latlng, icon: stationIcon).on 'mouseover', (e) ->
+                    ###L.circle latlng, 804.672,
+                      fillColor: "#FFFFFF"
+                      color: "#000"
+                      weight: 1
+                      opacity: 0.3
+                      fillOpacity: 0.5###
+
+                    L.marker(latlng).on 'mouseover', (e) ->
                         popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}").openOn(maplist)    
+                    
+
 
 			maplist.addLayer(fstations)
 			bbox = fstations.getBounds().toBBoxString()
@@ -605,18 +479,6 @@
                 EsriAerial: esri
                 MapBoxStreetMap: streets
             L.control.layers(baseMaps).addTo map
-            LeafIcon = L.Icon.extend(options:
-                iconSize: [
-                    15
-                    15
-                ]
-                popupAnchor: [
-                    -3
-                    -76
-                ]
-                )
-
-            stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
 
             geoCollection =  gon.feature
 
@@ -630,6 +492,7 @@
                       weight: 1
                       opacity: 0.3
                       fillOpacity: 0.5
+                    
             map.addLayer(fstation)
             fstationZoom = new L.GeoJSON geoCollection,
                 style: (feature) ->
