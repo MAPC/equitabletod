@@ -8,12 +8,12 @@
           <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-          <div class="item">
-            <img src="img/Page1_TOP.jpg" class="img-responsive" style="background: none repeat scroll 10% 0% #000000">
-          </div>
           <div class="active item">
-            <img src="img/BartlettPanorama.JPG" class="img-responsive" style="background: none repeat scroll 0% 0% #000000"></div>
-          <div class="item"><img src="img/Page1_BOTTOM_Weymouth_suburban-transformation.png" class="img-responsive" style="background: none repeat scroll 0% 0% #000000">
+            <img src="img/Jumbotron1.jpg" style="background: none repeat scroll 10% 0% #000000">
+          </div>
+          <div class="item">
+            <img src="img/Jumbotron2.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
+          <div class="item"><img src="img/Jumbotron3.jpg" style="background: none repeat scroll 0% 0% #000000">
           </div>
         </div>
 
@@ -21,11 +21,10 @@
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>
       
-    <!-- caroucel -end -->
-  
+    <!-- carousel -end -->
     <div id="logo-titles" class="col-md-6 col-md-offset-2 text-left">
-      <h1>InformaⓉion Station</h1>
-        <h3>Better data for better transit-oriented development</h3>
+      <h1>Informa<b>Ⓣ</b>ion Station</h1>
+        <h2>Better data for better transit-oriented development</h2>
     </div>
   </div>
   <div class="row">
