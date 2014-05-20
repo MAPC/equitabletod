@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <!-- the courocel - start -->
   <div class="row">
-    <div>
+    <div class="col-md-12 col-xs-12 text-left no-padding">
       <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0"></li>
@@ -22,7 +22,7 @@
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>
     </div>
-    <div class="col-md-4 text-left">
+    <div class="span3" class="col-xs-4 col-md-2 text-left">
       <div id="logo-titles">
         <h1>Informa<b>Ⓣ</b>ion Station</h1>
           <h2>Better data for better transit-oriented development</h2>
