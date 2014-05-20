@@ -13,8 +13,8 @@
             <img src="img/Jumbotron1.jpg" style="background: none repeat scroll 10% 0% #000000">
           </div>
           <div class="item">
-            <img src="img/Jumbotron2.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
-          <div class="item"><img src="img/Jumbotron3.jpg" style="background: none repeat scroll 0% 0% #000000">
+            <img src="img/Jumbotron4.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
+          <div class="item"><img src="img/Jumbotron2.jpg" style="background: none repeat scroll 0% 0% #000000">
           </div>
         </div>
 
@@ -96,24 +96,24 @@
         <div class="col-md-6">
           <select id="selectbasic2" data-filter="true" name="selectbasic2" class="form-control selectpicker" title="Select" multiple>
             <optgroup label="Commuter Rail">
-              <option value="Fairmount Line">Fairmount Line</option>
-              <option value="Fitchburg South Acton Line">Fitchburg/South Acton Line</option>
-              <option value="Framingham Worcester Line">Framingham/Worcester Line</option>
-              <option value="Franklin Line">Franklin Line</option>
-              <option value="Greenbush Line">Greenbush Line</option>
-              <option value="Haverhill Line">Haverhill Line</option>
-              <option value="Kingston Plymouth Line">Kingston/Plymouth Line</option>
-              <option value="Lowell Line">Lowell Line</option>
-              <option value="Middleborough Lakeville Line">Middleborough/Lakeville Line</option>
-              <option value="Needham Line">Needham Line</option>
-              <option value="Newburyport Rockport Line">Newburyport/Rockport Line</option>
-              <option value="Providence Stoughton Line">Providence/Stoughton Line</option>
+              <option value="Fairmount">Fairmount Line</option>
+              <option value="Fitchburg">Fitchburg/South Acton Line</option>
+              <option value="Framingham">Framingham/Worcester Line</option>
+              <option value="Franklin">Franklin Line</option>
+              <option value="Greenbush">Greenbush Line</option>
+              <option value="Haverhill">Haverhill Line</option>
+              <option value="Kingston">Kingston/Plymouth Line</option>
+              <option value="Lowell">Lowell Line</option>
+              <option value="Middleborough">Middleborough/Lakeville Line</option>
+              <option value="Needham">Needham Line</option>
+              <option value="Newburyport">Newburyport/Rockport Line</option>
+              <option value="Providence">Providence/Stoughton Line</option>
             </optgroup>
             <optgroup label="Rapid Transit">
-              <option value="Blue Line">Blue Line</option>
-              <option value="Green Line">Green Line</option>
-              <option value="Orange Line">Orange Line</option>
-              <option value="Red Line">Red Line</option>
+              <option value="Blue">Blue Line</option>
+              <option value="Green">Green Line</option>
+              <option value="Orange">Orange Line</option>
+              <option value="Red">Red Line</option>
             </optgroup>
             <optgroup label="Bus Routes">
               <option value="22">Route 22</option>
@@ -121,7 +121,6 @@
               <option value="28">Route 28</option>
               <option value="32">Route 32</option>
               <option value="57">Route 57</option>
-              <option value="57A">Route 57A</option>
               <option value="66">Route 66</option>
               <option value="71">Route 71</option>
               <option value="73">Route 73</option>
@@ -145,16 +144,16 @@
         <div class="col-md-6">
           <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
             <option value="">Select</option>
-            <option value="Neighborhood Subway ">Neighborhood Subway </option>
-            <option value="Town & Village">Town & Village</option>
-            <option value="Transformational Subway">Transformational Subway</option>
-            <option value="Metro Core">Metro Core</option>
+            <option value="Neighborhood%20Subway">Neighborhood Subway</option>
+            <option value="Town%20&%20Village">Town & Village</option>
+            <option value="Transformational%20Subway">Transformational Subway</option>
+            <option value="Metro%20Core">Metro Core</option>
             <option value="Undeveloped">Undeveloped</option>
-            <option value="Commerce Park">Commerce Park</option>
-            <option value="Urban Gateway">Urban Gateway</option>
-            <option value="Trolley Suburb">Trolley Suburb</option>
-            <option value="Seaport / Airport">Seaport / Airport</option>
-            <option value="Suburban Transformation">Suburban Transformation</option>
+            <option value="Commerce%20Park">Commerce Park</option>
+            <option value="Urban%20Gateway">Urban Gateway</option>
+            <option value="Trolley%20Suburb">Trolley Suburb</option>
+            <option value="Seaport">Seaport / Airport</option>
+            <option value="Suburban%20Transformation">Suburban Transformation</option>
           </select>
           <p class="small">The group of stations to which this station belongs based on its TOD-supportive characteristics</p>
         </div>

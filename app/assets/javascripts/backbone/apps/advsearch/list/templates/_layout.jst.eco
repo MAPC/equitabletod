@@ -111,7 +111,7 @@
 
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <br>
         <p class="col-md-offset-2 text-left"><strong>Transportation</strong></p>
         <label href="#" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" class="col-md-4 control-label small" for="searchinput6">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="VMT"><span class="glyphicon glyphicon-question-sign"></span></a></label>
@@ -126,11 +126,11 @@
         <div class="col-md-2">
           <input id="searchinput6" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" name="searchinput6" placeholder="" class="form-control input-md" type="search">
       </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" class="col-md-4 control-label small" for="searchinput7">Transit Commuter Share <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="transit share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -143,11 +143,11 @@
         <div class="col-md-2">
           <input id="searchinput7" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" name="searchinput7" placeholder="" class="form-control input-md" type="search">
       </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Average number of vehicles owned per household" class="col-md-4 control-label small" for="searchinput8">Vehicle Ownership<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Vehicle Ownership"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -160,11 +160,11 @@
         <div class="col-md-2">
           <input id="searchinput8" rel="tooltip" title="Average number of vehicles owned per household" name="searchinput8" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Percentage of total commuting miles for which transit was used" class="col-md-4 control-label small" for="searchinput9">Vehicle Ownership<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="commute mile share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -177,11 +177,11 @@
         <div class="col-md-2">
           <input id="searchinput9" rel="tooltip" title="Percentage of total commuting miles for which transit was used" name="searchinput9" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" class="col-md-4 control-label small" for="searchinput10">Greenhouse Gas Emissions from transportation: <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ghg"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -194,12 +194,12 @@
         <div class="col-md-2">
           <input id="searchinput10" rel="tooltip" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" name="searchinput10" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
       
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <br>
         <p class="col-md-offset-2 text-left"><strong>Development</strong></p>
         <label href="#" rel="tooltip" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located" class="col-md-4 control-label small" for="searchinput11">Floor Area Ratio (FAR) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="FAR"><span class="glyphicon glyphicon-question-sign"></span></a></label>
@@ -214,11 +214,11 @@
         <div class="col-md-2">
           <input id="searchinput11" rel="tooltip" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located" name="searchinput11" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Acres of surface parking within the station area" class="col-md-4 control-label small" for="searchinput12">Surface Parking (acre) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="surface parking"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -231,11 +231,11 @@
         <div class="col-md-2">
           <input id="searchinput12" rel="tooltip" title="Acres of surface parking within the station area" name="searchinput12" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Conveys the extent of existing development: the sum of population and employment within the station area" class="col-md-4 control-label small" for="searchinput13">Current Development Intensity <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev intensity"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -248,11 +248,11 @@
         <div class="col-md-2">
           <input id="searchinput13" rel="tooltip" title="Conveys the extent of existing development: the sum of population and employment within the station area" name="searchinput13" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Ratio of employment to current development intensity" class="col-md-4 control-label small" for="searchinput14">Current Development Mix <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev mix"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -265,11 +265,11 @@
         <div class="col-md-2">
           <input id="searchinput14" rel="tooltip" title="Ratio of employment to current development intensity" name="searchinput14" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Average number of housing units per acre zoned for residential use" class="col-md-4 control-label small" for="searchinput15">Net Residential Density <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev mix"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -282,12 +282,12 @@
         <div class="col-md-2">
           <input id="searchinput15" rel="tooltip" title="Average number of housing units per acre zoned for residential use" name="searchinput15" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Average number of housing units per acre zoned for residential use" class="col-md-4 control-label small" for="searchinput16">Net Residential Density <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="res density"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -300,11 +300,11 @@
         <div class="col-md-2">
           <input id="searchinput16" rel="tooltip" title="Average number of housing units per acre zoned for residential use" name="searchinput16" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Average number of Employees per acre zoned for commercial, industrial, or institutional use" class="col-md-4 control-label small" for="searchinput17">Net Employment Density <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Emp Density"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -317,11 +317,11 @@
         <div class="col-md-2">
           <input id="searchinput17" rel="tooltip" title="Average number of Employees per acre zoned for commercial, industrial, or institutional use" name="searchinput17" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Acreage of all parcels where the value of the improvements is less than the value of the land" class="col-md-4 control-label small" for="searchinput18">Underutilized Land  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Underutilized Land"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -334,11 +334,11 @@
         <div class="col-md-2">
           <input id="searchinput18" rel="tooltip" title="Acreage of all parcels where the value of the improvements is less than the value of the land" name="searchinput18" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="A measure of the degree to which a station area is walkable" class="col-md-4 control-label small" for="searchinput19">Walkscore  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Walkscore"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -351,11 +351,11 @@
         <div class="col-md-2">
           <input id="searchinput19" rel="tooltip" title="A measure of the degree to which a station area is walkable" name="searchinput19" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Number of housing units planned or under construction" class="col-md-4 control-label small" for="searchinput20">Residential Pipeline  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="res pipeline"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -368,11 +368,11 @@
         <div class="col-md-2">
           <input id="searchinput20" rel="tooltip" title="Number of housing units planned or under construction" name="searchinput20" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Estimated employment in developments planned or under construction" class="col-md-4 control-label small" for="searchinput21">Commercial Pipeline  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="com pipeline"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -385,11 +385,11 @@
         <div class="col-md-2">
           <input id="searchinput21" rel="tooltip" title="Estimated employment in developments planned or under construction" name="searchinput21" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Economic -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <br>
         <p class="col-md-offset-2 text-left"><strong>Economics</strong></p>
         <label href="#" rel="tooltip" title="Current employment in the station area" class="col-md-4 control-label small" for="searchinput22">Number of Employees  <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="emp"><span class="glyphicon glyphicon-question-sign"></span></a></label>
@@ -404,11 +404,11 @@
         <div class="col-md-2">
           <input id="searchinput22" rel="tooltip" title="Current employment in the station area" name="searchinput22" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Economic -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Annual total property tax revenue generated in the station area, average per acre" class="col-md-4 control-label small" for="searchinput23">Tax Revenue ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="tax rev"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -421,11 +421,11 @@
         <div class="col-md-2">
           <input id="searchinput23" rel="tooltip" title="Annual total property tax revenue generated in the station area, average per acre" name="searchinput23" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Economic -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Number of public, private, and non-profit organizations located in the station area" class="col-md-4 control-label small" for="searchinput24">Number of Establishments <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Establishments"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -438,11 +438,11 @@
         <div class="col-md-2">
           <input id="searchinput24" rel="tooltip" title="Number of public, private, and non-profit organizations located in the station area" name="searchinput24" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Economic -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Total assessed value of all parcels in station area" class="col-md-4 control-label small" for="searchinput25">Assessed Value ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="assessedval"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -455,11 +455,11 @@
         <div class="col-md-2">
           <input id="searchinput25" rel="tooltip" title="Total assessed value of all parcels in station area" name="searchinput25" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Demographics -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <br>
         <p class="col-md-offset-2 text-left"><strong>Demographics</strong></p>
         <label href="#" rel="tooltip" title="Total number of households in station area" class="col-md-4 control-label small" for="searchinput26">Number of Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="households"><span class="glyphicon glyphicon-question-sign"></span></a></label>
@@ -474,11 +474,11 @@
         <div class="col-md-2">
           <input id="searchinput26" rel="tooltip" title="Total number of households in station area" name="searchinput26" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Demographics -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" class="col-md-4 control-label small" for="searchinput27">Household Median Income ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="median income"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -491,11 +491,11 @@
         <div class="col-md-2">
           <input id="searchinput27" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" name="searchinput27" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Demographics -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Percentage of housing units that are renter-occupied" class="col-md-4 control-label small" for="searchinput28">Renter Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Tenure"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -508,11 +508,11 @@
         <div class="col-md-2">
           <input id="searchinput28" rel="tooltip" title="Percentage of housing units that are renter-occupied" name="searchinput28" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Demographics -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Percentage of all households in station area that do not own a car" class="col-md-4 control-label small" for="searchinput29">Zero-Car Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Zero Car"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -525,11 +525,11 @@
         <div class="col-md-2">
           <input id="searchinput29" rel="tooltip" title="Percentage of all households in station area that do not own a car" name="searchinput29" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Demographics -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Percentage of households with at least one bachelors degree" class="col-md-4 control-label small" for="searchinput30">Educational Attainment <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="educational"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -542,7 +542,7 @@
         <div class="col-md-2">
           <input id="searchinput30" rel="tooltip" title="Percentage of households with at least one bachelors degree" name="searchinput30" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
 
 

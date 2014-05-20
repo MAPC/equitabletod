@@ -284,6 +284,11 @@
             jfeatures = JSON.stringify(pjfeatures)
             $("#titles").html "<p class='h2'>Search Results </p><p>#{gon.query}</p>" #<a>Page #{gon.page_number} of #{gon.num_pages} </a>"
             $("[rel=tooltipu]").tooltip placement: "top"
+            $("[rel=tooltiprf]").click (event, ui) ->
+                    $("#accordion").accordion "disable"
+                    gon.query = "#{@.title}&" + gon.query
+                    console.log "custom rel clicjing"
+                    App.vent.trigger "searchFired", gon.query
             $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download This Data</button>"
             if gon.paginate == true
                 $("#navigationsb").html '<button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button>'
