@@ -192,37 +192,6 @@
     <!-- simple search form - end -->
     </br>
     </br>
-    <!-- thumblines - start -->
-      <ul class="list-unstyled">  
-            <!--Project-->
-            <li class="col-md-4 thumbs" data-tag="graphics"> 
-            <img src="img/etodThm.png" class="img-responsive" alt="Image goes here">
-          <span><a href="#etod" id="etod" data-toggle="portfilter">
-            <span class="title">
-              <span>eTOD
-                  <br/>
-                  <i class="fa fa-minus white"></i>
-                  <span class="project-info">eTOD is a rating system to measure the capacity for "equitable TOD" within a transit station area
-                  </span>
-              </span>
-            </span> 
-          </a></span>
-            </li>
-            <!--Project-->
-            <li class="col-md-4 thumbs" style="left: 40px;" data-tag="graphics">
-              <img src="img/mapc_etod.png" class="img-responsive" alt="Image Title">
-          <span><a href="#gsa" id="gsa" data-toggle="portfilter">
-            <span class="title">
-              <span>MAPC's typology <br/>
-              <i class="fa fa-minus white"></i>
-              <span class="project-info">MAPC's typology helps characterize the different conditions and opportunities for TOD in each station area.</span>
-              </span>
-            </span> 
-          </a></span>
-            </li>
-          </ul> 
-    </div>
-    <!-- thumbnals - end -->
 </div>
   </div>
 </div> 
