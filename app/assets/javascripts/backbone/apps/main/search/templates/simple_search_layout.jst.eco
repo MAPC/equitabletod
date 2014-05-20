@@ -3,17 +3,17 @@
   <div class="row">
       <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="0"></li>
+          <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
           <div class="item">
-            <img src="img/Page1_TOP.jpg" style="background: none repeat scroll 10% 0% #000000">
+            <img src="img/Page1_TOP.jpg" class="img-responsive" style="background: none repeat scroll 10% 0% #000000">
           </div>
           <div class="active item">
-            <img src="img/Page1_MIDDLE_FanPier_seaport.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
-          <div class="item"><img src="img/Page1_BOTTOM_Weymouth_suburban-transformation.png" style="background: none repeat scroll 0% 0% #000000">
+            <img src="img/BartlettPanorama.JPG" class="img-responsive" style="background: none repeat scroll 0% 0% #000000"></div>
+          <div class="item"><img src="img/Page1_BOTTOM_Weymouth_suburban-transformation.png" class="img-responsive" style="background: none repeat scroll 0% 0% #000000">
           </div>
         </div>
 
@@ -25,7 +25,7 @@
   
     <div id="logo-titles" class="col-md-6 col-md-offset-2 text-left">
       <h1>InformaⓉion Station</h1>
-        <h2>Better data for better transit-oriented development</h2>
+        <h3>Better data for better transit-oriented development</h3>
     </div>
   </div>
   <div class="row">
@@ -158,7 +158,7 @@
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label small" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <select id="selectbasic4" name="selectbasic4" class="form-control selectpicker">
             <option value="">Select</option>
@@ -185,14 +185,14 @@
 </form>
 </div>
 <div class="row">
-  <div class="col-md-6 col-md-offset-2 text-left"> 
+  <div class="col-md-10 col-md-offset-2 text-left"> 
     <!-- simple search form - end -->
     </br>
     </br>
     <!-- thumblines - start -->
       <ul class="list-unstyled">  
             <!--Project-->
-            <li class="col-md-6 thumbs" data-tag="graphics"> 
+            <li class="col-md-4 thumbs" data-tag="graphics"> 
             <img src="img/etodThm.png" class="img-responsive" alt="Image goes here">
           <span><a href="#etod" id="etod" data-toggle="portfilter">
             <span class="title">
@@ -206,7 +206,7 @@
           </a></span>
             </li>
             <!--Project-->
-            <li class="col-md-6 thumbs" data-tag="graphics">
+            <li class="col-md-4 thumbs" style="left: 40px;" data-tag="graphics">
               <img src="img/mapc_etod.png" class="img-responsive" alt="Image Title">
           <span><a href="#gsa" id="gsa" data-toggle="portfilter">
             <span class="title">
