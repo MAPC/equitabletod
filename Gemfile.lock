@@ -47,6 +47,7 @@ GEM
     coffee-script-source (1.7.0)
     commonjs (0.2.7)
     diff-lcs (1.2.5)
+    dotenv (0.7.0)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -61,6 +62,9 @@ GEM
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
+    foreman (0.66.0)
+      dotenv (~> 0.7.0)
+      thor (~> 0.19.1)
     gon (5.0.4)
       actionpack (>= 2.3.0)
       json
@@ -76,6 +80,7 @@ GEM
       railties (>= 3.2)
       sprockets-rails
     json (1.8.1)
+    kgio (2.9.2)
     less (2.4.0)
       commonjs (~> 0.2.7)
     less-rails (2.4.2)
@@ -121,6 +126,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
+    raindrops (0.13.0)
     rake (10.3.2)
     rdoc (3.12.2)
       json (~> 1.4)
@@ -167,6 +173,10 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicorn (4.8.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -178,6 +188,7 @@ DEPENDENCIES
   eco (= 1.0.0)
   factory_girl_rails (= 4.4.0)
   faker (= 1.2.0)
+  foreman
   gon (= 5.0.4)
   has_scope (= 0.5.1)
   jquery-rails (= 3.1.0)
@@ -196,3 +207,4 @@ DEPENDENCIES
   therubyracer (= 0.12.1)
   twitter-bootstrap-rails (= 2.2.8)
   uglifier (>= 1.0.3)
+  unicorn

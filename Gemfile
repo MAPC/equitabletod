@@ -7,6 +7,10 @@ gem 'rails', '3.2.13'
 
 gem 'pg',   '0.17.1'
 
+#    app server
+gem 'unicorn' 
+gem 'foreman'
+
 gem 'rabl', '0.9.3'
 gem 'oj',   '2.5.5'
 
