@@ -150,9 +150,11 @@
                 pfeature = _.values gon.feature
                 pjfeature = pfeature.map (pf) -> pf.properties
                 jfeature = JSON.stringify(pjfeature)
+                $("#panel").html "<a href='#' id='backto'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Back</button></a><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
                 $("#titles").html "<p class='h4'>Stations Area Details</br> #{gon.feature['0'].properties.name}</p>"
                 $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download Data For This Station</button>"
-                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
+                $("#backto").on "click", ->
+                    window.history.back();
                 JSON2CSV = (objArray) ->
                   array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
                   str = ""

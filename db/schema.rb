@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140318212303) do
+ActiveRecord::Schema.define(:version => 20140519173537) do
 
   create_table "dictionary_entries", :force => true do |t|
     t.string   "name"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20140318212303) do
     t.string   "etod_type"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.string   "LINE_DESCR"
   end
 
   create_table "station_areas_transit_lines", :force => true do |t|
