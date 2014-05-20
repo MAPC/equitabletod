@@ -7,9 +7,10 @@
 			<div>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="The name of the municipality in which the station is principally or wholly located"> Municipality: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></strong>  <%= "#{@properties.muni_name}" %>
+				</p>
 				<br>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="The type(s) of transit service available at this station" >Service Type: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a> </strong>  <%= "#{@properties.muni_name}" %>
+					<strong href="#" rel="tooltipu" title="The type(s) of transit service available at this station" >Service Type: <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a> </strong>  <%= "#{@properties.LINE_DESCR}" %>
 				</p>
 				<br>
 				<p class="hm2">
@@ -63,12 +64,12 @@
 			</a>
 		</hm3>
 			<div>
-				<p class="hm21">
+				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Average number of vehicles owned per household">Vehicle Ownership <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Vehicle Ownership" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_vehphh.toFixed 2}" %>
 					<br><span class="inlinesparklinevehphh"></span>
 				<br>
-					<strong href="#" rel="tooltipu" title="Percentage of total commuting miles for which transit was used">Transit Share of Commuting miles <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="commute mile share" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_trnpcmi}" %>
-					<span class="inlinesparklinetrnpcmi"></span>
+					<strong href="#" rel="tooltipu" title="Percentage of total commuting miles for which transit was used">Transit Share of Commuting miles <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="commute mile share" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_trnpcmi.toFixed 2}" %>
+					<br><span class="inlinesparklinetrnpcmi"></span>
 				<br>
 					<strong href="#" rel="tooltipu" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor">Greenhouse Gas Emissions from transportation: <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ghg" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_ghg.toFixed 2}" %>
 					<br><span class="inlinesparklineghg"></span>
@@ -88,7 +89,7 @@
 			</a>
 		</hm3>
 			<div>
-				<p class="hm21">
+				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Conveys the extent of existing development: the sum of population and employment within the station area">Current Development Intensity <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="development intensity" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_intntot.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 					<br><span class="inlinesparklineintntot"></span>
 				<br>
@@ -126,7 +127,7 @@
 			</a>
 		</hm3>
 			<div>
-				<p class="hm21">
+				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Number of public, private, and non-profit organizations located in the station area">Number of Establishments </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Establishments" class="glyphicon glyphicon-question-sign"></span> <%= "#{@properties.ov_est_10}" %>
 					<br><span class="inlinesparklineest10"></span>
 				<br>
@@ -148,7 +149,7 @@
 			</a>
 		</hm3>
 			<div>
-				<p class="hm21">
+				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Percentage of housing units that are renter-occupied">Renter Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Tenure" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_rentocc.toFixed 2}" %>
 					<br><span class="inlinesparklinerentocc"></span>
 				<br>

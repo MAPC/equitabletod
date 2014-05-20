@@ -3,8 +3,8 @@
   <div class="row">
       <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="0"></li>
+          <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
@@ -28,14 +28,16 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 col-md-offset-2 text-left">
+    <div class="col-md-3 col-md-offset-2 text-left">
         <div id="fpaccordion">
-            <p id="p-not-expanded" class="hm2">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½-mile station area. Complete data on each station area (over 150 variables) is available as a free download.
+            <p id="p-not-expanded" class="hm21">Metropolitan Boston is experiencing a wave of growth near transit as municipalities, state agencies and developers work to unlock the development potential of transit station areas.  InformaⓉion Station is a data and planning tool to help users better understand the region’s station areas and inform planning and investment in transit-oriented development (TOD) in those station areas. InformaⓉion Station provides a wealth of information on over 300 existing and planned MBTA transit station areas in Metro Boston, including commuter rail, rapid transit, and ferry stops as well as select stops on key bus routes. Communities, planners, and businesses can use this data to better understand their individual station areas, compare them across the region, and find opportunities for TOD. Over 30 demographic, economic, transportation, and development characteristics are provided for each ½- mile station area. Complete data on each station area (over 150 variables) is available as a free download.
             </p>
-          <hm2><a>More </a></hm2>
-          <div>
-            <p class="hm2"> Users can
-              <ul class="hm2">
+          </div>
+        </div>
+    <div class="col-md-3 col-md-offset-0 text-left">
+      <div id="fpaccordion">
+            <p class="hm21"> Users can
+              <ul class="hm21">
                 <li>  Search for station areas that meet specified criteria </li>
                 <li>  Access key data points for each station area and view an interactive map of the area </li>
                 <li>  Generate a Station Area Profile (PDF) with a concise snapshot of each station area </li>
@@ -43,27 +45,31 @@
                 <li>  Browse selected resources about transit oriented development </li>
               </ul>
             </p>
-            <p class="hm2">The Portal also houses information on two key tools developed to help the region’s stakeholders understand their station areas: a typology of station areas, created by the <a href="http://mapc.org" target="_blank"> Metropolitan Area Planning Council (MAPC) <span class="link"></span></a> , and the eTOD rating system, created by the <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank"> Dukakis Center for Urban and Regional Policy at Northeastern University <span class="link"></span></a> and the <a href="http://ctod.org" target="_blank"> Center for Transit Oriented Development<span class="link"></span></a>.
+            <p class="hm21">The Portal also houses information on two key tools developed to help the region’s stakeholders understand their station areas: a typology of station areas, created by the <a href="http://mapc.org" target="_blank"> Metropolitan Area Planning Council (MAPC) <span class="link"></span></a> , and the eTOD rating system, created by the <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank"> Dukakis Center for Urban and Regional Policy at Northeastern University <span class="link"></span></a> and the <a href="http://ctod.org" target="_blank"> Center for Transit Oriented Development<span class="link"></span></a>.
             </p>
-          </div>
         </div>
+      </div>
+    </div>
+</div>
 
-    <!-- simple search form - start -->
-        
-      <form class="form-horizontal well well-lg">
+  <div class="row">
+    <!-- simple search form - start -->  
+    <form class="form-horizontal well well-lg">
         <div id="dialog-modal">
         <p></p>
         </div>
       <fieldset>
+
       <!-- Form Name -->
       </br>
+    <div class="col-md-6 col-md-offset-2 text-left"> 
       <h2 class="black" >Search Stations</h2> 
       <!-- <h3 class="small">Search by:</h3> -->
       <!-- Search input-->
       <div class="form-group">
         <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
-          <input id="searchinput1" rel="tooltip" title="The name of the station stop" name="searchinput1" placeholder="" class="form-control input-md" type="search">
+          <input id="searchinput1" placeholder="" class="form-control input-md" type="search">
           <p class="small">The name of the station stop</p>
         </div>
       </div>
@@ -75,7 +81,7 @@
       <div class="form-group">
         <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality  <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
-          <input id="searchinput2" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" name="searchinput2" placeholder="" class="form-control input-md" type="search">
+          <input id="searchinput2" name="searchinput2" placeholder="" class="form-control input-md" type="search">
           <p class="small">The name of the municipality in which the station is principally or wholly located</p>
           <p class="help-block"></p>
         </div>
@@ -84,8 +90,7 @@
       <div class="form-group">
         <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
-          <select id="selectbasic2" data-filter="true" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control selectpicker" multiple>
-          <option value="">Select</option>
+          <select id="selectbasic2" data-filter="true" name="selectbasic2" class="form-control selectpicker" title="Select" multiple>
             <optgroup label="Commuter Rail">
               <option value="Fairmount Line">Fairmount Line</option>
               <option value="Fitchburg South Acton Line">Fitchburg/South Acton Line</option>
@@ -152,7 +157,7 @@
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label small" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <select id="selectbasic4" name="selectbasic4" class="form-control selectpicker">
             <option value="">Select</option>
@@ -169,18 +174,24 @@
       
         <div class="col-xs-offset-1">
             <p>
-              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-8">Search</button>
+              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-5">Search</button>
+              <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
+              <button id="resetfields" type="button" type="reset" value="Reset" class="btn btn-default btn-lg btn3d col-xs-offset-0">Reset</button>
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
             </p>
         </div>
+    </div>
 </form>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-2 text-left"> 
     <!-- simple search form - end -->
     </br>
     </br>
     <!-- thumblines - start -->
       <ul class="list-unstyled">  
             <!--Project-->
-            <li class="col-md-6 thumbs" data-tag="graphics"> 
+            <li class="col-md-4 thumbs" data-tag="graphics"> 
             <img src="img/etodThm.png" class="img-responsive" alt="Image goes here">
           <span><a href="#etod" id="etod" data-toggle="portfilter">
             <span class="title">
@@ -194,7 +205,7 @@
           </a></span>
             </li>
             <!--Project-->
-            <li class="col-md-6 thumbs" data-tag="graphics">
+            <li class="col-md-4 thumbs" style="left: 40px;" data-tag="graphics">
               <img src="img/mapc_etod.png" class="img-responsive" alt="Image Title">
           <span><a href="#gsa" id="gsa" data-toggle="portfilter">
             <span class="title">
@@ -208,6 +219,6 @@
           </ul> 
     </div>
     <!-- thumbnals - end -->
-
+</div>
   </div>
 </div> 

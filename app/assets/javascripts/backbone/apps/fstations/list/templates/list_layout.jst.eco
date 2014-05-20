@@ -7,24 +7,6 @@
 						<div id="titles"></div>
 					</div>
 				</div>
-				<div class="row">
-					<!-- <div class="col-md-6 col-md-offset-0 text-left">
-						<div id="navigationsb"></div>
-					</div> -->
-				</div>
-				<div class="row">
-					<div class="col-md-3 col-md-offset-0 text-left">
-						<div id="panel"></div>
-					</div>	
-					<div class="col-md-3 col-md-offset-1 text-left">
-						<div id="print-region"></div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3 col-md-offset-0 text-left">
-						<div id="dllink"></div>
-					</div>
-				</div>
 			</div>
 			<div id="fstations-region">
 				<div id="dialog-modal">
@@ -40,6 +22,13 @@
 					<div id="map-canvas"></div>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-0 text-left">
+			<div id="panel"></div>
+			<div id="print-region"></div>
+			<div id="dllink"></div>
 		</div>
 	</div>
 </div>		
