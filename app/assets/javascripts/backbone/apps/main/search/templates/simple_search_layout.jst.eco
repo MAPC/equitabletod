@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <!-- the courocel - start -->
   <div class="row">
-    <div>
+    <div class="col-md-12 col-xs-12 text-left no-padding">
       <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0"></li>
@@ -22,7 +22,7 @@
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>
     </div>
-    <div class="col-md-4 text-left">
+    <div class="span3" class="col-xs-4 col-md-2 text-left">
       <div id="logo-titles">
         <h1>Informa<b>Ⓣ</b>ion Station</h1>
           <h2>Better data for better transit-oriented development</h2>
@@ -192,37 +192,6 @@
     <!-- simple search form - end -->
     </br>
     </br>
-    <!-- thumblines - start -->
-      <ul class="list-unstyled">  
-            <!--Project-->
-            <li class="col-md-4 thumbs" data-tag="graphics"> 
-            <img src="img/etodThm.png" class="img-responsive" alt="Image goes here">
-          <span><a href="#etod" id="etod" data-toggle="portfilter">
-            <span class="title">
-              <span>eTOD
-                  <br/>
-                  <i class="fa fa-minus white"></i>
-                  <span class="project-info">eTOD is a rating system to measure the capacity for "equitable TOD" within a transit station area
-                  </span>
-              </span>
-            </span> 
-          </a></span>
-            </li>
-            <!--Project-->
-            <li class="col-md-4 thumbs" style="left: 40px;" data-tag="graphics">
-              <img src="img/mapc_etod.png" class="img-responsive" alt="Image Title">
-          <span><a href="#gsa" id="gsa" data-toggle="portfilter">
-            <span class="title">
-              <span>MAPC's typology <br/>
-              <i class="fa fa-minus white"></i>
-              <span class="project-info">MAPC's typology helps characterize the different conditions and opportunities for TOD in each station area.</span>
-              </span>
-            </span> 
-          </a></span>
-            </li>
-          </ul> 
-    </div>
-    <!-- thumbnals - end -->
 </div>
   </div>
 </div> 
