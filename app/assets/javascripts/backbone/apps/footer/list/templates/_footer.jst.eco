@@ -3,13 +3,13 @@
 	    <div class="row">
 	      
 	      <div class="col-md-4">
-	      <div class="panel panel-default">
+	      <div class="panel panel-default" style="border: 0px; box-shadow: none;">
 	          <img src="http://www.mapc.org/sites/default/files/mapc_logo.png" />
 	      </div>
 	      </div>
 	      
 	      <div class="col-md-4">
-	      <div class="panel panel-default">
+	      <div class="panel panel-default" style="border: 0px; box-shadow: none;">
 	        <p><a href="http://www.mapc.org" target="_blank">Metropolitan Area Planning Council</a></p>
 	          <p>60 Temple Place</p>
 			  <p>Boston, MA 02111</p>
@@ -18,7 +18,7 @@
 			  </div>
 	      </div>  
 	      <div class="col-md-4">
-	      <div class="panel panel-default">
+	      <div class="panel panel-default" style="border: 0px; box-shadow: none;">
 	        <p>With the support of the <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank">
 	          Dukakis Center for Urban and Regional Policy
 	        </a></p>

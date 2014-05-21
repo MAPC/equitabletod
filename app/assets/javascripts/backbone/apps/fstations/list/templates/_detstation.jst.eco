@@ -68,7 +68,7 @@
 					<strong href="#" rel="tooltipu" title="Average number of vehicles owned per household">Vehicle Ownership <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Vehicle Ownership" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_vehphh.toFixed 2}" %>
 					<br><span class="inlinesparklinevehphh"></span>
 				<br>
-					<strong href="#" rel="tooltipu" title="Percentage of total commuting miles for which transit was used">Transit Share of Commuting miles <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="commute mile share" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_trnpcmi.toFixed 2}" %>
+					<strong href="#" rel="tooltipu" title="Percentage of total commuting miles for which transit was used">Transit Share of Commuting miles <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="commute mile share" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{(@properties.ov_trnpcmi.toFixed 2) * 100}%" %>
 					<br><span class="inlinesparklinetrnpcmi"></span>
 				<br>
 					<strong href="#" rel="tooltipu" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor">Greenhouse Gas Emissions from transportation: <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ghg" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_ghg.toFixed 2}" %>
@@ -150,10 +150,10 @@
 		</hm3>
 			<div>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="Percentage of housing units that are renter-occupied">Renter Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Tenure" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_rentocc.toFixed 2}" %>
+					<strong href="#" rel="tooltipu" title="Percentage of housing units that are renter-occupied">Renter Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Tenure" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{(@properties.ov_rentocc.toFixed 2) * 100}%" %>
 					<br><span class="inlinesparklinerentocc"></span>
 				<br>
-					<strong href="#" rel="tooltipu" title="Percentage of all households in station area that do not own a car">Zero-Car Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Zero Car" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_hhnocar.toFixed 2}" %>
+					<strong href="#" rel="tooltipu" title="Percentage of all households in station area that do not own a car">Zero-Car Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Zero Car" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{(@properties.ov_hhnocar.toFixed 2) * 100}%" %>
 					<br><span class="inlinesparklinehhnocar"></span>
 				<br>
 					<strong href="#" rel="tooltipd" title="Percentage of households with at least one bachelors degree">Educational Attainment <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="educational" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_ed_att.toFixed 2}" %>
