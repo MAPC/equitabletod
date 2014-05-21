@@ -54,7 +54,7 @@
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Data Dictionary"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").html("#{dictionaries["0"].description}")
+                        $("#dialog-modal").html("#{dictionaries["0"].description}#{dictionaries["0"].interpretation}")
               $(".selectpicker").selectpicker()
               $("#resetfields").on "click", ->
                 $("#searchinput1").val ""

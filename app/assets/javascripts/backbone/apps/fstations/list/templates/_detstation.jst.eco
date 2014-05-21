@@ -28,7 +28,7 @@
 		<hm3>
 				<p class="hm5">eTOD</p>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong><a href="#" rel="tooltipr" title="Refine by <%= "#{@properties.etod_type}" %>"><%= "#{@properties.etod_type}" %></a><a href="#" rel="tooltiprf" title="by_etod_category=<%= "#{@properties.etod_type}" %>"><span class="glyphicon glyphicon-filter"></span></a>
+					<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="eTOD Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong><a href="#" rel="tooltipr" title="Refine by <%= "#{@properties.etod_type}" %>"><%= "#{@properties.etod_type}" %></a><a href="#" rel="tooltiprf" title="by_etod_category=<%= "#{@properties.etod_type}" %>"><span class="glyphicon glyphicon-filter"></span></a>
 				</p>
 		</hm3>
 				<div>
@@ -36,18 +36,18 @@
 					<div id="dialog-chart"></div>
 					<div id="chart"></div>
 					</div>
-					<p class="hm2"><strong>Total eTOD Score: </strong><%= "#{@properties.etod_total}" %></p>
+					<p class="hm2"><strong href="#" rel="tooltipd" title="eTOD Score">Total eTOD Score: </strong><%= "#{@properties.etod_total}" %></p>
 					<br>
 					<p class="hm2">
-						<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="transitscore"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub1t}" %>
+						<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Transit Score"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub1t}" %>
 					</p>
 					<br>
 					<p class="hm2">
-						<strong href="#" rel="tooltipu" title="eTOD metric's orientation score"> Orientation Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="orientationscore"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub2o}" %>
+						<strong href="#" rel="tooltipu" title="eTOD metric's orientation score"> Orientation Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Orientation Score"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub2o}" %>
 					</p>
 					<br>
 					<p class="hm2">
-						<strong href="#" rel="tooltipu" title="eTOD metric's development score"> Development Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="developmentscore"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub3d}" %>
+						<strong href="#" rel="tooltipu" title="eTOD metric's development score"> Development Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Development Score"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub3d}" %>
 					</p>
 				</div>		
 		<hm3>
@@ -68,7 +68,7 @@
 					<strong href="#" rel="tooltipu" title="Average number of vehicles owned per household">Vehicle Ownership <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Vehicle Ownership" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_vehphh.toFixed 2}" %>
 					<br><span class="inlinesparklinevehphh"></span>
 				<br>
-					<strong href="#" rel="tooltipu" title="Percentage of total commuting miles for which transit was used">Transit Share of Commuting miles <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="commute mile share" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{(@properties.ov_trnpcmi.toFixed 2) * 100}%" %>
+					<strong href="#" rel="tooltipu" title="Percentage of total commuting miles for which transit was used">Transit Share of Commuting miles <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="commute mile share" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{(@properties.ov_trnpcmi * 100).toFixed 2} %" %>
 					<br><span class="inlinesparklinetrnpcmi"></span>
 				<br>
 					<strong href="#" rel="tooltipu" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor">Greenhouse Gas Emissions from transportation: <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ghg" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_ghg.toFixed 2}" %>
@@ -102,15 +102,16 @@
 					<strong href="#" rel="tooltipu" title="Average number of Employees per acre zoned for commercial, industrial, or institutional use">Net Employment Density <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Emp Density"class="glyphicon glyphicon-question-sign"></span> </strong><%= "#{@properties.ov_empden.toFixed 2}" %>
 					<br><span class="inlinesparklineempden"></span>
 				<br>
-					<strong>Underutilized Land: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Acreage of all parcels where the value of the improvements is less than the value of the land"><span class="glyphicon glyphicon-question-sign"></span> </a>
+					<!-- <strong>Underutilized Land: </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Acreage of all parcels where the value of the improvements is less than the value of the land"><span class="glyphicon glyphicon-question-sign"></span> </a>
+				<br> -->
+					<!-- <strong>Zoning: </strong> -->
 				<br>
-					<strong>Zoning: </strong>
+					<strong href="#" rel="tooltipu" title="A measure of the degree to which a station area is walkable">Walkscore </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="walkscore" class="glyphicon glyphicon-question-sign"></span> <%= "#{@properties.walkscore.toFixed 2}" %>
+					<br><span class="inlinesparklinewalkscore"></span>
 				<br>
-					<strong>Walkscore </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="A measure of the degree to which a station area is walkable"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.walkscore.toFixed 2}" %>
+					<strong href="#" rel="tooltipu" title="Number of housing units planned or under construction">Residential Pipeline </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="residential pipeline"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_hucons + @properties.ov_huplan}" %>
 				<br>
-					<strong>Residential Pipeline </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Number of housing units planned or under construction"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_hucons + @properties.ov_huplan}" %>
-				<br>
-					<strong>Commercial Pipeline </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Estimated employment in developments planned or under construction"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_empcons + @properties.ov_empplan}" %>
+					<strong href="#" rel="tooltipu" title="Estimated employment in developments planned or under construction">Commercial Pipeline </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="commercial pipeline"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_empcons + @properties.ov_empplan}" %>
 				</p>
 			</div>
 		<hm3>
@@ -150,9 +151,9 @@
 		</hm3>
 			<div>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="Percentage of housing units that are renter-occupied">Renter Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Tenure" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{(@properties.ov_rentocc.toFixed 2) * 100}%" %>
+					<!-- <strong href="#" rel="tooltipu" title="Percentage of housing units that are renter-occupied">Renter Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Tenure" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{(@properties.ov_rentocc.toFixed 2) * 100}%" %>
 					<br><span class="inlinesparklinerentocc"></span>
-				<br>
+				<br> -->
 					<strong href="#" rel="tooltipu" title="Percentage of all households in station area that do not own a car">Zero-Car Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Zero Car" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{(@properties.ov_hhnocar.toFixed 2) * 100}%" %>
 					<br><span class="inlinesparklinehhnocar"></span>
 				<br>

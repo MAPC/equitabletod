@@ -93,34 +93,30 @@
                 qury = ""
             else
                 #name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
-                qury = "by_muni_name=#{muni_name}"
-            gon.muni_name = "#{muni_name}"
+                qury = "by_muni_name=#{muni_name}".replace(/\s*\(.*?\)\s*/g, "")
             name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
             if name is undefined
                 qury = qury + ""
             else
-                qury = qury + "&by_name=#{name}"
-            gon.name = "#{name}".replace(/\s*\(.*?\)\s*/g, "")
+                qury = qury + "&by_name=#{name}".replace(/\s*\(.*?\)\s*/g, "")
             service_type = $('#selectbasic2 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic2 option:selected').val()
             if service_type is undefined
                 qury = qury + ""
             else    
                 qury = qury + "&by_line=#{service_type}".replace(/\s*\(.*?\)\s*/g, "")
-            gon.service_type = "#{service_type}"
             station_type = $('#selectbasic3 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic3 option:selected').val()
             if station_type is undefined
                 qury = qury + ""
             else
                 qury = qury + "&by_station_class=#{station_type}".replace(/\s*\(.*?\)\s*/g, "")
-            gon.station_type = "#{station_type}"
             etod_group = $('#selectbasic4 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic4 option:selected').val()
             if etod_group is undefined
                 qury = qury + ""
             else
                 qury = qury + "&by_etod_category=#{etod_group}".replace(/\s*\(.*?\)\s*/g, "")
-            gon.etod_group = "#{etod_group}"
+            #gon.etod_group = "#{etod_group}"
             query = "#{qury}"
-            console.log(query)
+            console.log gon,
             # here would are the basic validation and if passed the vent will trigger
             urlstr = "/search.json?" + "#{gon.query}" + "#{query}".replace(/\s*\(.*?\)\s*/g, "")
             #console.log urlstr
@@ -144,10 +140,15 @@
                         num = num.slice(0, (num.indexOf(".")) + 0)  if num.indexOf(".") > 0
                         num = Number(num) + 1 if num_pages > num
                         gon.num_pages = num
-                        gon.query = query
-                        App.vent.trigger "searchFired", query
+                        gon.query = "#{gon.query}" + "#{query}".replace(/\s*\(.*?\)\s*/g, "")
+                        App.vent.trigger "searchFired", gon.query
                     else
                         console.log "error"
+                        gon.query = ""
+                        gon.muni_name = ""
+                        gon.name = ""
+                        $("#searchinput2").attr "placeholder", ""
+                        $("#selectbasic3").val ""
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Error"
                         $("#dialog-modal").html("")

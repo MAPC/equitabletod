@@ -35,10 +35,10 @@
             <br>
               <div class="col-md-4">
                 <center>
-                  <img src="img/mapc_logo.png" class="img-circle" alt="the-brains">
+                  <a href="http://www.mapc.org/" target="_blank"><img src="img/mapc_logo.png" class="img-circle" alt="the-brains"></a>
                   <br>
                   <h4 class="footertext">Metropolitan Area Planning Council</h4>
-                  <p class="footertext">Smart Growth and Regional Collaboration<br>
+                  <p class="footertext"><br>
                 </center>
               </div>
               <div class="col-md-4">
@@ -52,10 +52,10 @@
               </div>
               <div class="col-md-4">
                 <center>
-                  <img src="img/northeastern.png" class="img-circle" alt="...">
-                  <br>
+                  <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank"><img src="img/northeastern.png" class="img-circle" alt="...">
+                  <br></a>
                   <h4 class="footertext">Dukakis Center for Urban and Regional Policy</h4>
-                  <p class="footertext">Support and research <br>
+                  <p class="footertext"><br>
                 </center>
               </div>
             </div>
