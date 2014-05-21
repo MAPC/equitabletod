@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 	<div id="footer">
 	    <div class="row">
 	      
@@ -27,4 +27,40 @@
 	        	      
 	    </div>
 	</div>
+</div> -->
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <br>
+            <br>
+              <div class="col-md-4">
+                <center>
+                  <img src="img/mapc_logo.png" class="img-circle" alt="the-brains">
+                  <br>
+                  <h4 class="footertext">Metropolitan Area Planning Council</h4>
+                  <p class="footertext">Smart Growth and Regional Collaboration<br>
+                </center>
+              </div>
+              <div class="col-md-4">
+                <center>
+                  <h4 class="footertext">MAPC</h4>
+                  <p class="footertext">60 Temple Place<br>
+			  <p class="footertext">Boston, MA 02111<br>
+			  <p class="footertext">Phone: (617) 451-2770<br>
+			  <p class="footertext">Fax: (617) 482-7185<br>
+                </center>
+              </div>
+              <div class="col-md-4">
+                <center>
+                  <img src="img/northeastern.png" class="img-circle" alt="...">
+                  <br>
+                  <h4 class="footertext">Dukakis Center for Urban and Regional Policy</h4>
+                  <p class="footertext">Support and research <br>
+                </center>
+              </div>
+            </div>
+            <div class="row">
+            <p><center><p class="footertext">Copyright 2014</p></center></p>
+        </div>
+    </div>
 </div>

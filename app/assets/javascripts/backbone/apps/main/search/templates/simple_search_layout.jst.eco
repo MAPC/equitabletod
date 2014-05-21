@@ -24,8 +24,9 @@
     </div>
     <div class="span3" class="col-xs-4 col-md-2 text-left">
       <div id="logo-titles">
-        <h1>Informa<b>Ⓣ</b>ion Station</h1>
-          <h2>Better data for better transit-oriented development</h2>
+      	<img src="img/informationstation.png">
+        <!-- <h1>Informa<b>Ⓣ</b>ion Station</h1>
+          <h2>Better data for better transit-oriented development</h2> -->
       </div>
     </div>
       
