@@ -1,10 +1,76 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
 body {
+  font-family: 'Lato';
   height: 100%;
   font-weight: 400;
   padding: 60px 0px;
   padding-top: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: 'Rokkitt', serif;
+  color: $subheadings;
+}
+a {
+	color: rgba(150,50,150,1);
+}
+/* navigation */
+
+/*.navbar */
+.navbar {
+ margin-bottom: 2px;
+}
+/* title */
+.navbar-default .navbar-brand {
+  font-family: 'Rokkitt';
+  font-size: 24px;
+    color: #fff;
+    transition: all 0.3s ease-in-out 0s;    
+  -webkit-transition: all 0.3s ease-in-out 0s;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #5E5E5E;
+}
+/* link */
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+    transition: all 0.3s ease-in-out 0s;    
+  -webkit-transition: all 0.3s ease-in-out 0s;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: #fafafa;
+    transition: all 0.3s ease-in-out 0s;    
+  -webkit-transition: all 0.3s ease-in-out 0s;
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E7E7E7;
+}
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+ul.tod {
+	font-size: 18px;
+	font-weight: 200;	
 }
 #header-region {
   background-color: black;
@@ -12,10 +78,10 @@ body {
   padding-bottom: 0px;
 }
 #innheader {
-  background-color: white;
+  background-color: #000;
   width: 50%;
   margin-left: 17%;
-  padding-left: 6px;
+  padding: 0px 0px 10px 6px;
 }
 #main-region {
     width: inherit;
@@ -32,6 +98,7 @@ body {
 }
 #footer {
   position: relative;
+  background-color: #FFFF;
 }
 #titles {
   position: relative;
@@ -42,13 +109,16 @@ body {
   z-index: 2000;
 }
 #logo-titles {
-  top: 200px;
   position: absolute;
-  background-color: white;
+  background-color: rgba(250,250,250,.8);
+  border: 4px solid rgba(150,50,150,1);
+  margin-top: 20px;
+  left: 20px;
 }
 #myCarousel {
   position: inherit;
-  width: 100%
+  width: 100%;
+  padding-bottom: 20px;
 }
 .carousel-control {
   top: 66%;
@@ -133,7 +203,7 @@ body {
 #fstations-region {
     position: relative; 
     padding-top: 20px;
-    height: 600px;
+    height: 580px;
     overflow: scroll;
 }
 #accordion {
@@ -207,9 +277,9 @@ row-thums {
 	min-width: 200px;
 }
 p {
-    color: #919da8;
-    font-size: 12px;
-    line-height: 22px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 28px;
 }
 .hm1 {
     color: #000;
@@ -290,7 +360,17 @@ hr {
     background: none repeat scroll 0 0 gray;
     border: 0 none;
     height: 2px;
-    width: 250px;
+    width: 100%;
+}
+.navbar-default {
+font-family: 'Rokkitt';
+font-size: 24px;
+  background-color: #000;
+  color: white;
+  border-color: #000;
+}
+.navbar-default .navbar-nav > li > a {
+color: rgba(150,50,150,1);
 }
 .thumbs {
     padding: 0px;
@@ -341,6 +421,12 @@ hr {
     background-color: #000;
 }
 .list-inline.filter > li:hover {
-    background: none repeat scroll 0 0 #17b3f4;
+    background: none repeat scroll 0 0;
     color: #FFFFFF;
+}
+form {
+	position: inherit;
+	width: 100%;
+	padding-bottom: 20px;
+	background-color: #fafafa;
 }
