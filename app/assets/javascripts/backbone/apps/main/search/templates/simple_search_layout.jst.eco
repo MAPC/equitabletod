@@ -4,17 +4,23 @@
     <div class="col-md-12 col-xs-12 text-left" style="padding: 0;">
       <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0"></li>
-          <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
           <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner">
           <div class="active item">
             <img src="img/Jumbotron1.jpg" style="background: none repeat scroll 10% 0% #000000">
           </div>
           <div class="item">
-            <img src="img/Jumbotron4.jpg" style="background: none repeat scroll 0% 0% #000000"></div>
-          <div class="item"><img src="img/Jumbotron2.jpg" style="background: none repeat scroll 0% 0% #000000">
+            <img src="img/Jumbotron4.jpg" style="background: none repeat scroll 0% 0% #000000">
+          </div>
+          <div class="item">
+            <img src="img/Jumbotron2.jpg" style="background: none repeat scroll 0% 0% #000000">
+          </div>
+          <div class="item">
+            <img src="img/Jumbotron3.jpg" style="background: none repeat scroll 0% 0% #000000">
           </div>
         </div>
 
@@ -168,17 +174,17 @@
           <p class="small">eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD</p>
         </div>
       </div>
-      </fieldset>
-      </br>
-      
-        <div class="col-xs-offset-1">
+      <div class="col-md-4 col-md-offset-4">
             <p>
-              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-5">Search</button>
+              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d ">Search</button>
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
-              <button id="resetfields" type="button" type="reset" value="Reset" class="btn btn-default btn-lg btn3d col-xs-offset-0">Reset</button>
+              <!-- <button id="resetfields" type="button" type="reset" value="Reset" class="btn btn-default btn-lg btn3d col-xs-offset-0">Reset</button> -->
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
             </p>
         </div>
+      </fieldset>
+      </br>
+      
     </div>
 </form>
 </div>

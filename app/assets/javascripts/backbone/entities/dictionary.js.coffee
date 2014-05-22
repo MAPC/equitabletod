@@ -1,21 +1,15 @@
 @Equitabletod.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
-  class Entities.Dictionary extends Entities.Model
+  class Entities.Dictionaryentry extends Backbone.Model
 
-  class Entities.DictionariesCollection extends Entities.Collection
-    model: Entities.Dictionary
-    url: "dictionary_entries.json"
+  class Entities.DictionaryentriesCollection extends Backbone.Collection
+    model: Entities.Dictionaryentry
 
-  API =
-  	getDictionariesEntities: (cb) ->
-  	    dictionaries = new Entities.DictionariesCollection
-  	    dictionaries.fetch
-          success: ->
-            cb dictionaries
+  API = 
+
+    setDictionaryentry: (dictionaryentries) ->
+      new Entities.DictionaryentriesCollection dictionaryentries
 
 
-  App.reqres.setHandler 'dictionary:entities', (cb) ->
-      API.getDictionariesEntities cb
-
-  #App.reqres.setHandler 'dictionary:entity', (cb) ->
-      #API.getictionariesEntity cb topic
+  App.reqres.setHandler "set:dictionaryentry", (dictionaryentries) ->
+    API.setDictionaryentry dictionaryentries

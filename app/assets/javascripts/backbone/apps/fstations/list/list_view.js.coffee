@@ -18,15 +18,8 @@
                     	return result
             allfeature = allfeaturesResponse.complete()
             allfeature.done =>
-                ###if _.isEmpty gon.features
-                    allfeatures = allfeature.responseJSON
-                    features = _.values allfeatures.features
-                else if (gon.feature != gon.features) and (gon.searchresults = [])
-                    features = gon.features 
-                else###
                 allfeatures = allfeature.responseJSON
                 features = _.values allfeatures.features # this returns an array of each features obkect
-                console.log features 
                 console.log gon.features
                 fars = _.map features, (key, value) -> key.properties.ov_far.toFixed 2
                 vmts = _.map features, (key, value) -> key.properties.ov_vmthday.toFixed 2
@@ -129,33 +122,48 @@
                 $("[rel=tooltipu]").tooltip placement: "top"
                 $("#navigationsbl").html ''
                 $("#navigationsbr").html ''
-                $("#navigationsbl").html '<span class="glyphicon-class"></span><span id="previousbuttom" class="glyphicon glyphicon-chevron-left">  </span>' if gon.features.length > 1
-                $("#navigationsbr").html '<span id="nextbuttom" class="glyphicon glyphicon-chevron-right">  </span>' if gon.features.length > 1
-                $("#previousbuttom").click ->
-                    gon.searchresults = gon.features
-                    console.log "inside previousClicked"
+                $("#navigationsbl").html '<span class="glyphicon-class"></span><span id="previousbuttom" class="glyphicon glyphicon-chevron-left">  </span>' if gon.length > 1
+                $("#navigationsbr").html '<span id="nextbuttom" class="glyphicon glyphicon-chevron-right">  </span>' if gon.length > 1
+                $("#previousbuttom").click (event)->
+                    @fstation = gon.feature
+                    @fstations = gon.fstations     
+                    console.log @fstations
+                    console.log @fstation
+                    fstationsList = @fstations.models
                     console.log gon.feature["0"].properties.name
-                    thisFeature = _.find gon.features, (key, value) -> gon.feature["0"].properties.name == key.properties.name
-                    firstFeature = _.first gon.features 
-
-                    otherFeatures = _.without gon.features, thisFeature
-                    priviousFeature = _.first otherFeatures
-                    console.log priviousFeature.properties.name
-                    App.vent.trigger "searchFired", "by_name=#{priviousFeature.properties.name}"
-                    #console.log otherFeatures
-                    #console.log thisFeature
-                    #window.location = "www.example.com/index.php?id=" + @id
-                    #return
-                    #console.log gon.searchresults  
+                    thisFeature = _.find fstationsList, (key, value) -> gon.feature["0"].properties.name == key.attributes.properties.name
+                    console.log "this:"
+                    console.log thisFeature
+                    console.log "this cid:"
+                    console.log thisFeature.cid
+                    console.log thisFeature.cid.slice(1)
+                    nextCid = parseInt(thisFeature.cid.slice(1)) - 1 
+                    console.log nextCid
+                    nextFeature = _.find fstationsList, (key, value) -> nextCid == parseInt(key.cid.slice(1))
+                    console.log fstationsList
+                    console.log "nextFeature: "
+                    console.log nextFeature
+                    App.vent.trigger "searchFired", "by_name=#{nextFeature.attributes.properties.name}"
                 $("#nextbuttom").click ->
-                    gon.searchresults = gon.features
-                    console.log "inside nextClicked"
-                    console.log gon.length
-                    thisFeature = _.find gon.features, (key, value) -> gon.feature["0"].properties.name == key.properties.name
-                    otherFeatures = _.without gon.features, thisFeature
-                    nextFeature = _.last otherFeatures
-                    console.log nextFeature.properties.name
-                    App.vent.trigger "searchFired", "by_name=#{nextFeature.properties.name}"
+                    @fstation = gon.feature
+                    @fstations = gon.fstations     
+                    console.log @fstations
+                    console.log @fstation
+                    fstationsList = @fstations.models
+                    console.log gon.feature["0"].properties.name
+                    thisFeature = _.find fstationsList, (key, value) -> gon.feature["0"].properties.name == key.attributes.properties.name
+                    console.log "this:"
+                    console.log thisFeature
+                    console.log "this cid:"
+                    console.log thisFeature.cid
+                    console.log thisFeature.cid.slice(1)
+                    nextCid = parseInt(thisFeature.cid.slice(1)) + 1 
+                    console.log nextCid
+                    nextFeature = _.find fstationsList, (key, value) -> nextCid == parseInt(key.cid.slice(1))
+                    console.log fstationsList
+                    console.log "nextFeature: "
+                    console.log nextFeature
+                    App.vent.trigger "searchFired", "by_name=#{nextFeature.attributes.properties.name}"
                 pfeature = _.values gon.feature
                 pjfeature = pfeature.map (pf) -> pf.properties
                 jfeature = JSON.stringify(pjfeature)
@@ -234,11 +242,11 @@
                     dictionary = dictionaryResponse.complete()
                     dictionary.done =>
                         dictionaries = dictionary.responseJSON
-                        console.log dictionaries["0"].description if dictionaries["0"]
+                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Data Dictionary"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").html("#{dictionaries["0"].description}#{dictionaries["0"].interpretation}")
+                        $("#dialog-modal").html("#{@dictionaryentries.models["0"].get("description")}")
 
 			$("[rel=tooltip]").tooltip placement: "left"
 			#$("[rel=tooltipd]").tooltip placement: "right"
