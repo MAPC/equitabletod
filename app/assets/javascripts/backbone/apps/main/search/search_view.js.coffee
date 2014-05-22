@@ -50,22 +50,16 @@
                     dictionary = dictionaryResponse.complete()
                     dictionary.done =>
                         dictionaries = dictionary.responseJSON
-                        console.log dictionaries["0"].description if dictionaries["0"]
+                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Data Dictionary"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").html("#{dictionaries["0"].description}#{dictionaries["0"].interpretation}")
+                        $("#dialog-modal").html("#{@dictionaryentries.models["0"].get("description")}")
               $(".selectpicker").selectpicker()
-              $("#resetfields").on "click", ->
-                $("#searchinput1").val ""
-                $("#searchinput2").val ""
-                $("#selectbasic4").val "Select"
-                return
               $("#searchinput1").on "keypress", (e) ->
                 p = e.which
                 if p is 13
                     name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() 
-                    console.log name 
                     if name is undefined
                         qury = qury + ""
                     else
@@ -73,9 +67,7 @@
                         gon.name = "#{name}"
                     query = "#{qury}"
                     console.log(query)
-                      # here would are the basic validation and if passed the vent will trigger
                     urlstr = "/search.json?" + "#{query}"
-                      #console.log urlstr
                     responseFeature = $.ajax
                             url: urlstr
                             done: (result) =>
@@ -134,7 +126,7 @@
                                 name = ui.item.value.replace(" ", "%20").toLowerCase()
                                 console.log name
                                 urlstr = "by_name=" + "#{name}".replace(/\s*\(.*?\)\s*/g, "")
-                                console.log urlstr
+                                console.log urlstr          
                                 query = "#{urlstr}"
                                 App.vent.trigger "searchFired", query
                     return
