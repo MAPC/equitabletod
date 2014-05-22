@@ -1,15 +1,15 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 	<div id="footer">
 	    <div class="row">
 	      
 	      <div class="col-md-4">
-	      <div class="panel panel-default">
+	      <div class="panel panel-default" style="border: 0px; box-shadow: none;">
 	          <img src="http://www.mapc.org/sites/default/files/mapc_logo.png" />
 	      </div>
 	      </div>
 	      
 	      <div class="col-md-4">
-	      <div class="panel panel-default">
+	      <div class="panel panel-default" style="border: 0px; box-shadow: none;">
 	        <p><a href="http://www.mapc.org" target="_blank">Metropolitan Area Planning Council</a></p>
 	          <p>60 Temple Place</p>
 			  <p>Boston, MA 02111</p>
@@ -18,7 +18,7 @@
 			  </div>
 	      </div>  
 	      <div class="col-md-4">
-	      <div class="panel panel-default">
+	      <div class="panel panel-default" style="border: 0px; box-shadow: none;">
 	        <p>With the support of the <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank">
 	          Dukakis Center for Urban and Regional Policy
 	        </a></p>
@@ -27,4 +27,40 @@
 	        	      
 	    </div>
 	</div>
+</div> -->
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <br>
+            <br>
+              <div class="col-md-4">
+                <center>
+                  <a href="http://www.mapc.org/" target="_blank"><img src="img/mapc_logo.png" class="img-circle" alt="the-brains"></a>
+                  <br>
+                  <h4 class="footertext">Metropolitan Area Planning Council</h4>
+                  <p class="footertext"><br>
+                </center>
+              </div>
+              <div class="col-md-4">
+                <center>
+                  <h4 class="footertext">MAPC</h4>
+                  <p class="footertext">60 Temple Place<br>
+			  <p class="footertext">Boston, MA 02111<br>
+			  <p class="footertext">Phone: (617) 451-2770<br>
+			  <p class="footertext">Fax: (617) 482-7185<br>
+                </center>
+              </div>
+              <div class="col-md-4">
+                <center>
+                  <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank"><img src="img/northeastern.png" class="img-circle" alt="...">
+                  <br></a>
+                  <h4 class="footertext">Dukakis Center for Urban and Regional Policy</h4>
+                  <p class="footertext"><br>
+                </center>
+              </div>
+            </div>
+            <div class="row">
+            <p><center><p class="footertext">Copyright 2014</p></center></p>
+        </div>
+    </div>
 </div>
