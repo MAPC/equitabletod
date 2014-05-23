@@ -31,9 +31,9 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-0 text-left">
-			<div id="panel" class="col-md-4 col-md-offset-0 text-left">></div>
-			<!-- <div id="print-region" class="col-md-2 col-md-offset-2 text-left"></div> -->
-			<div id="dllink" class="col-md-4 col-md-offset-0 text-left"></div>
+			<div id="panel" class="col-md-3 col-xs-5 text-left">></div>
+			<div id="print-region" class="col-md-2 col-xs-4 text-left"></div>
+			<div id="dllink" class="col-md-4 col-md-offset-1 col-xs-8 text-left"></div>
 		</div>
 	</div>
 </div>		
