@@ -1,11 +1,13 @@
 <td>
 		<p>
 			<a class="hm2" href="#fss/q/by_name=<%= "#{@properties.name}".replace(/\s*\(.*?\)\s*/g, "") %>"><%= "#{@properties.name}" %>
-			</a> <span><%= ", #{@properties.muni_name}" %></span>  <a href="#" rel="tooltiprf" title="by_muni_name=<%= "#{@properties.muni_name}".replace(/\s*\(.*?\)\s*/g, "") %>"><span class="glyphicon glyphicon-filter"></span></a>
+			</a> <span><%= ", #{@properties.muni_name}" %></span>  
 		
 		<br><span>eTOD Group
-			<%= "#{@properties.etod_type}" %></span> <span rel="tooltiprf" title="by_etod_category=<%= "#{@properties.etod_type}".replace(/\s*\(.*?\)\s*/g, "") %>"class="glyphicon glyphicon-filter"></span>
+			<%= "#{@properties.etod_type}" %></span> 
 		<hr>
 		</p>
 
 </td>
+<a href="#" rel="tooltiprf" title="by_muni_name=<%= "#{@properties.muni_name}".replace(/\s*\(.*?\)\s*/g, "") %>"><span class="glyphicon glyphicon-filter"></span></a>
+<span rel="tooltiprf" title="by_etod_category=<%= "#{@properties.etod_type}".replace(/\s*\(.*?\)\s*/g, "") %>"class="glyphicon glyphicon-filter"></span>

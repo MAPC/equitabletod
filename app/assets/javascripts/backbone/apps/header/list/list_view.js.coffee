@@ -15,7 +15,12 @@
 			"click #datadl" : "datadlFired"
 
 		homeFired: (e) =>
-			App.vent.trigger "homeFired"
+			try
+				$("html, body").animate
+                	scrollTop: $("#search").offset().top
+            	, "fast"
+			catch error
+				App.vent.trigger "homeFired"
 
 		etodFired: (e) =>
 			App.vent.trigger "etodFired"

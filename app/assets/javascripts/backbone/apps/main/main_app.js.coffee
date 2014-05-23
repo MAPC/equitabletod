@@ -1,5 +1,6 @@
 @Equitabletod.module "MainApp", (MainApp, App, Backbone, Marionette, $, _) ->
-      
+  @startWithParent = false
+  
   class MainApp.Router extends Marionette.AppRouter
     appRoutes:
       "home": "showSimpleSearchForm"

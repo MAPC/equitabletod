@@ -54,7 +54,7 @@ GEM
       execjs
     eco-source (1.1.0.rc.1)
     erubis (2.7.0)
-    execjs (2.0.2)
+    execjs (2.1.0)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.4.0)
@@ -91,7 +91,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    multi_json (1.10.0)
+    multi_json (1.10.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
