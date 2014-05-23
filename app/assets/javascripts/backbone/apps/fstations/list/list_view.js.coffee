@@ -115,7 +115,7 @@
                   scrollTop: 0
                 , "fast"
                 $("body").removeClass "nav-expanded"
-                $("#print-region").prepend '<a id="printpaker" class="print-preview"><button type="button" class="btn btn-default btn3d col-xs-offset-0">Print PDF</button></a>'
+                #$("#print-region").prepend '<a id="printpaker" class="print-preview"><button type="button" class="btn btn-default btn3d col-xs-offset-0">Print PDF</button></a>'
                 $("#printpaker").click ->
                     $("a.print-preview").printPreview()
                     App.vent.trigger "printFired"                    
@@ -307,10 +307,9 @@
             $("[rel=tooltipu]").tooltip placement: "top"
             $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a> "
             $("[rel=tooltiprf]").click (event, ui) ->
-                    $("#accordion").accordion "disable"
-                    gon.query = "#{@.title}&" + gon.query
-                    console.log "custom rel clicjing"
-                    App.vent.trigger "searchFired", gon.query
+                console.log "i get the clicj"
+                gon.query = "#{@.title}&" + gon.query
+                App.vent.trigger "searchFired", gon.query
             $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download This Data</button>"
             if gon.paginate == true
                 $("#navigationsb").html '<button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button>'
@@ -449,7 +448,7 @@
                       fillOpacity: 0.5###
 
                     L.marker(latlng).on 'mouseover', (e) ->
-                        popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}").openOn(maplist)    
+                        popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}</a></br><span class='h5'>#{feature.properties.muni_name}</span></br><span class='h5'>#{feature.properties.LINE_DESCR}</span>").openOn(maplist)    
                     
 
 

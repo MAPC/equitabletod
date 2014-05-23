@@ -1,10 +1,10 @@
 <td>
 		<p>
 			<a class="hm2" href="#fss/q/by_name=<%= "#{@properties.name}".replace(/\s*\(.*?\)\s*/g, "") %>"><%= "#{@properties.name}" %>
-			</a> <span rel="tooltipu" title="Refine Results by Municipality" href="#"><%= ", #{@properties.muni_name}" %></span>  <a href="#" rel="tooltiprf" title="by_muni_name=<%= "#{@properties.muni_name}".replace(/\s*\(.*?\)\s*/g, "") %>"><span class="glyphicon glyphicon-filter"></span></a>
+			</a> <span><%= ", #{@properties.muni_name}" %></span>  <a href="#" rel="tooltiprf" title="by_muni_name=<%= "#{@properties.muni_name}".replace(/\s*\(.*?\)\s*/g, "") %>"><span class="glyphicon glyphicon-filter"></span></a>
 		
-		<br><span class="hp21" rel="tooltipu" title="Refine Results by eTOD Group" href="#">eTOD Group
-			<%= "#{@properties.etod_type}" %></span>  <a href="#" rel="tooltiprf" title="by_etod_category=<%= "#{@properties.etod_type}".replace(/\s*\(.*?\)\s*/g, "") %>"><span class="glyphicon glyphicon-filter"></span></a>
+		<br><span>eTOD Group
+			<%= "#{@properties.etod_type}" %></span> <span rel="tooltiprf" title="by_etod_category=<%= "#{@properties.etod_type}".replace(/\s*\(.*?\)\s*/g, "") %>"class="glyphicon glyphicon-filter"></span>
 		<hr>
 		</p>
 

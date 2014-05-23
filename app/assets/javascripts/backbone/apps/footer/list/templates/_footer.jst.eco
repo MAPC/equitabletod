@@ -47,7 +47,7 @@
                   <p class="footertext">60 Temple Place<br>
 			  <p class="footertext">Boston, MA 02111<br>
 			  <p class="footertext">Phone: (617) 451-2770<br>
-			  <p class="footertext">Fax: (617) 482-7185<br>
+			  <!-- <p class="footertext">Fax: (617) 482-7185<br> -->
                 </center>
               </div>
               <div class="col-md-4">

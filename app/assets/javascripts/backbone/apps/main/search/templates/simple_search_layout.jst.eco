@@ -68,7 +68,7 @@
         </div>
       <fieldset>
       <!-- Form Name -->
-    <div class="col-md-8 col-xs-8 col-md-offset-2 text-left"> 
+    <div class="col-md-8 col-xs-12 col-md-offset-2 text-left"> 
       <h2 class="black" style="text-align: center;">Search Stations</h2> 
       <!-- <h3 class="small">Search by:</h3> -->
       <!-- Search input-->
@@ -176,7 +176,7 @@
       </div>
       <div class="col-md-4 col-md-offset-4">
             <p>
-              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d ">Search</button>
+              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d" data-loading-text="Loading...">Search</button>
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
               <!-- <button id="resetfields" type="button" type="reset" value="Reset" class="btn btn-default btn-lg btn3d col-xs-offset-0">Reset</button> -->
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->

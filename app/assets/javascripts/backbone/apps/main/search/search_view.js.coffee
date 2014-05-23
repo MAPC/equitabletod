@@ -143,6 +143,10 @@
             'click #ui-accordion-header-icon ui-icon ui-icon-minus': 'lessText'
 
         inputChange: (e)=>
+            console.log e
+            #console.log $(@)
+            btn = e
+            #btn.button('loading')
             urlq = "?"
             muni_name = $('input#searchinput2').val().replace(" ", "%20").toLowerCase() if $('input#searchinput2').val()
             if muni_name is undefined
@@ -204,10 +208,15 @@
                         App.vent.trigger "searchFired", query
                     else
                         console.log "error"
-                        $("#dialog-modal").dialog "open"
+                        console.log btn
+                        btn.target.validity.valid = false
+                        btn.target.innerText = 'Error'
+                        console.log @
+                        console.log btn
+                        ###$("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Error"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").html("Search has no results, Please try again with different parameteres")
+                        $("#dialog-modal").html("Search has no results, Please try again with different parameteres")###
 
 
         moreText: (e) =>
