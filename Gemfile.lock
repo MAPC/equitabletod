@@ -79,12 +79,8 @@ GEM
     mime-types (1.25.1)
     multi_json (1.9.0)
     oj (2.5.5)
-    pdf-core (0.2.5)
     pg (0.17.1)
     polyglot (0.3.4)
-    prawn (1.0.0)
-      pdf-core (~> 0.2.2)
-      ttfunk (~> 1.1.1)
     rabl (0.9.3)
       activesupport (>= 2.3.14)
     rack (1.4.5)
@@ -146,7 +142,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    ttfunk (1.1.1)
     twitter-bootstrap-rails (2.2.8)
       actionpack (>= 3.1)
       execjs
@@ -173,7 +168,6 @@ DEPENDENCIES
   less-rails
   oj
   pg
-  prawn
   rabl
   rails (= 3.2.13)
   rspec-rails
