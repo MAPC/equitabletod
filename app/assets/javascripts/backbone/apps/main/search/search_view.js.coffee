@@ -18,7 +18,7 @@
                         activeHeader: "ui-icon-minus"
             $(document).ready ->
               $("#titles").html "<p class='h2'></p>" 
-              $("[rel=tooltip]").tooltip placement: "top"
+              #$("[rel=tooltip]").tooltip placement: "top"
               $("[rel=tooltipl]").tooltip placement: "left"
               $("#dialog-modal").dialog 
                     position:
@@ -35,10 +35,6 @@
                         duration: 100
                     title: 
                         $("[rel=tooltipd]").title
-
-               
-                $("#dialog-modal").dialog beforeClose: (event, ui) ->
-                    $("#accordion").accordion "enable"
 
                 $("[rel=tooltipd]").click (event, ui) ->
                     console.log @
@@ -97,7 +93,7 @@
                                 $("#dialog-modal").html("")
                                 $("#dialog-modal").html("Search has no results, Please try again with different parameteres")
               
-                $(window).scroll (options) ->
+              $(window).scroll (options) ->
                     if $(window).scrollTop() + $(window).height() > $(document).height() - .75 * $(document).height()
                         $(window).unbind "scroll"
                         @names = App.request "set:name", gon.names.names
