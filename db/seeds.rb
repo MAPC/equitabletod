@@ -59,7 +59,7 @@ require 'CSV'
 #                                       vehicle_ownership:      rand * 100 )
 #   end
 # end
-
+#
 def transit_lines
   TransitLine.destroy_all
   ActiveRecord::Base.connection.reset_pk_sequence!("transit_lines")
@@ -73,4 +73,20 @@ def transit_lines
   end
 end
 
-transit_lines
+#def dictionary_entries
+#  DictionaryEntry.destroy_all
+#  ActiveRecord::Base.connection.reset_pk_sequence!("dictionary_entries")
+#  CSV.foreach('db/fixtures/dict.csv', :headers => true) do |csv_obj|
+#    code = csv_obj['code']
+#    description = csv_obj['description']
+#    importance = csv_obj['importance']
+#    interpretation = csv_obj['interpretation']
+#    name = csv_obj['name']
+#    technical_notes = csv_obj['technical_notes']
+#    order = csv_obj['order']
+#    
+#    record = DictionaryEntry.create(code: code, description: description, importance: importance, interpretation: interpretation, name: name, technical_notes: technical_notes, order: order)
+#    record.save!
+#    
+#  end
+#end

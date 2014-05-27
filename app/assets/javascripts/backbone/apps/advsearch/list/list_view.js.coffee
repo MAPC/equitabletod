@@ -7,6 +7,9 @@
 
 
 		onShow: ->
+            $("html, body").animate
+                  scrollTop: 0
+                , "600
             $(document).ready ->
                 $("#titles").html "<p class='h2'></p>"
             $(document).ready ->

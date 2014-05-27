@@ -1,14 +1,46 @@
-@Equitabletod.module "MainApp.Search", (Search, App, Backbone, Marionette, $, _) ->
-    #MainApp.commands = new Backbone.Wreqr.Commands()
+@Equitabletod.module "SearchApp.Search", (Search, App, Backbone, Marionette, $, _) ->
 
     class Search.SimpleSearchFormLayout extends App.Views.Layout
-        template: "main/search/templates/simple_search_layout" 
+        template: "search/search/templates/simple_search_layout" 
         
         onShow: ->
             gon.paginate = false
             gon.page_number = -1
+            @names = App.request "set:name", gon.names.names
+            @muni_names = App.request "set:muni_name", gon.muni_names.muni_names
+            console.log "@muni_names:"
+            console.log @muni_names
+            console.log "@collection:"
+            console.log @muni_names.models
+            features = _.values @muni_names.models # this returns an array of each features obkect
+            console.log "features: "
+            console.log features 
+            l_muni_names = []
+            _.map features, (key, value) -> l_muni_names.push _.keys key.attributes
+            l_n_muni_names = []
+            _.map l_muni_names, (key, value) -> l_n_muni_names.push key["0"]
+                #console.log muni_names
+                #muni_names[2].toLowerCase()
+            $("#searchinput2").autocomplete
+                source: l_n_muni_names
+                minLength: 3
+                select: (event, ui) ->
+                    console.log "gon object:"
+                    console.log event.view.gon
+                    console.log ui.item.value.toLowerCase()  
+                        #console.log gon.muni_names.muni_names
+            $("#searchinput1").autocomplete
+                source: gon.names.names
+                minLength: 3
+                select: (event, ui) ->
+                    console.log ui.item.value.toLowerCase()
+                    name = ui.item.value.replace(" ", "%20").toLowerCase()
+                    console.log name
+                    urlstr = "by_name=" + "#{name}".replace(/\s*\(.*?\)\s*/g, "")
+                    console.log urlstr          
+                    query = "#{urlstr}"
+                    App.vent.trigger "searchFired", query
             $(document).ready ->
-                $("#boxplot").html ""
                 $("#fpaccordion").accordion 
                     header: "hm2" 
                     active: "false"
@@ -19,8 +51,7 @@
                         activeHeader: "ui-icon-minus"
             $(document).ready ->
               $("#titles").html "<p class='h2'></p>" 
-              #$("[rel=tooltip]").tooltip placement: "top"
-              $("[rel=tooltipl]").tooltip placement: "left"
+              $("[rel=tooltip]").tooltip placement: "top"
               $("#dialog-modal").dialog 
                     position:
                         my: "center"
@@ -36,6 +67,10 @@
                         duration: 100
                     title: 
                         $("[rel=tooltipd]").title
+
+               
+                $("#dialog-modal").dialog beforeClose: (event, ui) ->
+                    $("#accordion").accordion "enable"
 
                 $("[rel=tooltipd]").click (event, ui) ->
                     console.log @
@@ -94,48 +129,10 @@
                                 $("#dialog-modal").html("")
                                 $("#dialog-modal").html("Search has no results, Please try again with different parameteres")
               
-              $(window).scroll (options) ->
-                    if $(window).scrollTop() + $(window).height() > $(document).height() - .75 * $(document).height()
-                        $(window).unbind "scroll"
-                        @names = App.request "set:name", gon.names.names
-                        @muni_names = App.request "set:muni_name", gon.muni_names.muni_names
-                        console.log "@muni_names:"
-                        console.log @muni_names
-                        console.log "@collection:"
-                        console.log @muni_names.models
-                        features = _.values @muni_names.models # this returns an array of each features obkect
-                        console.log "features: "
-                        console.log features 
-                        l_muni_names = []
-                        _.map features, (key, value) -> l_muni_names.push _.keys key.attributes
-                        l_n_muni_names = []
-                        _.map l_muni_names, (key, value) -> l_n_muni_names.push key["0"]
-                            #console.log muni_names
-                            #muni_names[2].toLowerCase()
-                        $("#searchinput2").autocomplete
-                            source: l_n_muni_names
-                            minLength: 3
-                            select: (event, ui) ->
-                                console.log "gon object:"
-                                console.log event.view.gon
-                                console.log ui.item.value.toLowerCase()  
-                                    #console.log gon.muni_names.muni_names
-                        $("#searchinput1").autocomplete
-                            source: gon.names.names
-                            minLength: 3
-                            select: (event, ui) ->
-                                console.log ui.item.value.toLowerCase()
-                                name = ui.item.value.replace(" ", "%20").toLowerCase()
-                                console.log name
-                                urlstr = "by_name=" + "#{name}".replace(/\s*\(.*?\)\s*/g, "")
-                                console.log urlstr          
-                                query = "#{urlstr}"
-                                App.vent.trigger "searchFired", query
-                    return
-
 
         events: 
             'click #searchbuttom': 'inputChange'
+            'click #advSearchButtom': 'searchrefineFired'
             'click #etod': 'etodFired'
             'click #gsa': 'gsaFired'
             'click #resetbuttom':  'resetFormArgs' 
@@ -233,6 +230,9 @@
         gsaFired: (e) =>
             App.vent.trigger "gsaFired"
 
+        searchrefineFired: (e) =>
+            App.vent.trigger "searchrefineFired"
+
         fireSimpleSearch: (e) =>
             console.log "i get the click"
             $("html, body").animate
@@ -241,4 +241,3 @@
 
 
 
-  

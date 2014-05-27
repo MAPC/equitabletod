@@ -33,8 +33,15 @@
       <div class="form-group">
         <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label small" for="selectbasic2">Service Type <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
-          <select id="selectbasic2" data-filter="true" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control selectpicker" multiple>
-            <optgroup label="">
+          <select id="selectbasic2" data-filter="true" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control selectpicker">
+            <option value=""><%="#{gon.service_type}" if "#{gon.service_type}" != 'undefined'%></option>
+            <optgroup label="Rapid Transit">
+              <option value="Blue Line">Blue Line</option>
+              <option value="Green Line">Green Line</option>
+              <option value="Orange Line">Orange Line</option>
+              <option value="Red Line">Red Line</option>
+            </optgroup>
+            <optgroup label="Commuter Rail">
               <option value="Fairmount Line">Fairmount Line</option>
               <option value="Fitchburg South Acton Line">Fitchburg/South Acton Line</option>
               <option value="Framingham Worcester Line">Framingham/Worcester Line</option>
@@ -47,12 +54,6 @@
               <option value="Needham Line">Needham Line</option>
               <option value="Newburyport Rockport Line">Newburyport/Rockport Line</option>
               <option value="Providence Stoughton Line">Providence/Stoughton Line</option>
-            </optgroup>
-            <optgroup label="Rapid Transit">
-              <option value="Blue Line">Blue Line</option>
-              <option value="Green Line">Green Line</option>
-              <option value="Orange Line">Orange Line</option>
-              <option value="Red Line">Red Line</option>
             </optgroup>
             <optgroup label="Bus Routes">
               <option value="22">Route 22</option>

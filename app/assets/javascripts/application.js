@@ -28,6 +28,9 @@
 //= require ../../../vendor/assets/javascripts/jquery.print-preview.js
 //= require ../../../vendor/assets/javascripts/table2CSV.js
 //= require ../../../vendor/assets/javascripts/leaflet-providers.js
+//= require ../../../vendor/assets/javascripts/jquery.feedback_me.js
+//= require ../../../vendor/assets/javascripts/topojson.js
+//= require ../../../vendor/assets/javascripts/leaflet.d3.js
 //= require_tree ./backbone/config
 //= require backbone/app
 //= require_tree ./backbone/entities

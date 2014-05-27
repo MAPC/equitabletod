@@ -53,8 +53,8 @@
   App.vent.on "homeFired", ->
     App.module("MainApp").stop()
     App.module("EtodApp").stop()
-    App.module("MainApp").start()
-    App.navigate "home/", trigger: true
+    App.module("SearchApp").start()
+    App.navigate "search/", trigger: true
 
   App.addInitializer ->
     App.module("HeaderApp").start()

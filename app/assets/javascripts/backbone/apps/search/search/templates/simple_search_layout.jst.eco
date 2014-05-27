@@ -1,69 +1,10 @@
-<div id="dialog-modal"></div>
 <div class="container-fluid">
-  <!-- the courocel - start -->
-  <div class="row">
-    <div class="col-md-12 col-xs-12 text-left" style="padding: 0;">
-      <div id="myCarousel" class="carousel slide">
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="active item">
-            <img src="img/Jumbotron1.jpg" style="background: none repeat scroll 10% 0% #000000">
-          </div>
-          <div class="item">
-            <img src="img/Jumbotron4.jpg" style="background: none repeat scroll 0% 0% #000000">
-          </div>
-          <div class="item">
-            <img src="img/Jumbotron2.jpg" style="background: none repeat scroll 0% 0% #000000">
-          </div>
-          <div class="item">
-            <img src="img/Jumbotron3.jpg" style="background: none repeat scroll 0% 0% #000000">
-          </div>
-        </div>
-
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-      </div>
-    </div>
-    <div class="span3" href="#" rel="tooltipl" title="Informa<b>Ⓣ</b>ion Station >> Better data for better transit-oriented development" class="col-xs-6 col-md-2 text-left">
-      <div id="logo-titles">
-      	<img class="img-responsive" src="img/informationstation.png">
-        <!-- <h1>Informa<b>Ⓣ</b>ion Station</h1>
-          <h2>Better data for better transit-oriented development</h2> -->
-      </div>
-    </div>
-      
-    <!-- carousel -end -->
-  </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-2 text-left">
-        <div id="fpaccordion">
-            <p style="text-align: justify;"><strong>A new age of transit-oriented development is underway in Metropolitan Boston. </strong>From downtown subway stops to the far reaches of the commuter rail lines, transit station areas are seeing a burst of housing and commercial development, bringing new benefits to the region’s economy, environment, and transportation system. Information Station is a data tool to help communities, state agencies, and developers to unlock the full potential of transit-oriented development in the region. It provides easy access to demographic, economic, transportation, and development information for over 300 existing and planned MBTA transit station areas.
-            </p>
-          </div>
-        </div>
-    <div class="col-md-4 col-md-offset-0 text-left">
-      <div id="fpaccordion">
-            <p style="text-align: justify;"> Planners, developers, and policy makers can use the tool to better understand their station area, to compare stations across the region, or to find development opportunities. Look inside to:
-              <ul class="tod" style="text-align: justify;">
-                <li>  Search for station areas matching specific criteria </li>
-                <li>  View and print a Station Area Profile with a concise snapshot of each station area </li>
-                <li>  Download the comprehensive dataset and detailed data dictionary </li>
-                <li>  Learn more about the types of station areas in the region and the eTOD rating system to help guide equitable development. </li>
-              </ul>
-            </p>
-        </div>
-      </div>
-    </div>
-</div>
-
   <div class="row" id="search">
     <!-- simple search form - start -->  
     <form class="form-horizontal well well-lg" style="padding-top: 0px;">
+        <div id="dialog-modal">
+        <p></p>
+        </div>
       <fieldset>
       <!-- Form Name -->
     <div class="col-md-8 col-xs-12 col-md-offset-2 text-left"> 
@@ -71,7 +12,7 @@
       <!-- <h3 class="small">Search by:</h3> -->
       <!-- Search input-->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name </label>
+        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <input id="searchinput1" placeholder="" class="form-control input-md" type="search">
           <p class="small">The name of the station stop</p>
@@ -83,7 +24,7 @@
      <!--  <h3 class="small"><a id="browseall" class="black"href="">browse all stations</a></h3> -->
       <!-- Search input-->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality </label>
+        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality  <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <input id="searchinput2" name="searchinput2" placeholder="" class="form-control input-md" type="search">
           <p class="small">The name of the municipality in which the station is principally or wholly located</p>
@@ -92,7 +33,7 @@
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <select id="selectbasic2" data-filter="true" name="selectbasic2" class="form-control selectpicker" title="Select">
               <option value="">Select</option>
@@ -181,6 +122,11 @@
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
             </p>
         </div>
+      <div class="col-md-4 col-md-offset-4">
+          <p>
+            <button id="advSearchButtom" type="button" class="btn btn-default btn-lg btn3d" data-loading-text="Loading...">Advanced Search</button>
+          </p>
+      </div>
       </fieldset>
       </br>
       

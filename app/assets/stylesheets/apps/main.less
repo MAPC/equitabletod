@@ -75,10 +75,34 @@ ul.tod {
 	font-size: 18px;
 	font-weight: 200;	
 }
+.fm_bootstrap .feedback_trigger_text {
+  background-color: white;
+  right: -60px;
+  top: 80px;
+}
+.fm_bootstrap.feedback_content {
+  background-color: white;
+  margin-top: 10px;
+  padding-left: 15px;
+}
+.feedback_content.fm_bootstrap.feedback_content_closed.left-top, .feedback_content.fm_bootstrap.feedback_content_closed.left-bottom {
+  margin-left: -470px;
+}
+.feedback_trigger.fm_bootstrap.left-top {
+  background-color: white;
+  margin-left: 470px;
+  opacity: .8;
+}
 #header-region {
+  position: relative;
+  width: 100%;
   background-color: black;
   padding-top: 2px;
   padding-bottom: 0px;
+  z-index: 3000;
+}
+#header {
+  z-index: 32000;
 }
 #innheader {
   background-color: #000;
@@ -128,7 +152,7 @@ ul.tod {
   display: none;
 }
 #panel {
-  position: absolute;
+  position: relative;
   background: #FFFFFF;
 }
 #dlink {
@@ -140,7 +164,7 @@ ul.tod {
 }
 #map {
   border: 0px solid black;
-  width: 900px;
+  width: 100%;
   height: 700px;
   position: relative;
 }
@@ -151,21 +175,23 @@ ul.tod {
   padding-left: 5px;
   border: 0px solid black;
   width: 200px;
-  height: 200px;
-  position: relative;
+  height: 230px;
+  position: absolute;
 }
 #detailscolprint {
+  position: absolute;
+  overflow: visible;
 }
 #printbasic {
   width: 500px;
-  position: fixed;
+  position: absolute;
   left: 300px;
   display: block;
   border: 0px solid grey;
 }
 #maplist {
   border: 0px solid black;
-  width: 900px;
+  width: 100%px;
   height: 700px;
   position: relative;
   padding-top: 20px;
@@ -174,9 +200,6 @@ ul.tod {
     height: 100%;
     margin: 0px;
     padding: 0px
-}
-.leaflet-container {
-  overflow: hidden;
 }
 #maphome {
   position: fixed;
@@ -191,8 +214,8 @@ ul.tod {
 }
 #chartprint {
   position: absolute;
-  top: 50px;
-  left: 170px;
+  top: 329px;
+  left: 270px;
 }
 #dialog-chart {
           position: initial; 
@@ -208,6 +231,12 @@ ul.tod {
     height: 580px;
     overflow: scroll;
 }
+#fstations-region-print {
+    position: relative; 
+    padding-top: 20px;
+    height: 580px;
+    overflow: visible;
+}
 #accordion {
   position: relative;
   padding:0px;
@@ -215,20 +244,24 @@ ul.tod {
   width: relative;
 }
 #accordionPrint {
-  position: relative;
+  position: absolute;
   border: 0px solid grey;
   padding: 20px;
-  margin: 20px;
-  width: relative;
+  margin: 28px;
   margin-left: 0px;
   padding-left: 0px;
 }
 #etodPrint {
-  border: 1px solid grey;
-  padding: 27px;
-  margin: 10px;
+  margin-bottom: 0px;
+  margin-top: 60px;
+  position: relative;
+  border: 0px solid grey;
+  padding: 7px;
+  margin: 30px;
   margin-left: 0px;
   padding-left: 10px;
+  left: 300px;
+  top: 150px;
 }
 #fpaccordion {
   position: relative;

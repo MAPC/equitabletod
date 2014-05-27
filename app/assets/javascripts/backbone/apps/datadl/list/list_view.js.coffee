@@ -6,6 +6,10 @@
 			datadlRegion: "#datadl-region"
 		
 		onShow: ->
+			$(document).ready -> 
+                $("html, body").animate
+                  scrollTop: 0
+                , 600
 			allfeaturesResponse = $.ajax
                 	url: "/search.json?by_name="
                 	done: (result) =>
