@@ -94,7 +94,7 @@ end
 def station_areas
   StationArea.destroy_all
   ActiveRecord::Base.connection.reset_pk_sequence!("station_areas")
-  copy_filedata("#{Rails.root}/db/fixtures/TODPORTAL_190514.csv", :station_areas)
+  copy_filedata("#{Rails.root}/db/fixtures/station_areas.csv", :station_areas)
 end
 
 def station_areas_transit_lines_crosswalk
