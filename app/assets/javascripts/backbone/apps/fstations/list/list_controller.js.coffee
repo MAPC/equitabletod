@@ -36,6 +36,14 @@
 		    			@layout.on 'show', =>
 		    				@showFstations @fstations
 		    				@showMap @fstations
+
+		    		@layout.on 'close', =>
+            			$(".feedback_trigger").removeClass "fm_bootstrap"
+            			$(".feedback_trigger").removeClass "feedback_trigger_closed"
+            			$(".feedback_trigger").html "<span></span>"
+            			$(".feedback_trigger").removeClass "feedback_trigger left-top  hero-unit"
+            			console.log "layout on close event"
+		    		
 		    		App.mainRegion.show @layout
 
 

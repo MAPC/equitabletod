@@ -8,6 +8,7 @@
             gon.paginate = false
             gon.page_number = -1
             $(document).ready ->
+                $("#boxplot").html ""
                 $("#fpaccordion").accordion 
                     header: "hm2" 
                     active: "false"

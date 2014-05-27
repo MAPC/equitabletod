@@ -6,7 +6,7 @@
 			mapRegion: "#map-region"
 			fstationsRegion: "#fstations-region"
 			chartRegion: "#chart-region"
-
+        
 	class List.Detstation extends App.Views.ItemView
 		template: "fstations/list/templates/_detstation"
 		tagName: "tr"
@@ -116,8 +116,8 @@
                 show_email: false
                 name_placeholder: "boxplot"
                 title_label : ""
-                trigger_label : "Learn About Box Plots"
-                custom_html: '<p style="text-align: justify;">The box plot (a.k.a. box and whisker diagram) is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. In the simplest box plot the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and "whiskers" above and below the box show the locations of the minimum and maximum <img src="img/boxplotsimple08.png" class="img-responsive" alt="Box Plot"></p>'
+                trigger_label : "How to Read Diagrams"
+                custom_html: '<div id="boxplot" class="col-md-6 class="col-xs-4"><p style="line-height: 1.8em; text-align: justify; font-size: 12px; background-color: white;">The box plot (a.k.a. box and whisker diagram) is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. In the simplest box plot the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and "whiskers" above and below the box show the locations of the minimum and maximum </p></div><div class="col-md-6 class="col-xs-4"><img src="img/boxplotsimple08.png" class="img-responsive" alt="Box Plot"></div>'
                 show_form: false
                 name_required: false
                 close_on_click_outisde: true

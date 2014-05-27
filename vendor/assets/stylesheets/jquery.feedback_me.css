@@ -21,7 +21,7 @@
 	z-index: 3001;
 }
 .feedback_trigger.left-top, .feedback_trigger.left-bottom , .feedback_trigger.right-top, .feedback_trigger.right-bottom { 
-	width: 40px;
+	width: 35px;
 	height: 180px;
 }
 .feedback_trigger.bottom-left{ 
@@ -29,8 +29,8 @@
 	height: 40px;
 }
 .feedback_content {
-	width: 380px;
-	height: 300px;
+	width: 470px;
+	height: 400px;
 	z-index: 3001;
 }
 .feedback_content.email_present {
