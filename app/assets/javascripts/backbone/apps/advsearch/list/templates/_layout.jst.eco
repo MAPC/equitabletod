@@ -1,19 +1,19 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6 col-md-offset-2 text-left">
 <!-- simple search form - start -->
-      <form class="form-horizontal">
+    <form class="form-horizontal well well-lg" style="margin-top: 10px;">
       <fieldset>
       <!-- Form Name -->
       </br>
-      <h2 class="black" >Advanced Search</h2> 
+      <h2 class="black" style="text-align: center;">Advanced Search</h2> 
       <!-- <h3 class="small">Search by:</h3> -->
       
       <!-- Search input-->
+      <div class="col-md-8 col-md-offset-2 text-left">
       <div class="form-group">
         <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label small" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
-          <input id="searchinput1" rel="tooltip" title="The name of the station stop" name="searchinput1" placeholder="<%="#{gon.name}" if "#{gon.name}" != 'undefined'%>" class="form-control input-md" type="search">
+          <input id="searchinput1" rel="tooltip" title="The name of the station stop" name="searchinput1" placeholder="<%="#{gon.name}" if ("#{gon.name}" != 'undefined') and ("#{gon.name}" != '') %>" class="form-control input-md" type="search">
         </div>
       </div>
       <!-- <h3 class="small">Or:</h3> -->
@@ -25,7 +25,7 @@
       <div class="form-group">
         <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label small" for="searchinput2">Municipality  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
-          <input id="searchinput2" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" name="searchinput2" placeholder="<%="#{gon.muni_name}" if "#{gon.muni_name}" != 'undefined'%>" class="form-control input-md" type="search">
+          <input id="searchinput2" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" name="searchinput2" placeholder="<%="#{gon.muni_name}" if ("#{gon.muni_name}" != 'undefined') and ("#{gon.muni_name}" != '')%>" class="form-control input-md" type="search">
           <p class="help-block"></p>
         </div>
       </div>

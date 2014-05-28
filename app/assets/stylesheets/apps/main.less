@@ -23,10 +23,13 @@ h6,
   // color: $subheadings;
 }
 a {
-	color: rgba(150,50,150,1);
+	color: #FF6633;
+}
+p.footertext {
+	font-size: 14px;
+	line-height: 18px; 
 }
 /* navigation */
-
 /*.navbar */
 .navbar {
  margin-bottom: 2px;
@@ -72,6 +75,24 @@ ul.tod {
 	font-size: 18px;
 	font-weight: 200;	
 }
+.fm_bootstrap .feedback_trigger_text {
+  background-color: white;
+  right: -60px;
+  top: 80px;
+}
+.fm_bootstrap.feedback_content {
+  background-color: white;
+  margin-top: 10px;
+  padding-left: 15px;
+}
+.feedback_content.fm_bootstrap.feedback_content_closed.left-top, .feedback_content.fm_bootstrap.feedback_content_closed.left-bottom {
+  margin-left: -470px;
+}
+.feedback_trigger.fm_bootstrap.left-top {
+  background-color: white;
+  margin-left: 470px;
+  opacity: .8;
+}
 #header-region {
   background-color: black;
   padding-top: 2px;
@@ -111,9 +132,8 @@ ul.tod {
 #logo-titles {
   position: absolute;
   background-color: rgba(250,250,250,.8);
-  border: 4px solid rgba(150,50,150,1);
-  margin-top: 20px;
-  left: 20px;
+  border: 4px solid #FF6633;
+  left: 180px;
 }
 #myCarousel {
   position: inherit;
@@ -138,7 +158,7 @@ ul.tod {
 }
 #map {
   border: 0px solid black;
-  width: 900px;
+  width: 100%;
   height: 700px;
   position: relative;
 }
@@ -149,21 +169,23 @@ ul.tod {
   padding-left: 5px;
   border: 0px solid black;
   width: 200px;
-  height: 200px;
-  position: relative;
+  height: 230px;
+  position: absolute;
 }
 #detailscolprint {
+  position: absolute;
+  overflow: visible;
 }
 #printbasic {
   width: 500px;
-  position: fixed;
+  position: absolute;
   left: 300px;
   display: block;
   border: 0px solid grey;
 }
 #maplist {
   border: 0px solid black;
-  width: 900px;
+  width: 100%px;
   height: 700px;
   position: relative;
   padding-top: 20px;
@@ -172,9 +194,6 @@ ul.tod {
     height: 100%;
     margin: 0px;
     padding: 0px
-}
-.leaflet-container {
-  overflow: hidden;
 }
 #maphome {
   position: fixed;
@@ -189,8 +208,8 @@ ul.tod {
 }
 #chartprint {
   position: absolute;
-  top: 50px;
-  left: 170px;
+  top: 329px;
+  left: 270px;
 }
 #dialog-chart {
           position: initial; 
@@ -206,6 +225,12 @@ ul.tod {
     height: 580px;
     overflow: scroll;
 }
+#fstations-region-print {
+    position: relative; 
+    padding-top: 20px;
+    height: 580px;
+    overflow: visible;
+}
 #accordion {
   position: relative;
   padding:0px;
@@ -213,20 +238,24 @@ ul.tod {
   width: relative;
 }
 #accordionPrint {
-  position: relative;
+  position: absolute;
   border: 0px solid grey;
   padding: 20px;
-  margin: 20px;
-  width: relative;
+  margin: 28px;
   margin-left: 0px;
   padding-left: 0px;
 }
 #etodPrint {
-  border: 1px solid grey;
-  padding: 27px;
-  margin: 10px;
+  margin-bottom: 0px;
+  margin-top: 60px;
+  position: relative;
+  border: 0px solid grey;
+  padding: 7px;
+  margin: 30px;
   margin-left: 0px;
   padding-left: 10px;
+  left: 300px;
+  top: 150px;
 }
 #fpaccordion {
   position: relative;
@@ -370,7 +399,7 @@ font-size: 24px;
   border-color: #000;
 }
 .navbar-default .navbar-nav > li > a {
-color: rgba(150,50,150,1);
+color: #FF6633;
 }
 .thumbs {
     padding: 0px;
@@ -429,4 +458,17 @@ form {
 	width: 100%;
 	padding-bottom: 20px;
 	background-color: #fafafa;
+}
+#footer {
+	height: 300px;
+	background: #FF6633; /* Old browsers */
+background: -moz-linear-gradient(top, #FF6633 0%, #FF7D52 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FF6633), color-stop(100%,#FF7D52)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #FF6633 0%,#FF7D52 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #FF6633 0%,#FF7D52 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #FF6633 0%,#FF7D52 100%); /* IE10+ */
+background: linear-gradient(to bottom, #FF6633 0%,#FF7D52 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='##FF6633', endColorstr='#FF7D52',GradientType=0 ); /* IE6-9 */
+	background-image: img('img/jumbotron3.jpg');
+	color: #fff;
 }

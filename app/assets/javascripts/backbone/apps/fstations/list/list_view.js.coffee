@@ -6,7 +6,7 @@
 			mapRegion: "#map-region"
 			fstationsRegion: "#fstations-region"
 			chartRegion: "#chart-region"
-
+        
 	class List.Detstation extends App.Views.ItemView
 		template: "fstations/list/templates/_detstation"
 		tagName: "tr"
@@ -18,15 +18,8 @@
                     	return result
             allfeature = allfeaturesResponse.complete()
             allfeature.done =>
-                ###if _.isEmpty gon.features
-                    allfeatures = allfeature.responseJSON
-                    features = _.values allfeatures.features
-                else if (gon.feature != gon.features) and (gon.searchresults = [])
-                    features = gon.features 
-                else###
                 allfeatures = allfeature.responseJSON
                 features = _.values allfeatures.features # this returns an array of each features obkect
-                console.log features 
                 console.log gon.features
                 fars = _.map features, (key, value) -> key.properties.ov_far.toFixed 2
                 vmts = _.map features, (key, value) -> key.properties.ov_vmthday.toFixed 2
@@ -37,17 +30,18 @@
                 hh10s = _.map features, (key, value) -> key.properties.ov_hh10.toFixed 0
                 hhincs = _.map features, (key, value) -> key.properties.ov_hhinc.toFixed 0
                 vehphhs = _.map features, (key, value) -> key.properties.ov_vehphh.toFixed 4
-                trnpcmis = _.map features, (key, value) -> key.properties.ov_trnpcmi.toFixed 4 if key.properties.ov_trnpcmi
+                trnpcmis = _.map features, (key, value) -> (key.properties.ov_trnpcmi.toFixed 4) * 100 if key.properties.ov_trnpcmi
                 ghgs = _.map features, (key, value) -> key.properties.ov_ghg.toFixed 4 if key.properties.ov_ghg
                 intntots = _.map features, (key, value) -> key.properties.ov_intntot if key.properties.ov_intntot
                 mixs = _.map features, (key, value) -> key.properties.ov_mix.toFixed 4 if key.properties.ov_mix
-                hupacs = _.map features, (key, value) -> key.properties.ov_hupac.toFixed 2 if key.properties.ov_hupac
+                hupacs = _.map features, (key, value) -> key.properties.ov_hupac.toFixed 6 if key.properties.ov_hupac
                 empdens = _.map features, (key, value) -> key.properties.ov_empden.toFixed 2 if key.properties.ov_empden
                 est10s = _.map features, (key, value) -> key.properties.ov_est_10.toFixed 4 if key.properties.ov_est_10
                 avals = _.map features, (key, value) -> key.properties.ov_aval.toFixed 0 if key.properties.ov_aval
-                rentoccs = _.map features, (key, value) -> key.properties.ov_rentocc.toFixed 4 if key.properties.ov_rentocc
-                hhnocars = _.map features, (key, value) -> key.properties.ov_hhnocar.toFixed 2 if key.properties.ov_hhnocar
+                rentoccs = _.map features, (key, value) -> (key.properties.ov_rentocc.toFixed 4) * 100 if key.properties.ov_rentocc
+                hhnocars = _.map features, (key, value) -> (key.properties.ov_hhnocar.toFixed 4) * 100 if key.properties.ov_hhnocar
                 edatts = _.map features, (key, value) -> key.properties.ov_ed_att.toFixed 2 if key.properties.ov_ed_att
+                walkscores = _.map features, (key, value) -> key.properties.walkscore.toFixed 2 if key.properties.walkscore
 
                 gon.vehphhs = vehphhs
                 gon.vmts = vmts
@@ -69,6 +63,7 @@
                 gon.rentoccs = rentoccs
                 gon.hhnocars = hhnocars
                 gon.edatts = edatts
+                gon.walkscores = walkscores
 
                 fvmt = gon.feature["0"].properties.ov_vmthday.toFixed 4
                 ffar = gon.feature["0"].properties.ov_far.toFixed 4
@@ -89,7 +84,7 @@
                 $("#accordion").accordion activate: (event, ui) ->
                     $("#accordion").accordion "refresh"
                     fvehphh = gon.feature["0"].properties.ov_vehphh.toFixed 4
-                    ftrnpcmi = gon.feature["0"].properties.ov_trnpcmi.toFixed 4 if gon.feature["0"].properties.ov_trnpcmi
+                    ftrnpcmi = (gon.feature["0"].properties.ov_trnpcmi.toFixed 4) * 100 if gon.feature["0"].properties.ov_trnpcmi
                     fghg = gon.feature["0"].properties.ov_ghg.toFixed 4 if gon.feature["0"].properties.ov_ghg
                     fintntot = gon.feature["0"].properties.ov_intntot if gon.feature["0"].properties.ov_intntot
                     fmix = gon.feature["0"].properties.ov_mix.toFixed 4 if gon.feature["0"].properties.ov_mix
@@ -97,64 +92,116 @@
                     fempden = gon.feature["0"].properties.ov_empden.toFixed 2 if gon.feature["0"].properties.ov_empden
                     fest10 = gon.feature["0"].properties.ov_est_10.toFixed 4 if gon.feature["0"].properties.ov_est_10
                     faval = gon.feature["0"].properties.ov_aval.toFixed 0 if gon.feature["0"].properties.ov_aval
-                    frentocc = gon.feature["0"].properties.ov_rentocc.toFixed 2 if gon.feature["0"].properties.ov_rentocc
-                    fhhnocar = gon.feature["0"].properties.ov_hhnocar.toFixed 2 if gon.feature["0"].properties.ov_hhnocar
+                    frentocc = (gon.feature["0"].properties.ov_rentocc.toFixed 4) * 100 if gon.feature["0"].properties.ov_rentocc
+                    fhhnocar = (gon.feature["0"].properties.ov_hhnocar.toFixed 4) * 100 if gon.feature["0"].properties.ov_hhnocar
                     fedatt = gon.feature["0"].properties.ov_ed_att.toFixed 2 if gon.feature["0"].properties.ov_ed_att
+                    fwalkscore = gon.feature["0"].properties.walkscore.toFixed 2 if gon.feature["0"].properties.walkscore
                     $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '310', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                     $(".inlinesparklinetrnpcmi").sparkline gon.trnpcmis, type: "box", target: ftrnpcmi, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
-                    $(".inlinesparklineghg").sparkline gon.ghgs, type: "box", target: fghg, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
+                    $(".inlinesparklineghg").sparkline gon.ghgs, type: "line", target: fghg, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
                     $(".inlinesparklineintntot").sparkline gon.intntots, type: "box", target: fintntot, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
                     $(".inlinesparklinemix").sparkline gon.mixs, type: "box", target: fmix, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '510', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
-                    $(".inlinesparklinehupac").sparkline gon.hupacs, type: "box", target: fhupac, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
-                    $(".inlinesparklineempden").sparkline gon.empdens, type: "box", target: fempden, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklinehupac").sparkline gon.hupacs, type: "line", target: fhupac, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklineempden").sparkline gon.empdens, type: "line", target: fempden, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklineest10").sparkline gon.est10s, type: "box", target: fest10, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklineaval").sparkline gon.avals, type: "box", target: faval, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklinerentocc").sparkline gon.rentoccs, type: "box", target: frentocc, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
-                    $(".inlinesparklinehhnocar").sparkline gon.hhnocars, type: "box", target: fhhnocar, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
-                    $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", target: fedatt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '580', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'  
+                    $(".inlinesparklinehhnocar").sparkline gon.hhnocars, type: "line", target: fhhnocar, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", target: fedatt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '580', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                    $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", target: fwalkscore, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
            
+            fm_options =
+                bootstrap: true
+                show_radio_button_list: false
+                show_email: false
+                name_placeholder: "boxplot"
+                title_label : ""
+                trigger_label : "How to Read Diagrams"
+                custom_html: '<div id="boxplot" class="col-md-6 class="col-xs-4"><p style="line-height: 1.8em; text-align: justify; font-size: 12px; background-color: white;">The box plot (a.k.a. box and whisker diagram) is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. In the simplest box plot the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and "whiskers" above and below the box show the locations of the minimum and maximum </p></div><div class="col-md-6 class="col-xs-4"><img src="img/boxplotsimple08.png" class="img-responsive" alt="Box Plot"></div>'
+                show_form: false
+                name_required: false
+                close_on_click_outisde: true
+                message_placeholder: "Go ahead, type your feedback here..."
+                feedback_url: "send_feedback_bootstrap"
+                custom_params:
+                  csrf: "my_secret_token"
+                  user_id: "john_doe"
+                  feedback_type: "bootstarp"
+
+                delayed_options:
+                  success_color: "#5cb85c"
+                  fail_color: "#d2322d"
+                  delay_success_milliseconds: 3500
+                  send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
+              #init feedback_me plugin
+            $(document).ready ->
+              #set up some minimal options for the feedback_me plugin
+              fm.init fm_options
+              return
+
             $(document).ready -> 
-                $("body").removeClass "nav-expanded"
+                $("html, body").animate
+                  scrollTop: 0
+                , "fast"
+                $("body").removeClass "nav-expanded"        
                 $("#print-region").prepend '<a id="printpaker" class="print-preview"><button type="button" class="btn btn-default btn3d col-xs-offset-0">Print PDF</button></a>'
                 $("#printpaker").click ->
                     $("a.print-preview").printPreview()
                     App.vent.trigger "printFired"                    
                 $("[rel=tooltipu]").tooltip placement: "top"
-                $("#navigationsb").html '<p></p>'
-                $("#navigationsb").html '<hm2><button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button></hm2>' if gon.features.length > 1
-                $("#previousbuttom").click ->
-                    gon.searchresults = gon.features
-                    console.log "inside previousClicked"
+                $("#navigationsbl").html ''
+                $("#navigationsbr").html ''
+                $("#navigationsbl").html '<span class="glyphicon-class"></span><a><span id="previousbuttom" class="glyphicon glyphicon-chevron-left">  </span></a>' if gon.length > 1
+                $("#navigationsbr").html '<span id="nextbuttom" class="glyphicon glyphicon-chevron-right">  </span>' if gon.length > 1
+                $("#previousbuttom").click (event)->
+                    @fstation = gon.feature
+                    @fstations = gon.fstations     
+                    console.log @fstations
+                    console.log @fstation
+                    fstationsList = @fstations.models
                     console.log gon.feature["0"].properties.name
-                    thisFeature = _.find gon.features, (key, value) -> gon.feature["0"].properties.name == key.properties.name
-                    firstFeature = _.first gon.features 
-
-                    otherFeatures = _.without gon.features, thisFeature
-                    priviousFeature = _.first otherFeatures
-                    console.log priviousFeature.properties.name
-                    App.vent.trigger "searchFired", "by_name=#{priviousFeature.properties.name}"
-                    #console.log otherFeatures
-                    #console.log thisFeature
-                    #window.location = "www.example.com/index.php?id=" + @id
-                    #return
-                    #console.log gon.searchresults  
+                    thisFeature = _.find fstationsList, (key, value) -> gon.feature["0"].properties.name == key.attributes.properties.name
+                    console.log "this:"
+                    console.log thisFeature
+                    console.log "this cid:"
+                    console.log thisFeature.cid
+                    console.log thisFeature.cid.slice(1)
+                    nextCid = parseInt(thisFeature.cid.slice(1)) - 1 
+                    console.log nextCid
+                    nextFeature = _.find fstationsList, (key, value) -> nextCid == parseInt(key.cid.slice(1))
+                    console.log fstationsList
+                    console.log "nextFeature: "
+                    console.log nextFeature
+                    App.vent.trigger "searchFired", "by_name=#{nextFeature.attributes.properties.name}"
                 $("#nextbuttom").click ->
-                    gon.searchresults = gon.features
-                    console.log "inside nextClicked"
-                    console.log gon.length
-                    thisFeature = _.find gon.features, (key, value) -> gon.feature["0"].properties.name == key.properties.name
-                    otherFeatures = _.without gon.features, thisFeature
-                    nextFeature = _.last otherFeatures
-                    console.log nextFeature.properties.name
-                    App.vent.trigger "searchFired", "by_name=#{nextFeature.properties.name}"
+                    @fstation = gon.feature
+                    @fstations = gon.fstations     
+                    console.log @fstations
+                    console.log @fstation
+                    fstationsList = @fstations.models
+                    console.log gon.feature["0"].properties.name
+                    thisFeature = _.find fstationsList, (key, value) -> gon.feature["0"].properties.name == key.attributes.properties.name
+                    console.log "this:"
+                    console.log thisFeature
+                    console.log "this cid:"
+                    console.log thisFeature.cid
+                    console.log thisFeature.cid.slice(1)
+                    nextCid = parseInt(thisFeature.cid.slice(1)) + 1 
+                    console.log nextCid
+                    nextFeature = _.find fstationsList, (key, value) -> nextCid == parseInt(key.cid.slice(1))
+                    console.log fstationsList
+                    console.log "nextFeature: "
+                    console.log nextFeature
+                    App.vent.trigger "searchFired", "by_name=#{nextFeature.attributes.properties.name}"
                 pfeature = _.values gon.feature
                 pjfeature = pfeature.map (pf) -> pf.properties
                 jfeature = JSON.stringify(pjfeature)
-                $("#panel").html "<a href='#' id='backto'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Back</button></a><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
-                $("#titles").html "<p class='h4'>Stations Area Details</br> #{gon.feature['0'].properties.name}</p>"
+                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
+                $("#titlepage").html "<p class='h4'>Stations Area Details</p>"
+                $("#titlename").html "<span>  #{gon.feature['0'].properties.name}  </span>"
                 $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download Data For This Station</button>"
-                $("#backto").on "click", ->
-                    window.history.back();
+                #$("#backto").on "click", ->
+                    #window.history.back();
                 JSON2CSV = (objArray) ->
                   array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
                   str = ""
@@ -224,11 +271,11 @@
                     dictionary = dictionaryResponse.complete()
                     dictionary.done =>
                         dictionaries = dictionary.responseJSON
-                        console.log dictionaries["0"].description if dictionaries["0"]
+                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Data Dictionary"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").html("#{dictionaries["0"].description}")
+                        $("#dialog-modal").html("#{@dictionaryentries.models["0"].get("description")}")
 
 			$("[rel=tooltip]").tooltip placement: "left"
 			#$("[rel=tooltipd]").tooltip placement: "right"
@@ -282,13 +329,16 @@
             pfeatures = _.values gon.features
             pjfeatures = pfeatures.map (pf) -> pf.properties
             jfeatures = JSON.stringify(pjfeatures)
-            $("#titles").html "<p class='h2'>Search Results </p><p>#{gon.query}</p>" #<a>Page #{gon.page_number} of #{gon.num_pages} </a>"
+            $("#titles").html "<p class='h2'>Search Results </p><p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a></p>" #<p>#{gon.query}</p><a>Page #{gon.page_number} of #{gon.num_pages} </a>"
+            $("html, body").animate
+                  scrollTop: 0
+                , "fast"
             $("[rel=tooltipu]").tooltip placement: "top"
+            $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a> "
             $("[rel=tooltiprf]").click (event, ui) ->
-                    $("#accordion").accordion "disable"
-                    gon.query = "#{@.title}&" + gon.query
-                    console.log "custom rel clicjing"
-                    App.vent.trigger "searchFired", gon.query
+                console.log "i get the clicj"
+                gon.query = "#{@.title}&" + gon.query
+                App.vent.trigger "searchFired", gon.query
             $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download This Data</button>"
             if gon.paginate == true
                 $("#navigationsb").html '<button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button>'
@@ -427,7 +477,7 @@
                       fillOpacity: 0.5###
 
                     L.marker(latlng).on 'mouseover', (e) ->
-                        popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}").openOn(maplist)    
+                        popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}</a></br><span class='h5'>#{feature.properties.muni_name}</span></br><span class='h5'>#{feature.properties.LINE_DESCR}</span>").openOn(maplist)    
                     
 
 
