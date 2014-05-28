@@ -39,8 +39,8 @@ default_environment["RUBY_VERSION"] = "ruby-2.0.0-p247"
 
 default_run_options[:shell] = 'bash'
 
-
-after 'deploy:update', 'foreman:export'
+# The export is writing bad jobs. Prevent this from happening again.
+# after 'deploy:update', 'foreman:export'
 after 'deploy:update', 'foreman:restart'
 
 
