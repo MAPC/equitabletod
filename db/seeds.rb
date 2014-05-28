@@ -60,6 +60,24 @@ require 'CSV'
 #   end
 # end
 
+def dictionary_entries
+ DictionaryEntry.destroy_all
+ ActiveRecord::Base.connection.reset_pk_sequence!("dictionary_entries")
+ CSV.foreach('db/fixtures/dict.csv', :headers => true) do |csv_obj|
+   code = csv_obj['code']
+   description = csv_obj['description']
+   importance = csv_obj['importance']
+   interpretation = csv_obj['interpretation']
+   name = csv_obj['name']
+   technical_notes = csv_obj['technical_notes']
+   order = csv_obj['order']
+   
+   record = DictionaryEntry.create(code: code, description: description, importance: importance, interpretation: interpretation, name: name, technical_notes: technical_notes, order: order)
+   record.save!
+   puts record.id
+  end
+end
+
 def transit_lines
   TransitLine.destroy_all
   ActiveRecord::Base.connection.reset_pk_sequence!("transit_lines")
@@ -69,8 +87,22 @@ def transit_lines
 
     record = TransitLine.create(name: name, service_type: service_type)
     record.save!
-    
+    puts record.name
   end
 end
 
+def station_areas
+  StationArea.destroy_all
+  ActiveRecord::Base.connection.reset_pk_sequence!("station_areas")
+  copy_filedata("#{Rails.root}/db/fixtures/station_areas.csv", :station_areas)
+end
+
+def station_areas_transit_lines_crosswalk
+  ActiveRecord::Base.connection.reset_pk_sequence!("station_areas_transit_lines")
+  copy_filedata("#{Rails.root}/db/fixtures/station_areas_transit_lines.csv", :station_areas_transit_lines)
+end
+
+dictionary_entries
+station_areas_transit_lines_crosswalk
 transit_lines
+station_areas
