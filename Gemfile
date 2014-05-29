@@ -5,17 +5,33 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
-gem 'rabl'
-gem 'oj'
-gem 'has_scope'
-gem 'gon'
-gem 'js-routes'
+gem 'pg',   '0.17.1'
+
+#    app server
+gem 'unicorn' 
+gem 'foreman'
+
+gem 'rabl', '0.9.3'
+gem 'oj',   '2.5.5'
+
+gem 'has_scope',  '0.5.1'
+
+gem 'gon',        '5.0.4'
+gem 'js-routes',  '0.9.7'
+
+
+group :development do
+  gem 'capistrano',      '~> 2.0'
+  gem 'net-ssh',         '2.7.0'
+  gem 'net-ssh-gateway', '1.2.0'
+  gem 'capistrano-unicorn', '0.2.0', :require => false
+end
+
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'faker'
+  gem 'rspec-rails',        '2.14.1'
+  gem 'factory_girl_rails', '4.4.0'
+  gem 'faker',              '1.2.0'
 
   gem 'sqlite3' # for the convenience of the designer
 end
@@ -25,11 +41,12 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'eco'	
-  gem "less"
-  gem 'less-rails'
-  gem 'therubyracer'
-  gem 'twitter-bootstrap-rails'
+  gem 'eco',          '1.0.0'
+  gem 'less',         '2.4.0'
+  gem 'less-rails',   '2.4.2'
+  gem 'therubyracer', '0.12.1'
+
+  gem 'twitter-bootstrap-rails', '2.2.8'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -37,8 +54,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
+gem 'jquery-rails', '3.1.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

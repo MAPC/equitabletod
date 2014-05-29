@@ -232,7 +232,7 @@
 
         searchrefineFired: (e) =>
             App.vent.trigger "searchrefineFired"
-
+            
         fireSimpleSearch: (e) =>
             console.log "i get the click"
             $("html, body").animate
