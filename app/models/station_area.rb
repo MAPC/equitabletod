@@ -32,7 +32,7 @@ class StationArea < ActiveRecord::Base
     { name: :by_vehicle_perhousehold,   field_name: "ov_vehphh"   },
     { name: :by_transit_commutingmiles, field_name: "ov_trnpcmi"  },
     { name: :by_ghg,                    field_name: "ov_ghg"      },
-    { name: :by_development_intensity,  field_name: "intntot"     },
+    { name: :by_development_intensity,  field_name: "ov_intntot"  },
     { name: :by_development_mix,        field_name: "ov_mix"      },
     { name: :by_residential_density,    field_name: "hupac"       },
     { name: :by_employment_density,     field_name: "ov_empden"   },
