@@ -20,7 +20,7 @@
 						</div>
 					</div>
 					<div class="col-md-3 col-md-offset-0 text-left">
-						<img src="img/mapc_etod.png" class="img-responsive" alt="Image Title">
+						<img src="assets/mapc_etod.png" class="img-responsive" alt="Image Title">
 					</div>
 				</div>
 				<div class="row">
@@ -35,7 +35,7 @@
 							The typology created by MAPC offers developers, local planners, funders, and community stakeholders a way to understand the region’s station areas and their potential.  The typology identifies ten different station area types based on a detailed analysis of existing conditions and the nature and magnitude of potential development over the next few decades.
 							</p>
 						</br>
-							<img src="img/gsatyp.png" class="img-responsive" alt="Image Title">
+							<img src="assets/gsatyp.png" class="img-responsive" alt="Image Title">
 						</br>
 							<p class = "hm2">
 							The transit station area typology can help advance equitable and sustainable TOD in a variety of ways:

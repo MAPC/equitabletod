@@ -474,7 +474,8 @@
                       weight: 1
                       opacity: 0.3
                       fillOpacity: 0.5###
-                    L.Icon.Default.imagePath = "http://api.tiles.mapbox.com/mapbox.js/v1.0.0beta0.0/images"  
+
+                    L.Icon.Default.imagePath = "/assets"
                     L.marker(latlng).on 'mouseover', (e) ->
                         popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}</a></br><span class='h5'>#{feature.properties.muni_name}</span></br><span class='h5'>#{feature.properties.LINE_DESCR}</span>").openOn(maplist)    
                     
