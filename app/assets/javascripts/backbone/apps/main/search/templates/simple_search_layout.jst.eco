@@ -1,3 +1,4 @@
+<div id="dialog-modal"></div>
 <div class="container-fluid">
   <!-- the courocel - start -->
   <div class="row">
@@ -28,8 +29,8 @@
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>
     </div>
-    <div class="span3" href="#" rel="tooltipl" title="Informa<b>Ⓣ</b>ion Station >> Better data for better transit-oriented development" class="col-xs-6 col-md-2 text-left">
-      <div id="logo-titles">
+    <div class="span3" href="#" rel="tooltipl" title="Informa<b>Ⓣ</b>ion Station >> Better data for better transit-oriented development" class="col-xs-2 col-md-4 text-left">
+      <div id="logo-titles" class="col-xs-2 col-md-4 text-left">
       	<img class="img-responsive" src="/assets/informationstation.png">
         <!-- <h1>Informa<b>Ⓣ</b>ion Station</h1>
           <h2>Better data for better transit-oriented development</h2> -->
@@ -63,9 +64,6 @@
   <div class="row" id="search">
     <!-- simple search form - start -->  
     <form class="form-horizontal well well-lg" style="padding-top: 0px;">
-        <div id="dialog-modal">
-        <p></p>
-        </div>
       <fieldset>
       <!-- Form Name -->
     <div class="col-md-8 col-xs-12 col-md-offset-2 text-left"> 
@@ -73,7 +71,7 @@
       <!-- <h3 class="small">Search by:</h3> -->
       <!-- Search input-->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name </label>
         <div class="col-md-6">
           <input id="searchinput1" placeholder="" class="form-control input-md" type="search">
           <p class="small">The name of the station stop</p>
@@ -85,7 +83,7 @@
      <!--  <h3 class="small"><a id="browseall" class="black"href="">browse all stations</a></h3> -->
       <!-- Search input-->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality  <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality </label>
         <div class="col-md-6">
           <input id="searchinput2" name="searchinput2" placeholder="" class="form-control input-md" type="search">
           <p class="small">The name of the municipality in which the station is principally or wholly located</p>
@@ -94,7 +92,7 @@
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <select id="selectbasic2" data-filter="true" name="selectbasic2" class="form-control selectpicker" title="Select">
               <option value="">Select</option>

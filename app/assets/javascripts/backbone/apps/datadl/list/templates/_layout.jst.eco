@@ -20,10 +20,10 @@
 			</br>
 			<br>
 				<br>
-				<p class="hm2">
+				<!-- <p class="hm2">
 					For GIS users, the necessary shapefiles are available for download here:  
 				</p>
-				<button id='downloadshapefile' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Shapefile</button>
+				<button id='downloadshapefile' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Shapefile</button> -->
 			</div>
 		</div>
 	</div>

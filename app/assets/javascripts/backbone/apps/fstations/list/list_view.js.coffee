@@ -13,14 +13,15 @@
 
 		onShow: ->
 			allfeaturesResponse = $.ajax
-                	url: "/search.json?by_name="
-                	done: (result) =>
-                    	return result
-            allfeature = allfeaturesResponse.complete()
-            allfeature.done =>
-                allfeatures = allfeature.responseJSON
+            	url: "/search.json?by_name="
+            	done: (result) =>
+                	return result
+            allfeaturesResponse.complete().done =>
+                allfeatures = allfeaturesResponse.complete().responseJSON
                 features = _.values allfeatures.features # this returns an array of each features obkect
-                console.log gon.features
+                gon.featuresLocal = features
+                console.log "gon.featuresLocal: "
+                console.log gon.featuresLocal
                 fars = _.map features, (key, value) -> key.properties.ov_far.toFixed 2
                 vmts = _.map features, (key, value) -> key.properties.ov_vmthday.toFixed 2
                 pcttrans = _.map features, (key, value) -> (key.properties.ov_pcttran.toFixed 2) * 100
@@ -28,7 +29,7 @@
                 emp10s = _.map features, (key, value) -> key.properties.ov_emp10.toFixed 2
                 extaxrevs = _.map features, (key, value) -> key.properties.ex_taxrev.toFixed 0
                 hh10s = _.map features, (key, value) -> key.properties.ov_hh10.toFixed 0
-                hhincs = _.map features, (key, value) -> key.properties.ov_hhinc.toFixed 0
+                hhincs = _.map features, (key, value) -> key.properties.ov_hhinc
                 vehphhs = _.map features, (key, value) -> key.properties.ov_vehphh.toFixed 4
                 trnpcmis = _.map features, (key, value) -> (key.properties.ov_trnpcmi.toFixed 4) * 100 if key.properties.ov_trnpcmi
                 ghgs = _.map features, (key, value) -> key.properties.ov_ghg.toFixed 4 if key.properties.ov_ghg
@@ -98,7 +99,7 @@
                     fwalkscore = gon.feature["0"].properties.walkscore.toFixed 2 if gon.feature["0"].properties.walkscore
                     $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", target: fvehphh, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '310', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                     $(".inlinesparklinetrnpcmi").sparkline gon.trnpcmis, type: "box", target: ftrnpcmi, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
-                    $(".inlinesparklineghg").sparkline gon.ghgs, type: "line", target: fghg, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: true, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
+                    $(".inlinesparklineghg").sparkline gon.ghgs, type: "box", target: fghg, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
                     $(".inlinesparklineintntot").sparkline gon.intntots, type: "box", target: fintntot, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
                     $(".inlinesparklinemix").sparkline gon.mixs, type: "box", target: fmix, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '510', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklinehupac").sparkline gon.hupacs, type: "line", target: fhupac, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
@@ -106,14 +107,42 @@
                     $(".inlinesparklineest10").sparkline gon.est10s, type: "box", target: fest10, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklineaval").sparkline gon.avals, type: "box", target: faval, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklinerentocc").sparkline gon.rentoccs, type: "box", target: frentocc, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
-                    $(".inlinesparklinehhnocar").sparkline gon.hhnocars, type: "line", target: fhhnocar, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklinehhnocar").sparkline gon.hhnocars, type: "box", target: fhhnocar, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", target: fedatt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '580', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                     $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", target: fwalkscore, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
            
+            fm_options =
+                bootstrap: true
+                show_radio_button_list: false
+                show_email: false
+                name_placeholder: "boxplot"
+                title_label : ""
+                trigger_label : "How to Read Diagrams"
+                custom_html: '<div id="boxplot" class="col-md-6 class="col-xs-4"><p style="line-height: 1.8em; text-align: justify; font-size: 12px; background-color: white;">The box plot (a.k.a. box and whisker diagram) is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plot here show data distribution for all the station areas, where the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and "whiskers" above and below the box show the locations of the minimum and maximum for all staton areas. The red + indicates the current station value for the field. </p></div><div class="col-md-6 class="col-xs-4"><img src="img/boxplotsimple08.png" class="img-responsive" alt="Box Plot"></div>'
+                show_form: false
+                name_required: false
+                close_on_click_outisde: true
+                message_placeholder: "Go ahead, type your feedback here..."
+                feedback_url: "send_feedback_bootstrap"
+                custom_params:
+                  csrf: "my_secret_token"
+                  user_id: "john_doe"
+                  feedback_type: "bootstarp"
+
+                delayed_options:
+                  success_color: "#5cb85c"
+                  fail_color: "#d2322d"
+                  delay_success_milliseconds: 3500
+                  send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
+              #init feedback_me plugin
+            $(document).ready ->
+              #set up some minimal options for the feedback_me plugin
+              fm.init fm_options
+              return
             $(document).ready -> 
                 $("html, body").animate
                   scrollTop: 0
-                , "fast"
+                , 600
                 $("body").removeClass "nav-expanded"        
                 $("#print-region").prepend '<a id="printpaker" class="print-preview"><button type="button" class="btn btn-default btn3d col-xs-offset-0">Print PDF</button></a>'
                 $("#printpaker").click ->
@@ -168,8 +197,8 @@
                 pjfeature = pfeature.map (pf) -> pf.properties
                 jfeature = JSON.stringify(pjfeature)
                 $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
-                $("#titlepage").html "<p class='h4'>Stations Area Details</p>"
-                $("#titlename").html "<span>  #{gon.feature['0'].properties.name}  </span>"
+                $("#titlepage").html "<p class='h2'>Stations Area Details</p>"
+                $("#titlename").html "<span class='h4'>  #{gon.feature['0'].properties.name}  </span>"
                 $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download Data For This Station</button>"
                 #$("#backto").on "click", ->
                     #window.history.back();
@@ -433,7 +462,6 @@
 			L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
 			  attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
 			).addTo maplist
-
 			if gon.paginate == true 
                 geoCollection = gon.features_sliced 
             else 
@@ -503,14 +531,20 @@
             esri = L.tileLayer.provider "Esri.WorldImagery"
             #esring = L.tileLayer.provider "Esri.NatGeoWorldMap"
             #esrism = L.tileLayer.provider "Esri.WorldStreetMap"
+            basemap = new L.MAPCTileLayer("basemap")
+            regional = new L.MAPCTileLayer("trailmap-regional")
+            onroad = new L.MAPCTileLayer("trailmap-onroad")
+            paths = new L.MAPCTileLayer("trailmap-paths")
+            sidewalks = L.tileLayer.wms("http://metrobostondatacommon.org/geoserver/gwc/service/wms",
+              layers: "geonode:sidewalks"
+              format: "image/png"
+              transparent: true
+            )
             baseMaps =
-                MAPCBaseMap: mapc
-                EsriAerial: esri
-                MapBoxStreetMap: streets
-            L.control.layers(baseMaps).addTo map
-
+                "MAPC Base Map": mapc
+                "Esri Aerial": esri
+                "MapBox StreetMap": streets
             geoCollection =  gon.feature
-
             fstation = new L.GeoJSON geoCollection,
                 style: (feature) ->
                     feature.properties and feature.properties.style
@@ -534,6 +568,18 @@
                       opacity: 0.5
                       fillOpacity: 0
             L.control.scale().addTo(map)
+            overlays =
+                "Regional Networks": regional
+                "On-road Bicycle Facilities": onroad
+                "Paths and Trails": paths
+                "Sidewalk Inventory": sidewalks
+                "Station Area": fstation
+                "Half Mile Boundary": fstationZoom
+            
+            layersControl = new L.Control.Layers(baseMaps, overlays,
+                collapsed: false
+                )
+            map.addControl layersControl
 
             bbox = fstation.getBounds().toBBoxString()
             console.log bbox

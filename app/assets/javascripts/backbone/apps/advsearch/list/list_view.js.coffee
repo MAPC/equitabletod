@@ -7,6 +7,37 @@
 
 
 		onShow: ->
+            allfeaturesResponse = $.ajax
+                    url: "/search.json?by_name="
+                    done: (result) =>
+                        return result
+            allfeature = allfeaturesResponse.complete()
+            allfeature.done =>
+                allfeatures = allfeature.responseJSON
+                features = _.values allfeatures.features # this returns an array of each features obkect
+                hhincs = _.map features, (key, value) -> key.properties.ov_hhinc
+                vmts = _.map features, (key, value) -> key.properties.ov_vmthday
+                maxhhinc = hhincs.reduce (a,b) -> Math.max a, b
+                minhhinc = hhincs.reduce (a,b) -> Math.min a, b
+                maxvmt = vmts.reduce (a,b) -> Math.max a, b
+                minvmt = vmts.reduce (a,b) -> Math.min a, b
+                gon.minhhinc = minhhinc
+                gon.maxhhinc = maxhhinc
+                gon.minvmt = minvmt
+                gon.maxvmt = maxvmt
+                $("#slider27").slider
+                    min: Math.round gon.minhhinc = if gon.minhhinc then gon.minhhinc else 0
+                    max: Math.round gon.maxhhinc = if gon.maxhhinc then gon.maxhhinc else 100
+                    value:[0,maxhhinc]
+                    step: 1
+                $("#slider6").slider
+                    min: Math.round gon.minvmt = if gon.minvmt then gon.minvmt else 0
+                    max: Math.round gon.maxvmt = if gon.maxvmt then gon.maxvmt else 100
+                    value:[0,maxvmt]
+                    step: 1 
+            $("html, body").animate
+                  scrollTop: 0
+                , 600
             $(document).ready ->
                 $("#titles").html "<p class='h2'></p>"
             $(document).ready ->
@@ -115,41 +146,21 @@
             else
                 qury = qury + "&by_etod_category=#{etod_group}".replace(/\s*\(.*?\)\s*/g, "")
             #gon.etod_group = "#{etod_group}"
+            median_income = $('#slider27').val().replace(" ", "%20").toLowerCase() if $('#slider27').val()
+            median_income_min = median_income.slice(0,(median_income.indexOf ",", 0)) if median_income
+            median_income_max = median_income.slice((median_income.indexOf ",", 0)+1, median_income.length) if median_income
+            console.log median_income_max
+            if median_income is undefined
+                qury = qury + ""
+            else if median_income_min
+                qury = "&by_median_income[min]=#{median_income_min}&by_median_income[max]=#{median_income_max}".replace(/\s*\(.*?\)\s*/g, "")
+                #qury = "#{qury}" + "&by_median_income[min]=#{median_income_min}&by_median_income[max]=#{median_income_max}".replace(/\s*\(.*?\)\s*/g, "")
             query = "#{qury}"
-            console.log gon,
             # here would are the basic validation and if passed the vent will trigger
-            urlstr = "/search.json?" + "#{gon.query}" + "#{query}".replace(/\s*\(.*?\)\s*/g, "")
+            #urlstr = "/search.json?" + "#{gon.query}" + "#{query}".replace(/\s*\(.*?\)\s*/g, "")
             #console.log urlstr
-            responseFeature = $.ajax
-                    url: urlstr
-                    done: (result) =>
-                        return result
-            console.log "response to the ajax call"
-            #console.log responseFeature
-            collection = responseFeature.complete()
-            collection.done =>
-                    fstations = collection.responseJSON
-                    console.log fstations
-                    features = _.values fstations.features
-                    #window.features = Backbone.Collection.extend(localStorage: new Backbone.LocalStorage("features"))
-                    #window.features = features
-                    if features.length > 0
-                        gon.features = features
-                        num_pages = features.length / 10
-                        num = num_pages.toString()
-                        num = num.slice(0, (num.indexOf(".")) + 0)  if num.indexOf(".") > 0
-                        num = Number(num) + 1 if num_pages > num
-                        gon.num_pages = num
-                        gon.query = "#{gon.query}" + "#{query}".replace(/\s*\(.*?\)\s*/g, "")
-                        App.vent.trigger "searchFired", gon.query
-                    else
-                        console.log "error"
-                        gon.query = ""
-                        gon.muni_name = ""
-                        gon.name = ""
-                        $("#searchinput2").attr "placeholder", ""
-                        $("#selectbasic3").val ""
-                        $("#dialog-modal").dialog "open"
-                        $("#dialog-modal").dialog title: "Error"
-                        $("#dialog-modal").html("")
-                        $("#dialog-modal").html("Search has no results, Please try again with different parameteres")
+            gon.query = "#{query}".replace(/\s*\(.*?\)\s*/g, "")
+            #gon.query = "#{gon.query}" + "#{query}".replace(/\s*\(.*?\)\s*/g, "")
+
+            App.vent.trigger "searchFired", gon.query
+            

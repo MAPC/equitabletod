@@ -15,6 +15,8 @@
  *= require leaflet
  *= require jquery-ui-1.10.4.custom.min
  *= require print-preview
+ *= require jquery.feedback_me
+ *= require bootstrap-slider
  *= require_tree .
  */
 

@@ -78,7 +78,6 @@ def dictionary_entries
   end
 end
 
-
 def transit_lines
   TransitLine.destroy_all
   ActiveRecord::Base.connection.reset_pk_sequence!("transit_lines")
@@ -90,7 +89,6 @@ def transit_lines
     record.save!
   end
 end
-
 def station_areas
   StationArea.destroy_all
   ActiveRecord::Base.connection.reset_pk_sequence!("station_areas")

@@ -6,6 +6,9 @@
 			abouttodRegion: "#abouttod-region"
 		onShow: ->
 			$(document).ready ->
+                $("html, body").animate
+                  scrollTop: 0
+                , 600
 				$("#titles").html "<p class='h2'></p>"
 
 

@@ -37,10 +37,6 @@
                     title: 
                         $("[rel=tooltipd]").title
 
-               
-                $("#dialog-modal").dialog beforeClose: (event, ui) ->
-                    $("#accordion").accordion "enable"
-
                 $("[rel=tooltipd]").click (event, ui) ->
                     console.log @
                     console.log @.title
@@ -98,7 +94,7 @@
                                 $("#dialog-modal").html("")
                                 $("#dialog-modal").html("Search has no results, Please try again with different parameteres")
               
-                $(window).scroll (options) ->
+            $(window).scroll (options) ->
                     if $(window).scrollTop() + $(window).height() > $(document).height() - .75 * $(document).height()
                         $(window).unbind "scroll"
                         @names = App.request "set:name", gon.names.names
