@@ -19,7 +19,7 @@
                         activeHeader: "ui-icon-minus"
             $(document).ready ->
               $("#titles").html "<p class='h2'></p>" 
-              #$("[rel=tooltip]").tooltip placement: "top"
+              $("[rel=tooltip]").tooltip placement: "top"
               $("[rel=tooltipl]").tooltip placement: "left"
               $("#dialog-modal").dialog 
                     position:

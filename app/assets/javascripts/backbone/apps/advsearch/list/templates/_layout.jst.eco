@@ -322,7 +322,7 @@
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label href="#" rel="tooltip" title="Acreage of all parcels where the value of the improvements is less than the value of the land" class="col-md-4 control-label small" for="searchinput18">Underutilized Land  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Underutilized Land"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -335,7 +335,7 @@
         <div class="col-md-2">
           <input id="searchinput18" rel="tooltip" title="Acreage of all parcels where the value of the improvements is less than the value of the land" name="searchinput18" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div> -->
+      </div>
 
       <!-- Advanced Search input-->
       <!-- Development -->
@@ -479,20 +479,13 @@
 
       <!-- Advanced Search input-->
       <!-- Demographics -->
-      <!-- <div class="form-group">
+     <div class="form-group">
         <label href="#" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" class="col-md-4 control-label small" for="searchinput27">Household Median Income ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="median income"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
-        <div class="col-md-2">
-          <select id="selectbasic27" name="selectbasic27" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+        <div class="col-md-6">
+          <b> </b> <input rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" name="slider27" placeholder="" class="form-control input-md" id="slider27" type="text" class="span2" value=""/> <b><%="#{gon.maxhhinc}" if ("#{gon.maxhhinc}" != 'undefined') and ("#gon.maxhhinc}" != '') %></b>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput27" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" name="searchinput27" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      </div>
 
       <!-- Advanced Search input-->
       <!-- Demographics -->
@@ -530,7 +523,7 @@
 
       <!-- Advanced Search input-->
       <!-- Demographics -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label href="#" rel="tooltip" title="Percentage of households with at least one bachelors degree" class="col-md-4 control-label small" for="searchinput30">Educational Attainment <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="educational"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -541,10 +534,8 @@
           </select>
         </div>
         <div class="col-md-2">
-          <input id="searchinput30" rel="tooltip" title="Percentage of households with at least one bachelors degree" name="searchinput30" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div> -->
-
+      </div>
 
 
       </fieldset>

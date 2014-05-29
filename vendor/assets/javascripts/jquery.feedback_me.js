@@ -469,11 +469,11 @@ var fm = (function () {
 			iframe_html = '<iframe name="feedback_me_frame" class="feedback_me_frame" frameborder="0" src="' + fm_options.iframe_url + '"></iframe>';
 		}
 
-		$('body').append('<div onclick="fm.stopPropagation(event);fm.triggerAction(event);" class="feedback_trigger feedback_trigger_closed ' + fm_options.position + jQueryUIClasses1 + fm_class + jquery_class + bootstrap_class + bootstrap_hero_unit + '">'
+		$('#fstations-region').append('<div onclick="fm.stopPropagation(event);fm.triggerAction(event);" class="feedback_trigger feedback_trigger_closed ' + fm_options.position + jQueryUIClasses1 + fm_class + jquery_class + bootstrap_class + bootstrap_hero_unit + '">'
 				+	'<span class="feedback_trigger_text">' + fm_options.trigger_label
 				+	'</span></div>');
 
-		$('body').append('<div class="feedback_content feedback_content_closed ' + fm_options.position + email_feedback_content_class + radio_button_list_class + jQueryUIClasses2 + fm_class + jquery_class + bootstrap_class + bootstrap_hero_unit + '">'
+		$('#fstations-region').append('<div class="feedback_content feedback_content_closed ' + fm_options.position + email_feedback_content_class + radio_button_list_class + jQueryUIClasses2 + fm_class + jquery_class + bootstrap_class + bootstrap_hero_unit + '">'
 							+ '<div class="feedback_title ' + jQueryUIClasses1 + jQueryUIClasses3 + '">'
 							+	'<span class="' + jQueryUIClasses4 + '">' + fm_options.title_label + '</span>'
 							+ '</div>'

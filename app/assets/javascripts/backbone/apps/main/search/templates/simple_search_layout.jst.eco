@@ -29,8 +29,8 @@
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>
     </div>
-    <div class="span3" href="#" rel="tooltipl" title="Informa<b>Ⓣ</b>ion Station >> Better data for better transit-oriented development" class="col-xs-6 col-md-2 text-left">
-      <div id="logo-titles">
+    <div class="span3" href="#" rel="tooltipl" title="Informa<b>Ⓣ</b>ion Station >> Better data for better transit-oriented development" class="col-xs-2 col-md-4 text-left">
+      <div id="logo-titles" class="col-xs-2 col-md-4 text-left">
       	<img class="img-responsive" src="img/informationstation.png">
         <!-- <h1>Informa<b>Ⓣ</b>ion Station</h1>
           <h2>Better data for better transit-oriented development</h2> -->

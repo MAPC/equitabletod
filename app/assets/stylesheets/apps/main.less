@@ -20,7 +20,7 @@ h6,
 .h5,
 .h6 {
   font-family: 'Rokkitt', serif;
-  color: $subheadings;
+  color: black;
 }
 a {
 	color: #FF6633;
@@ -90,8 +90,13 @@ ul.tod {
 }
 .feedback_trigger.fm_bootstrap.left-top {
   background-color: white;
-  margin-left: 470px;
+  margin-left: 465px;
   opacity: .8;
+}
+.feedback_trigger.left-top {
+  position: fixed;
+  top: 120px;
+  left: 0;
 }
 #header-region {
   position: relative;
@@ -138,8 +143,8 @@ ul.tod {
 #logo-titles {
   position: absolute;
   background-color: rgba(250,250,250,.8);
-  border: 4px solid #FF6633;
-  left: 180px;
+  border: 1x solid #FF6633;
+  left: 380px;
 }
 #myCarousel {
   position: inherit;
@@ -268,6 +273,24 @@ ul.tod {
   padding:0px;
   margin:0px;
 }
+.ui-accordion .ui-accordion-header {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  margin-top: 0px;
+  padding: 0em .5em 0em .7em;
+  min-height: 0;
+}
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+  position: absolute;
+  left: .5em;
+  top: 20px;
+}
+.ui-accordion .ui-accordion-content {
+  padding: 0em 2.2em;
+  border-top: 0;
+overflow: auto;
+}
 .glyphicon{
     font-size: small;
     color: gray;
@@ -279,6 +302,9 @@ ul.tod {
 }
 .span.filter-option.pull-left{
     font-size: 16px;
+}
+.tooltip {
+  margin-left: 20%;
 }
 .tooltip.top .tooltip-arrow {
   bottom: 0;
@@ -398,14 +424,14 @@ hr {
     width: 100%;
 }
 .navbar-default {
-font-family: 'Rokkitt';
-font-size: 24px;
+font-family: 'Lato', sans-serif;;
+font-size: 14px;
   background-color: #000;
   color: white;
   border-color: #000;
 }
 .navbar-default .navbar-nav > li > a {
-color: #FF6633;
+color: #fff;
 }
 .thumbs {
     padding: 0px;
