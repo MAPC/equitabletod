@@ -420,10 +420,19 @@
       <!-- Advanced Search input-->
       <!-- Demographics -->
      <div class="form-group">
-        <label href="#" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" class="col-md-4 control-label small" for="searchinput27">Household Median Income ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="median income"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" class="col-md-4 control-label small" for="searchinput27">
+          Household Median Income ($)
+          <span class="glyphicon-class"></span>
+          <a href="#" rel="tooltipd" title="median income">
+            <span class="glyphicon glyphicon-question-sign"></span>
+          </a>
+        </label>
       
         <div class="col-md-6">
-          <b> </b> <input rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" name="slider27" placeholder="" class="form-control input-md" id="slider27" type="text" class="span2" value=""/> <b><%="#{gon.maxhhinc}" if ("#{gon.maxhhinc}" != 'undefined') and ("#gon.maxhhinc}" != '') %></b>
+          <input rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" name="slider27" placeholder="" class="form-control input-md" id="slider27" type="text" class="span2" value=""/>
+            <strong>
+              <%="#{gon.maxhhinc}" if ("#{gon.maxhhinc}" != 'undefined') and ("#gon.maxhhinc}" != '') %>
+            </strong>
         </div>
       </div>
 

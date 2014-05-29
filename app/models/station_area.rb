@@ -21,8 +21,6 @@ class StationArea < ActiveRecord::Base
   scope :by_etod_category, -> etod_category { where("station_areas.etod_type ~* ?", etod_category) }
 
   # Advanced Search
-
-  MIN_RENT = 0 ; MAX_RENT = 10
-  scope :by_rent, -> min, max { where("etod_qrent >= ? AND etod_qrent <= ?", min || MIN_RENT, max || MAX_RENT) }
+  scope :by_median_income, -> min, max { where("ov_hhinc >= ? AND ov_hhinc <= ?", min, max) }
 
 end

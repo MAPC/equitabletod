@@ -64,13 +64,13 @@ def dictionary_entries
  DictionaryEntry.destroy_all
  ActiveRecord::Base.connection.reset_pk_sequence!("dictionary_entries")
  CSV.foreach('db/fixtures/dict.csv', :headers => true) do |csv_obj|
-   code = csv_obj['code']
-   description = csv_obj['description']
-   importance = csv_obj['importance']
-   interpretation = csv_obj['interpretation']
-   name = csv_obj['name']
-   technical_notes = csv_obj['technical_notes']
-   order = csv_obj['order']
+   code             = csv_obj['code']
+   description      = csv_obj['description']
+   importance       = csv_obj['importance']
+   interpretation   = csv_obj['interpretation']
+   name             = csv_obj['name']
+   technical_notes  = csv_obj['technical_notes']
+   order            = csv_obj['order']
    
    record = DictionaryEntry.create(code: code, description: description, importance: importance, interpretation: interpretation, name: name, technical_notes: technical_notes, order: order)
    record.save!
@@ -82,8 +82,8 @@ def transit_lines
   TransitLine.destroy_all
   ActiveRecord::Base.connection.reset_pk_sequence!("transit_lines")
   CSV.foreach('db/fixtures/transit_lines.csv', :headers => true) do |csv_obj|
-    name = csv_obj['name']
-    service_type = csv_obj['service_type']
+    name          = csv_obj['name']
+    service_type  = csv_obj['service_type']
 
     record = TransitLine.create(name: name, service_type: service_type)
     record.save!
@@ -92,7 +92,7 @@ end
 def station_areas
   StationArea.destroy_all
   ActiveRecord::Base.connection.reset_pk_sequence!("station_areas")
-  copy_filedata("#{Rails.root}/db/fixtures/station_areas.csv", :station_areas)
+  copy_filedata("#{Rails.root}/db/fixtures/station_areas_14_05_27.csv", :station_areas)
 end
 
 def station_areas_transit_lines_crosswalk
