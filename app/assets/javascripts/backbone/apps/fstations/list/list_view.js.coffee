@@ -477,7 +477,7 @@
 
                     L.Icon.Default.imagePath = "/assets"
                     L.marker(latlng).on 'mouseover', (e) ->
-                        popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}</a></br><span class='h5'>#{feature.properties.muni_name}</span></br><span class='h5'>#{feature.properties.LINE_DESCR}</span>").openOn(maplist)    
+                        popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}</a></br><span class='h5'>#{feature.properties.muni_name}</span></br><span class='h5'>#{feature.properties.line_descr}</span>").openOn(maplist)    
                     
 
 
