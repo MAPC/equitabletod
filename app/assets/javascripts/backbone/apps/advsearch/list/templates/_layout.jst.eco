@@ -481,7 +481,7 @@
         </label>
       
         <div class="col-md-6">
-          <input rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" name="slider27" placeholder="" class="form-control input-md" id="slider27" type="text" class="span2" value=""/>
+          <input rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" name="slider27" placeholder="" class="form-control input-md span2" id="slider27" type="text" value=""/>
             <strong>
               <%="#{gon.maxhhinc}" if ("#{gon.maxhhinc}" != 'undefined') and ("#gon.maxhhinc}" != '') %>
             </strong>

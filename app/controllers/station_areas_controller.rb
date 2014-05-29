@@ -12,7 +12,9 @@ class StationAreasController < ApplicationController
   has_scope :by_etod_category
 
   # Advanced Search
-  has_scope :by_median_income, using: [:min, :max], type: :hash
+  StationArea.advanced_scopes.each do |s|
+    has_scope(s[:name].to_sym, using: [:min, :max], type: :hash)
+  end
 
   def index
     @station_areas = apply_scopes(StationArea).all
