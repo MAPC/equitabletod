@@ -125,123 +125,71 @@
       <!-- Transporation -->
       <div class="form-group">
         <label href="#" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" class="col-md-4 control-label small" for="searchinput7">Transit Commuter Share <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="transit share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic7" name="selectbasic7" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+        <div class="col-md-6">
+          <b> </b> <input name="slider7" placeholder="" class="form-control input-md" id="slider7" type="text" class="span2" value=""/> <b><%="#{gon.maxpcttran}" if ("#{gon.maxpcttran}" != 'undefined') and ("#gon.maxpcttran}" != '') %></b>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput7" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" name="searchinput7" placeholder="" class="form-control input-md" type="search">
-      </div>
       </div> 
 
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label href="#" rel="tooltip" title="Average number of vehicles owned per household" class="col-md-4 control-label small" for="searchinput8">Vehicle Ownership<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Vehicle Ownership"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic8" name="selectbasic8" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+        <div class="col-md-6">
+          <b> </b> <input name="slider8" placeholder="" class="form-control input-md" id="slider8" type="text" class="span2" value=""/> <b><%="#{gon.maxvehphh}" if ("#{gon.maxvehphh}" != 'undefined') and ("#gon.maxvehphh}" != '') %></b>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput8" rel="tooltip" title="Average number of vehicles owned per household" name="searchinput8" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      </div> 
 
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label href="#" rel="tooltip" title="Percentage of total commuting miles for which transit was used" class="col-md-4 control-label small" for="searchinput9">Vehicle Ownership<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="commute mile share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic9" name="selectbasic9" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+        <div class="col-md-6">
+          <b> </b> <input name="slider9" placeholder="" class="form-control input-md" id="slider9" type="text" class="span2" value=""/> <b><%="#{gon.maxtrnpcmi}" if ("#{gon.maxtrnpcmi}" != 'undefined') and ("#gon.maxtrnpcmi}" != '') %></b>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput9" rel="tooltip" title="Percentage of total commuting miles for which transit was used" name="searchinput9" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      </div>
 
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label href="#" rel="tooltip" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" class="col-md-4 control-label small" for="searchinput10">Greenhouse Gas Emissions from transportation: <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ghg"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
-        <div class="col-md-2">
-          <select id="selectbasic10" name="selectbasic10" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+        <div class="col-md-6">
+          <b> </b> <input name="slider10" placeholder="" class="form-control input-md" id="slider10" type="text" class="span2" value=""/> <b><%="#{gon.maxghg}" if ("#{gon.maxghg}" != 'undefined') and ("#gon.maxghg}" != '') %></b>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput10" rel="tooltip" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" name="searchinput10" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      </div>
       
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <br>
         <p class="col-md-offset-2 text-left"><strong>Development</strong></p>
         <label href="#" rel="tooltip" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located" class="col-md-4 control-label small" for="searchinput11">Floor Area Ratio (FAR) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="FAR"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
-        <div class="col-md-2">
-          <select id="selectbasic11" name="selectbasic11" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+        <div class="col-md-6">
+          <b> </b> <input name="slider11" placeholder="" class="form-control input-md" id="slider11" type="text" class="span2" value=""/> <b><%="#{gon.maxfar}" if ("#{gon.maxfar}" != 'undefined') and ("#gon.maxfar}" != '') %></b>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput11" rel="tooltip" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located" name="searchinput11" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      </div>
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label href="#" rel="tooltip" title="Acres of surface parking within the station area" class="col-md-4 control-label small" for="searchinput12">Surface Parking (acre) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="surface parking"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
-        <div class="col-md-2">
-          <select id="selectbasic12" name="selectbasic12" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+        <div class="col-md-6">
+          <b> </b> <input name="slider12" placeholder="" class="form-control input-md" id="slider12" type="text" class="span2" value=""/> <b><%="#{gon.maxprkac}" if ("#{gon.maxprkac}" != 'undefined') and ("#gon.maxprkac}" != '') %></b>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput12" rel="tooltip" title="Acres of surface parking within the station area" name="searchinput12" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      </div> 
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label href="#" rel="tooltip" title="Conveys the extent of existing development: the sum of population and employment within the station area" class="col-md-4 control-label small" for="searchinput13">Current Development Intensity <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev intensity"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
-        <div class="col-md-2">
-          <select id="selectbasic13" name="selectbasic13" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+        <div class="col-md-6">
+          <b> </b> <input name="slider13" placeholder="" class="form-control input-md" id="slider13" type="text" class="span2" value=""/> <b><%="#{gon.maxghg}" if ("#{gon.maxghg}" != 'undefined') and ("#gon.maxghg}" != '') %></b>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput13" rel="tooltip" title="Conveys the extent of existing development: the sum of population and employment within the station area" name="searchinput13" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      </div> 
 
       <!-- Advanced Search input-->
       <!-- Development -->
@@ -314,7 +262,7 @@
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label href="#" rel="tooltip" title="Acreage of all parcels where the value of the improvements is less than the value of the land" class="col-md-4 control-label small" for="searchinput18">Underutilized Land  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Underutilized Land"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -327,7 +275,7 @@
         <div class="col-md-2">
           <input id="searchinput18" rel="tooltip" title="Acreage of all parcels where the value of the improvements is less than the value of the land" name="searchinput18" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div>
+      </div> -->
 
       <!-- Advanced Search input-->
       <!-- Development -->

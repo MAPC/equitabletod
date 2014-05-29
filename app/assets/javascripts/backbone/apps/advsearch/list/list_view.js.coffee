@@ -15,26 +15,115 @@
             allfeature.done =>
                 allfeatures = allfeature.responseJSON
                 features = _.values allfeatures.features # this returns an array of each features obkect
+                # make arrays of all values for each field #
+                fars = _.map features, (key, value) -> key.properties.ov_far
                 hhincs = _.map features, (key, value) -> key.properties.ov_hhinc
                 vmts = _.map features, (key, value) -> key.properties.ov_vmthday
+                pcttrans = _.map features, (key, value) -> key.properties.ov_pcttran * 100
+                prkacs = _.map features, (key, value) -> key.properties.ov_prkac
+                emp10s = _.map features, (key, value) -> key.properties.ov_emp10
+                extaxrevs = _.map features, (key, value) -> key.properties.ex_taxrev
+                hh10s = _.map features, (key, value) -> key.properties.ov_hh10
+                vehphhs = _.map features, (key, value) -> key.properties.ov_vehphh
+                trnpcmis = _.map features, (key, value) -> key.properties.ov_trnpcmi * 100 if key.properties.ov_trnpcmi
+                ghgs = _.map features, (key, value) -> key.properties.ov_ghg if key.properties.ov_ghg
+                intntots = _.map features, (key, value) -> key.properties.ov_intntot if key.properties.ov_intntot
+                mixs = _.map features, (key, value) -> key.properties.ov_mix if key.properties.ov_mix
+                hupacs = _.map features, (key, value) -> key.properties.ov_hupac if key.properties.ov_hupac
+                empdens = _.map features, (key, value) -> key.properties.ov_empden if key.properties.ov_empden
+                est10s = _.map features, (key, value) -> key.properties.ov_est_10 if key.properties.ov_est_10
+                avals = _.map features, (key, value) -> key.properties.ov_aval if key.properties.ov_aval
+                rentoccs = _.map features, (key, value) -> key.properties.ov_rentocc * 100 if key.properties.ov_rentocc
+                hhnocars = _.map features, (key, value) -> key.properties.ov_hhnocar * 100 if key.properties.ov_hhnocar
+                edatts = _.map features, (key, value) -> key.properties.ov_ed_att if key.properties.ov_ed_att
+                walkscores = _.map features, (key, value) -> key.properties.walkscore if key.properties.walkscore
+                # find minimum and maximum values #
                 maxhhinc = hhincs.reduce (a,b) -> Math.max a, b
                 minhhinc = hhincs.reduce (a,b) -> Math.min a, b
                 maxvmt = vmts.reduce (a,b) -> Math.max a, b
                 minvmt = vmts.reduce (a,b) -> Math.min a, b
+                maxpcttran = pcttrans.reduce (a,b) -> Math.max a, b
+                minpcttran = pcttrans.reduce (a,b) -> Math.min a, b
+                maxvehphh = vehphhs.reduce (a,b) -> Math.max a, b
+                minvehphh = vehphhs.reduce (a,b) -> Math.min a, b
+                maxtrnpcmi = trnpcmis.reduce (a,b) -> Math.max a, b
+                mintrnpcmi = trnpcmis.reduce (a,b) -> Math.min a, b
+                maxghg = ghgs.reduce (a,b) -> Math.max a, b
+                minghg = ghgs.reduce (a,b) -> Math.min a, b
+                maxfar = fars.reduce (a,b) -> Math.max a, b
+                minfar = fars.reduce (a,b) -> Math.min a, b
+                maxprkac = prkacs.reduce (a,b) -> Math.max a, b
+                minprkac = prkacs.reduce (a,b) -> Math.min a, b
+
+                maxprkac = prkacs.reduce (a,b) -> Math.max a, b
+                minprkac = prkacs.reduce (a,b) -> Math.min a, b
+                # assign max min values to gon #
                 gon.minhhinc = minhhinc
                 gon.maxhhinc = maxhhinc
                 gon.minvmt = minvmt
                 gon.maxvmt = maxvmt
+                gon.minpcttran = minpcttran
+                gon.maxpcttran = maxpcttran
+                gon.minvehphh = minvehphh
+                gon.maxvehphh = maxvehphh
+                gon.mintrnpcmi = mintrnpcmi
+                gon.maxtrnpcmi = maxtrnpcmi
+                gon.minghg = minghg
+                gon.maxghg = maxghg
+                gon.minfar = minfar
+                gon.maxfar = maxfar
+                gon.minprkac = minprkac
+                gon.maxprkac = maxprkac
+
+                gon.minprkac = minprkac
+                gon.maxprkac = maxprkac
+                # setup sliders
                 $("#slider27").slider
                     min: Math.round gon.minhhinc = if gon.minhhinc then gon.minhhinc else 0
                     max: Math.round gon.maxhhinc = if gon.maxhhinc then gon.maxhhinc else 100
-                    value:[0,maxhhinc]
+                    value:[minhhinc,maxhhinc]
                     step: 1
                 $("#slider6").slider
                     min: Math.round gon.minvmt = if gon.minvmt then gon.minvmt else 0
                     max: Math.round gon.maxvmt = if gon.maxvmt then gon.maxvmt else 100
-                    value:[0,maxvmt]
+                    value:[minvmt,maxvmt]
                     step: 1 
+                $("#slider7").slider
+                    min: Math.round gon.minpcttran = if gon.minpcttran then gon.minpcttran else 0
+                    max: Math.round gon.maxpcttran = if gon.maxpcttran then gon.maxpcttran else 100
+                    value:[minpcttran,maxpcttran]
+                    step: 1 
+                $("#slider8").slider
+                    min: Math.round gon.minvehphh = if gon.minvehphh then gon.minvehphh else 0
+                    max: Math.round gon.maxvehphh = if gon.maxvehphh then gon.maxvehphh else 100
+                    value:[minvehphh,maxvehphh]
+                    step: 1 
+                $("#slider9").slider
+                    min: Math.round gon.mintrnpcmi = if gon.mintrnpcmi then gon.mintrnpcmi else 0
+                    max: Math.round gon.maxtrnpcmi = if gon.maxtrnpcmi then gon.maxtrnpcmi else 100
+                    value:[mintrnpcmi,maxtrnpcmi]
+                    step: 1 
+                $("#slider10").slider
+                    min: Math.round gon.minghg = if gon.minghg then gon.minghg else 0
+                    max: Math.round gon.maxghg = if gon.maxghg then gon.maxghg else 80
+                    value:[0,80]
+                    step: 0.1 
+                $("#slider11").slider
+                    min: Math.round gon.minfar = if gon.minfar then gon.minfar else 0
+                    max: Math.round gon.maxfar = if gon.maxfar then gon.maxfar else 80
+                    value:[minfar,maxfar]
+                    step: 0.01 
+                $("#slider12").slider
+                    min: Math.round gon.minprkac = if gon.minprkac then gon.minprkac else 0
+                    max: Math.round gon.maxprkac = if gon.maxprkac then gon.maxprkac else 80
+                    value:[minprkac,maxprkac]
+                    step: 1
+
+                $("#slider12").slider
+                    min: Math.round gon.minprkac = if gon.minprkac then gon.minprkac else 0
+                    max: Math.round gon.maxprkac = if gon.maxprkac then gon.maxprkac else 80
+                    value:[minprkac,maxprkac]
+                    step: 1
             $("html, body").animate
                   scrollTop: 0
                 , 600
