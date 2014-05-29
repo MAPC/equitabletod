@@ -32,7 +32,7 @@
                 hhincs = _.map features, (key, value) -> key.properties.ov_hhinc
                 vehphhs = _.map features, (key, value) -> key.properties.ov_vehphh.toFixed 4
                 trnpcmis = _.map features, (key, value) -> (key.properties.ov_trnpcmi.toFixed 4) * 100 if key.properties.ov_trnpcmi
-                ghgs = _.map features, (key, value) -> key.properties.ov_ghg.toFixed 4 if key.properties.ov_ghg
+                ghgs = _.map features, (key, value) -> key.properties.ov_ghg
                 intntots = _.map features, (key, value) -> key.properties.ov_intntot if key.properties.ov_intntot
                 mixs = _.map features, (key, value) -> key.properties.ov_mix.toFixed 4 if key.properties.ov_mix
                 hupacs = _.map features, (key, value) -> key.properties.ov_hupac.toFixed 6 if key.properties.ov_hupac
@@ -477,7 +477,7 @@
 
                     L.Icon.Default.imagePath = "/assets"
                     L.marker(latlng).on 'mouseover', (e) ->
-                        popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}</a></br><span class='h5'>#{feature.properties.muni_name}</span></br><span class='h5'>#{feature.properties.LINE_DESCR}</span>").openOn(maplist)    
+                        popup = L.popup().setLatLng(latlng).setContent("<a id='popup' href='#fss/q/by_name=#{feature.properties.name}'>#{feature.properties.name}</a></br><span class='h5'>#{feature.properties.muni_name}</span></br><span class='h5'>#{feature.properties.line_descr}</span>").openOn(maplist)    
                     
 
 
