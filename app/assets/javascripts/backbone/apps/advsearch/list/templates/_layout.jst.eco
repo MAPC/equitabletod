@@ -112,26 +112,18 @@
 
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <br>
         <p class="col-md-offset-2 text-left"><strong>Transportation</strong></p>
-        <label href="#" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" class="col-md-4 control-label small" for="searchinput6">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="VMT"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic6" name="selectbasic6" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+        <label href="#" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" class="col-md-4 control-label small" for="searchinput6">Vehicle Miles Traveled (VMT) <%="#{gon.maxvmt}" if ("#{gon.maxvmt}" != 'undefined') and ("#gon.maxvmt}" != '') %><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="VMT"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <div class="col-md-6">
+          <b> </b> <input name="slider6" placeholder="" class="form-control input-md" id="slider6" type="text" class="span2" value=""/> <b><%="#{gon.maxvmt}" if ("#{gon.maxvmt}" != 'undefined') and ("#gon.maxvmt}" != '') %></b>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput6" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" name="searchinput6" placeholder="" class="form-control input-md" type="search">
-      </div>
-      </div> -->
+      </div> 
 
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label href="#" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" class="col-md-4 control-label small" for="searchinput7">Transit Commuter Share <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="transit share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
       
         <div class="col-md-2">
@@ -144,7 +136,7 @@
         <div class="col-md-2">
           <input id="searchinput7" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" name="searchinput7" placeholder="" class="form-control input-md" type="search">
       </div>
-      </div> -->
+      </div> 
 
       <!-- Advanced Search input-->
       <!-- Transporation -->

@@ -16,14 +16,24 @@
                 allfeatures = allfeature.responseJSON
                 features = _.values allfeatures.features # this returns an array of each features obkect
                 hhincs = _.map features, (key, value) -> key.properties.ov_hhinc
+                vmts = _.map features, (key, value) -> key.properties.ov_vmthday
                 maxhhinc = hhincs.reduce (a,b) -> Math.max a, b
                 minhhinc = hhincs.reduce (a,b) -> Math.min a, b
+                maxvmt = vmts.reduce (a,b) -> Math.max a, b
+                minvmt = vmts.reduce (a,b) -> Math.min a, b
                 gon.minhhinc = minhhinc
                 gon.maxhhinc = maxhhinc
+                gon.minvmt = minvmt
+                gon.maxvmt = maxvmt
                 $("#slider27").slider
                     min: Math.round gon.minhhinc = if gon.minhhinc then gon.minhhinc else 0
                     max: Math.round gon.maxhhinc = if gon.maxhhinc then gon.maxhhinc else 100
                     value:[0,maxhhinc]
+                    step: 1
+                $("#slider6").slider
+                    min: Math.round gon.minvmt = if gon.minvmt then gon.minvmt else 0
+                    max: Math.round gon.maxvmt = if gon.maxvmt then gon.maxvmt else 100
+                    value:[0,maxvmt]
                     step: 1 
             $("html, body").animate
                   scrollTop: 0
