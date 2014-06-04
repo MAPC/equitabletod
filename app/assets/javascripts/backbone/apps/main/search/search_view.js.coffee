@@ -5,8 +5,6 @@
         template: "main/search/templates/simple_search_layout" 
         
         onShow: ->
-            gon.paginate = false
-            gon.page_number = -1
             $(document).ready ->
                 $("#boxplot").html ""
                 $("#fpaccordion").accordion 
@@ -136,6 +134,7 @@
 
         events: 
             'click #searchbuttom': 'inputChange'
+            'click #advSearchButtom': 'searchrefineFired'
             'click #etod': 'etodFired'
             'click #gsa': 'gsaFired'
             'click #resetbuttom':  'resetFormArgs' 
@@ -232,6 +231,9 @@
 
         gsaFired: (e) =>
             App.vent.trigger "gsaFired"
+
+        searchrefineFired: (e) =>
+            App.vent.trigger "searchrefineFired"
 
         fireSimpleSearch: (e) =>
             console.log "i get the click"

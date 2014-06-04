@@ -7,147 +7,22 @@
 
 
 		onShow: ->
-            allfeaturesResponse = $.ajax
-                    url: "/search.json?by_name="
-                    done: (result) =>
-                        return result
-            allfeature = allfeaturesResponse.complete()
-            allfeature.done =>
-                allfeatures = allfeature.responseJSON
-                features = _.values allfeatures.features # this returns an array of each features obkect
-                # make arrays of all values for each field #
-                fars = _.map features, (key, value) -> key.properties.ov_far
-                hhincs = _.map features, (key, value) -> key.properties.ov_hhinc
-                vmts = _.map features, (key, value) -> key.properties.ov_vmthday
-                pcttrans = _.map features, (key, value) -> key.properties.ov_pcttran
-                prkacs = _.map features, (key, value) -> key.properties.ov_prkac
-                emp10s = _.map features, (key, value) -> key.properties.ov_emp10
-                extaxrevs = _.map features, (key, value) -> key.properties.ex_taxrev
-                hh10s = _.map features, (key, value) -> key.properties.ov_hh10
-                vehphhs = _.map features, (key, value) -> key.properties.ov_vehphh
-                trnpcmis = _.map features, (key, value) -> key.properties.ov_trnpcmi if key.properties.ov_trnpcmi
-                ghgs = _.map features, (key, value) -> key.properties.ov_ghg if key.properties.ov_ghg
-                intntots = _.map features, (key, value) -> key.properties.ov_intntot if key.properties.ov_intntot
-                mixs = _.map features, (key, value) -> key.properties.ov_mix if key.properties.ov_mix
-                hupacs = _.map features, (key, value) -> key.properties.ov_hupac if key.properties.ov_hupac
-                empdens = _.map features, (key, value) -> key.properties.ov_empden if key.properties.ov_empden
-                est10s = _.map features, (key, value) -> key.properties.ov_est_10 if key.properties.ov_est_10
-                avals = _.map features, (key, value) -> key.properties.ov_aval if key.properties.ov_aval
-                rentoccs = _.map features, (key, value) -> key.properties.ov_rentocc if key.properties.ov_rentocc
-                hhnocars = _.map features, (key, value) -> key.properties.ov_hhnocar if key.properties.ov_hhnocar
-                edatts = _.map features, (key, value) -> key.properties.ov_ed_att if key.properties.ov_ed_att
-                walkscores = _.map features, (key, value) -> key.properties.walkscore if key.properties.walkscore
-                hupipes = _.map features, (key, value) -> key.properties.ov_hupipe if key.properties.ov_hupipe
-                emppipes = _.map features, (key, value) -> key.properties.ov_emppipe if key.properties.ov_emppipe
-                # find minimum and maximum values #
-                maxhhinc = hhincs.reduce (a,b) -> Math.max a, b
-                minhhinc = hhincs.reduce (a,b) -> Math.min a, b
-                maxvmt = vmts.reduce (a,b) -> Math.max a, b
-                minvmt = vmts.reduce (a,b) -> Math.min a, b
-                maxpcttran = pcttrans.reduce (a,b) -> Math.max a, b
-                minpcttran = pcttrans.reduce (a,b) -> Math.min a, b
-                maxvehphh = vehphhs.reduce (a,b) -> Math.max a, b
-                minvehphh = vehphhs.reduce (a,b) -> Math.min a, b
-                maxtrnpcmi = trnpcmis.reduce (a,b) -> Math.max a, b
-                mintrnpcmi = trnpcmis.reduce (a,b) -> Math.min a, b
-                maxghg = ghgs.reduce (a,b) -> Math.max a, b
-                minghg = ghgs.reduce (a,b) -> Math.min a, b
-                maxfar = fars.reduce (a,b) -> Math.max a, b
-                minfar = fars.reduce (a,b) -> Math.min a, b
-                maxprkac = prkacs.reduce (a,b) -> Math.max a, b
-                minprkac = prkacs.reduce (a,b) -> Math.min a, b
-                maxintntot = intntots.reduce (a,b) -> Math.max a, b
-                minintntot = intntots.reduce (a,b) -> Math.min a, b
-                maxmix = mixs.reduce (a,b) -> Math.max a, b
-                minmix = mixs.reduce (a,b) -> Math.min a, b
-                maxhupac = hupacs.reduce (a,b) -> Math.max a, b
-                minhupac = hupacs.reduce (a,b) -> Math.min a, b
-                maxempden = empdens.reduce (a,b) -> Math.max a, b
-                minempden = empdens.reduce (a,b) -> Math.min a, b
-                maxwalkscore = walkscores.reduce (a,b) -> Math.max a, b
-                minwalkscore = walkscores.reduce (a,b) -> Math.min a, b
-                maxhupipe = hupipes.reduce (a,b) -> Math.max a, b
-                minhupipe = hupipes.reduce (a,b) -> Math.min a, b
-                maxemppipe = emppipes.reduce (a,b) -> Math.max a, b
-                minemppipe = emppipes.reduce (a,b) -> Math.min a, b
-                maxemp10 = emp10s.reduce (a,b) -> Math.max a, b
-                minemp10 = emp10s.reduce (a,b) -> Math.min a, b
-                maxextaxrev = extaxrevs.reduce (a,b) -> Math.max a, b
-                minextaxrev = extaxrevs.reduce (a,b) -> Math.min a, b
-                maxest10 = est10s.reduce (a,b) -> Math.max a, b
-                minest10 = est10s.reduce (a,b) -> Math.min a, b
-                maxaval = avals.reduce (a,b) -> Math.max a, b
-                minaval = avals.reduce (a,b) -> Math.min a, b
-                maxhh10 = hh10s.reduce (a,b) -> Math.max a, b
-                minhh10 = hh10s.reduce (a,b) -> Math.min a, b
-                maxrentocc = rentoccs.reduce (a,b) -> Math.max a, b
-                minrentocc = rentoccs.reduce (a,b) -> Math.min a, b
-                maxhhnocar = hhnocars.reduce (a,b) -> Math.max a, b
-                minhhnocar = hhnocars.reduce (a,b) -> Math.min a, b
-                maxedatt = edatts.reduce (a,b) -> Math.max a, b
-                minedatt = edatts.reduce (a,b) -> Math.min a, b
-                # assign max min values to gon #
-                gon.minhhinc = minhhinc
-                gon.maxhhinc = maxhhinc
-                gon.minvmt = minvmt
-                gon.maxvmt = maxvmt
-                gon.minpcttran = minpcttran
-                gon.maxpcttran = maxpcttran
-                gon.minvehphh = minvehphh
-                gon.maxvehphh = maxvehphh
-                gon.mintrnpcmi = mintrnpcmi
-                gon.maxtrnpcmi = maxtrnpcmi
-                gon.minghg = minghg
-                gon.maxghg = maxghg
-                gon.minfar = minfar
-                gon.maxfar = maxfar
-                gon.minprkac = minprkac
-                gon.maxprkac = maxprkac
-                gon.minintntot = minintntot
-                gon.maxintntot = maxintntot
-                gon.minmix = minmix
-                gon.maxmix = maxmix
-                gon.minhupac = minhupac
-                gon.maxhupac = maxhupac
-                gon.minempden = minempden
-                gon.maxempden = maxempden
-                gon.minwalkscore = minwalkscore
-                gon.maxwalkscore = maxwalkscore
-                gon.minhupipe = minhupipe
-                gon.maxhupipe = maxhupipe
-                gon.minemppipe = minemppipe
-                gon.maxemppipe = maxemppipe
-                gon.minemp10 = minemp10
-                gon.maxemp10 = maxemp10
-                gon.minextaxrev = minextaxrev
-                gon.maxextaxrev = maxextaxrev
-                gon.minest10 = minest10
-                gon.maxest10 = maxest10
-                gon.minaval = minaval
-                gon.maxaval = maxaval
-                gon.minhh10 = minhh10
-                gon.maxhh10 = maxhh10
-                gon.minrentocc = minrentocc
-                gon.maxrentocc = maxrentocc
-                gon.minhhnocar = minhhnocar
-                gon.maxhhnocar = maxhhnocar
-                gon.minedatt = minedatt
-                gon.maxedatt = maxedatt
+            $(document).ready ->
                 # setup sliders
                 $("#slider6").slider
                     min: Math.round gon.minvmt = if gon.minvmt then gon.minvmt else 0
                     max: Math.round gon.maxvmt = if gon.maxvmt then gon.maxvmt else 100
-                    value:[minvmt,maxvmt]
+                    value:[gon.minvmt,gon.maxvmt]
                     step: 1 
                 $("#slider7").slider
                     min: gon.minpcttran = if gon.minpcttran then gon.minpcttran else 0
                     max: gon.maxpcttran = if gon.maxpcttran then gon.maxpcttran else 0.51
-                    value:[minpcttran,maxpcttran]
+                    value:[gon.minpcttran,gon.maxpcttran]
                     step: 0.001
                 $("#slider8").slider
                     min: Math.round gon.minvehphh = if gon.minvehphh then gon.minvehphh else 0
                     max: Math.round gon.maxvehphh = if gon.maxvehphh then gon.maxvehphh else 4
-                    value:[minvehphh,maxvehphh]
+                    value:[gon.minvehphh,gon.maxvehphh]
                     step: 0.1 
                 $("#slider9").slider
                     min: gon.mintrnpcmi = if gon.mintrnpcmi then gon.mintrnpcmi else 0
@@ -162,22 +37,22 @@
                 $("#slider11").slider
                     min: Math.round gon.minfar = if gon.minfar then gon.minfar else 0
                     max: Math.round gon.maxfar = if gon.maxfar then gon.maxfar else 80
-                    value:[minfar,maxfar]
+                    value:[gon.minfar,gon.maxfar]
                     step: 0.01 
                 $("#slider12").slider
                     min: Math.round gon.minprkac = if gon.minprkac then gon.minprkac else 0
                     max: Math.round gon.maxprkac = if gon.maxprkac then gon.maxprkac else 80
-                    value:[minprkac,maxprkac]
+                    value:[gon.minprkac,gon.maxprkac]
                     step: 1
                 $("#slider13").slider
                     min: Math.round gon.minintntot = if gon.minintntot then gon.minintntot else 0
                     max: Math.round gon.maxintntot = if gon.maxintntot then gon.maxintntot else 80
-                    value:[minintntot,maxintntot]
+                    value:[gon.minintntot,gon.maxintntot]
                     step: 1
                 $("#slider14").slider
                     min: Math.round gon.minmix = if gon.minmix then gon.minmix else 0
-                    max: Math.round gon.maxmix = if gon.maxmix then gon.maxmix else 80
-                    value:[minmix,maxmix]
+                    max: Math.round gon.maxmix = if gon.maxmix then gon.maxmix else 75.9
+                    value:[gon.minmix,gon.maxmix]
                     step: 0.01
                 $("#slider15").slider
                     min: Math.round gon.minhupac = if gon.minhupac then gon.minhupac else 0
@@ -192,7 +67,7 @@
                 $("#slider18").slider
                     min: Math.round gon.minwalkscore = if gon.minwalkscore then gon.minwalkscore else 0
                     max: Math.round gon.maxwalkscore = if gon.maxwalkscore then gon.maxwalkscore else 425
-                    value:[minwalkscore ,maxwalkscore]
+                    value:[gon.minwalkscore ,gon.maxwalkscore]
                     step: 0.01
                 $("#slider19").slider
                     min: Math.round gon.minhupipe = if gon.minhupipe then gon.minhupipe else 0
@@ -207,32 +82,32 @@
                 $("#slider21").slider
                     min: Math.round gon.minemp10 = if gon.minemp10 then gon.minemp10 else 0
                     max: Math.round gon.maxemp10 = if gon.maxemp10 then gon.maxemp10 else 16588
-                    value:[minemp10 ,maxemp10]
+                    value:[gon.minemp10 ,gon.maxemp10]
                     step: 1
                 $("#slider22").slider
                     min: Math.round gon.minextaxrev = if gon.minextaxrev then gon.minextaxrev else 0
                     max: Math.round gon.maxextaxrev = if gon.maxextaxrev then gon.maxextaxrev else 155108987
-                    value:[minextaxrev ,maxextaxrev]
+                    value:[gon.minextaxrev ,gon.maxextaxrev]
                     step: 1
                 $("#slider23").slider
                     min: Math.round gon.minest10 = if gon.minest10 then gon.minest10 else 6
                     max: Math.round gon.maxest10 = if gon.maxest10 then gon.maxest10 else 9004
-                    value:[minest10 ,maxest10]
+                    value:[gon.minest10 ,gon.maxest10]
                     step: 1
                 $("#slider24").slider
                     min: Math.round gon.minaval = if gon.minaval then gon.minaval else 33567503
                     max: Math.round gon.maxaval = if gon.maxaval then gon.maxaval else 19066783589
-                    value:[minaval ,maxaval]
+                    value:[gon.minaval ,gon.maxaval]
                     step: 1
                 $("#slider25").slider
                     min: Math.round gon.minhh10 = if gon.minhh10 then gon.minhh10 else 0
                     max: Math.round gon.maxhh10 = if gon.maxhh10 then gon.maxhh10 else 17815
-                    value:[minhh10 ,maxhh10]
+                    value:[gon.minhh10 ,gon.maxhh10]
                     step: 1
                 $("#slider26").slider
                     min: Math.round gon.minhhinc = if gon.minhhinc then gon.minhhinc else 0
                     max: Math.round gon.maxhhinc = if gon.maxhhinc then gon.maxhhinc else 100
-                    value:[minhhinc,maxhhinc]
+                    value:[gon.minhhinc,gon.maxhhinc]
                     step: 1
                 $("#slider27").slider
                     min: Math.round gon.minrentocc = if gon.minrentocc then gon.minrentocc else 0
@@ -248,13 +123,35 @@
                 $("#slider29").slider
                     min: Math.round gon.minedatt = if gon.minedatt then gon.minedatt else 0
                     max: Math.round gon.maxedatt = if gon.maxedatt then gon.maxedatt else 0.91
-                    value:[minedatt,maxedatt]
+                    value:[gon.minedatt,gon.maxedatt]
                     step: 0.01
+                $("#titles").html "<p class='h2'></p>"
+                $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '465', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'     
+                $(".inlinesparklinefar").sparkline gon.fars, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '515', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
+                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '1360', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
+                $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '460', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'       
+                $(".inlinesparklinehupipe").sparkline [0, 82, 337, 1125.95, 4719], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '460', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                $(".inlinesparklineemppipe").sparkline [0, 126.05, 1353.59, 2744.05, 16587.49], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '460', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '450', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'       
+                $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '450', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'      
+                $(".inlinesparklinehh10").sparkline gon.hh10s, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '450', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'      
+                $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '450', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'      
+                $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '545', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                $(".inlinesparklinetrnpcmi").sparkline gon.trnpcmis, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '2080', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                $(".inlinesparklineghg").sparkline [0, 6.6, 11.15, 17.15, 75.9], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '465', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
+                $(".inlinesparklineintntot").sparkline gon.intntots, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '455', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
+                $(".inlinesparklinemix").sparkline gon.mixs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '909', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'                       
+                $(".inlinesparklinehupac").sparkline [0, 4.62, 13.03, 28.42, 200], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '460', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                $(".inlinesparklineempden").sparkline [0, 12.102, 20.264, 34.031, 424.07], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '460', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                $(".inlinesparklineest10").sparkline gon.est10s, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '460', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                $(".inlinesparklineaval").sparkline gon.avals, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '460', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                $(".inlinesparklinerentocc").sparkline [0, 0.379, 0.584, 0.719, 0.996], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '890', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                $(".inlinesparklinehhnocar").sparkline [0, 0.06658, 0.20144, 0.36543, 0.6522], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '800', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'                       
+                $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '775', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '450', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
             $("html, body").animate
                   scrollTop: 0
-                , 600
-            $(document).ready ->
-                $("#titles").html "<p class='h2'></p>"
+                , 600         
             $(document).ready ->
                 $("#fpaccordion").accordion 
                     header: "hm2" 
@@ -265,6 +162,14 @@
                         header: "ui-icon-plus"
                         activeHeader: "ui-icon-minus"
             $(document).ready ->
+              $("#accordion").accordion 
+                header: "hm3" 
+                heightStyle: "content"
+                collapsible: true
+                icons:
+                    header: "ui-icon-plus"
+                    activeHeader: "ui-icon-minus"
+               return     
               $("[rel=tooltip]").tooltip placement: "top"
               $("#dialog-modal").dialog 
                     position:
@@ -311,7 +216,6 @@
               $("#searchinput5").autocomplete
                 source: ["<", ">", "="]
                 minLength: 0
-              
             $(document).ready ->
               $("#searchinput2").autocomplete
                 source: gon.muni_names.muni_names
@@ -551,7 +455,7 @@
             # here would are the basic validation and if passed the vent will trigger
             #urlstr = "/search.json?" + "#{gon.query}" + "#{query}".replace(/\s*\(.*?\)\s*/g, "")
             #console.log urlstr
-            gon.query = "#{gon.query}" + "#{query}".replace(/\s*\(.*?\)\s*/g, "")
+            gon.query = "#{query}".replace(/\s*\(.*?\)\s*/g, "")
 
             App.vent.trigger "searchFired", gon.query
             

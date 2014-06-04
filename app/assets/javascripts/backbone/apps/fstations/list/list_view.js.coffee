@@ -12,60 +12,7 @@
 		tagName: "tr"
 
 		onShow: ->
-			allfeaturesResponse = $.ajax
-            	url: "/search.json?by_name="
-            	done: (result) =>
-                	return result
-            allfeaturesResponse.complete().done =>
-                allfeatures = allfeaturesResponse.complete().responseJSON
-                features = _.values allfeatures.features # this returns an array of each features obkect
-                gon.featuresLocal = features
-                console.log "gon.featuresLocal: "
-                console.log gon.featuresLocal
-                fars = _.map features, (key, value) -> key.properties.ov_far.toFixed 2
-                vmts = _.map features, (key, value) -> key.properties.ov_vmthday.toFixed 2
-                pcttrans = _.map features, (key, value) -> (key.properties.ov_pcttran.toFixed 2) * 100
-                prkacs = _.map features, (key, value) -> key.properties.ov_prkac.toFixed 2
-                emp10s = _.map features, (key, value) -> key.properties.ov_emp10.toFixed 2
-                extaxrevs = _.map features, (key, value) -> key.properties.ex_taxrev.toFixed 0
-                hh10s = _.map features, (key, value) -> key.properties.ov_hh10.toFixed 0
-                hhincs = _.map features, (key, value) -> key.properties.ov_hhinc
-                vehphhs = _.map features, (key, value) -> key.properties.ov_vehphh.toFixed 4
-                trnpcmis = _.map features, (key, value) -> (key.properties.ov_trnpcmi.toFixed 4) * 100 if key.properties.ov_trnpcmi
-                ghgs = _.map features, (key, value) -> key.properties.ov_ghg
-                intntots = _.map features, (key, value) -> key.properties.ov_intntot if key.properties.ov_intntot
-                mixs = _.map features, (key, value) -> key.properties.ov_mix.toFixed 4 if key.properties.ov_mix
-                hupacs = _.map features, (key, value) -> key.properties.ov_hupac.toFixed 6 if key.properties.ov_hupac
-                empdens = _.map features, (key, value) -> key.properties.ov_empden.toFixed 2 if key.properties.ov_empden
-                est10s = _.map features, (key, value) -> key.properties.ov_est_10.toFixed 4 if key.properties.ov_est_10
-                avals = _.map features, (key, value) -> key.properties.ov_aval.toFixed 0 if key.properties.ov_aval
-                rentoccs = _.map features, (key, value) -> (key.properties.ov_rentocc.toFixed 4) * 100 if key.properties.ov_rentocc
-                hhnocars = _.map features, (key, value) -> (key.properties.ov_hhnocar.toFixed 4) * 100 if key.properties.ov_hhnocar
-                edatts = _.map features, (key, value) -> key.properties.ov_ed_att.toFixed 2 if key.properties.ov_ed_att
-                walkscores = _.map features, (key, value) -> key.properties.walkscore.toFixed 2 if key.properties.walkscore
-
-                gon.vehphhs = vehphhs
-                gon.vmts = vmts
-                gon.fars = fars
-                gon.pcttrans = pcttrans
-                gon.prkacs = prkacs
-                gon.emp10s = emp10s
-                gon.extaxrevs = extaxrevs
-                gon.hh10s = hh10s
-                gon.hhincs = hhincs
-                gon.trnpcmis = trnpcmis
-                gon.ghgs = ghgs
-                gon.intntots = intntots
-                gon.mixs = mixs
-                gon.hupacs = hupacs
-                gon.empdens = empdens
-                gon.est10s = est10s
-                gon.avals = avals
-                gon.rentoccs = rentoccs
-                gon.hhnocars = hhnocars
-                gon.edatts = edatts
-                gon.walkscores = walkscores
-
+			$(document).ready ->
                 fvmt = gon.feature["0"].properties.ov_vmthday.toFixed 4
                 ffar = gon.feature["0"].properties.ov_far.toFixed 4
                 fpcttran = (gon.feature["0"].properties.ov_pcttran.toFixed 4) * 100
@@ -74,6 +21,7 @@
                 fextaxrev = gon.feature["0"].properties.ex_taxrev.toFixed 4
                 fhh10 = gon.feature["0"].properties.ov_hh10.toFixed 4
                 fhhinc = gon.feature["0"].properties.ov_hhinc.toFixed 4
+                femppipe = gon.feature["0"].properties.ov_emppipe.toFixed 1 if gon.feature["0"].properties.ov_emppipe
                 $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", target: fvmt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'		
                 $(".inlinesparklinefar").sparkline gon.fars, type: "box", target: ffar, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '290', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
                 $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", target: fpcttran, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
@@ -104,6 +52,7 @@
                     $(".inlinesparklinemix").sparkline gon.mixs, type: "box", target: fmix, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '510', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklinehupac").sparkline gon.hupacs, type: "line", target: fhupac, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklineempden").sparkline gon.empdens, type: "line", target: fempden, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                    $(".inlinesparklineemppipe").sparkline gon.emppipes, type: "box", target: femppipe, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                     $(".inlinesparklineest10").sparkline gon.est10s, type: "box", target: fest10, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklineaval").sparkline gon.avals, type: "box", target: faval, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                     $(".inlinesparklinerentocc").sparkline gon.rentoccs, type: "box", target: frentocc, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
@@ -111,6 +60,7 @@
                     $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", target: fedatt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '580', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                     $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", target: fwalkscore, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '250', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
            
+            console.log @model
             fm_options =
                 bootstrap: true
                 show_radio_button_list: false

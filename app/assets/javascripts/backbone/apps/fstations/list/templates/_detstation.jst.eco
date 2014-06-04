@@ -98,9 +98,11 @@
 					<strong href="#" rel="tooltipu" title="A measure of the degree to which a station area is walkable">Walkscore </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="walkscore" class="glyphicon glyphicon-question-sign"></span> <%= "#{@properties.walkscore.toFixed 2}" %>
 					<br><span class="inlinesparklinewalkscore"></span>
 				<br>
-					<strong href="#" rel="tooltipu" title="Number of housing units planned or under construction">Residential Pipeline </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="residential pipeline"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_hucons + @properties.ov_huplan}" %>
+					<strong href="#" rel="tooltipu" title="Number of housing units planned or under construction">Residential Pipeline </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="residential pipeline"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_hupipe.toFixed 1}" %>
+					<br><span class="inlinesparklinehupipe"></span>
 				<br>
-					<strong href="#" rel="tooltipu" title="Estimated employment in developments planned or under construction">Commercial Pipeline </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="commercial pipeline"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_empcons + @properties.ov_empplan}" %>
+					<strong href="#" rel="tooltipu" title="Estimated employment in developments planned or under construction">Commercial Pipeline </strong><a><span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="commercial pipeline"><span class="glyphicon glyphicon-question-sign"></span> </a><%= "#{@properties.ov_emppipe.toFixed 1}" %>
+					<br><span class="inlinesparklineemppipe"></span>
 				</p>
 			</div>
 		<hm3>
