@@ -67,7 +67,7 @@
                 $("#slider18").slider
                     min: Math.round gon.minwalkscore = if gon.minwalkscore then gon.minwalkscore else 0
                     max: Math.round gon.maxwalkscore = if gon.maxwalkscore then gon.maxwalkscore else 425
-                    value:[gon.minwalkscore ,gon.maxwalkscore]
+                    value:[0 ,425]
                     step: 0.01
                 $("#slider19").slider
                     min: Math.round gon.minhupipe = if gon.minhupipe then gon.minhupipe else 0

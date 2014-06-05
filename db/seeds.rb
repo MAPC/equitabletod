@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'CSV'
+require 'csv'
 
 # service_types = ['bus', 'commuter rail', 'subway', 'bus rapid transit']
 # service_types.each { |type| ServiceType.create(mode: type.titleize) }

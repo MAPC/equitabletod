@@ -120,11 +120,11 @@
           <hm3>
             <div class="form-group">
               <br>
-              <p class="col-md-offset-2 text-left"><strong>Transportation</strong></p>
-              <label href="#" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" class="col-md-2 control-label small" for="searchinput6">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="VMT"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-              <div class="col-md-8">
-                <strong style="margin-right: 10px;"><%="#{gon.minvmt.toFixed 2}" if ("#{gon.minvmt}" != 'undefined') and ("#gon.minvmt}" != '') %></strong> <input name="slider6" placeholder="" class="form-control input-md" id="slider6" type="text" class="span2" value=""/> <strong><%="#{gon.maxvmt.toFixed 2}" if ("#{gon.maxvmt}" != 'undefined') and ("#gon.maxvmt}" != '') %></strong>
-                <span class="inlinesparklinevmt" style="padding-left: 35px;"></span>
+              <p class="col-md-offset-2 col-xs-offset-4 text-left"><strong>Transportation</strong></p>
+              <label href="#" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" class="col-md-4 col-xs-2 control-label small" for="searchinput6">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="VMT"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              <div class="col-md-8 col-xs-12">
+                 <span class="inlinesparklinevmt"></span></br>
+                <strong></strong> <input name="slider6" placeholder="" class="form-control input-md" id="slider6" type="text" class="span2" value="" data-slider-handle="triangle" /> </strong>
               </div>
             </div> 
           </hm3>
@@ -132,42 +132,47 @@
             <div>
             <!-- Advanced Search input-->
             <!-- Transporation -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" class="col-md-2 control-label small" for="searchinput7">Transit Commuter Share <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="transit share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;"><%="#{gon.minpcttran.toFixed 2}" if ("#{gon.minpcttran}" != 'undefined') and ("#gon.minpcttran}" != '') %></strong> <input name="slider7" placeholder="" class="form-control input-md" id="slider7" type="text" class="span2" value=""/> <strong><%="#{gon.maxpcttran.toFixed 3}" if ("#{gon.maxpcttran}" != 'undefined') and ("#gon.maxpcttran}" != '') %></strong>
-                  <span class="inlinesparklinepcttran" style="padding-left: 37px;"></span>
+                <label href="#" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" class="col-md-4 col-xs-2 control-label small" for="searchinput7">Transit Commuter Share <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="transit share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinepcttran"></span></br>
+                  <strong></strong> <input name="slider7" placeholder="" class="form-control input-md" id="slider7" type="text" class="span2" value="" data-slider-handle="triangle"/></strong>
                 </div>
               </div> 
 
               <!-- Advanced Search input-->
               <!-- Transporation -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Average number of vehicles owned per household" class="col-md-2 control-label small" for="searchinput8">Vehicle Ownership<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Vehicle Ownership"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;"><%="#{gon.minvehphh.toFixed 2}" if ("#{gon.minvehphh}" != 'undefined') and ("#gon.minvehphh}" != '') %></strong> <input name="slider8" placeholder="" class="form-control input-md" id="slider8" type="text" class="span2" value=""/> <strong><%="#{gon.maxvehphh.toFixed 2}" if ("#{gon.maxvehphh}" != 'undefined') and ("#gon.maxvehphh}" != '') %></strong>
-                  <span class="inlinesparklinevehphh" style="padding-left: 37px;"></span>
+                <label href="#" rel="tooltip" title="Average number of vehicles owned per household" class="col-md-4 col-xs-2 control-label small" for="searchinput8">Vehicle Ownership<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Vehicle Ownership"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinevehphh" ></span></br>
+                  <strong></strong> <input name="slider8" placeholder="" class="form-control input-md" id="slider8" type="text" class="span2" value="" data-slider-handle="triangle" /> <strong></strong>
                 </div>
               </div> 
 
               <!-- Advanced Search input-->
               <!-- Transporation -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Percentage of total commuting miles for which transit was used" class="col-md-2 control-label small" for="searchinput9">Transit Share of Commuting Miles <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="commute mile share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;"><%="#{gon.mintrnpcmi.toFixed 2}" if ("#{gon.mintrnpcmi}" != 'undefined') and ("#gon.mintrnpcmi}" != '') %></strong> <input name="slider9" placeholder="" class="form-control input-md" id="slider9" type="text" class="span2" value=""/> <strong><%="#{gon.maxtrnpcmi.toFixed 3}" if ("#{gon.maxtrnpcmi}" != 'undefined') and ("#gon.maxtrnpcmi}" != '') %></strong>
-                  <span class="inlinesparklinetrnpcmi" style="padding-left: 37px;"></span>
+                <label href="#" rel="tooltip" title="Percentage of total commuting miles for which transit was used" class="col-md-4 col-xs-2 control-label small" for="searchinput9">Transit Share of Commuting Miles <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="commute mile share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinetrnpcmi"></span><br>
+                  <strong></strong> <input name="slider9" placeholder="" class="form-control input-md" id="slider9" type="text" class="span2" value="" data-slider-handle="triangle" /> </strong>
+                  
                 </div>
               </div>
 
               <!-- Advanced Search input-->
               <!-- Transporation -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" class="col-md-2 control-label small" for="searchinput10">Greenhouse Gas Emissions from transportation: <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ghg"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" class="col-md-4 col-xs-2 control-label small" for="searchinput10">Greenhouse Gas Emissions from transportation: <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ghg"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;">0.00</strong> <input name="slider10" placeholder="" class="form-control input-md" id="slider10" type="text" class="span2" value=""/> <strong>75.9</strong>
-                  <span class="inlinesparklineghg" style="padding-left: 37px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineghg"></span></br>
+                  <strong></strong> <input name="slider10" placeholder="" class="form-control input-md" id="slider10" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div>
             </div>
@@ -179,11 +184,11 @@
             <div class="form-group">
               <br>
               <p class="col-md-offset-2 text-left"><strong>Development</strong></p>
-              <label href="#" rel="tooltip" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located" class="col-md-2 control-label small" for="searchinput11">Floor Area Ratio (FAR) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="FAR"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              <label href="#" rel="tooltip" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located" class="col-md-4 col-xs-2 control-label small" for="searchinput11">Floor Area Ratio (FAR) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="FAR"><span class="glyphicon glyphicon-question-sign"></span></a></label>
             
-              <div class="col-md-8">
-                <strong style="margin-right: 10px;"><%="#{gon.minfar.toFixed 2}" if ("#{gon.minfar}" != 'undefined') and ("#gon.minfar}" != '') %></strong> <input name="slider11" placeholder="" class="form-control input-md" id="slider11" type="text" class="span2" value=""/> <strong><%="#{gon.maxfar}" if ("#{gon.maxfar.toFixed 3}" != 'undefined') and ("#gon.maxfar}" != '') %></strong>
-                <span class="inlinesparklinefar" style="padding-left: 37px;"></span>
+              <div class="col-md-8 col-xs-12">
+                <span class="inlinesparklinefar"></span></br>
+                <strong></strong> <input name="slider11" placeholder="" class="form-control input-md" id="slider11" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
               </div>
             </div>
           </hm3>
@@ -191,55 +196,60 @@
       <!-- Advanced Search input-->
       <!-- Development -->
             <div>
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Acres of surface parking within the station area" class="col-md-2 control-label small" for="searchinput12">Surface Parking (acre) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="surface parking"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Acres of surface parking within the station area" class="col-md-4 col-xs-2 control-label small" for="searchinput12">Surface Parking (acre) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="surface parking"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;"><%="#{gon.minprkac.toFixed 2}" if ("#{gon.minprkac}" != 'undefined') and ("#gon.minprkac}" != '') %></strong> <input name="slider12" placeholder="" class="form-control input-md" id="slider12" type="text" class="span2" value=""/> <strong><%="#{gon.maxprkac.toFixed 3}" if ("#{gon.maxprkac}" != 'undefined') and ("#gon.maxprkac}" != '') %></strong>
-                  <span class="inlinesparklineprkac" style="padding-left: 37px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineprkac"></span></br>
+                  <strong></strong> <input name="slider12" placeholder="" class="form-control input-md" id="slider12" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div> 
 
               <!-- Advanced Search input-->
               <!-- Development -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Conveys the extent of existing development: the sum of population and employment within the station area" class="col-md-2 control-label small" for="searchinput13">Current Development Intensity <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev intensity"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;"><%="#{gon.minintntot.toFixed 2}" if ("#{gon.minintntot}" != 'undefined') and ("#gon.minintntot}" != '') %></strong> <input name="slider13" placeholder="" class="form-control input-md" id="slider13" type="text" class="span2" value=""/> <strong><%="#{gon.maxintntot.toFixed 3}" if ("#{gon.maxintntot}" != 'undefined') and ("#gon.maxintntot}" != '') %></strong>
-                  <span class="inlinesparklineintntot" style="padding-left: 55px;"></span>
+                <label href="#" rel="tooltip" title="Conveys the extent of existing development: the sum of population and employment within the station area" class="col-md-4 col-xs-2 control-label small" for="searchinput13">Current Development Intensity <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev intensity"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineintntot"></span></br>
+                  <strong></strong> <input name="slider13" placeholder="" class="form-control input-md" id="slider13" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div> 
 
               <!-- Advanced Search input-->
               <!-- Development -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Ratio of employment to current development intensity" class="col-md-2 control-label small" for="searchinput14">Current Development Mix <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev mix"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-                <div class="col-md-8">
-                  <strong style="margin-right: 15px;"><%="#{gon.minmix.toFixed 2}" if ("#{gon.minmix}" != 'undefined') and ("#gon.minmix}" != '') %></strong> <input name="slider14" placeholder="" class="form-control input-md" id="slider14" type="text" class="span2" value=""/> <strong><%="#{gon.maxmix.toFixed 3}" if ("#{gon.maxmix}" != 'undefined') and ("#gon.maxmix}" != '') %></strong>
-                  <span class="inlinesparklinemix" style="padding-left: 37px;"></span>
+                <label href="#" rel="tooltip" title="Ratio of employment to current development intensity" class="col-md-4 col-xs-2 control-label small" for="searchinput14">Current Development Mix <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev mix"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinemix"></span></br>
+                  <strong></strong> <input name="slider14" placeholder="" class="form-control input-md" id="slider14" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div> 
 
               <!-- Advanced Search input-->
               <!-- Development -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Average number of housing units per acre zoned for residential use" class="col-md-2 control-label small" for="searchinput15">Net Residential Density <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev mix"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Average number of housing units per acre zoned for residential use" class="col-md-4 col-xs-2 control-label small" for="searchinput15">Net Residential Density <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev mix"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;">0.00</strong> <input name="slider15" placeholder="" class="form-control input-md" id="slider15" type="text" class="span2" value=""/> <strong>200</strong>
-                  <span class="inlinesparklinehupac" style="padding-left: 37px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinehupac"></span></br>
+                  <strong></strong> <input name="slider15" placeholder="" class="form-control input-md" id="slider15" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div> 
 
 
               <!-- Advanced Search input-->
               <!-- Development -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Average number of Employees per acre zoned for commercial, industrial, or institutional use" class="col-md-2 control-label small" for="searchinput16">Net Employment Density <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Emp Density"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Average number of Employees per acre zoned for commercial, industrial, or institutional use" class="col-md-4 col-xs-2 control-label small" for="searchinput16">Net Employment Density <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Emp Density"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;">0.00</strong> <input name="slider16" placeholder="" class="form-control input-md span2" id="slider16" type="text" value=""/> <strong>424.07</strong>
-                  <span class="inlinesparklineempden" style="padding-left: 37px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineempden"></span></br>
+                  <strong></strong> <input name="slider16" placeholder="" class="form-control input-md span2" id="slider16" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div> 
 
@@ -262,32 +272,35 @@
 
               <!-- Advanced Search input-->
               <!-- Development -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="A measure of the degree to which a station area is walkable" class="col-md-2 control-label small" for="searchinput18">Walkscore  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Walkscore"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="A measure of the degree to which a station area is walkable" class="col-md-4 col-xs-2 control-label small" for="searchinput18">Walkscore  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Walkscore"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 15px;"><%="#{gon.minwalkscore.toFixed 2}" if ("#{gon.minwalkscore}" != 'undefined') and ("#gon.minwalkscore}" != '') %></strong> <input name="slider18" placeholder="" class="form-control input-md span2" id="slider18" type="text" value=""/> <strong><%="#{gon.maxwalkscore.toFixed 1}" if ("#{gon.maxwalkscore}" != 'undefined') and ("#gon.maxwalkscore}" != '') %></strong>
-                  <span class="inlinesparklinewalkscore" style="padding-left: 45px;"</span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinewalkscore"</span></br>
+                  <strong></strong> <input name="slider18" placeholder="" class="form-control input-md span2" id="slider18" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div> 
 
               <!-- Advanced Search input-->
               <!-- Development -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Number of housing units planned or under construction" class="col-md-2 control-label small" for="searchinput19">Residential Pipeline  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="res pipeline"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;">0.00</strong> <input name="slider19" placeholder="" class="form-control input-md span2" id="slider19" type="text" value=""/> <strong>4719</strong>
-                  <span class="inlinesparklinehupipe" style="padding-left: 37px;"></span>
+                <label href="#" rel="tooltip" title="Number of housing units planned or under construction" class="col-md-4 col-xs-2 control-label small" for="searchinput19">Residential Pipeline  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="res pipeline"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinehupipe"></span></br>
+                  <strong></strong> <input name="slider19" placeholder="" class="form-control input-md span2" id="slider19" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div>
 
               <!-- Advanced Search input-->
               <!-- Development -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Estimated employment in developments planned or under construction" class="col-md-2 control-label small" for="searchinput20">Commercial Pipeline  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="com pipeline"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;">0.00</strong> <input name="slider20" placeholder="" class="form-control input-md span2" id="slider20" type="text" value=""/> <strong>16587.49</strong>
-                  <span class="inlinesparklineemppipe" style="padding-left: 37px;"></span>
+                <label href="#" rel="tooltip" title="Estimated employment in developments planned or under construction" class="col-md-4 col-xs-2 control-label small" for="searchinput20">Commercial Pipeline  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="com pipeline"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineemppipe"></span></br>
+                  <strong></strong> <input name="slider20" placeholder="" class="form-control input-md span2" id="slider20" type="text" value="" data-slider-handle="triangle"/><strong></strong>
                 </div>
               </div>
             </div>
@@ -298,11 +311,11 @@
             <div class="form-group">
               <br>
               <p class="col-md-offset-2 text-left"><strong>Economics</strong></p>
-              <label href="#" rel="tooltip" title="Current employment in the station area" class="col-md-2 control-label small" for="searchinput21">Number of Employees  <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="emp"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              <label href="#" rel="tooltip" title="Current employment in the station area" class="col-md-4 col-xs-2 control-label small" for="searchinput21">Number of Employees  <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="emp"><span class="glyphicon glyphicon-question-sign"></span></a></label>
             
-              <div class="col-md-8">
-                <strong style="margin-right: 10px;"><%="#{gon.minemp10.toFixed 0}" if ("#{gon.minemp10}" != 'undefined') and ("#gon.minemp10}" != '') %></strong> <input name="slider21" placeholder="" class="form-control input-md span2" id="slider21" type="text" value=""/> <strong><%="#{gon.maxemp10}" if ("#{gon.maxemp10.toFixed 0}" != 'undefined') and ("#gon.maxemp10}" != '') %></strong>
-                <span class="inlinesparklineemp10" style="padding-left: 33px;"></span>
+              <div class="col-md-8 col-xs-12">
+                <span class="inlinesparklineemp10"></span></br>
+                <strong></strong> <input name="slider21" placeholder="" class="form-control input-md span2" id="slider21" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
               </div>
             </div> 
           </hm3>
@@ -310,34 +323,37 @@
         <!-- Advanced Search input-->
         <!-- Economic -->
             <div>
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Annual total property tax revenue generated in the station area" class="col-md-2 control-label small" for="searchinput22">Tax Revenue ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="tax rev"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Annual total property tax revenue generated in the station area" class="col-md-4 col-xs-2 control-label small" for="searchinput22">Tax Revenue ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="tax rev"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;"><%="#{gon.minextaxrev.toFixed 0}" if ("#{gon.minextaxrev}" != 'undefined') and ("#gon.minextaxrev}" != '') %></strong> <input name="slider22" placeholder="" class="form-control input-md span2" id="slider22" type="text" value=""/> <strong><%="#{gon.maxextaxrev.toFixed 0}" if ("#{gon.maxextaxrev}" != 'undefined') and ("#gon.maxextaxrev}" != '') %></strong>
-                  <span class="inlinesparklineextaxrev" style="padding-left: 17px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineextaxrev"></span></br>
+                  <strong></strong> <input name="slider22" placeholder="" class="form-control input-md span2" id="slider22" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div>
 
               <!-- Advanced Search input-->
               <!-- Economic -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Number of public, private, and non-profit organizations located in the station area" class="col-md-2 control-label small" for="searchinput23">Number of Establishments <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Establishments"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Number of public, private, and non-profit organizations located in the station area" class="col-md-4 col-xs-2 control-label small" for="searchinput23">Number of Establishments <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Establishments"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;"><%="#{gon.minest10.toFixed 0}" if ("#{gon.minest10}" != 'undefined') and ("#gon.minest10}" != '') %></strong> <input name="slider23" placeholder="" class="form-control input-md span2" id="slider23" type="text" value=""/> <strong><%="#{gon.maxest10.toFixed 0}" if ("#{gon.maxest10}" != 'undefined') and ("#gon.maxest10}" != '') %></strong>
-                  <span class="inlinesparklineest10" style="padding-left: 17px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineest10"></span></br>
+                  <strong></strong> <input name="slider23" placeholder="" class="form-control input-md span2" id="slider23" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div>
 
               <!-- Advanced Search input-->
               <!-- Economic -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Total assessed value of all parcels in station area" class="col-md-2 control-label small" for="searchinput24">Assessed Value ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="assessedval"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Total assessed value of all parcels in station area" class="col-md-4 col-xs-2 control-label small" for="searchinput24">Assessed Value ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="assessedval"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;"><%="#{gon.minaval.toFixed 0}" if ("#{gon.minaval}" != 'undefined') and ("#gon.minaval}" != '') %></strong> <input name="slider24" placeholder="" class="form-control input-md span2" id="slider24" type="text" value=""/> <strong><%="#{gon.maxaval.toFixed 0}" if ("#{gon.maxaval}" != 'undefined') and ("#gon.maxaval}" != '') %></strong>
-                  <span class="inlinesparklineaval" style="padding-left: 75px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineaval"></span></br>
+                  <strong></strong> <input name="slider24" placeholder="" class="form-control input-md span2" id="slider24" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div> 
             </div>
@@ -348,11 +364,11 @@
             <div class="form-group">
               <br>
               <p class="col-md-offset-2 text-left"><strong>Demographics</strong></p>
-              <label href="#" rel="tooltip" title="Total number of households in station area" class="col-md-2 control-label small" for="searchinput25">Number of Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="households"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              <label href="#" rel="tooltip" title="Total number of households in station area" class="col-md-4 col-xs-2 control-label small" for="searchinput25">Number of Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="households"><span class="glyphicon glyphicon-question-sign"></span></a></label>
             
-              <div class="col-md-8">
-                <strong style="margin-right: 10px;"><%="#{gon.minhh10.toFixed 2}" if ("#{gon.minhh10}" != 'undefined') and ("#gon.minhh10}" != '') %></strong> <input name="slider25" placeholder="" class="form-control input-md span2" id="slider25" type="text" value=""/> <strong><%="#{gon.maxhh10.toFixed 0}" if ("#{gon.maxhh10}" != 'undefined') and ("#gon.maxhh10}" != '') %></strong>
-                <span class="inlinesparklinehh10" style="padding-left: 37px;"></span>
+              <div class="col-md-8 col-xs-12">
+                <span class="inlinesparklinehh10"></span></br>
+                <strong></strong> <input name="slider25" placeholder="" class="form-control input-md span2" id="slider25" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
               </div>
             </div> 
           </hm3>
@@ -360,8 +376,9 @@
       <!-- Advanced Search input-->
       <!-- Demographics -->
             <div>
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" class="col-md-2 control-label small" for="searchinput26">
+                <label href="#" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" class="col-md-4 col-xs-2 control-label small" for="searchinput26">
                   Household Median Income ($)
                   <span class="glyphicon-class"></span>
                   <a href="#" rel="tooltipd" title="median income">
@@ -369,62 +386,48 @@
                   </a>
                 </label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;">
-                      <%="#{gon.minhhinc.toFixed 0}" if ("#{gon.minhhinc}" != 'undefined') and ("#gon.minhhinc}" != '') %>
-                    </strong><input name="slider26" placeholder="" class="form-control input-md span2" id="slider26" type="text" value=""/>
-                    <strong>
-                      <%="#{gon.maxhhinc.toFixed 0}" if ("#{gon.maxhhinc}" != 'undefined') and ("#gon.maxhhinc}" != '') %>
-                    </strong>
-                    <span class="inlinesparklinehhinc" style="padding-left: 55px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinehhinc"></span></br>
+                  <strong></strong><input name="slider26" placeholder="" class="form-control input-md span2" id="slider26" type="text" value="" data-slider-handle="triangle"/><strong></strong>
                 </div>
               </div>
 
               <!-- Advanced Search input-->
               <!-- Demographics -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Percentage of housing units that are renter-occupied" class="col-md-2 control-label small" for="searchinput27">Renter Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Tenure"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Percentage of housing units that are renter-occupied" class="col-md-4 col-xs-2 control-label small" for="searchinput27">Renter Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Tenure"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;">
-                      0.00
-                    </strong><input name="slider27" placeholder="" class="form-control input-md span2" id="slider27" type="text" value=""/>
-                    <strong>
-                      0.99
-                    </strong>
-                    <span class="inlinesparklinerentocc" style="padding-left: 37px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinerentocc"></span></br>
+                  <strong></strong><input name="slider27" placeholder="" class="form-control input-md span2" id="slider27" type="text" value="" data-slider-handle="triangle"/>
+                    <strong></strong>
                 </div>
               </div>
 
               <!-- Advanced Search input-->
               <!-- Demographics -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Percentage of all households in station area that do not own a car" class="col-md-2 control-label small" for="searchinput28">Zero-Car Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Zero Car"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Percentage of all households in station area that do not own a car" class="col-md-4 col-xs-2 control-label small" for="searchinput28">Zero-Car Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Zero Car"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 10px;">
-                      0.00
-                    </strong><input name="slider28" placeholder="" class="form-control input-md span2" id="slider28" type="text" value=""/>
-                    <strong>
-                      0.65
-                    </strong>
-                    <span class="inlinesparklinehhnocar" style="padding-left: 37px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinehhnocar"></span></br>
+                  <strong></strong><input name="slider28" placeholder="" class="form-control input-md span2" id="slider28" type="text" value="" data-slider-handle="triangle"/>
+                    <strong></strong>
                 </div>
               </div>
 
               <!-- Advanced Search input-->
               <!-- Demographics -->
+              </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Percentage of households with at least one bachelors degree" class="col-md-2 control-label small" for="searchinput29">Educational Attainment <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="educational"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Percentage of households with at least one bachelors degree" class="col-md-4 col-xs-2 control-label small" for="searchinput29">Educational Attainment <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="educational"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
-                <div class="col-md-8">
-                  <strong style="margin-right: 1px;">
-                      <%="#{gon.minedatt.toFixed 2}" if ("#{gon.minedatt}" != 'undefined') and ("#gon.minedatt}" != '') %>
-                    </strong><input name="slider29" placeholder="" class="form-control input-md span2" id="slider29" type="text" value=""/>
-                    <strong>
-                      <%="#{gon.maxedatt.toFixed 3}" if ("#{gon.maxedatt}" != 'undefined') and ("#gon.maxedatt}" != '') %>
-                    </strong>
-                    <span class="inlinesparklineedatt" style="padding-left: 110px;"></span>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineedatt"></span>
+                  <strong></strong><input name="slider29" placeholder="" class="form-control input-md span2" id="slider29" type="text" value="" data-slider-handle="triangle"/>
+                    <strong></strong>
                 </div>
               </div>
             </div>
