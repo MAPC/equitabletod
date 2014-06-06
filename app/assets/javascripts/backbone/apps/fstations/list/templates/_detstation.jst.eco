@@ -32,15 +32,15 @@
 					<div id="dialog-chart"></div>
 					<div id="chart"></div>
 					</div>
-					<p class="h5"><strong href="#" rel="tooltipd" title="eTOD Score">Total eTOD Score: </strong><%= "#{@properties.etod_total}" %></p>
+					<p class="h5"><strong href="#" rel="tooltipd" title="eTOD Score">Total eTOD Score </strong><%= "#{@properties.etod_total}" %> out of 50</p>
 					<p class="h5">
-						<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Transit Score"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub1t}" %>
+						<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Transit Score"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub1t}" %> out of 15
 					</p>
 					<p class="h5">
-						<strong href="#" rel="tooltipu" title="eTOD metric's orientation score"> Orientation Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Orientation Score"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub2o}" %>
+						<strong href="#" rel="tooltipu" title="eTOD metric's orientation score"> Orientation Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Orientation Score"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub2o}" %> out of 20
 					</p>
 					<p class="h5">
-						<strong href="#" rel="tooltipu" title="eTOD metric's development score"> Development Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Development Score"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub3d}" %>
+						<strong href="#" rel="tooltipu" title="eTOD metric's development score"> Development Score <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" data="some random string" title="Development Score"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_sub3d}" %> out of 15
 					</p>
 				</div>		
 		<hm3>
