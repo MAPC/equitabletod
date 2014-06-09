@@ -74,7 +74,7 @@
         <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name </label>
         <div class="col-md-6">
           <input id="searchinput1" placeholder="" class="form-control input-md" type="search">
-          <p class="small">The name of the station stop</p>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The name of the station stop</p>
         </div>
       </div>
       <!-- <h3 class="small">Or:</h3> -->
@@ -86,7 +86,7 @@
         <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality </label>
         <div class="col-md-6">
           <input id="searchinput2" name="searchinput2" placeholder="" class="form-control input-md" type="search">
-          <p class="small">The name of the municipality in which the station is principally or wholly located</p>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The name of the municipality in which the station is principally or wholly located</p>
           <p class="help-block"></p>
         </div>
       </div>
@@ -135,7 +135,7 @@
               <option value="SL5">SL5</option>
             </optgroup>
           </select>
-          <p class="small">The type(s) of transit service available at this station</p>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The type(s) of transit service available at this station</p>
         </div>
       </div>
       
@@ -156,7 +156,7 @@
             <option value="Seaport">Seaport / Airport</option>
             <option value="Suburban%20Transformation">Suburban Transformation</option>
           </select>
-          <p class="small">The group of stations to which this station belongs based on its TOD-supportive characteristics</p>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The group of stations to which this station belongs based on its TOD-supportive characteristics</p>
         </div>
       </div>
       <!-- Select Basic -->
@@ -170,7 +170,7 @@
             <option value="Transit-Oriented">Transit-Oriented</option>
             <option value="Transit-Adjacent">Transit-Adjacent</option>
           </select>
-          <p class="small">eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD</p>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD</p>
         </div>
       </div>
       <div class="col-md-4 col-md-offset-4">
