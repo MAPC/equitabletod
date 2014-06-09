@@ -10,7 +10,7 @@
 				</p>
 				<br>
 				<p class="hm2">
-					Due to overlapping boundaries among station areas, it is not possible to add or average certain values across station areas.  Be sure to download the User Guide, which provides guidance on boundaries and includes a detailed data dictionary explaining the source, meaning, and importance of each data element. 
+					Due to overlapping boundaries among station areas, it is not possible to add or average certain values across station areas.  Be sure to download the<a id="guidClick" href="#guid/" data-toggle="portfilter" data-target="usrguid"> User Guide </a>, which provides guidance on boundaries and includes a detailed meta data explaining the source, meaning, and importance of each data element. 
 				</p>
 				<br />
 				<br />

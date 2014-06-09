@@ -3,8 +3,7 @@
 			<a class="hm2" href="#fss/q/by_name=<%= "#{@properties.name}".replace(/\s*\(.*?\)\s*/g, "") %>"><%= "#{@properties.name}" %>
 			</a> <span><%= ", #{@properties.muni_name}" %></span>  
 		
-		<br><span>eTOD Group
-			<%= "#{@properties.etod_type}" %></span> 
+		
 		<hr>
 		</p>
 
