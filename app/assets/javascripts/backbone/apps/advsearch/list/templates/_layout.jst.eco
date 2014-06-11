@@ -9,12 +9,12 @@
       <div class="col-md-8 col-md-offset-2 text-left">
       <!-- Search input-->
         <div id="accordion">          
-          <h2 class="col-md-offset-2 black" style="text-align: left;">Advanced Search</h2> 
+          <h2 class="col-md-offset-1 col-xs-offset-2 text-left black" style="text-align: left;">Advanced Search</h2> 
           </br>
           <hm3>
             <p>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-2 control-label small" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-2  col-md-offset-2 col-xs-offset-0 text-left control-label small" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
                 <div class="col-md-4">
                   <input id="searchinput1" rel="tooltip" title="The name of the station stop" name="searchinput1" placeholder="<%="#{gon.name}" if ("#{gon.name}" != 'undefined') and ("#{gon.name}" != '') %>" class="form-control input-md" type="search">
                 </div>
@@ -27,7 +27,7 @@
       <!-- Search input-->
             <div>
                 <div class="form-group">
-                  <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-2 control-label small" for="searchinput2">Municipality  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                  <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-2 col-md-offset-2 col-xs-offset-0 text-left control-label small" for="searchinput2">Municipality  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
                   <div class="col-md-4" style="margin-right: 20px;">
                     <input id="searchinput2" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" name="searchinput2" placeholder="<%="#{gon.muni_name}" if ("#{gon.muni_name}" != 'undefined') and ("#{gon.muni_name}" != '')%>" class="form-control input-md" type="search">
                     <p class="help-block"></p>
@@ -35,7 +35,7 @@
                 </div>
             <!-- Select Basic -->
                 <div class="form-group">
-                  <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-2 control-label small" for="selectbasic2">Service Type <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                  <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-2 col-md-offset-2 col-xs-offset-0 text-left control-label small" for="selectbasic2">Service Type <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
                   <div class="col-md-4" style="margin-right: 20px;">
                     <select id="selectbasic2" data-filter="true" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control selectpicker">
                       <option value=""><%="#{gon.service_type}" if "#{gon.service_type}" != 'undefined'%></option>
@@ -84,7 +84,7 @@
         
         <!-- Select Basic -->
               <div class="form-group">
-                <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-2 control-label small" for="selectbasic3">Station Type<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Station Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-2 col-md-offset-2 col-xs-offset-0 text-left control-label small" for="selectbasic3">Station Type<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Station Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
                 <div class="col-md-4" style="margin-right: 20px;">
                   <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
                     <option value=""><%="#{gon.station_type}" if "#{gon.station_type}" != 'undefined'%></option>
@@ -101,7 +101,7 @@
 
         <!-- Select Basic -->
               <div class="form-group">
-                <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-2 control-label small" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-2 col-md-offset-2 col-xs-offset-0 text-left control-label small" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
                 <div class="col-md-4" style="margin-right: 20px;">
                   <select id="selectbasic4" name="selectbasic4" class="form-control selectpicker">
                     <option value=""><%="#{gon.etod_group}" if "#{gon.etod_group}" != 'undefined'%></option>
@@ -120,7 +120,7 @@
           <hm3>
             <div class="form-group">
               <br>
-              <p class="col-md-offset-2 col-xs-offset-4 text-left"><strong>Transportation</strong></p>
+              <p class="col-md-offset-2 col-xs-offset-0 text-left"><strong>Transportation</strong></p>
               <label href="#" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" class="col-md-4 col-xs-2 control-label small" for="searchinput6">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="VMT"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               <div class="col-md-8 col-xs-12">
                  <span class="inlinesparklinevmt"></span></br>
