@@ -151,6 +151,43 @@
                 $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '450', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
             
             $(document).ready ->
+              $("#dialog-modal").dialog 
+                position:
+                    my: "center"
+                    at: "center"
+                    of: "#main-region"
+                autoOpen: false
+                closeOnEscape: true
+                width: 600
+                show:
+                    effect: "blind"
+                    duration: 100  
+                hide:
+                    effect: "blind"
+                    duration: 100
+                title: 
+                    $("[rel=tooltipd]").title
+              $(".selectpicker").selectpicker()
+              $("[rel=tooltipd]").click (event, ui) ->
+                $("#dialog-modal").dialog 
+                dictionaryResponse = $.ajax
+                        url: "/dictionary_entries.json?by_name=#{@.title}"
+                        done: (result) =>
+                            return result
+                dictionary = dictionaryResponse.complete()
+                dictionary.done =>
+                    dictionaries = dictionary.responseJSON
+                    $("#dialog-modal").dialog "open"
+                    $("#dialog-modal").dialog title: "Data Dictionary"
+                    $("#dialog-modal").html("")
+                    $("#dialog-modal").html("#{dictionaries["0"].description}")
+              $("#searchinput2").autocomplete
+                source: gon.muni_names.muni_names
+                minLength: 3
+                select: (event, ui) ->
+                    console.log event.view.gon
+                    console.log ui.item.value.toLowerCase()      
+              $("[rel=tooltip]").tooltip placement: "top"  
               fm_options =
                 bootstrap: true
                 show_radio_button_list: false
@@ -174,85 +211,10 @@
                   fail_color: "#d2322d"
                   delay_success_milliseconds: 3500
                   send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
-              #init feedback_me plugin
               fm.init fm_options
-              return
             $("html, body").animate
                   scrollTop: 0
                 , 600         
-            $(document).ready ->
-                $("#fpaccordion").accordion 
-                    header: "hm2" 
-                    active: "false"
-                    heightStyle: "content"
-                    collapsible: true
-                    icons:
-                        header: "ui-icon-plus"
-                        activeHeader: "ui-icon-minus"
-            $(document).ready ->
-              $("#accordion").accordion 
-                header: "hm3" 
-                heightStyle: "content"
-                collapsible: true
-                icons:
-                    header: "ui-icon-plus"
-                    activeHeader: "ui-icon-minus"
-               return     
-              $("[rel=tooltip]").tooltip placement: "top"
-              $("#dialog-modal").dialog 
-                    position:
-                        my: "center"
-                        at: "center"
-                        of: "#main-region"
-                    autoOpen: false
-                    closeOnEscape: true
-   
-                    show:
-                        effect: "blind"
-                        duration: 100  
-                    hide:
-                        effect: "blind"
-                        duration: 100
-                    title: 
-                        $("[rel=tooltipd]").title
-
-               
-                $("#dialog-modal").dialog beforeClose: (event, ui) ->
-                    $("#accordion").accordion "enable"
-
-                $("#searchbuttom").click (event, ui) ->
-                    console.log "advanced search clicked"
-
-
-                $("[rel=tooltipd]").click (event, ui) ->
-                    console.log @
-                    console.log @.title
-                    $("#dialog-modal").dialog 
-                    dictionaryResponse = $.ajax
-                            url: "/dictionary_entries.json?by_name=#{@.title}"
-                            done: (result) =>
-                                return result
-                    dictionary = dictionaryResponse.complete()
-                    dictionary.done =>
-                        dictionaries = dictionary.responseJSON
-                        console.log dictionaries["0"].description if dictionaries["0"]
-                        $("#dialog-modal").dialog "open"
-                        $("#dialog-modal").dialog title: "Data Dictionary"
-                        $("#dialog-modal").html("")
-                        $("#dialog-modal").html("#{dictionaries["0"].description}")
-              $(".selectpicker").selectpicker()
-              $("#searchinput5").autocomplete
-                source: ["<", ">", "="]
-                minLength: 0
-            $(document).ready ->
-              $("#searchinput2").autocomplete
-                source: gon.muni_names.muni_names
-                minLength: 3
-                select: (event, ui) ->
-                    console.log event.view.gon
-                    console.log ui.item.value.toLowerCase()      
-              return
-
 
         events: 
             'click #searchbuttom': 'inputChange'
