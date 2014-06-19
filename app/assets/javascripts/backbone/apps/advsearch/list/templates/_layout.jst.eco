@@ -2,7 +2,7 @@
   <div class="row">
 <!-- simple search form - start -->
     <form class="form-horizontal well well-lg" style="margin-top: 10px;">
-      <fieldset>
+      <fieldset id="adv-fields">
       <!-- Form Name -->
       </br>
       <!-- <h3 class="small">Search by:</h3> -->
