@@ -24,7 +24,7 @@
 		<hm3>
 				<p class="hm5">eTOD</p>
 				<p class="h5">
-					<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="eTOD Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong><a href="#" rel="tooltipr" title="Refine by <%= "#{@properties.etod_type}" %>"><%= "#{@properties.etod_type}" %></a><a href="#" rel="tooltiprf" title="by_etod_category=<%= "#{@properties.etod_type}" %>"><span class="glyphicon glyphicon-filter"></span></a>
+					<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="eTOD Group"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_type}" %>
 				</p>
 		</hm3>
 				<div>
@@ -61,8 +61,8 @@
 					<br><span class="inlinesparklinevehphh"></span>
 				    </br>
 					<strong href="#" rel="tooltipu" title="Percentage of total commuting miles for which transit was used">Transit Share of Commuting miles <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="commute mile share" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{(@properties.ov_trnpcmi * 100).toFixed 2} %" %>
-					<br><span class="inlinesparklinetrnpcmi"></span>
-					<strong href="#" rel="tooltipu" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor">Greenhouse Gas Emissions from transportation: <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ghg" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_ghg.toFixed 2}" %>
+					<br><span class="inlinesparklinetrnpcmi"></span><br>
+					<strong href="#" rel="tooltipu" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor">GHG Emissions-Transportation: <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ghg" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_ghg.toFixed 2}" %>
 					<br><span class="inlinesparklineghg"></span>
 				</p>
 			</div>

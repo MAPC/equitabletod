@@ -3,8 +3,11 @@
 		<div id="detailscol" class="col-md-4 col-md-offset-0 text-left" style="padding-left: 35px;">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-0 text-left">
-						<span id="titlepage"></span>
+					<div class="col-md-12 col-xs-10 col-md-offset-0 text-left">
+						<div class="row">
+							<div class="col-md-10 col-xs-8 text-left"><span id="titlepage"></span></div>
+							<div id="panel" class="col-md-1 col-xs-1 text-right" style="min-height: 1px; padding-left: 5px; padding-top: 20px;"></div><div id="dllink" class="col-md-1 col-xs-1 text-right" style="padding-top: 20px;"></div>
+						</div>
 						<div class="row">
 							<div class="col-md-12 col-md-offset-0 text-left">
 								<icon id="navigationsbl"></icon><span id="titlename"></span><icon id="navigationsbr"></icon>
@@ -31,9 +34,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-0 text-left">
-			<div id="panel" class="col-md-3 col-xs-5 text-left">></div>
 			<div id="print-region" class="col-md-2 col-xs-4 text-left"></div>
-			<div id="dllink" class="col-md-4 col-md-offset-1 col-xs-8 text-left"></div>
 		</div>
 	</div>
 </div>	
