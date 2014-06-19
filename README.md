@@ -50,6 +50,16 @@ Or, put fake sample data into the database by running `rake db:seed`.
 
 When you are ready to run the server, run `rails s` (short for `rails server`).
 
+```ruby
+$ rails c
+> copy_filedata("#{Rails.root}/db/fixtures/latest-csv.csv", :station_areas)
+```
+
+```sh
+$ rake db:seed
+```
+
+
 
 
 ## Check that it's working
