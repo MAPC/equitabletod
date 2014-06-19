@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
 body {
-  font-family: 'Lato';
+  font-family: 'Lato', sans-serif;
   height: 100%;
   font-weight: 400;
   padding: 60px 0px;
@@ -19,8 +19,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Rokkitt', serif;
-  color: $subheadings;
+  font-family: 'Lato', sans-serif;
+  color: black;
 }
 a {
 	color: #FF6633;
@@ -33,10 +33,12 @@ p.footertext {
 /*.navbar */
 .navbar {
  margin-bottom: 2px;
+ margin-left: 15%;
+ margin-right: 5%;
 }
 /* title */
 .navbar-default .navbar-brand {
-  font-family: 'Rokkitt';
+  font-family: 'Lato', sans-serif;
   font-size: 24px;
     color: #fff;
     transition: all 0.3s ease-in-out 0s;    
@@ -90,13 +92,33 @@ ul.tod {
 }
 .feedback_trigger.fm_bootstrap.left-top {
   background-color: white;
-  margin-left: 470px;
+  margin-left: 465px;
   opacity: .8;
 }
+.feedback_trigger.left-top {
+  position: fixed;
+  top: 120px;
+  left: 0;
+}
+.slider.slider-horizontal {
+  width: 450px;
+  height: 5px;
+}
+.slider-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+}
 #header-region {
+  position: relative;
+  width: 100%;
   background-color: black;
   padding-top: 2px;
   padding-bottom: 0px;
+  z-index: 3000;
+}
+#header {
+  z-index: 32000;
 }
 #innheader {
   background-color: #000;
@@ -132,8 +154,8 @@ ul.tod {
 #logo-titles {
   position: absolute;
   background-color: rgba(250,250,250,.8);
-  border: 4px solid #FF6633;
-  left: 180px;
+  border: 1x solid #FF6633;
+  left: 380px;
 }
 #myCarousel {
   position: inherit;
@@ -235,7 +257,7 @@ ul.tod {
   position: relative;
   padding:0px;
   margin:0px;
-  width: relative;
+  width: absolute;
 }
 #accordionPrint {
   position: absolute;
@@ -262,8 +284,27 @@ ul.tod {
   padding:0px;
   margin:0px;
 }
+.ui-accordion .ui-accordion-header {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  margin-top: 0px;
+  padding: 0em .5em 0em .7em;
+  min-height: 0;
+}
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+  position: absolute;
+  left: .5em;
+  top: 20px;
+  width: 50%;
+}
+.ui-accordion .ui-accordion-content {
+  padding: 0em 1.1em;
+  border-top: 0;
+  overflow: auto;
+}
 .glyphicon{
-    font-size: small;
+    font-size: larger;
     color: gray;
     padding-left: 3px;
 }
@@ -273,6 +314,9 @@ ul.tod {
 }
 .span.filter-option.pull-left{
     font-size: 16px;
+}
+.tooltip {
+  margin-left: 20%;
 }
 .tooltip.top .tooltip-arrow {
   bottom: 0;
@@ -287,7 +331,7 @@ ul.tod {
   border: solid 1px #000;
 }
 a.print-preview {
-    background: url(img/icon-print-preview.png);
+    background: url('/assets/icon-print-preview.png');
     cursor: pointer;
     display: block;
     padding: 0 0 0 0px;
@@ -374,6 +418,9 @@ p {
   font-size: 14px;
   line-height: 22px;
 }
+.h5{
+  line-height: 44px;
+}
 .hmc {
     color: #000;
     font-size: 12px;
@@ -392,14 +439,14 @@ hr {
     width: 100%;
 }
 .navbar-default {
-font-family: 'Rokkitt';
-font-size: 24px;
+font-family: 'Lato', sans-serif;
+font-size: 14px;
   background-color: #000;
   color: white;
   border-color: #000;
 }
 .navbar-default .navbar-nav > li > a {
-color: #FF6633;
+color: #fff;
 }
 .thumbs {
     padding: 0px;
@@ -462,13 +509,13 @@ form {
 #footer {
 	height: 300px;
 	background: #FF6633; /* Old browsers */
-background: -moz-linear-gradient(top, #FF6633 0%, #FF7D52 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FF6633), color-stop(100%,#FF7D52)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #FF6633 0%,#FF7D52 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #FF6633 0%,#FF7D52 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #FF6633 0%,#FF7D52 100%); /* IE10+ */
-background: linear-gradient(to bottom, #FF6633 0%,#FF7D52 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='##FF6633', endColorstr='#FF7D52',GradientType=0 ); /* IE6-9 */
-	background-image: img('img/jumbotron3.jpg');
-	color: #fff;
+  background: -moz-linear-gradient(top, #FF6633 0%, #FF7D52 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FF6633), color-stop(100%,#FF7D52)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #FF6633 0%,#FF7D52 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #FF6633 0%,#FF7D52 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #FF6633 0%,#FF7D52 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #FF6633 0%,#FF7D52 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='##FF6633', endColorstr='#FF7D52',GradientType=0 ); /* IE6-9 */
+	background-image: url('/assets/Jumbotron3.jpg');
+	color: black;
 }

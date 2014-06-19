@@ -132,6 +132,7 @@
 
         events: 
             'click #searchbuttom': 'inputChange'
+            'click #advSearchButtom': 'searchrefineFired'
             'click #etod': 'etodFired'
             'click #gsa': 'gsaFired'
             'click #resetbuttom':  'resetFormArgs' 
@@ -229,6 +230,9 @@
         gsaFired: (e) =>
             App.vent.trigger "gsaFired"
 
+        searchrefineFired: (e) =>
+            App.vent.trigger "searchrefineFired"
+            
         fireSimpleSearch: (e) =>
             console.log "i get the click"
             $("html, body").animate
