@@ -67,5 +67,8 @@
 			  window.open "data:text/csv;charset=utf-8," + escape(csv)
 			  return
 
+		events:
+			"click #guidClick": "guidFired"
 
-
+		guidFired: (e) =>
+			App.vent.trigger "guidFired"

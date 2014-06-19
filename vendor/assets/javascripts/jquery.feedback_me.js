@@ -481,6 +481,18 @@ var fm = (function () {
 							+  iframe_html
 							+  fm_options.custom_html
 						+ '</div>');
+		$('#adv-fields').append('<div onclick="fm.stopPropagation(event);fm.triggerAction(event);" class="feedback_trigger feedback_trigger_closed ' + fm_options.position + jQueryUIClasses1 + fm_class + jquery_class + bootstrap_class + bootstrap_hero_unit + '">'
+				+	'<span class="feedback_trigger_text">' + fm_options.trigger_label
+				+	'</span></div>');
+
+		$('#adv-fields').append('<div class="feedback_content feedback_content_closed ' + fm_options.position + email_feedback_content_class + radio_button_list_class + jQueryUIClasses2 + fm_class + jquery_class + bootstrap_class + bootstrap_hero_unit + '">'
+							+ '<div class="feedback_title ' + jQueryUIClasses1 + jQueryUIClasses3 + '">'
+							+	'<span class="' + jQueryUIClasses4 + '">' + fm_options.title_label + '</span>'
+							+ '</div>'
+							+  form_html
+							+  iframe_html
+							+  fm_options.custom_html
+						+ '</div>');
 
 		if (fm_options.jQueryUI === true) {
 			$('.feedback_submit').button({

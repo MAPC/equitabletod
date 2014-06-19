@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
 @import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
 body {
-  font-family: 'Lato';
+  font-family: 'Lato', sans-serif;
   height: 100%;
   font-weight: 400;
   padding: 60px 0px;
@@ -19,7 +19,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Rokkitt', serif;
+  font-family: 'Lato', sans-serif;
   color: black;
 }
 a {
@@ -33,10 +33,12 @@ p.footertext {
 /*.navbar */
 .navbar {
  margin-bottom: 2px;
+ margin-left: 15%;
+ margin-right: 5%;
 }
 /* title */
 .navbar-default .navbar-brand {
-  font-family: 'Rokkitt';
+  font-family: 'Lato', sans-serif;
   font-size: 24px;
     color: #fff;
     transition: all 0.3s ease-in-out 0s;    
@@ -97,6 +99,15 @@ ul.tod {
   position: fixed;
   top: 120px;
   left: 0;
+}
+.slider.slider-horizontal {
+  width: 450px;
+  height: 5px;
+}
+.slider-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
 }
 #header-region {
   position: relative;
@@ -246,7 +257,7 @@ ul.tod {
   position: relative;
   padding:0px;
   margin:0px;
-  width: relative;
+  width: absolute;
 }
 #accordionPrint {
   position: absolute;
@@ -285,14 +296,15 @@ ul.tod {
   position: absolute;
   left: .5em;
   top: 20px;
+  width: 50%;
 }
 .ui-accordion .ui-accordion-content {
-  padding: 0em 2.2em;
+  padding: 0em 1.1em;
   border-top: 0;
-overflow: auto;
+  overflow: auto;
 }
 .glyphicon{
-    font-size: small;
+    font-size: larger;
     color: gray;
     padding-left: 3px;
 }
@@ -406,6 +418,9 @@ p {
   font-size: 14px;
   line-height: 22px;
 }
+.h5{
+  line-height: 44px;
+}
 .hmc {
     color: #000;
     font-size: 12px;
@@ -424,7 +439,7 @@ hr {
     width: 100%;
 }
 .navbar-default {
-font-family: 'Lato', sans-serif;;
+font-family: 'Lato', sans-serif;
 font-size: 14px;
   background-color: #000;
   color: white;
@@ -502,5 +517,5 @@ form {
   background: linear-gradient(to bottom, #FF6633 0%,#FF7D52 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='##FF6633', endColorstr='#FF7D52',GradientType=0 ); /* IE6-9 */
 	background-image: url('/assets/Jumbotron3.jpg');
-	color: #FFFFFF;
+	color: black;
 }
