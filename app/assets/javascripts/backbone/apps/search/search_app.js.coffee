@@ -11,9 +11,11 @@
     showSimpleSearch: (searchargs)->
       SearchApp.Search.Controller.showSimpleSearch()
 
-
   SearchApp.vent.on "searchFired", ->
     App.vent.trigger "searchFired"
+
+  SearchApp.vent.on "searchrefineFired", ->
+    App.vent.trigger "searchrefineFired"
 
   SearchApp.on "start", ->
     API.showSimpleSearch()  

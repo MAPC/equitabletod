@@ -5,8 +5,6 @@
         template: "main/search/templates/simple_search_layout" 
         
         onShow: ->
-            gon.paginate = false
-            gon.page_number = -1
             $(document).ready ->
                 $("#boxplot").html ""
                 $("#fpaccordion").accordion 
@@ -36,10 +34,6 @@
                         duration: 100
                     title: 
                         $("[rel=tooltipd]").title
-
-               
-                $("#dialog-modal").dialog beforeClose: (event, ui) ->
-                    $("#accordion").accordion "enable"
 
                 $("[rel=tooltipd]").click (event, ui) ->
                     console.log @
@@ -98,7 +92,7 @@
                                 $("#dialog-modal").html("")
                                 $("#dialog-modal").html("Search has no results, Please try again with different parameteres")
               
-                $(window).scroll (options) ->
+            $(window).scroll (options) ->
                     if $(window).scrollTop() + $(window).height() > $(document).height() - .75 * $(document).height()
                         $(window).unbind "scroll"
                         @names = App.request "set:name", gon.names.names
@@ -140,6 +134,7 @@
 
         events: 
             'click #searchbuttom': 'inputChange'
+            'click #advSearchButtom': 'searchrefineFired'
             'click #etod': 'etodFired'
             'click #gsa': 'gsaFired'
             'click #resetbuttom':  'resetFormArgs' 
@@ -236,6 +231,9 @@
 
         gsaFired: (e) =>
             App.vent.trigger "gsaFired"
+
+        searchrefineFired: (e) =>
+            App.vent.trigger "searchrefineFired"
 
         fireSimpleSearch: (e) =>
             console.log "i get the click"

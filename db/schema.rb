@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140519173537) do
+ActiveRecord::Schema.define(:version => 20140527204954) do
 
   create_table "dictionary_entries", :force => true do |t|
     t.string   "name"
@@ -130,6 +130,10 @@ ActiveRecord::Schema.define(:version => 20140519173537) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.string   "line_descr"
+    t.decimal  "ov_emppipe"
+    t.decimal  "ex_emppipe"
+    t.decimal  "ov_hupipe"
+    t.decimal  "ex_hupipe"
   end
 
   create_table "station_areas_transit_lines", :force => true do |t|

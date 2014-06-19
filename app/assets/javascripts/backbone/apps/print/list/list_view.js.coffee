@@ -372,9 +372,7 @@
                     -76
                 ]
                 )
-
-            stationIcon = new LeafIcon(iconUrl: "../../../../../../../../img/icon_97.png")
-
+                
             geoCollection =  gon.feature
 
             fstation = new L.GeoJSON geoCollection,

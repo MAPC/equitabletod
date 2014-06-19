@@ -5,5 +5,11 @@
 		regions: 
 			etodRegion: "#etod-region"
 
+		onShow: ->
+			$(document).ready -> 
+                $("html, body").animate
+                  scrollTop: 0
+                , 600
+
 
 
