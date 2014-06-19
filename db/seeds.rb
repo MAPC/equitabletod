@@ -72,7 +72,13 @@ def dictionary_entries
    technical_notes  = csv_obj['technical_notes']
    order            = csv_obj['order']
    
-   record = DictionaryEntry.create(code: code, description: description, importance: importance, interpretation: interpretation, name: name, technical_notes: technical_notes, order: order)
+   record = DictionaryEntry.create(code:            code, 
+                                   description:     description, 
+                                   importance:      importance, 
+                                   interpretation:  interpretation, 
+                                   name:            name, 
+                                   technical_notes: technical_notes, 
+                                   order:           order          )
    record.save!
    puts record.id
   end
@@ -89,10 +95,11 @@ def transit_lines
     record.save!
   end
 end
+
 def station_areas
   StationArea.destroy_all
   ActiveRecord::Base.connection.reset_pk_sequence!("station_areas")
-  copy_filedata("#{Rails.root}/db/fixtures/station_areas_14_05_27.csv", :station_areas)
+  copy_filedata("#{Rails.root}/db/fixtures/station_areas_06_19_14.csv", :station_areas)
 end
 
 def station_areas_transit_lines_crosswalk
