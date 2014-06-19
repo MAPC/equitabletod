@@ -147,7 +147,7 @@
 					<strong href="#" rel="tooltipu" title="Percentage of all households in station area that do not own a car">Zero-Car Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Zero Car" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{(@properties.ov_hhnocar.toFixed 2) * 100}%" %>
 					<br><span class="inlinesparklinehhnocar"></span>
 				<br>
-					<strong href="#" rel="tooltipd" title="Percentage of households with at least one bachelors degree">Educational Attainment <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="educational" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_ed_att.toFixed 2}" %>
+					<strong href="#" rel="tooltipu" title="Percentage of households with at least one bachelors degree">Educational Attainment <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="educational" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{(@properties.ov_ed_att.toFixed 3) * 100}%" %>
 					<br><span class="inlinesparklineedatt"></span>
 				</p>
 			</div>

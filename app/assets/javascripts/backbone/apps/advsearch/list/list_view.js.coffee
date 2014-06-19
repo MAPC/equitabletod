@@ -149,6 +149,34 @@
                 $(".inlinesparklinehhnocar").sparkline [0, 0.06658, 0.20144, 0.36543, 0.6522], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '800', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'                       
                 $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '775', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                 $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '450', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+            
+            $(document).ready ->
+              fm_options =
+                bootstrap: true
+                show_radio_button_list: false
+                show_email: false
+                name_placeholder: "boxplot"
+                title_label : ""
+                trigger_label : "How to Read Diagrams"
+                custom_html: '<div id="boxplot" class="col-md-6 class="col-xs-4"><p style="line-height: 1.8em; text-align: justify; font-size: 12px; background-color: white;">The box plot (a.k.a. box and whisker diagram) is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plot here show data distribution for all the station areas, where the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and "whiskers" above and below the box show the locations of the minimum and maximum for all staton areas. The red + indicates the current station value for the field. </p></div><div class="col-md-6 class="col-xs-4"><img src="img/boxplotsimple08.png" class="img-responsive" alt="Box Plot"></div>'
+                show_form: false
+                name_required: false
+                close_on_click_outisde: true
+                message_placeholder: "Go ahead, type your feedback here..."
+                feedback_url: "send_feedback_bootstrap"
+                custom_params:
+                  csrf: "my_secret_token"
+                  user_id: "john_doe"
+                  feedback_type: "bootstarp"
+
+                delayed_options:
+                  success_color: "#5cb85c"
+                  fail_color: "#d2322d"
+                  delay_success_milliseconds: 3500
+                  send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
+              #init feedback_me plugin
+              fm.init fm_options
+              return
             $("html, body").animate
                   scrollTop: 0
                 , 600         
