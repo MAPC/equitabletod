@@ -151,6 +151,8 @@
                 $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '450', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
             
             $(document).ready ->
+              #$.fancybox "<p class='fancybox' type='swf' href='img/sliderhint.swf'>Search Using Sliders</p>" 
+              $(".fancybox").eq(0).trigger "click"
               $("#dialog-modal").dialog 
                 position:
                     my: "center"
