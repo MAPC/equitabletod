@@ -20,7 +20,6 @@
 //= require ../../../vendor/assets/javascripts/jquery-ui-1.10.4.custom.min.js
 //= require ./backbone/leaflet.js
 //= require ./backbone/backbone.leaflet.js
-//= require ../../../vendor/assets/javascripts/jquery.jcarousel-core.js
 //= require ../../../vendor/assets/javascripts/d3.js
 //= require ../../../vendor/assets/javascripts/RadarChart.js
 //= require ../../../vendor/assets/javascripts/Semicircle.js
