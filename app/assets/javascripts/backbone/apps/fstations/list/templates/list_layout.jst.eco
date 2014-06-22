@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row">		
-		<div id="detailscol" class="col-md-4 col-xs-6 col-md-offset-0 text-left" style="padding-left: 35px;">
+		<div id="detailscol" class="col-md-4 col-xs-8 col-md-offset-0 text-left" style="padding-left: 35px;">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12 col-sm-10 col-xs-8 col-md-offset-0 text-left">
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="resize-map" class="col-md-8 col-sm-4 col-xs-6 col-md-offset-0 text-left">
+		<div id="resize-map" class="col-md-8 col-sm-6 col-xs-4 col-md-offset-0 text-left">
     		<div id="map-region">
 				<div id="map-container">
 					<div id="maplist"></div>

@@ -211,6 +211,7 @@
                 $("[rel=tooltipr]").tooltip placement: "top"
                 $("#detailscol").resizable()
                 $("#resize-map").resizable()
+                $("#map-region").resizable()
                 $("[rel=tooltiprf]").click (event, ui) ->
                     $("#accordion").accordion "disable"
                     gon.query = "#{@.title}&" + gon.query
