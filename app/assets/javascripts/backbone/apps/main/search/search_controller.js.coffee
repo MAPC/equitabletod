@@ -2,6 +2,7 @@
 	Search.Controller =
 
 	  	showSimpleSearchForm: ->
+            # getting all data for calculating stats
 	  		searchargs = App.request 'searcharg:entities'
 	  		allfeaturesResponse = $.ajax
                     url: "/search.json?by_name="
@@ -12,7 +13,7 @@
             allfeature.done =>
                 allfeatures = allfeature.responseJSON
                 features = _.values allfeatures.features 
-                # make arrays of all values for each field #
+                # make arrays of all values for each field 
                 fars = _.map features, (key, value) -> key.properties.ov_far
                 hhincs = _.map features, (key, value) -> key.properties.ov_hhinc
                 vmts = _.map features, (key, value) -> key.properties.ov_vmthday
@@ -106,7 +107,7 @@
                 minhhnocar = hhnocars.reduce (a,b) -> Math.min a, b
                 maxedatt = edatts.reduce (a,b) -> Math.max a, b
                 minedatt = edatts.reduce (a,b) -> Math.min a, b
-                # assign max min values to gon #
+                # assign max min values to gon object
                 gon.minhhinc = minhhinc
                 gon.maxhhinc = maxhhinc
                 gon.minvmt = minvmt
