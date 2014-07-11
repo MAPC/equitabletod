@@ -3,13 +3,8 @@
   App = new Marionette.Application 
 
   App.on "initialize:before", (options) ->
-    console.log "options:"
-    console.log options
-    #@names = App.request "set:name", options.names
-    #@muni_names = App.request "set:muni_name", options.muni_names
-    #console.log "@muni_names: "
-    #console.log @muni_names
-    #@transit_lines = App.request "set:transit_line", options.
+    # console.log "options:"
+    # console.log options
 
   RegionMan = new Marionette.RegionManager
   App.vent = new Backbone.Wreqr.EventAggregator()
