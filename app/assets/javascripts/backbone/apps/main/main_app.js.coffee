@@ -3,7 +3,7 @@
   
   class MainApp.Router extends Marionette.AppRouter
     appRoutes:
-      "home": "showSimpleSearchForm"
+      "/": "showSimpleSearchForm"
 
   MainApp.vent = new Backbone.Wreqr.EventAggregator()
   

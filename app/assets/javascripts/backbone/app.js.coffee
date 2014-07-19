@@ -28,7 +28,7 @@
     App.navigate "gsa/", trigger: true
 
   App.vent.on "guidFired", ->
-    App.navigate "guid/", trigger: true
+    App.navigate "guide/", trigger: true
 
   App.vent.on "datadlFired", ->
     App.navigate "datadl/", trigger: true
@@ -60,6 +60,6 @@
   App.on "initialize:after", (options) ->
     if Backbone.history
       Backbone.history.start()
-      @navigate("home/", trigger: true) if @getCurrentRoute() is ""
+      @navigate("/", trigger: true) if @getCurrentRoute() is ""
 
   App

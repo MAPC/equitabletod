@@ -2,7 +2,7 @@
 	@startWithParent = false
 	class UsrguidApp.Router extends Marionette.AppRouter
 		appRoutes:
-			"guid/": "showUsrGuid"
+			"guide/": "showUsrGuid"
 		
 	API =
 		showUsrGuid: ->
