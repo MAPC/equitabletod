@@ -16,19 +16,12 @@
                     	return result
             allfeature = allfeaturesResponse.complete()
             allfeature.done =>
-                ###if _.isEmpty gon.features
-                    allfeatures = allfeature.responseJSON
-                    features = _.values allfeatures.features
-                else if (gon.feature != gon.features) and (gon.searchresults = [])
-                    features = gon.features 
-                else###
                 allfeatures = allfeature.responseJSON
                 features = _.values allfeatures.features
                 pfeatures = _.values allfeatures.features
                 pjfeatures = pfeatures.map (pf) -> pf.properties
                 gon.jfeatures = JSON.stringify(pjfeatures)
-                #console.log jfeatures
-                #$("#json").html "#{jfeatures}"
+                
 
 			JSON2CSV = (objArray) ->
 			  array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)

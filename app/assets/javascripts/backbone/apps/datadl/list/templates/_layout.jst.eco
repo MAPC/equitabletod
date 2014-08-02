@@ -6,7 +6,6 @@
 				</p>
 				<p class="hm2">
 					The full dataset available in this download includes all data elements shown on the Station Area Details screen, plus additional data, for a total of over 150 variables for over 300 station areas.  
-					<!-- <button id='downloaddata' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-1'>Download Data</button> -->
 				</p>
 				<br>
 				<p class="hm2">
@@ -19,11 +18,7 @@
 				<button id="download" type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download CSV</button>
 			</br>
 			<br>
-				<br>
-				<!-- <p class="hm2">
-					For GIS users, the necessary shapefiles are available for download here:  
-				</p>
-				<button id='downloadshapefile' type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download Shapefile</button> -->
+			<br>
 			</div>
 		</div>
 	</div>

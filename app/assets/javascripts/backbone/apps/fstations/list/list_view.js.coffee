@@ -153,8 +153,6 @@
                 $("#titlepage").html "<p class='h3'>Stations Area Details</p>"
                 $("#titlename").html "<span class='h4'>  #{gon.feature['0'].properties.name}  </span>"
                 $("#dllink").html "<span class='glyphicon-class'></span> <a href='#' id='download'><span class='glyphicon glyphicon-download' rel='tooltipb' title='Download Data for This Station' >  </span></a>"
-                #$("#backto").on "click", ->
-                    #window.history.back();
                 JSON2CSV = (objArray) ->
                   array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
                   str = ""
@@ -237,9 +235,9 @@
 			$("[rel=tooltip]").tooltip track: true
 			$("#accordion").accordion 
                 header: "hm3" 
-                active: 1
-                #heightStyle: "content"
-                autoHeight: true
+                active: -1 # the index of accordion category to show expanded by inititiation
+                heightStyle: "content"
+                autoHeight: false
                 width: 100
                 collapsible: true
                 icons:
@@ -273,7 +271,6 @@
                     names = (_.pluck key, 'name')
                     names[2].toLowerCase()
                 console.log names
-			# create some people
 			station = [
 			  {
 			    name: names
@@ -424,12 +421,6 @@
                 geoCollection = gon.features 
 			fstations = new L.GeoJSON geoCollection,   
 				pointToLayer: (feature, latlng) ->
-                    ###L.circle latlng, 804.672,
-                      fillColor: "#FFFFFF"
-                      color: "#000"
-                      weight: 1
-                      opacity: 0.3
-                      fillOpacity: 0.5###
 
                     L.Icon.Default.imagePath = "/assets"
                     L.marker(latlng).on 'mouseover', (e) ->
@@ -567,8 +558,6 @@
                     totscore = gon.feature["0"].properties.etod_total
                     $("#dialog-chart").dialog "open"
                     $("#dialog-chart").html("Transit Score: #{sub1}<br>Orientation Score: #{sub2}<br>Development Score: #{sub3}<br><hr>Total Score: #{totscore}")
-            #printControl = L.control.print(provider: printProvider)
-            #map.addControl printControl
 
 			
 
