@@ -151,7 +151,6 @@
                 $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '450', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
             
             $(document).ready ->
-              #$.fancybox "<p class='fancybox' type='swf' href='img/sliderhint.swf'>Search Using Sliders</p>" 
               $(".fancybox").eq(0).trigger "click"
               $("#dialog-modal").dialog 
                 position:
@@ -234,7 +233,6 @@
             if muni_name is undefined
                 qury = ""
             else
-                #name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
                 qury = "by_muni_name=#{muni_name}".replace(/\s*\(.*?\)\s*/g, "")
             name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
             if name is undefined
@@ -256,7 +254,6 @@
                 qury = qury + ""
             else
                 qury = qury + "&by_etod_category=#{etod_group}".replace(/\s*\(.*?\)\s*/g, "")
-            #gon.etod_group = "#{etod_group}"
             # pick the advanced search values from slider #
             ## by_vmt ##
             vmt = $('#slider6').val().replace(" ", "%20").toLowerCase() if $('#slider6').val()
@@ -444,9 +441,6 @@
                 qury = "#{qury}" + "&by_education_attainment[min]=#{education_attainment_min}&by_education_attainment[max]=#{education_attainment_max}".replace(/\s*\(.*?\)\s*/g, "")
             
             query = "#{qury}"
-            # here would are the basic validation and if passed the vent will trigger
-            #urlstr = "/search.json?" + "#{gon.query}" + "#{query}".replace(/\s*\(.*?\)\s*/g, "")
-            #console.log urlstr
             gon.query = "#{query}".replace(/\s*\(.*?\)\s*/g, "")
 
             App.vent.trigger "searchFired", gon.query

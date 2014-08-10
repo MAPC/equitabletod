@@ -63,7 +63,6 @@
                     $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", target: fedatt, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '215', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                     $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", target: fwalkscore, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                
-            console.log @model
             fm_options =
                 bootstrap: true
                 show_radio_button_list: false
@@ -97,7 +96,6 @@
                   scrollTop: 0
                 , 600
                 $("body").removeClass "nav-expanded"        
-                #$("#print-region").prepend '<a id="printpaker" class="print-preview"><button>Print PDF</button></a>'
                 $("#printpaker").click ->
                     $("a.print-preview").printPreview()
                     App.vent.trigger "printFired"                    
@@ -109,42 +107,18 @@
                 $("#previousbuttom").click (event)->
                     @fstation = gon.feature
                     @fstations = gon.fstations     
-                    console.log @fstations
-                    console.log @fstation
                     fstationsList = @fstations.models
-                    console.log gon.feature["0"].properties.name
                     thisFeature = _.find fstationsList, (key, value) -> gon.feature["0"].properties.name == key.attributes.properties.name
-                    console.log "this:"
-                    console.log thisFeature
-                    console.log "this cid:"
-                    console.log thisFeature.cid
-                    console.log thisFeature.cid.slice(1)
                     nextCid = parseInt(thisFeature.cid.slice(1)) - 1 
-                    console.log nextCid
                     nextFeature = _.find fstationsList, (key, value) -> nextCid == parseInt(key.cid.slice(1))
-                    console.log fstationsList
-                    console.log "nextFeature: "
-                    console.log nextFeature
                     App.vent.trigger "searchFired", "by_name=#{nextFeature.attributes.properties.name}"
                 $("#nextbuttom").click ->
                     @fstation = gon.feature
                     @fstations = gon.fstations     
-                    console.log @fstations
-                    console.log @fstation
                     fstationsList = @fstations.models
-                    console.log gon.feature["0"].properties.name
                     thisFeature = _.find fstationsList, (key, value) -> gon.feature["0"].properties.name == key.attributes.properties.name
-                    console.log "this:"
-                    console.log thisFeature
-                    console.log "this cid:"
-                    console.log thisFeature.cid
-                    console.log thisFeature.cid.slice(1)
                     nextCid = parseInt(thisFeature.cid.slice(1)) + 1 
-                    console.log nextCid
                     nextFeature = _.find fstationsList, (key, value) -> nextCid == parseInt(key.cid.slice(1))
-                    console.log fstationsList
-                    console.log "nextFeature: "
-                    console.log nextFeature
                     App.vent.trigger "searchFired", "by_name=#{nextFeature.attributes.properties.name}"
                 pfeature = _.values gon.feature
                 pjfeature = pfeature.map (pf) -> pf.properties
@@ -213,7 +187,6 @@
                 $("[rel=tooltiprf]").click (event, ui) ->
                     $("#accordion").accordion "disable"
                     gon.query = "#{@.title}&" + gon.query
-                    console.log "custom rel clicjing"
                     App.vent.trigger "searchFired", gon.query
                 $("[rel=tooltipd]").click (event, ui) ->
                     $("#accordion").accordion "disable"
@@ -289,7 +262,6 @@
             $("[rel=tooltipu]").tooltip placement: "top"
             $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a> "
             $("[rel=tooltiprf]").click (event, ui) ->
-                console.log "i get the clicj"
                 gon.query = "#{@.title}&" + gon.query
                 App.vent.trigger "searchFired", gon.query
             $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download This Data</button>"

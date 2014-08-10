@@ -17,7 +17,7 @@
                         header: "ui-icon-plus"
                         activeHeader: "ui-icon-minus"
             $(document).ready ->
-              # make sure the titles element is empty  
+              # empty the space for title element 
               $("#titles").html "<p class='h2'></p>" 
               # initiate the default tooltip  
               $("[rel=tooltip]").tooltip placement: "top"
