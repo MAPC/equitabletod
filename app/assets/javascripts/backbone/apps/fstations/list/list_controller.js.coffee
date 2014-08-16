@@ -4,7 +4,6 @@
 
 		getFstationById: (q) ->
 			urlstr = "/search.json?" + "#{q}"
-			console.log urlstr
 			responseFeature = $.ajax
 		          	url: urlstr
 		          	done: (result) =>
@@ -20,8 +19,6 @@
 				    	gon.feature = gon.features
 				    	gon.features = gon.searchresults if gon.searchresults
 				    	gon.searchresults = []
-		    			console.log "this is gon.features being re populated using the gon.searchresults"
-		    			console.log gon.features
 		    			@layout = @getLayoutView() 	
 		    			#fstationCollection = new Backbone.Collection gon.feature
 		    			@layout.on 'show', =>
@@ -42,7 +39,6 @@
             			$(".feedback_trigger").removeClass "feedback_trigger_closed"
             			$(".feedback_trigger").html "<span></span>"
             			$(".feedback_trigger").removeClass "feedback_trigger left-top  hero-unit"
-            			console.log "layout on close event"
 		    		
 		    		App.mainRegion.show @layout
 

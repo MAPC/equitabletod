@@ -11,10 +11,12 @@
             allfeature = allfeaturesResponse.complete()
             # parsing the response fields
             allfeature.done =>
+                # tst_info_slider(allfeature)
                 allfeatures = allfeature.responseJSON
                 features = _.values allfeatures.features 
-                # make arrays of all values for each field 
-                fars = _.map features, (key, value) -> key.properties.ov_far
+              
+                #
+                fars = _.map features, (key, value) -> key.properties.ov_far 
                 hhincs = _.map features, (key, value) -> key.properties.ov_hhinc
                 vmts = _.map features, (key, value) -> key.properties.ov_vmthday
                 pcttrans = _.map features, (key, value) -> key.properties.ov_pcttran
