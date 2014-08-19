@@ -4,6 +4,7 @@
 
   class Entities.DictionaryentriesCollection extends Backbone.Collection
     model: Entities.Dictionaryentry
+    url: "/dictionary_entries.json?by_name="
 
   API = 
 

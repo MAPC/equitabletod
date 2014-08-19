@@ -251,8 +251,8 @@ ul.tod {
 #fstations-region {
     position: relative; 
     padding-top: 20px;
-    height: 880px;
     overflow: scroll;
+    height: 900px;
 }
 #fstations-region-print {
     position: relative; 
@@ -295,20 +295,6 @@ ul.tod {
   display: block;
   cursor: pointer;
   position: relative;
-  margin-top: 0px;
-  padding: 0em .5em 0em .7em;
-  min-height: 0;
-}
-.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
-  position: absolute;
-  left: .5em;
-  top: 20px;
-  width: 16px;
-}
-.ui-accordion .ui-accordion-content {
-  padding: 0em 1.1em;
-  border-top: 0;
-  overflow: auto;
 }
 .glyphicon{
     font-size: larger;
@@ -350,11 +336,30 @@ a.print-preview {
   position: fixed;
   z-index: 2001;
   opacity: 0.99;
-  min-height: 550px;
-  max-height: 550px;
+  min-height: 350px;
+  max-height: 850px;
   }
+.ui-dialog .ui-dialog-content {
+position: relative;
+border: 0;
+padding: .1em 1em;
+background: none;
+overflow: auto;
+}
 row-thums {
 	min-width: 200px;
+}
+.ui-widget-header {
+  border: 1px solid #d49768;
+  background: #FFFFFF url(images/ui-bg_glass_25_cb842e_1x400.png) 50% 50% repeat-x;
+  color: #000000;
+  font-weight: bold;
+}
+.ui-dialog-title {
+  padding-left: 5px;
+}
+.ui-dialog-titlebar-close {
+  left: 800px;
 }
 p {
     font-size: 18px;

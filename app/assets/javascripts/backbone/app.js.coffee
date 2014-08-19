@@ -12,6 +12,7 @@
   App.addRegions
     headerRegion: "#header-region"
     mainRegion:   "#main-region"
+    dictRegion:   "#dict-region"
     footerRegion: "#footer-region"
 
   RegionMan.on "region:add", (name, region) ->

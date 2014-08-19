@@ -29,7 +29,6 @@
 //= require ../../../vendor/assets/javascripts/jquery.feedback_me.js
 //= require ../../../vendor/assets/javascripts/bootstrap-slider.js
 //= require ../../../vendor/assets/javascripts/mapc-layers.js
-//= require ../../../vendor/assets/javascripts/jquery.fancybox.js
 //= require ../../../vendor/assets/javascripts/jquery.fancybox.pack.js
 //= require_tree ./backbone/config
 //= require backbone/app

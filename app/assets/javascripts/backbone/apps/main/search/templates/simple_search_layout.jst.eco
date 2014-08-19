@@ -92,7 +92,7 @@
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="LINE_DESCR"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type </a></label>
         <div class="col-md-6">
           <select id="selectbasic2" data-filter="true" name="selectbasic2" class="form-control selectpicker" title="Select">
               <option value="">Select</option>
@@ -141,7 +141,7 @@
       
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label" for="selectbasic3">Station Type<span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="STN_CLASS"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label" for="selectbasic3">Station Type</label>
         <div class="col-md-6">
           <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
             <option value="">Select</option>
@@ -161,7 +161,7 @@
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="eTOD_TYPE"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label" for="selectbasic4">eTOD Group </label>
         <div class="col-md-6">
           <select id="selectbasic4" name="selectbasic4" class="form-control selectpicker">
             <option value="">Select</option>

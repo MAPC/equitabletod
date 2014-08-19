@@ -19,12 +19,14 @@
 				    	gon.feature = gon.features
 				    	gon.features = gon.searchresults if gon.searchresults
 				    	gon.searchresults = []
+				    	gon.dictionaries = []
 		    			@layout = @getLayoutView() 	
 		    			#fstationCollection = new Backbone.Collection gon.feature
 		    			@layout.on 'show', =>
+		    				@showDictView gon.dictionaries
 		    				@showDetstations @fstations
 		    				@showDetailMap @fstations
-		    				@showChart gon.feature
+		    				#@showChart gon.feature
 		    		else
 		    			gon.length = features.length
 		    			gon.searchresults = features
@@ -40,7 +42,7 @@
             			$(".feedback_trigger").html "<span></span>"
             			$(".feedback_trigger").removeClass "feedback_trigger left-top  hero-unit"
 		    		
-		    		App.mainRegion.show @layout
+		    		App.mainRegion.show @layout 
 
 
 		showDetstations: (fstations) ->
@@ -67,6 +69,10 @@
 			detailMapView = @getDetailMapView fstation
 			@layout.mapRegion.show detailMapView
 
+		showDictView: (dictionaries) ->
+			dictView = @getDictView dictionaries
+			@layout.chartRegion.show dictView
+
 		showChart: (fstation) ->
 			chartView = @getChartView fstation
 			@layout.chartRegion.show chartView
@@ -78,6 +84,10 @@
 		getMapView: (fstationsCollection) ->
 			new List.Map
 				collection: fstationsCollection
+
+		getDictView: (dictionaries) ->
+			new List.DictView
+				collection: dictionaries.toJSON
 
 		getDetailMapView: (fstation) ->
 			new List.MapDetail
