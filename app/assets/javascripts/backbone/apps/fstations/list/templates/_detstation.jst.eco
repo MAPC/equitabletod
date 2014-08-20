@@ -1,8 +1,8 @@
 <div>
 	<div id="accordion">
 		<hm3>
-			<p class="hm2"><strong>Station Name: </strong><%= "#{@properties.name}" %></p>
-			<p class="hm1"><span class="accordion-header hm5"></span> Basic Info</p>
+			<p class="h3"> Basic Info<span class="accordion-header hm5"></span></p>
+			<p class="hm2"><strong>Station Name: </strong><%= "#{@properties.name}" %></p>			
 		</hm3>
 			<div>
 				<p class="hm2">
@@ -22,10 +22,10 @@
 				</p>
 			</div>
 		<hm3>
+				<p class="h3">eTOD<span class="accordion-header hm5"></span></p>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD"> eTOD Group <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="etod_type"><span class="glyphicon glyphicon-question-sign"></span></a></strong> <%= "#{@properties.etod_type}" %>
 				</p>
-				<p class="hm1"><span class="accordion-header hm5"></span>eTOD</p>
 		</hm3>
 				<div>
 					<div id="radar-region">
@@ -45,6 +45,7 @@
 				</div>		
 		<hm3>
 			<a>
+				<p class="h3">Transportation Performance<span class="accordion-header hm5"></span></p>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Average miles driven per day using personal automobiles, per household">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ov_vmthday" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_vmthday.toFixed 2}" %>
 					<span class="inlinesparklinevmt"></span>
@@ -52,7 +53,6 @@
 					<strong href="#" rel="tooltipu" title="Share of all commuters in the station area who use public transit for their work commute">Transit Commuter Share <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ov_pcttran" class="glyphicon glyphicon-question-sign"></span></strong>  <%= "#{@properties.ov_pcttran.toFixed 2}" %>
 					<span class="inlinesparklinepcttran"></span>
 				</p>
-				<p class="hm1"><span class="accordion-header hm5"></span>Transportation Performance</p>
 			</a>
 		</hm3>
 			<div>
@@ -68,6 +68,7 @@
 			</div>
 		<hm3>
 			<a>
+				<p class="h3">Development Context<span class="accordion-header hm5"></span></p>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located">Floor Area Ratio (FAR) </strong><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ov_far" class="glyphicon glyphicon-question-sign"></span><%= "#{@properties.ov_far.toFixed 2}" %>
 					<span class="inlinesparklinefar"></span>
@@ -75,7 +76,6 @@
 					<strong href="#" rel="tooltipu" title="Acres of surface parking within the station area">Surface Parking (acre) <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ov_prkac" class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_prkac.toFixed 2}" %>
 					<span class="inlinesparklineprkac"></span>
 				</p>
-				<p class="hm1"><span class="accordion-header hm5"></span>Development Context</p>
 			</a>
 		</hm3>
 			<div>
@@ -104,6 +104,7 @@
 			</div>
 		<hm3>
 			<a>
+				<p class="h3">Economics<span class="accordion-header hm5"></span></p>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Current employment in the station area">Number of Employees <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ov_emp10"class="glyphicon glyphicon-question-sign"></span></strong> <%= "#{@properties.ov_emp10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 					<span class="inlinesparklineemp10"></span>
@@ -111,7 +112,6 @@
 					<strong href="#" rel="tooltipu" title="Annual total property tax revenue generated in the station area, average per acre">Tax Revenue ($) <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ex_taxrev" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ex_taxrev.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}"%>
 					<span class="inlinesparklineextaxrev"></span>
 				</p>
-				<p class="hm1"><span class="accordion-header hm5"></span>Economics</p>
 			</a>
 		</hm3>
 			<div>
@@ -125,6 +125,7 @@
 			</div>
 		<hm3>
 			<a>
+				<p class="h3">Demographics<span class="accordion-header hm5"></span></p>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Total number of households in station area">Number of Households <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ov_hh10"class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_hh10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 					<span class="inlinesparklinehh10"></span>
@@ -132,7 +133,6 @@
 					<strong href="#" rel="tooltipu" title="Median household income, calculated as the average for all census tracts that intersect with this station area">Household Median Income ($) <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="ov_hhinc" class="glyphicon glyphicon-question-sign"></span></strong><%= "#{@properties.ov_hhinc.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %>
 					<span class="inlinesparklinehhinc"></span>
 				</p>
-				<p class="hm1"><span class="accordion-header hm5"></span>Demographics</p>
 			</a>
 		</hm3>
 			<div>

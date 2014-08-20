@@ -26,7 +26,7 @@
 		    				@showDictView gon.dictionaries
 		    				@showDetstations @fstations
 		    				@showDetailMap @fstations
-		    				#@showChart gon.feature
+		    				@showChart gon.feature
 		    		else
 		    			gon.length = features.length
 		    			gon.searchresults = features

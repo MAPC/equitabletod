@@ -20,7 +20,6 @@
 //= require ../../../vendor/assets/javascripts/jquery-ui-1.10.4.custom.min.js
 //= require ../../../vendor/assets/javascripts/d3.js
 //= require ../../../vendor/assets/javascripts/RadarChart.js
-//= require ../../../vendor/assets/javascripts/Semicircle.js
 //= require ../../../vendor/assets/javascripts/jquery.sparkline.js
 //= require ../../../vendor/assets/javascripts/jquery.print-preview.js
 //= require ../../../vendor/assets/javascripts/table2CSV.js
