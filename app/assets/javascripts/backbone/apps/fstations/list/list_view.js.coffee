@@ -99,7 +99,7 @@
                 $("#printpaker").click ->
                     $("a.print-preview").printPreview()
                     App.vent.trigger "printFired"                    
-                $("[rel=tooltipu]").tooltip placement: "top"
+                #$("[rel=tooltipu]").tooltip placement: "top"
                 $("#navigationsbl").html ''
                 $("#navigationsbr").html ''
                 $("#navigationsbl").html '<span class="glyphicon-class"></span><a><span id="previousbuttom" class="glyphicon glyphicon-chevron-left">  </span></a>' if gon.length > 1
@@ -263,7 +263,7 @@
             $("html, body").animate
                   scrollTop: 0
                 , "fast"
-            $("[rel=tooltipu]").tooltip placement: "top"
+            #$("[rel=tooltipu]").tooltip placement: "top"
             $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a> "
             $("[rel=tooltiprf]").click (event, ui) ->
                 gon.query = "#{@.title}&" + gon.query
