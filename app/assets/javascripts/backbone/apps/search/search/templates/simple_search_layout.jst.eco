@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row" id="search">
     <!-- simple search form - start -->  
-    <form class="form-horizontal well well-lg" style="padding-top: 0px;">
+    <form class="form-horizontal well well-lg" style="padding: 0px;">
         <div id="dialog-modal">
         <p></p>
         </div>
@@ -12,7 +12,7 @@
       <!-- <h3 class="small">Search by:</h3> -->
       <!-- Search input-->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <input id="searchinput1" placeholder="" class="form-control input-md" type="search">
           <p class="small">The name of the station stop</p>
@@ -24,7 +24,7 @@
      <!--  <h3 class="small"><a id="browseall" class="black"href="">browse all stations</a></h3> -->
       <!-- Search input-->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality  <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality  <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="muni_name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <input id="searchinput2" name="searchinput2" placeholder="" class="form-control input-md" type="search">
           <p class="small">The name of the municipality in which the station is principally or wholly located</p>
@@ -33,7 +33,7 @@
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="line_decr"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <select id="selectbasic2" data-filter="true" name="selectbasic2" class="form-control selectpicker" title="Select">
               <option value="">Select</option>
@@ -82,7 +82,7 @@
       
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label" for="selectbasic3">Station Type<span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Station Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label" for="selectbasic3">Station Type<span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="station_class"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
             <option value="">Select</option>
@@ -102,7 +102,7 @@
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="eTOD Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="etod_type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
         <div class="col-md-6">
           <select id="selectbasic4" name="selectbasic4" class="form-control selectpicker">
             <option value="">Select</option>

@@ -29,13 +29,11 @@
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>
     </div>
-    <div class="span3" href="#" rel="tooltipl" title="Informa<b>Ⓣ</b>ion Station >> Better data for better transit-oriented development" class="col-xs-2 col-md-4 text-left">
+    <!-- <div class="span3" href="#" rel="tooltipl" title="Informa<b>Ⓣ</b>ion Station >> Better data for better transit-oriented development" class="col-xs-2 col-md-4 text-left">
       <div id="logo-titles" class="col-xs-2 col-md-4 text-left">
       	<img class="img-responsive" src="/assets/informationstation.png">
-        <!-- <h1>Informa<b>Ⓣ</b>ion Station</h1>
-          <h2>Better data for better transit-oriented development</h2> -->
       </div>
-    </div>
+    </div> -->
       
     <!-- carousel -end -->
   </div>
@@ -63,7 +61,7 @@
 
   <div class="row" id="search">
     <!-- simple search form - start -->  
-    <form class="form-horizontal well well-lg" style="padding-top: 0px;">
+    <form class="form-horizontal well well-lg" style="padding: 0px;">
       <fieldset>
       <!-- Form Name -->
     <div class="col-md-8 col-xs-12 col-md-offset-2 text-left"> 
@@ -188,11 +186,4 @@
     </div>
 </form>
 </div>
-<div class="row">
-  <div class="col-md-10 col-md-offset-2 text-left"> 
-    <!-- simple search form - end -->
-    </br>
-    </br>
-</div>
-  </div>
 </div> 

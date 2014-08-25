@@ -2,18 +2,29 @@
 
 	List.Controller =
 		showUsrguidPage: ->
-			@layout = @getLayoutView() 
-			@layout.on 'show', ->
-				@showUsrguid
-			App.mainRegion.show @layout
+			dictionaryResponse = $.ajax
+                            url: "/dictionary_entries.json?by_name="
+                            done: (result) =>
+                                return result
+                    dictionary = dictionaryResponse.complete()
+                    dictionary.done =>
+                        dictionaries = dictionary.responseJSON
+                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
+						@layout = @getLayoutView() 
+						@layout.on 'show', =>
+							@showUsrguid(@dictionaryentries)
+					
+						App.mainRegion.show @layout
 
-		showUsrguid: =>
-			usrguidLayout = @getUsrguidLayout
-			@layout.guidRegion.show usrguidLayout
+		showUsrguid: (dictionaryentries) ->
+			usrGuidView = @getDictionriesCollectionView(dictionaryentries)
+			@layout.guidRegion.show usrGuidView
 		
-		getUsrguidLayout: ->
-			new List.Layout
+		getDictionriesCollectionView: (dictionaryentries) ->
+			new List.DictionriesCollectionView
+			collection: dictionaryentries
 
 		getLayoutView: ->
 			new List.Layout 
+				
 

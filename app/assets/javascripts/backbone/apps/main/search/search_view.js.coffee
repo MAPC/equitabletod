@@ -43,7 +43,6 @@
                 $("[rel=tooltipd]").click (event, ui) ->
                     $("#dialog-modal").dialog 
                     dictionaryResponse = $.ajax
-                            # make an ajax call for dictionaries with the tooltip's title
                             url: "/dictionary_entries.json?by_name=#{@.title}"
                             done: (result) =>
                                 return result
@@ -51,10 +50,13 @@
                     dictionary.done =>
                         dictionaries = dictionary.responseJSON
                         @dictionaryentries = App.request "set:dictionaryentry", dictionaries
+                        $(@el).tooltip "option", title: ""
                         $("#dialog-modal").dialog "open"
-                        $("#dialog-modal").dialog title: "Data Dictionary"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").html("#{@dictionaryentries.models["0"].get("description")}")
+                        $("#dialog-modal").dialog title: "Data Dictionary - #{@dictionaryentries.models["0"].get("interpretation")}"
+                        $("#dialog-modal").html("<hm2>#{@dictionaryentries.models["0"].get("code")} <br><br> <span>What it is: </span>#{@dictionaryentries.models["0"].get("importance")} <br><br> <span>Why it's important: </span>#{@dictionaryentries.models["0"].get("description")} <br><br> <span>Technical notes: </span>#{@dictionaryentries.models["0"].get("technical_notes")}</hm2>")
+                        $("#dialog-modal").dialog height: "auto" 
+                        $("#dialog-modal").dialog modal: true
               # bind an event to search navbar on the header to scroll to search element 
               $("homeClick").on "click", (e) ->
                 $("html, body").animate

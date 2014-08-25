@@ -44,7 +44,7 @@
                 fest10 = gon.feature["0"].properties.ov_est_10.toFixed 4 if gon.feature["0"].properties.ov_est_10
                 faval = gon.feature["0"].properties.ov_aval.toFixed 0 if gon.feature["0"].properties.ov_aval
                 frentocc = (gon.feature["0"].properties.ov_rentocc.toFixed 4) if gon.feature["0"].properties.ov_rentocc
-                fhhnocar = (gon.feature["0"].properties.ov_hhnocar.toFixed 4) if gon.feature["0"].properties.ov_hhnocar
+                fhhnocar = (gon.feature["0"].properties.ov_hhnocar.toFixed 2) if gon.feature["0"].properties.ov_hhnocar
                 fedatt = gon.feature["0"].properties.ov_ed_att.toFixed 2 if gon.feature["0"].properties.ov_ed_att
                 fwalkscore = gon.feature["0"].properties.walkscore.toFixed 2 if gon.feature["0"].properties.walkscore
                 $(".inlinesparklinehupipe").sparkline [0, 82, 337, 1125.95, 4719], type: "box", raw: true, target: fhupipe, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
@@ -164,11 +164,13 @@
                     App.vent.trigger "searchrefineFired"
                 $("#dialog-modal").dialog 
                     position:
-                        my: "center"
+                        my: "left"
+                        at: "left"
+                        of: window
                     autoOpen: false
                     closeOnEscape: true
-                    height: 950
-                    width: 950
+                    height: 1150
+                    width: 620
                     show:
                         effect: "fade"
                         duration: 100  
@@ -201,7 +203,7 @@
                         $(@el).tooltip "option", title: ""
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").dialog title: "#{@dictionaryentries.models["0"].get("interpretation")}"
+                        $("#dialog-modal").dialog title: "Data Dictionary - #{@dictionaryentries.models["0"].get("interpretation")}"
                         $("#dialog-modal").html("<hm2>#{@dictionaryentries.models["0"].get("code")} <br><br> <span>What it is: </span>#{@dictionaryentries.models["0"].get("importance")} <br><br> <span>Why it's important: </span>#{@dictionaryentries.models["0"].get("description")} <br><br> <span>Technical notes: </span>#{@dictionaryentries.models["0"].get("technical_notes")}</hm2>")
                         $("#dialog-modal").dialog height: "auto" 
                         $("#dialog-modal").dialog modal: true
@@ -259,7 +261,7 @@
             pfeatures = _.values gon.features
             pjfeatures = pfeatures.map (pf) -> pf.properties
             jfeatures = JSON.stringify(pjfeatures)
-            $("#titles").html "<p class='h2'>Search Results </p><p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a></p>" #<p>#{gon.query}</p><a>Page #{gon.page_number} of #{gon.num_pages} </a>"
+            $("#titles").html "<p class='h2'>Search Results </p><p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a></p>"
             $("html, body").animate
                   scrollTop: 0
                 , "fast"
@@ -476,10 +478,11 @@
             #info.addTo map
             mapc = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
               attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
-            ).addTo(map)
+            )
             #defaultLayer = L.tileLayer.provider("OpenStreetMap.Mapnik").addTo(map)
             streets = L.tileLayer.provider "MapBox.mapc.i8ddbf5a"
             esri = L.tileLayer.provider "Esri.WorldImagery"
+            esri.addTo(map)
             #esring = L.tileLayer.provider "Esri.NatGeoWorldMap"
             #esrism = L.tileLayer.provider "Esri.WorldStreetMap"
             basemap = new L.MAPCTileLayer("basemap")
@@ -528,7 +531,7 @@
                 "Half Mile Boundary": fstationZoom
             
             layersControl = new L.Control.Layers(baseMaps, overlays,
-                collapsed: false
+                collapsed: true
                 )
             map.addControl layersControl
 
