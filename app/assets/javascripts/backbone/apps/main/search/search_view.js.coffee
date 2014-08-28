@@ -26,17 +26,17 @@
               # initiate the modal that contains the dictionary information
               $("#dialog-modal").dialog 
                     position:
-                        my: "center"
-                        at: "center"
+                        my: "right"
+                        at: "right"
                     autoOpen: false
                     closeOnEscape: true
-   
+                    width: 280
                     show:
-                        effect: "fade"
-                        duration: 100  
+                        effect: "blind"
+                        duration: 200  
                     hide:
-                        effect: "fade"
-                        duration: 100
+                        effect: "blind"
+                        duration: 200
                     title: 
                         $("[rel=tooltipd]").title
                 # initiate the tooltip for question marks and assign the response to the click 
@@ -184,8 +184,14 @@
                         gon.query = query
                         App.vent.trigger "searchFired", query
                     else
-                        btn.target.validity.valid = false
-                        btn.target.innerText = 'Error - Reload Page Or Refine The Search'
+                        $("#dialog-modal").dialog "open"
+                        $("#dialog-modal").dialog title: "Error"
+                        $("#dialog-modal").html("")
+                        $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
+                        $("#dialog-modal").dialog height: "auto" 
+                        $("#dialog-modal").dialog modal: true
+                        # btn.target.validity.valid = false
+                        # btn.target.innerText = 'Error - Search has no results, Reload Page Or Refine The Search'
 
         etodFired: (e) =>
             App.vent.trigger "etodFired"

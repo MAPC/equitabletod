@@ -12,18 +12,32 @@
                   scrollTop: 0
                 , 600
     
-    class List.DictionriesItemView extends App.Views.ItemView
+    class List.DictionriesItemView extends Backbone.Marionette.ItemView
 		template: "usr_guid/list/templates/_dictionary"
 		tagName: "tr"
 		modelEvents:
 		  "change" : "render"
 
-	class List.DictionriesCollectionView extends App.Views.CollectionView
+	class List.DictionriesCollectionView extends Backbone.Marionette.CompositeView
 		template: "usr_guid/list/templates/_dictionaries"
-		itemView: List.DictionriesItemView
+		itemView: List.DictionriesItemView 
 		itemViewContainer: "tbody"
-		tagName: "div"
-		collectionEvents:
+		modelEvents:
+		  "add" : "render"
+		CollectionEvents:
 		  "change" : "render"
+
+		# onShow: ->
+		# 	$(document).ready ->
+		# 		dictionaryResponse = $.ajax
+	 #                            url: "/dictionary_entries.json?by_name="
+	 #                            done: (result) =>
+	 #                                return result
+	            
+	 #            dictionary = dictionaryResponse.complete()
+	 #            dictionary.done =>
+	 #                dictionaries = dictionary.responseJSON
+	 #                @dictionaryentries = App.request "set:dictionaryentry", dictionaries
+	 #                @collection = @dictionaryentries
 
 

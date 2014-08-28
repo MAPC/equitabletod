@@ -41,14 +41,16 @@
     App.navigate "print/q/", trigger: true
 
   App.vent.on "searchFired", (query)->
-    console.log "im inside the app itself"
     query = "fss/q/" + query
-    console.log query
     App.navigate query, trigger: true
 
+  App.vent.on "mainFired", ->
+    App.navigate "/", trigger: true
+
   App.vent.on "homeFired", ->
+    App.module("SearchApp").stop()
     App.module("MainApp").stop()
-    App.module("EtodApp").stop()
+    # App.module("EtodApp").stop()
     App.module("SearchApp").start()
     App.navigate "search/", trigger: true
 

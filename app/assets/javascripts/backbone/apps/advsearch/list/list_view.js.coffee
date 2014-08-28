@@ -12,7 +12,7 @@
                 $("#slider6").slider
                     min: Math.round gon.minvmt = if gon.minvmt then gon.minvmt else 0
                     max: Math.round gon.maxvmt = if gon.maxvmt then gon.maxvmt else 100
-                    value:[gon.minvmt,gon.maxvmt]
+                    value:[gon.minvmt,100]
                     step: 1 
                 $("#slider7").slider
                     min: gon.minpcttran = if gon.minpcttran then gon.minpcttran else 0
@@ -66,9 +66,9 @@
                     step: 0.1
                 $("#slider18").slider
                     min: Math.round gon.minwalkscore = if gon.minwalkscore then gon.minwalkscore else 0
-                    max: Math.round gon.maxwalkscore = if gon.maxwalkscore then gon.maxwalkscore else 425
-                    value:[0 ,425]
-                    step: 0.01
+                    max: Math.round gon.maxwalkscore = if gon.maxwalkscore then gon.maxwalkscore else 100
+                    value:[0 ,100]
+                    step: 1
                 $("#slider19").slider
                     min: Math.round gon.minhupipe = if gon.minhupipe then gon.minhupipe else 0
                     max: Math.round gon.maxhupipe = if gon.maxhupipe then gon.maxhupipe else 4719
@@ -117,18 +117,18 @@
                 $("#slider28").slider
                     min: Math.round gon.minhhnocar = if gon.minhhnocar then gon.minhhnocar else 0
                     max: Math.round gon.maxhhnocar = if gon.maxhhnocar then gon.maxhhnocar else 0.66
-                    value:[0,0.66]
+                    value:[0, 1]
                     step: 0.01
 
                 $("#slider29").slider
                     min: Math.round gon.minedatt = if gon.minedatt then gon.minedatt else 0
                     max: Math.round gon.maxedatt = if gon.maxedatt then gon.maxedatt else 0.91
-                    value:[gon.minedatt,gon.maxedatt]
+                    value:[0, 1]
                     step: 0.01
                 $("#titles").html "<p class='h2'></p>"
                 $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'     
                 $(".inlinesparklinefar").sparkline gon.fars, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '170', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
-                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '210', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
+                $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '420', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
                 $(".inlinesparklineprkac").sparkline gon.prkacs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                 $(".inlinesparklineemp10").sparkline gon.emp10s, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'       
                 $(".inlinesparklineextaxrev").sparkline gon.extaxrevs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'      
@@ -136,35 +136,35 @@
                 $(".inlinesparklinehhinc").sparkline gon.hhincs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'        
                 $(".inlinesparklinehupipe").sparkline [0, 82, 337, 1125.95, 4719], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                 $(".inlinesparklineemppipe").sparkline [0, 126.05, 1353.59, 2744.05, 16587.49], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
-                $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
-                $(".inlinesparklinetrnpcmi").sparkline gon.trnpcmis, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '205', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
-                $(".inlinesparklineghg").sparkline [0, 6.6, 11.15, 17.15, 75.9], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '130', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
+                $(".inlinesparklinevehphh").sparkline gon.vehphhs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '175', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                $(".inlinesparklinetrnpcmi").sparkline gon.trnpcmis, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '655', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                $(".inlinesparklineghg").sparkline [0, 6.6, 11.15, 17.15, 75.9], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '155', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
                 $(".inlinesparklineintntot").sparkline gon.intntots, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'    
                 $(".inlinesparklinemix").sparkline gon.mixs, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '309', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'                       
                 $(".inlinesparklinehupac").sparkline [0, 4.62, 13.03, 28.42, 200], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                 $(".inlinesparklineempden").sparkline [0, 12.102, 20.264, 34.031, 424.07], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                 $(".inlinesparklineest10").sparkline gon.est10s, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
                 $(".inlinesparklineaval").sparkline gon.avals, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
-                $(".inlinesparklinerentocc").sparkline [0, 0.379, 0.584, 0.719, 0.996], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '275', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
-                $(".inlinesparklinehhnocar").sparkline [0, 0.06658, 0.20144, 0.36543, 0.6522], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '235', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'                       
-                $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '215', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
+                $(".inlinesparklinerentocc").sparkline [0, 0.379, 0.584, 0.719, 0.996], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '295', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
+                $(".inlinesparklinehhnocar").sparkline [0, 0.06658, 0.20144, 0.36543, 0.6522], type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '375', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'                       
+                $(".inlinesparklineedatt").sparkline gon.edatts, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '335', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
                 $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
            
             $(document).ready ->
               $(".fancybox").eq(0).trigger "click"
               $("#dialog-modal").dialog 
                 position:
-                    my: "center"
-                    at: "center"
+                    my: "right"
+                    at: "right"
                 autoOpen: false
                 closeOnEscape: true
-                width: 600
+                width: 780
                 show:
                     effect: "blind"
-                    duration: 100  
+                    duration: 200  
                 hide:
                     effect: "blind"
-                    duration: 100
+                    duration: 200
                 title: 
                     $("[rel=tooltipd]").title
               $(".selectpicker").selectpicker()
@@ -199,7 +199,7 @@
                 name_placeholder: "boxplot"
                 title_label : ""
                 trigger_label : "How to Read Diagrams"
-                custom_html: '<div id="boxplot" class="col-md-6 col-xs-5"><p style="line-height: 1.8em; text-align: justify; font-size: 12px; background-color: white;">The box plot (a.k.a. box and whisker diagram) is a standardized way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plot here show data distribution for all the station areas, where the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and "whiskers" above and below the box show the locations of the minimum and maximum for all staton areas.</p></div><div class="col-md-6 class="col-xs-4"><img src="img/boxplotsimple08.png" class="img-responsive" alt="Box Plot"></div>'
+                custom_html: '<div class="container-fluid" style="background-color: white;"><div class="row"><div id="boxplot" class="col-md-6 class="col-xs-4"><p style="line-height: 1.8em; text-align: justify; font-size: 12px;">Box plot is a way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots show distribution of an attribute for all the station areas. the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and "whiskers" above and below the box show the locations of the minimum and maximum for all staton areas. The red + indicates the current station value for the field. </p></div><div class="col-md-6 class="col-xs-4"><img src="img/boxplotsimple08.png" class="img-responsive" alt="Box Plot"></div></div></div>'
                 show_form: false
                 name_required: false
                 close_on_click_outisde: true
@@ -446,5 +446,30 @@
             query = "#{qury}"
             gon.query = "#{query}".replace(/\s*\(.*?\)\s*/g, "")
 
-            App.vent.trigger "searchFired", gon.query
+            # App.vent.trigger "searchFired", gon.query
+
+            urlstr = "/search.json?" + gon.query
+            # making the ajax call using the search query string
+            responseFeature = $.ajax
+                    url: urlstr
+                    done: (result) =>
+                        return result
+            collection = responseFeature.complete()
+            collection.done =>
+                    fstations = collection.responseJSON
+                    features = _.values fstations.features
+                    if features.length > 0
+                        gon.features = features
+                        num_pages = features.length / 10
+                        num = num_pages.toString()
+                        num = num.slice(0, (num.indexOf(".")) + 0)  if num.indexOf(".") > 0
+                        num = Number(num) + 1 if num_pages > num
+                        gon.num_pages = num
+                        gon.query = query
+                        App.vent.trigger "searchFired", gon.query
+                    else
+                        $("#dialog-modal").dialog "open"
+                        $("#dialog-modal").dialog title: "Error"
+                        $("#dialog-modal").html("")
+                        $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
             
