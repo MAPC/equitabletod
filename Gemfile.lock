@@ -185,20 +185,6 @@ DEPENDENCIES
   capistrano (~> 2.0)
   capistrano-unicorn (= 0.2.0)
   coffee-rails (~> 3.2.1)
-<<<<<<< HEAD
-  eco
-  factory_girl_rails
-  faker
-  gon
-  has_scope
-  jquery-rails
-  js-routes
-  less
-  less-rails
-  oj
-  pg
-  rabl
-=======
   eco (= 1.0.0)
   factory_girl_rails (= 4.4.0)
   faker (= 1.2.0)
@@ -214,7 +200,6 @@ DEPENDENCIES
   oj (= 2.5.5)
   pg (= 0.17.1)
   rabl (= 0.9.3)
->>>>>>> design
   rails (= 3.2.13)
   rspec-rails (= 2.14.1)
   sass-rails (~> 3.2.3)
