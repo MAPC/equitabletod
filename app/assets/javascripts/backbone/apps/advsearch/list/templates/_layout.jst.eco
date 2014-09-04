@@ -1,557 +1,393 @@
 <div class="container-fluid">
+  <p class="fancybox" href="img/sliderhint.swf"></p>
   <div class="row">
 <!-- simple search form - start -->
     <form class="form-horizontal well well-lg" style="margin-top: 10px;">
-      <fieldset>
+      <fieldset id="adv-fields">
       <!-- Form Name -->
       </br>
-      <h2 class="black" style="text-align: center;">Advanced Search</h2> 
       <!-- <h3 class="small">Search by:</h3> -->
-      
       <!-- Search input-->
-      <div class="col-md-8 col-md-offset-2 text-left">
-      <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label small" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-        <div class="col-md-6">
-          <input id="searchinput1" rel="tooltip" title="The name of the station stop" name="searchinput1" placeholder="<%="#{gon.name}" if ("#{gon.name}" != 'undefined') and ("#{gon.name}" != '') %>" class="form-control input-md" type="search">
-        </div>
-      </div>
-      <!-- <h3 class="small">Or:</h3> -->
-      </hr>
-      </hr>
-     <!--  <h3 class="small"><a id="browseall" class="black"href="">browse all stations</a></h3> -->
-
-      <!-- Search input-->
-      <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label small" for="searchinput2">Municipality  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-        <div class="col-md-6">
-          <input id="searchinput2" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" name="searchinput2" placeholder="<%="#{gon.muni_name}" if ("#{gon.muni_name}" != 'undefined') and ("#{gon.muni_name}" != '')%>" class="form-control input-md" type="search">
-          <p class="help-block"></p>
-        </div>
-      </div>
-      <!-- Select Basic -->
-      <div class="form-group">
-        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label small" for="selectbasic2">Service Type <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-        <div class="col-md-6">
-          <select id="selectbasic2" data-filter="true" rel="tooltip" title="The type(s) of transit service available at this station" name="selectbasic2" class="form-control selectpicker" multiple>
-            <optgroup label="">
-              <option value="Fairmount Line">Fairmount Line</option>
-              <option value="Fitchburg South Acton Line">Fitchburg/South Acton Line</option>
-              <option value="Framingham Worcester Line">Framingham/Worcester Line</option>
-              <option value="Franklin Line">Franklin Line</option>
-              <option value="Greenbush Line">Greenbush Line</option>
-              <option value="Haverhill Line">Haverhill Line</option>
-              <option value="Kingston Plymouth Line">Kingston/Plymouth Line</option>
-              <option value="Lowell Line">Lowell Line</option>
-              <option value="Middleborough Lakeville Line">Middleborough/Lakeville Line</option>
-              <option value="Needham Line">Needham Line</option>
-              <option value="Newburyport Rockport Line">Newburyport/Rockport Line</option>
-              <option value="Providence Stoughton Line">Providence/Stoughton Line</option>
-            </optgroup>
-            <optgroup label="Rapid Transit">
-              <option value="Blue Line">Blue Line</option>
-              <option value="Green Line">Green Line</option>
-              <option value="Orange Line">Orange Line</option>
-              <option value="Red Line">Red Line</option>
-            </optgroup>
-            <optgroup label="Bus Routes">
-              <option value="22">Route 22</option>
-              <option value="23">Route 23</option>
-              <option value="28">Route 28</option>
-              <option value="32">Route 32</option>
-              <option value="57">Route 57</option>
-              <option value="57A">Route 57A</option>
-              <option value="66">Route 66</option>
-              <option value="71">Route 71</option>
-              <option value="73">Route 73</option>
-              <option value="77">Route 77</option>
-              <option value="111">Route 111</option>
-              <option value="116">Route 116</option>
-              <option value="117">Route 117</option>
-              <option value="SL1">SL1</option>
-              <option value="SL2">SL2</option>
-              <option value="SL4">SL4</option>
-              <option value="SL5">SL5</option>
-            </optgroup>
-          </select>
-        </div>
-      </div>
-      
-      <!-- Select Basic -->
-      <div class="form-group">
-        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label small" for="selectbasic3">Station Type<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Station Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-        <div class="col-md-6">
-          <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
-            <option value=""><%="#{gon.station_type}" if "#{gon.station_type}" != 'undefined'%></option>
-            <option value="Core">Core</option>
-            <option value="Urban Downtown">Urban Downtown</option>
-            <option value="Town Center">Town Center</option>
-            <option value="Subway">Subway</option>
-            <option value="Sub Emp Center">Sub Emp Center</option>
-            <option value="Subway Transformational">Subway Transformational</option>
-            <option value="Undeveloped">Undeveloped</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Select Basic -->
-      <div class="form-group">
-        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label small" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="Etod Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-        <div class="col-md-6">
-          <select id="selectbasic4" name="selectbasic4" class="form-control selectpicker">
-            <option value=""><%="#{gon.etod_group}" if "#{gon.etod_group}" != 'undefined'%></option>
-            <option value="Transit-Supportive">Transit-Supportive</option>
-            <option value="Transit-Related">Transit-Related</option>
-            <option value="Transit-Oriented">Transit-Oriented</option>
-            <option value="Transit-Adjacent">Transit-Adjacent</option>
-          </select>
-        </div>
-        <!-- Select Basic -->
-      </div>
-
+        <div id="accordion">          
+          <h2 class="col-md-offset-1 col-xs-offset-2 text-left black" style="text-align: left;">Advanced Search</h2> 
+          </br>
+  </div>
+  <div class="row">
+  <p class="col-md-offset-2 col-xs-offset-0 text-left"><strong>Transportation</strong></p>
+      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
       <!-- Advanced Search input-->
       <!-- Transporation -->
-      <!-- <div class="form-group">
-        <br>
-        <p class="col-md-offset-2 text-left"><strong>Transportation</strong></p>
-        <label href="#" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" class="col-md-4 control-label small" for="searchinput6">Vehicle Miles Traveled (VMT) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="VMT"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic6" name="selectbasic6" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput6" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" name="searchinput6" placeholder="" class="form-control input-md" type="search">
+          <hm3>
+            <div class="form-group">
+              <br>
+              <label href="#" rel="tooltip" title="Average miles driven per day using personal automobiles, per household" class="col-md-4 col-xs-2 control-label small" for="searchinput6">Vehicle Miles Traveled (VMT)<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_vmthday"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              <div class="col-md-8 col-xs-12">
+                 <span class="inlinesparklinevmt"></span></br>
+                <strong></strong> <input name="slider6" placeholder="" class="form-control input-md" id="slider6" type="text" class="span2" value="" data-slider-handle="triangle" /> </strong>
+              </div>
+            </div> 
+          </hm3>
       </div>
-      </div> -->
+      <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
 
-      <!-- Advanced Search input-->
-      <!-- Transporation -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" class="col-md-4 control-label small" for="searchinput7">Transit Commuter Share <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="transit share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic7" name="selectbasic7" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput7" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" name="searchinput7" placeholder="" class="form-control input-md" type="search">
+            <div>
+            <!-- Advanced Search input-->
+            <!-- Transporation -->
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Share of all commuters in the station area who use public transit for their work commute" class="col-md-4 col-xs-2 control-label small" for="searchinput7">Transit Commuter Share<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_pcttran"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinepcttran"></span></br>
+                  <strong></strong> <input name="slider7" placeholder="" class="form-control input-md" id="slider7" type="text" class="span2" value="" data-slider-handle="triangle"/></strong>
+                </div>
+              </div> 
       </div>
-      </div> -->
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              <!-- Advanced Search input-->
+              <!-- Transporation -->
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Average number of vehicles owned per household" class="col-md-4 col-xs-2 control-label small" for="searchinput8">Vehicle Ownership<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_vehphh"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinevehphh" ></span></br>
+                  <strong></strong> <input name="slider8" placeholder="" class="form-control input-md" id="slider8" type="text" class="span2" value="" data-slider-handle="triangle" /> <strong></strong>
+                </div>
+              </div> 
 
-      <!-- Advanced Search input-->
-      <!-- Transporation -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Average number of vehicles owned per household" class="col-md-4 control-label small" for="searchinput8">Vehicle Ownership<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Vehicle Ownership"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic8" name="selectbasic8" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput8" rel="tooltip" title="Average number of vehicles owned per household" name="searchinput8" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      </div>
+      <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
 
-      <!-- Advanced Search input-->
-      <!-- Transporation -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Percentage of total commuting miles for which transit was used" class="col-md-4 control-label small" for="searchinput9">Vehicle Ownership<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="commute mile share"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic9" name="selectbasic9" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+              <!-- Advanced Search input-->
+              <!-- Transporation -->
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Percentage of total commuting miles for which transit was used" class="col-md-4 col-xs-2 control-label small" for="searchinput9">Transit Share of Commuting Miles<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_trnpcmi"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinetrnpcmi"></span><br>
+                  <strong></strong> <input name="slider9" placeholder="" class="form-control input-md" id="slider9" type="text" class="span2" value="" data-slider-handle="triangle" /> </strong>
+                  
+                </div>
+              </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              <!-- Advanced Search input-->
+              <!-- Transporation -->
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" class="col-md-4 col-xs-2 control-label small" for="searchinput10">GHGs from Transportation<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_ghg"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineghg"></span></br>
+                  <strong></strong> <input name="slider10" placeholder="" class="form-control input-md" id="slider10" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput9" rel="tooltip" title="Percentage of total commuting miles for which transit was used" name="searchinput9" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
-
-      <!-- Advanced Search input-->
-      <!-- Transporation -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" class="col-md-4 control-label small" for="searchinput10">Greenhouse Gas Emissions from transportation: <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ghg"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic10" name="selectbasic10" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput10" rel="tooltip" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" name="searchinput10" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      </div>
       
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <!-- <div class="form-group">
-        <br>
-        <p class="col-md-offset-2 text-left"><strong>Development</strong></p>
-        <label href="#" rel="tooltip" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located" class="col-md-4 control-label small" for="searchinput11">Floor Area Ratio (FAR) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="FAR"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic11" name="selectbasic11" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput11" rel="tooltip" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located" name="searchinput11" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      <div class="row">
+      <p class="col-md-offset-2 text-left"><strong>Development</strong></p>
+      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+          <hm3>
+            <div class="form-group">
+              <br>
+              <label href="#" rel="tooltip" title="A measure of how efficiently space is used: total square feet of buildings devided by the total square feet of the lots on which the buildings are located" class="col-md-4 col-xs-2 control-label small" for="searchinput11">Floor Area Ratio (FAR)<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_far"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+            
+              <div class="col-md-8 col-xs-12">
+                <span class="inlinesparklinefar"></span></br>
+                <strong></strong> <input name="slider11" placeholder="" class="form-control input-md" id="slider11" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
+              </div>
+            </div>
+          </hm3>
 
       <!-- Advanced Search input-->
       <!-- Development -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Acres of surface parking within the station area" class="col-md-4 control-label small" for="searchinput12">Surface Parking (acre) <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="surface parking"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic12" name="selectbasic12" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput12" rel="tooltip" title="Acres of surface parking within the station area" name="searchinput12" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+            <div>
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Acres of surface parking within the station area" class="col-md-4 col-xs-2 control-label small" for="searchinput12">Surface Parking (acre)<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_prkac"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineprkac"></span></br>
+                  <strong></strong> <input name="slider12" placeholder="" class="form-control input-md" id="slider12" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div> 
+      </div>
+      </div>
 
-      <!-- Advanced Search input-->
-      <!-- Development -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Conveys the extent of existing development: the sum of population and employment within the station area" class="col-md-4 control-label small" for="searchinput13">Current Development Intensity <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev intensity"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic13" name="selectbasic13" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput13" rel="tooltip" title="Conveys the extent of existing development: the sum of population and employment within the station area" name="searchinput13" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+              <!-- Advanced Search input-->
+              <!-- Development -->
+      <div class="row">
+      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Sum of population and employment in the station area" class="col-md-4 col-xs-2 control-label small" for="searchinput13">Development Intensity<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_intntot"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineintntot"></span></br>
+                  <strong></strong> <input name="slider13" placeholder="" class="form-control input-md" id="slider13" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div> 
+      </div>
 
-      <!-- Advanced Search input-->
-      <!-- Development -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Ratio of employment to current development intensity" class="col-md-4 control-label small" for="searchinput14">Current Development Mix <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev mix"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic14" name="selectbasic14" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput14" rel="tooltip" title="Ratio of employment to current development intensity" name="searchinput14" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
-
-      <!-- Advanced Search input-->
-      <!-- Development -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Average number of housing units per acre zoned for residential use" class="col-md-4 control-label small" for="searchinput15">Net Residential Density <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="dev mix"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic15" name="selectbasic15" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput15" rel="tooltip" title="Average number of housing units per acre zoned for residential use" name="searchinput15" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+              <!-- Advanced Search input-->
+              <!-- Development -->
+              <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Employment share of total Development Intensity (population + employment)" class="col-md-4 col-xs-2 control-label small" for="searchinput14">Development Mix<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_mix"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinemix"></span></br>
+                  <strong></strong> <input name="slider14" placeholder="" class="form-control input-md" id="slider14" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div> 
+              </div>
+                    </div>
 
 
-      <!-- Advanced Search input-->
-      <!-- Development -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Average number of housing units per acre zoned for residential use" class="col-md-4 control-label small" for="searchinput16">Net Residential Density <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="res density"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic16" name="selectbasic16" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput16" rel="tooltip" title="Average number of housing units per acre zoned for residential use" name="searchinput16" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+              <!-- Advanced Search input-->
+              <!-- Development -->
+              <div class="row">
+              <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Housing units per acre of residential land use" class="col-md-4 col-xs-2 control-label small" for="searchinput15">Net Residential Density<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_hupac"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinehupac"></span></br>
+                  <strong></strong> <input name="slider15" placeholder="" class="form-control input-md" id="slider15" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div> 
+              </div>
 
-      <!-- Advanced Search input-->
-      <!-- Development -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Average number of Employees per acre zoned for commercial, industrial, or institutional use" class="col-md-4 control-label small" for="searchinput17">Net Employment Density <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Emp Density"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic17" name="selectbasic17" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput17" rel="tooltip" title="Average number of Employees per acre zoned for commercial, industrial, or institutional use" name="searchinput17" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+              <!-- Advanced Search input-->
+              <!-- Development -->
+            <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Average number of Employees per acre zoned for commercial, industrial, or institutional use" class="col-md-4 col-xs-2 control-label small" for="searchinput16">Net Employment Density<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_empden"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineempden"></span></br>
+                  <strong></strong> <input name="slider16" placeholder="" class="form-control input-md span2" id="slider16" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div> 
+            </div>
+            </div>
 
-      <!-- Advanced Search input-->
-      <!-- Development -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Acreage of all parcels where the value of the improvements is less than the value of the land" class="col-md-4 control-label small" for="searchinput18">Underutilized Land  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Underutilized Land"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic18" name="selectbasic18" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput18" rel="tooltip" title="Acreage of all parcels where the value of the improvements is less than the value of the land" name="searchinput18" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
 
-      <!-- Advanced Search input-->
-      <!-- Development -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="A measure of the degree to which a station area is walkable" class="col-md-4 control-label small" for="searchinput19">Walkscore  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="Walkscore"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic19" name="selectbasic19" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput19" rel="tooltip" title="A measure of the degree to which a station area is walkable" name="searchinput19" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+              <!-- Advanced Search input-->
+              <!-- Development -->
+              <div class="row">
+              <!-- <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Rating of walkability on a 100-point scale" class="col-md-4 col-xs-2 control-label small" for="searchinput18">Walkscore<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="walkscore"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinewalkscore"</span></br>
+                  <strong></strong> <input name="slider18" placeholder="" class="form-control input-md span2" id="slider18" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div> 
+              </div> -->
 
-      <!-- Advanced Search input-->
-      <!-- Development -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Number of housing units planned or under construction" class="col-md-4 control-label small" for="searchinput20">Residential Pipeline  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="res pipeline"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic20" name="selectbasic20" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput20" rel="tooltip" title="Number of housing units planned or under construction" name="searchinput20" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+              <!-- Advanced Search input-->
+              <!-- Development -->
+              <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Number of housing units planned or under construction" class="col-md-4 col-xs-2 control-label small" for="searchinput19">Residential Pipeline<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_hupipe"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinehupipe"></span></br>
+                  <strong></strong> <input name="slider19" placeholder="" class="form-control input-md span2" id="slider19" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div>
+              </div>
+              <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Estimated employment in developments planned or under construction" class="col-md-4 col-xs-2 control-label small" for="searchinput20">Commercial Pipeline<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_empcons"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineemppipe"></span></br>
+                  <strong></strong> <input name="slider20" placeholder="" class="form-control input-md span2" id="slider20" type="text" value="" data-slider-handle="triangle"/><strong></strong>
+                </div>
+              </div>
+              </div>
+              </div>
+              </div>
 
-      <!-- Advanced Search input-->
-      <!-- Development -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Estimated employment in developments planned or under construction" class="col-md-4 control-label small" for="searchinput21">Commercial Pipeline  <span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="com pipeline"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic21" name="selectbasic21" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput21" rel="tooltip" title="Estimated employment in developments planned or under construction" name="searchinput21" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+              <!-- Advanced Search input-->
+              <!-- Development -->
+              <div class="row">
+              
+              </div>
 
       <!-- Advanced Search input-->
       <!-- Economic -->
-      <!-- <div class="form-group">
-        <br>
-        <p class="col-md-offset-2 text-left"><strong>Economics</strong></p>
-        <label href="#" rel="tooltip" title="Current employment in the station area" class="col-md-4 control-label small" for="searchinput22">Number of Employees  <span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="emp"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic22" name="selectbasic22" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput22" rel="tooltip" title="Current employment in the station area" name="searchinput22" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      <div class="row">
+      <p class="col-md-offset-2 text-left"><strong>Economics</strong></p>
 
-      <!-- Advanced Search input-->
-      <!-- Economic -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Annual total property tax revenue generated in the station area, average per acre" class="col-md-4 control-label small" for="searchinput23">Tax Revenue ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="tax rev"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic23" name="selectbasic23" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput23" rel="tooltip" title="Annual total property tax revenue generated in the station area, average per acre" name="searchinput23" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+          <hm3>
+            <div class="form-group">
+              <br>
+              <label href="#" rel="tooltip" title="Current employment in the station area" class="col-md-4 col-xs-2 control-label small" for="searchinput21">Employment<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="ov_emp10"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+            
+              <div class="col-md-8 col-xs-12">
+                <span class="inlinesparklineemp10"></span></br>
+                <strong></strong> <input name="slider21" placeholder="" class="form-control input-md span2" id="slider21" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
+              </div>
+            </div> 
+          </hm3>
+      </div>
 
-      <!-- Advanced Search input-->
-      <!-- Economic -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Number of public, private, and non-profit organizations located in the station area" class="col-md-4 control-label small" for="searchinput24">Number of Establishments <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Establishments"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic24" name="selectbasic24" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+        <!-- Advanced Search input-->
+        <!-- Economic -->
+        <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+            <div>
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Annual total property tax revenue generated in the station area" class="col-md-4 col-xs-2 control-label small" for="searchinput22">Tax Revenue ($)<span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ov_taxrev"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineextaxrev"></span></br>
+                  <strong></strong> <input name="slider22" placeholder="" class="form-control input-md span2" id="slider22" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput24" rel="tooltip" title="Number of public, private, and non-profit organizations located in the station area" name="searchinput24" placeholder="" class="form-control input-md" type="search">
         </div>
-      </div> -->
+              <!-- Advanced Search input-->
+              <!-- Economic -->
+      <div class="row">
+      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Number of public, private, and non-profit organizations located in the station area" class="col-md-4 col-xs-2 control-label small" for="searchinput23"> Establishments<span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ex_est10"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineest10"></span></br>
+                  <strong></strong> <input name="slider23" placeholder="" class="form-control input-md span2" id="slider23" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div>
+      </div>
 
-      <!-- Advanced Search input-->
-      <!-- Economic -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Total assessed value of all parcels in station area" class="col-md-4 control-label small" for="searchinput25">Assessed Value ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="assessedval"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic25" name="selectbasic25" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput25" rel="tooltip" title="Total assessed value of all parcels in station area" name="searchinput25" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
-
+              <!-- Advanced Search input-->
+              <!-- Economic -->
+      <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Total assessed value of land and improvements for all parcels in station area " class="col-md-4 col-xs-2 control-label small" for="searchinput24">Assessed Value ($)<span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ov_aval"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineaval"></span></br>
+                  <strong></strong> <input name="slider24" placeholder="" class="form-control input-md span2" id="slider24" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
+                </div>
+              </div> 
+            </div>
+      </div>
+      </div>
       <!-- Advanced Search input-->
       <!-- Demographics -->
-      <!-- <div class="form-group">
-        <br>
-        <p class="col-md-offset-2 text-left"><strong>Demographics</strong></p>
-        <label href="#" rel="tooltip" title="Total number of households in station area" class="col-md-4 control-label small" for="searchinput26">Number of Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="households"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic26" name="selectbasic26" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput26" rel="tooltip" title="Total number of households in station area" name="searchinput26" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      <div class="row">
+      <p class="col-md-offset-2 text-left"><strong>Demographics</strong></p>
 
+      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+          <hm3>
+            <div class="form-group">
+              <br>
+              <label href="#" rel="tooltip" title="Total number of households in station area" class="col-md-4 col-xs-2 control-label small" for="searchinput25">Households<span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ov_hh10"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+            
+              <div class="col-md-8 col-xs-12">
+                <span class="inlinesparklinehh10"></span></br>
+                <strong></strong> <input name="slider25" placeholder="" class="form-control input-md span2" id="slider25" type="text" value="" data-slider-handle="triangle"/> <strong></strong>
+              </div>
+            </div> 
+          </hm3>
+      </div>
       <!-- Advanced Search input-->
       <!-- Demographics -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" class="col-md-4 control-label small" for="searchinput27">Household Median Income ($) <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="median income"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic27" name="selectbasic27" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput27" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" name="searchinput27" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
+      <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+            <div>
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Median household income, calculated as the average for all census tracts that intersect with this station area" class="col-md-4 col-xs-2 control-label small" for="searchinput26">
+                  Median Income ($)<span class="glyphicon-class"></span>
+                  <a href="#" rel="tooltipd" title="ov_hhinc">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                  </a>
+                </label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinehhinc"></span></br>
+                  <strong></strong><input name="slider26" placeholder="" class="form-control input-md span2" id="slider26" type="text" value="" data-slider-handle="triangle"/><strong></strong>
+                </div>
+              </div>
+      </div>
+      </div>
+              <!-- Advanced Search input-->
+              <!-- Demographics -->
+      <div class="row">
+      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Percentage of housing units that are renter-occupied" class="col-md-4 col-xs-2 control-label small" for="searchinput27">Renter Share<span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ov_rentocc"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinerentocc"></span></br>
+                  <strong></strong><input name="slider27" placeholder="" class="form-control input-md span2" id="slider27" type="text" value="" data-slider-handle="triangle"/>
+                    <strong></strong>
+                </div>
+              </div>
+      </div>
+              <!-- Advanced Search input-->
+              <!-- Demographics -->
+      <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Percentage of all households in station area that do not own a car" class="col-md-4 col-xs-2 control-label small" for="searchinput28">Zero-Car Households<span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ov_hhnocar"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklinehhnocar"></span></br>
+                  <strong></strong><input name="slider28" placeholder="" class="form-control input-md span2" id="slider28" type="text" value="" data-slider-handle="triangle"/>
+                    <strong></strong>
+                </div>
+              </div>
+      </div>
+      </div>
 
-      <!-- Advanced Search input-->
-      <!-- Demographics -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Percentage of housing units that are renter-occupied" class="col-md-4 control-label small" for="searchinput28">Renter Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Tenure"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic28" name="selectbasic28" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
+              <!-- Advanced Search input-->
+              <!-- Demographics -->
+      <div class="row">
+      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
+              </br>
+              <div class="form-group">
+                <label href="#" rel="tooltip" title="Percentage of households with at least one bachelors degree" class="col-md-4 col-xs-2 control-label small" for="searchinput29">Educational Attainment<span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ov_ed_att"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+              
+                <div class="col-md-8 col-xs-12">
+                  <span class="inlinesparklineedatt"></span>
+                  <strong></strong><input name="slider29" placeholder="" class="form-control input-md span2" id="slider29" type="text" value="" data-slider-handle="triangle"/>
+                    <strong></strong>
+                </div>
+              </div>
+            </div>
         </div>
-        <div class="col-md-2">
-          <input id="searchinput28" rel="tooltip" title="Percentage of housing units that are renter-occupied" name="searchinput28" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
-
-      <!-- Advanced Search input-->
-      <!-- Demographics -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Percentage of all households in station area that do not own a car" class="col-md-4 control-label small" for="searchinput29">Zero-Car Households <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="Zero Car"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic29" name="selectbasic29" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput29" rel="tooltip" title="Percentage of all households in station area that do not own a car" name="searchinput29" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
-
-      <!-- Advanced Search input-->
-      <!-- Demographics -->
-      <!-- <div class="form-group">
-        <label href="#" rel="tooltip" title="Percentage of households with at least one bachelors degree" class="col-md-4 control-label small" for="searchinput30">Educational Attainment <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="educational"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-      
-        <div class="col-md-2">
-          <select id="selectbasic30" name="selectbasic30" class="form-control bootstrap-selectpicker">
-            <option value="gt">></option>
-            <option value="lt"><</option>
-            <option value="eq">=</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <input id="searchinput30" rel="tooltip" title="Percentage of households with at least one bachelors degree" name="searchinput30" placeholder="" class="form-control input-md" type="search">
-        </div>
-      </div> -->
-
+      </div>
+      </div>
 
 
       </fieldset>
       </br>
       </form>
-        <div class="col-xs-offset-1">
+        <div class="col-md-4 col-md-offset-6">
             <p>
-              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-8">Search</button>
+              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-4">Search</button>
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
             </p>
         </div>

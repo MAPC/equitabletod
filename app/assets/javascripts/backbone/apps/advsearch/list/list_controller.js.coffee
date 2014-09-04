@@ -2,17 +2,20 @@
 
 	List.Controller =
 		showAdvsearchPage: ->
-			@layout = @getLayoutView() 
+			sliders = App.request 'set:slider', "random_name", [23,33,32,33,33,222]
+			@layout = @getLayoutView sliders 
 			@layout.on 'show', ->
 				@showAdvsearch
 			App.mainRegion.show @layout
 
 		showAdvsearch: ->
-			AdvsearchLayout = @getAdvsearchLayout
+			AdvsearchLayout = @getAdvsearchLayout sliders
 			@layout.advsearchRegion.show advsearchView
 		
-		getAdvsearchView: ->
+		getAdvsearchView: (sliders) ->
 			new List.Layout
+				collection: sliders
 
-		getLayoutView: ->
+		getLayoutView: (sliders) ->
 			new List.Layout 
+				collection: sliders

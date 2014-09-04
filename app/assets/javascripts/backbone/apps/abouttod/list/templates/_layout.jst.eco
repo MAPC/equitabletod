@@ -3,7 +3,7 @@
 		<div id="home-txt" class="white-bg">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
+					<div class="col-md-8 col-md-offset-2 text-left">
 						<div id="etodpagetext">
 							<p class="h2">
 								Learn About TOD
@@ -25,7 +25,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							<strong><a href="http://www.ctod.org/pdfs/tod101.pdf" target="_blank">TOD 101: Why TOD? Why Now?</a></strong>
 						</p>
@@ -36,11 +36,11 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://www.ctod.org/pdfs/tod101.pdf" target="_blank"><img src="img/tod101.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://www.ctod.org/pdfs/tod101.pdf" target="_blank"><img src="assets/tod101.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							<strong><a href="http://www.ctod.org/pdfs/tod202stations.pdf" target="_blank">TOD 202: Station Area Planning</strong></a>
 						</p>
@@ -51,12 +51,12 @@
 					</div>
 					<br>
 					<div class="col-md-4 col-md-offset-0 text-left">
-						<a href="http://www.ctod.org/pdfs/tod202stations.pdf" target="_blank"><img src="img/tod202.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://www.ctod.org/pdfs/tod202stations.pdf" target="_blank"><img src="assets/tod202.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<br>
 						<p class="hm2">
 							<strong><a href="http://www.fta.dot.gov/documents/TOD_Lessons_Learned_12_21.pdf" target="_blank">FTA's TOD Lessons Learned</strong></a>
@@ -68,13 +68,13 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://www.fta.dot.gov/documents/TOD_Lessons_Learned_12_21.pdf" target="_blank"><img src="img/fta.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://www.fta.dot.gov/documents/TOD_Lessons_Learned_12_21.pdf" target="_blank"><img src="assets/fta.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 					<p>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							<a href="http://uli.org/wp-content/uploads/2012/07/TP_DevTransit.ashx_.pdf" target="_blank"><strong>ULI's Ten Principles for Successful Development Around Transit</strong></a>
 						</p>
@@ -85,19 +85,19 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://uli.org/wp-content/uploads/2012/07/TP_DevTransit.ashx_.pdf" target="_blank"><img src="img/uli.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://uli.org/wp-content/uploads/2012/07/TP_DevTransit.ashx_.pdf" target="_blank"><img src="assets/uli.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 					<br>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="h2">
 							Research on TOD
 						</p>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							<a href="www.toddata.cnt.org" target="_blank"><strong>Transit Oriented Development Database</strong></a>
 						</p>
@@ -108,11 +108,11 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="www.toddata.cnt.org" target="_blank"><img src="img/ctod.png" class="img-responsive" alt="Image Title"></a>
+						<a href="www.toddata.cnt.org" target="_blank"><img src="assets/ctod.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							<br>
 							<a href="http://www.ncsl.org/Documents/transportation/TOD_Final.pdf" target="_blank"><strong>Transit-oriented Development in the States</strong></a>
@@ -124,12 +124,12 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://www.ncsl.org/Documents/transportation/TOD_Final.pdf" target="_blank"><img src="img/todus.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://www.ncsl.org/Documents/transportation/TOD_Final.pdf" target="_blank"><img src="assets/todus.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rpt_128.pdf" target="_blank"><strong>Effects of TOD on Housing, Parking, and Travel</strong></a>
 						</p>
@@ -140,12 +140,12 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rpt_128.pdf" target="_blank"><img src="img/todefects.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rpt_128.pdf" target="_blank"><img src="assets/todefects.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							<a href="http://www.mapc.org/hnef" target="_blank"><strong>Transit Oriented Development and Health: A Health Impact Assessment to Inform the Healthy Neighborhoods Equity Fund</strong></a>
 						</p>
@@ -156,12 +156,12 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://www.mapc.org/hnef" target="_blank"><img src="img/todhia.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://www.mapc.org/hnef" target="_blank"><img src="assets/todhia.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rpt_95c17.pdf" target="_blank"><strong>Traveler Response to Transportation System Changes Handbook, Third Edition: Chapter 17, Transit-Oriented Development</strong></a>
 						</p>
@@ -172,12 +172,12 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rpt_95c17.pdf" target="_blank"><img src="img/trespons.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rpt_95c17.pdf" target="_blank"><img src="assets/trespons.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rrd_52.pdf" target="_blank"><strong>Transit-Oriented Development and Joint Development in the United States: A Literature Review</strong></a>
 						</p>
@@ -188,19 +188,19 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rrd_52.pdf" target="_blank"><img src="img/todrev.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rrd_52.pdf" target="_blank"><img src="assets/todrev.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="h2">
 							TOD Planning in Metro Boston
 						</p>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<p class="hm2">
 							<a href="http://www.mapc.org/melrosetod" target="_blank"><strong>TOD Project: Melrose Commuter Rail Corridor Visioning</strong></a>
 						</p>
@@ -211,11 +211,11 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://www.mapc.org/melrosetod" target="_blank"><img src="img/todp1.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://www.mapc.org/melrosetod" target="_blank"><img src="assets/todp1.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<br>
 						<p class="hm2">
 							<a href="http://www.mapc.org/envision-wollaston" target="_blank"><strong>TOD Project: Re-Envisioning Wollaston</strong></a>
@@ -227,11 +227,11 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://www.mapc.org/envision-wollaston" target="_blank"><img src="img/todp2.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://www.mapc.org/envision-wollaston" target="_blank"><img src="assets/todp2.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-2 text-left">
 						<br>
 						<p class="hm2">
 							<a href="http://www.mapc.org/green-line-extension" target="_blank"><strong>TOD Project: Green Line Extension Community Visioning</strong></a>
@@ -243,7 +243,9 @@
 					</div>
 					<div class="col-md-4 col-md-offset-0 text-left">
 						<br>
-						<a href="http://www.mapc.org/green-line-extension" target="_blank"><img src="img/todp3.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://www.mapc.org/green-line-extension" target="_blank"><img src="assets/todp3.png" class="img-responsive" alt="Image Title"></a>
+						</br>
+						</br>
 					</div>
 				</div>
 			</div>

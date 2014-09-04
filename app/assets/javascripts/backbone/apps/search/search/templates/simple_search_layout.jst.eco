@@ -1,10 +1,7 @@
 <div class="container-fluid">
   <div class="row" id="search">
     <!-- simple search form - start -->  
-    <form class="form-horizontal well well-lg" style="padding-top: 0px;">
-        <div id="dialog-modal">
-        <p></p>
-        </div>
+    <form class="form-horizontal well well-lg" style="padding: 0px;">
       <fieldset>
       <!-- Form Name -->
     <div class="col-md-8 col-xs-12 col-md-offset-2 text-left"> 
@@ -12,10 +9,10 @@
       <!-- <h3 class="small">Search by:</h3> -->
       <!-- Search input-->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Name"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name </label>
         <div class="col-md-6">
           <input id="searchinput1" placeholder="" class="form-control input-md" type="search">
-          <p class="small">The name of the station stop</p>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The name of the station stop</p>
         </div>
       </div>
       <!-- <h3 class="small">Or:</h3> -->
@@ -24,16 +21,16 @@
      <!--  <h3 class="small"><a id="browseall" class="black"href="">browse all stations</a></h3> -->
       <!-- Search input-->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality  <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Municipality"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality </label>
         <div class="col-md-6">
           <input id="searchinput2" name="searchinput2" placeholder="" class="form-control input-md" type="search">
-          <p class="small">The name of the municipality in which the station is principally or wholly located</p>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The name of the municipality in which the station is principally or wholly located</p>
           <p class="help-block"></p>
         </div>
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type <span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Service Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type </a></label>
         <div class="col-md-6">
           <select id="selectbasic2" data-filter="true" name="selectbasic2" class="form-control selectpicker" title="Select">
               <option value="">Select</option>
@@ -76,13 +73,13 @@
               <option value="SL5">SL5</option>
             </optgroup>
           </select>
-          <p class="small">The type(s) of transit service available at this station</p>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The type(s) of transit service available at this station</p>
         </div>
       </div>
       
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label" for="selectbasic3">Station Type<span class="glyphicon-class"</span><a href="#" rel="tooltipd" title="Station Type"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label" for="selectbasic3">Station Type</label>
         <div class="col-md-6">
           <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
             <option value="">Select</option>
@@ -97,12 +94,12 @@
             <option value="Seaport">Seaport / Airport</option>
             <option value="Suburban%20Transformation">Suburban Transformation</option>
           </select>
-          <p class="small">The group of stations to which this station belongs based on its TOD-supportive characteristics</p>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The group of stations to which this station belongs based on its TOD-supportive characteristics</p>
         </div>
       </div>
       <!-- Select Basic -->
       <div class="form-group">
-        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label" for="selectbasic4">eTOD Group<span class="glyphicon-class"></span> <a href="#" rel="tooltipd" title="eTOD Group"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label" for="selectbasic4">eTOD Group </label>
         <div class="col-md-6">
           <select id="selectbasic4" name="selectbasic4" class="form-control selectpicker">
             <option value="">Select</option>
@@ -111,12 +108,13 @@
             <option value="Transit-Oriented">Transit-Oriented</option>
             <option value="Transit-Adjacent">Transit-Adjacent</option>
           </select>
-          <p class="small">eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD</p>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD</p>
         </div>
       </div>
       <div class="col-md-4 col-md-offset-4">
             <p>
               <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d" data-loading-text="Loading...">Search</button>
+              <button id="advSearchButtom" type="button" class="btn btn-default btn-lg btn3d" data-loading-text="Loading...">Advanced Search</button>
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
               <!-- <button id="resetfields" type="button" type="reset" value="Reset" class="btn btn-default btn-lg btn3d col-xs-offset-0">Reset</button> -->
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
