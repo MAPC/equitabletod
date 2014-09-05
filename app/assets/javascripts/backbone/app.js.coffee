@@ -50,7 +50,6 @@
   App.vent.on "homeFired", ->
     App.module("SearchApp").stop()
     App.module("MainApp").stop()
-    # App.module("EtodApp").stop()
     App.module("SearchApp").start()
     App.navigate "search/", trigger: true
 

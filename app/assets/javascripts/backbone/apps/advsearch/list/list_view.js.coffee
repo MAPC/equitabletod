@@ -180,17 +180,46 @@
                         $(@el).tooltip "option", title: ""
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").dialog title: "Data Dictionary - #{@dictionaryentries.models["0"].get("interpretation")}"
-                        $("#dialog-modal").html("<hm2>#{@dictionaryentries.models["0"].get("code")} <br><br> <span>What it is: </span>#{@dictionaryentries.models["0"].get("importance")} <br><br> <span>Why it's important: </span>#{@dictionaryentries.models["0"].get("description")} <br><br> <span>Technical notes: </span>#{@dictionaryentries.models["0"].get("technical_notes")}</hm2>")
+                        $("#dialog-modal").dialog title: ""
+                        $("#dialog-modal").html("<div class='row'>
+                                                    <div class='col-md-1'>
+                                                        <span class='glyphicon-class'></span><span class='glyphicon glyphicon-check'>
+                                                    </div>
+                                                    <div class='col-md-10' style='text-align: justify;'>
+                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span style='font-style: italic;'>#{@dictionaryentries.models["0"].get("code")} </span>
+                                                    </div>
+                                                </div>
+                                                <hr> 
+                                                <div class='row'>
+                                                    <div class='col-md-1'>
+                                                        <span class='glyphicon glyphicon-info-sign'></span>
+                                                    </div>
+                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
+                                                        #{@dictionaryentries.models["0"].get("importance")} 
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class='row'>
+                                                    <div class='col-md-1'> 
+                                                        <span class='glyphicon glyphicon-warning-sign'></span>
+                                                    </div>
+                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
+                                                        #{@dictionaryentries.models["0"].get("description")} 
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class='row'>
+                                                    <div class='col-md-1'><span class='glyphicon glyphicon-asterisk'>
+                                                        </span></div><div class='col-md-10' style='text-align: justify; font-style: italic;'>
+                                                            #{@dictionaryentries.models["0"].get("technical_notes")}
+                                                    </div>
+                                                </div></hm2>")
                         $("#dialog-modal").dialog height: "auto" 
                         $("#dialog-modal").dialog modal: true
 
               $("#searchinput2").autocomplete
                 source: gon.muni_names.muni_names
-                minLength: 3
-                select: (event, ui) ->
-                    console.log event.view.gon
-                    console.log ui.item.value.toLowerCase()      
+                minLength: 3   
               $("[rel=tooltip]").tooltip placement: "top"  
               fm_options =
                 bootstrap: true
