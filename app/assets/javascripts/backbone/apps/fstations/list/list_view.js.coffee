@@ -93,8 +93,8 @@
               return
             $(document).ready -> 
                 $("html, body").animate
-                  scrollTop: 0
-                , 600
+                  scrollTop: ($("#detailscol").offset().top)
+                , 500
                 $("body").removeClass "nav-expanded"        
                 $("#printpaker").click ->
                     $("a.print-preview").printPreview()
@@ -296,35 +296,16 @@
             pfeatures = _.values gon.features
             pjfeatures = pfeatures.map (pf) -> pf.properties
             jfeatures = JSON.stringify(pjfeatures)
-            $("#titles").html "<p class='h2'>Search Results </p><p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a></p>"
+            # $("#titles").html "<p class='h2'>Search Results </p><p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a></p>"
             $("html, body").animate
-                  scrollTop: 0
-                , "fast"
+              scrollTop: ($("#detailscol").offset().top)
+            , 500
             #$("[rel=tooltipu]").tooltip placement: "top"
-            $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a> "
+            $("#panel").html "<span class='glyphicon-class'></span> <a href='#advsearch/' id='searchrefine'><span class='glyphicon glyphicon-filter' rel='tooltipb' title='Refine the Search Results'>  </span></a>"
             $("[rel=tooltiprf]").click (event, ui) ->
                 gon.query = "#{@.title}&" + gon.query
                 App.vent.trigger "searchFired", gon.query
-            $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download This Data</button>"
-            if gon.paginate == true
-                $("#navigationsb").html '<button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button>'
-                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
-                $("#nextbuttom").click ->
-                    if gon.num_pages > gon.page_number is true
-                        App.vent.trigger "searchFired", gon.query
-                    else
-                        gon.page_number = gon.page_number + 1 
-                        App.vent.trigger "searchFired", "pgr" + "#{gon.page_number}"
-                $("#previousbuttom").click ->
-                    if gon.num_pages > gon.page_number is true
-                        App.vent.trigger "searchFired", gon.query
-                    else
-                        gon.page_number = gon.page_number - 1 if gon.page_number > 1
-                        App.vent.trigger "searchFired", "pgr" + "#{gon.page_number}"
-
-            else
-                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a> "
-
+            $("#dllink").html "<span class='glyphicon-class'></span> <a href='#' id='download'><span class='glyphicon glyphicon-download' rel='tooltipb' title='Download Data for These Stations' >  </span></a>"
             JSON2CSV = (objArray) ->
               array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
               str = ""

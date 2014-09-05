@@ -246,8 +246,8 @@
                   send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
               fm.init fm_options
             $("html, body").animate
-                  scrollTop: 0
-                , 600         
+              scrollTop: ($("#adv-fields").offset().top)
+            , 500      
 
         events: 
             'click #searchbuttom': 'inputChange'
