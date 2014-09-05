@@ -241,60 +241,60 @@ var fm = (function () {
 	}
 
 	function triggerAction(event, position) {
+		console.log("overrides jquery feedback_me plugin");
+		// var animation_show = {},
+		// 	animation_hide = {},
+		// 	$fm_trigger,
+		// 	$fm_content;
 
-		var animation_show = {},
-			animation_hide = {},
-			$fm_trigger,
-			$fm_content;
+		// animation_show.marginLeft = "+=380px";
+		// animation_hide.marginLeft = "-=380px";
 
-		animation_show.marginLeft = "+=380px";
-		animation_hide.marginLeft = "-=380px";
+		// if (fm.getFmOptions(event, position).position.indexOf("right-") !== -1) {
+		// 	animation_show.marginRight = "+=380px";
+		// 	animation_hide.marginRight = "-=380px";
+		// }
 
-		if (fm.getFmOptions(event, position).position.indexOf("right-") !== -1) {
-			animation_show.marginRight = "+=380px";
-			animation_hide.marginRight = "-=380px";
-		}
+		// $fm_trigger = $(event.target).closest(".feedback_trigger");
+		// if ($fm_trigger.length === 1) {
+		// 	$fm_content = $fm_trigger.next();
+		// } else {
+		// 	$fm_content = $(event.target).closest(".feedback_content");
+		// 	$fm_trigger = $fm_content.prev();
+		// }
+		// if ($fm_content.length === 0 || $fm_trigger.length === 0) {
+		// 	if (position === undefined) {
+		// 		position = 'left-top';
+		// 	}
+		// 	$fm_content = $('.' + position).closest(".feedback_content");
+		// 	$fm_trigger = $fm_content.prev();
+		// }
 
-		$fm_trigger = $(event.target).closest(".feedback_trigger");
-		if ($fm_trigger.length === 1) {
-			$fm_content = $fm_trigger.next();
-		} else {
-			$fm_content = $(event.target).closest(".feedback_content");
-			$fm_trigger = $fm_content.prev();
-		}
-		if ($fm_content.length === 0 || $fm_trigger.length === 0) {
-			if (position === undefined) {
-				position = 'left-top';
-			}
-			$fm_content = $('.' + position).closest(".feedback_content");
-			$fm_trigger = $fm_content.prev();
-		}
-
-		if ($fm_trigger.hasClass("feedback_trigger_closed")) {
-			if (supportsTransitions === true) {
-				$fm_trigger.removeClass("feedback_trigger_closed");
-				$fm_content.removeClass("feedback_content_closed");
-			} else {
-				$fm_trigger.add($fm_content).animate(
-					animation_show,
-					150,
-					function () {
-						$fm_trigger.removeClass("feedback_trigger_closed");
-						$fm_content.removeClass("feedback_content_closed");
-					}
-				);
-			}
-		} else {
-			//first add the closed class so double (which will trigger closeFeedback function) click wont try to hide the form twice
-			$fm_trigger.addClass("feedback_trigger_closed");
-			$fm_content.addClass("feedback_content_closed");
-			if (supportsTransitions === false) {
-				$fm_trigger.add($fm_content).animate(
-					animation_hide,
-					150
-				);
-			}
-		}
+		// if ($fm_trigger.hasClass("feedback_trigger_closed")) {
+		// 	if (supportsTransitions === true) {
+		// 		$fm_trigger.removeClass("feedback_trigger_closed");
+		// 		$fm_content.removeClass("feedback_content_closed");
+		// 	} else {
+		// 		$fm_trigger.add($fm_content).animate(
+		// 			animation_show,
+		// 			150,
+		// 			function () {
+		// 				$fm_trigger.removeClass("feedback_trigger_closed");
+		// 				$fm_content.removeClass("feedback_content_closed");
+		// 			}
+		// 		);
+		// 	}
+		// } else {
+		// 	//first add the closed class so double (which will trigger closeFeedback function) click wont try to hide the form twice
+		// 	$fm_trigger.addClass("feedback_trigger_closed");
+		// 	$fm_content.addClass("feedback_content_closed");
+		// 	if (supportsTransitions === false) {
+		// 		$fm_trigger.add($fm_content).animate(
+		// 			animation_hide,
+		// 			150
+		// 		);
+		// 	}
+		// }
 	}
 
 	function closeFeedback(event) {

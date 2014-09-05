@@ -244,7 +244,7 @@
                   fail_color: "#d2322d"
                   delay_success_milliseconds: 3500
                   send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
-              fm.init fm_options
+              #fm.init fm_options
             $("html, body").animate
               scrollTop: ($("#adv-fields").offset().top)
             , 500      

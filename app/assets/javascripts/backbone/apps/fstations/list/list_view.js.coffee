@@ -159,8 +159,28 @@
                   window.open "data:text/csv;charset=utf-8," + escape(csv)
                   return
 
-                $("feedback_trigger").click (event, ui) ->
-                    console.log "gets the ckick"
+                $(".feedback_trigger").click (event, ui) ->
+                    $("#accordion").accordion "disable"
+                    $(@el).tooltip "option", title: ""
+                    $("#dialog-modal").dialog "open"
+                    $("#dialog-modal").html("")
+                    $("#dialog-modal").dialog title: ""
+                    $("#dialog-modal").html("<div class='container-fluid' style='background-color: white;''>
+                                                <div class='row'>
+                                                    <div id='boxplot' class='col-md-6 class='col-xs-4'>
+                                                        <p class='hm2' style='text-align: justify;'>
+                                                        Box plot is a way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots show distribution of an attribute for all the station areas. the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and 'whiskers' above and below the box show the locations of the minimum and maximum for all staton areas. The red + indicates the current station value for the field. 
+                                                        </p>
+                                                    </div>
+                                                    <div class='col-md-6 class='col-xs-4'>
+                                                        <img src='img/boxplotsimple08.png' class='img-responsive' alt='Box Plot'>
+                                                    </div>
+                                                </div>
+                                            </div>")
+                    $("#dialog-modal").dialog height: "auto" 
+                    $("#dialog-modal").dialog modal: true
+                        
+
 
                 $("#searchrefine").click (event, ui) ->
                     console.log "it gets the click"
