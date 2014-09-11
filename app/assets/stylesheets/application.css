@@ -17,6 +17,7 @@
  *= require print-preview
  *= require jquery.feedback_me
  *= require bootstrap-slider
+ *= require jquery.fancybox
  *= require_tree .
  */
 

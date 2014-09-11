@@ -20,7 +20,10 @@
                 	scrollTop: $("#search").offset().top
             	, "fast"
 			catch error
+				console.log "catched error"
 				App.vent.trigger "homeFired"
+			finally
+				console.log "finally"
 
 		etodFired: (e) =>
 			App.vent.trigger "etodFired"

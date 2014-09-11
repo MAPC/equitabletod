@@ -3,13 +3,8 @@
   App = new Marionette.Application 
 
   App.on "initialize:before", (options) ->
-    console.log "options:"
-    console.log options
-    #@names = App.request "set:name", options.names
-    #@muni_names = App.request "set:muni_name", options.muni_names
-    #console.log "@muni_names: "
-    #console.log @muni_names
-    #@transit_lines = App.request "set:transit_line", options.
+    # console.log "options:"
+    # console.log options
 
   RegionMan = new Marionette.RegionManager
   App.vent = new Backbone.Wreqr.EventAggregator()
@@ -17,6 +12,7 @@
   App.addRegions
     headerRegion: "#header-region"
     mainRegion:   "#main-region"
+    dictRegion:   "#dict-region"
     footerRegion: "#footer-region"
 
   RegionMan.on "region:add", (name, region) ->
@@ -33,7 +29,7 @@
     App.navigate "gsa/", trigger: true
 
   App.vent.on "guidFired", ->
-    App.navigate "guid/", trigger: true
+    App.navigate "guide/", trigger: true
 
   App.vent.on "datadlFired", ->
     App.navigate "datadl/", trigger: true
@@ -45,14 +41,16 @@
     App.navigate "print/q/", trigger: true
 
   App.vent.on "searchFired", (query)->
-    console.log "im inside the app itself"
     query = "fss/q/" + query
-    console.log query
     App.navigate query, trigger: true
 
+  App.vent.on "mainFired", ->
+    App.navigate "/", trigger: true
+
   App.vent.on "homeFired", ->
+    App.module("SearchApp").stop()
     App.module("MainApp").stop()
-    App.module("EtodApp").stop()
+    # App.module("EtodApp").stop()
     App.module("SearchApp").start()
     App.navigate "search/", trigger: true
 
@@ -65,6 +63,6 @@
   App.on "initialize:after", (options) ->
     if Backbone.history
       Backbone.history.start()
-      @navigate("home/", trigger: true) if @getCurrentRoute() is ""
+      @navigate("/", trigger: true) if @getCurrentRoute() is ""
 
   App

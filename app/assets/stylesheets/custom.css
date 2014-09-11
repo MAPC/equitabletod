@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .ui-widget-content a {
 	color: #ff3535;
 	text-decoration: none;
