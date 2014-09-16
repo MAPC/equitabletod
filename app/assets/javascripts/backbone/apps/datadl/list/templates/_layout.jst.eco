@@ -16,8 +16,7 @@
 				<br />
 				&nbsp;&nbsp;
 				<button id="download" type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download CSV</button>
-				<button id="downloadguide" type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download User Guide</button>
-
+				<!-- <button id="downloadguide" type='button' class='btn btn-default btn-lg btn3d col-xs-offset-0'>Download User Guide</button> -->
 			</br>
 			<br>
 			<br>
