@@ -89,6 +89,7 @@ def transit_lines
     record.save!
   end
 end
+
 def station_areas
   StationArea.destroy_all
   ActiveRecord::Base.connection.reset_pk_sequence!("station_areas")

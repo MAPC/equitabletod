@@ -3,8 +3,6 @@
   App = new Marionette.Application 
 
   App.on "initialize:before", (options) ->
-    # console.log "options:"
-    # console.log options
 
   RegionMan = new Marionette.RegionManager
   App.vent = new Backbone.Wreqr.EventAggregator()
@@ -50,7 +48,6 @@
   App.vent.on "homeFired", ->
     App.module("SearchApp").stop()
     App.module("MainApp").stop()
-    # App.module("EtodApp").stop()
     App.module("SearchApp").start()
     App.navigate "search/", trigger: true
 
