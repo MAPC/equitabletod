@@ -54,17 +54,17 @@
               $("[rel=tooltip]").tooltip placement: "top"
               $("#dialog-modal").dialog 
                     position:
-                        my: "center"
-                        at: "center"
+                        my: "right"
+                        at: "right"
                     autoOpen: false
                     closeOnEscape: true
-   
+                    width: 780
                     show:
-                        effect: "fade"
-                        duration: 100  
+                        effect: "blind"
+                        duration: 200  
                     hide:
-                        effect: "fade"
-                        duration: 100
+                        effect: "blind"
+                        duration: 200
                     title: 
                         $("[rel=tooltipd]").title
 
@@ -123,11 +123,10 @@
                                 gon.features = features
                                 App.vent.trigger "searchFired", query
                             else
-                                console.log "error"
                                 $("#dialog-modal").dialog "open"
                                 $("#dialog-modal").dialog title: "Error"
                                 $("#dialog-modal").html("")
-                                $("#dialog-modal").html("Search has no results, Please try again with different parameteres")
+                                $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
               
 
         events: 
@@ -187,7 +186,6 @@
                     url: urlstr
                     done: (result) =>
                         return result
-            console.log "response to the ajax call"
             #console.log responseFeature
             collection = responseFeature.complete()
             collection.done =>
@@ -206,16 +204,16 @@
                         gon.query = query
                         App.vent.trigger "searchFired", query
                     else
-                        console.log "error"
-                        console.log btn
-                        btn.target.validity.valid = false
-                        btn.target.innerText = 'Error'
-                        console.log @
-                        console.log btn
-                        ###$("#dialog-modal").dialog "open"
+                        # console.log "error"
+                        # console.log btn
+                        # btn.target.validity.valid = false
+                        # btn.target.innerText = 'Error'
+                        # console.log @
+                        # console.log btn
+                        $("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Error"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").html("Search has no results, Please try again with different parameteres")###
+                        $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
 
 
         moreText: (e) =>
