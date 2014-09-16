@@ -125,7 +125,9 @@
                     max: Math.round gon.maxedatt = if gon.maxedatt then gon.maxedatt else 0.91
                     value:[0, 1]
                     step: 0.01
+                # empty out the title element text
                 $("#titles").html "<p class='h2'></p>"
+                # setup the jQuery Sparkline objects for each data point
                 $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'     
                 $(".inlinesparklinefar").sparkline gon.fars, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '170', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
                 $(".inlinesparklinepcttran").sparkline gon.pcttrans, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '420', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'
@@ -151,7 +153,6 @@
                 $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
            
             $(document).ready ->
-              $(".fancybox").eq(0).trigger "click"
               $("#dialog-modal").dialog 
                 position:
                     my: "right"
@@ -180,17 +181,46 @@
                         $(@el).tooltip "option", title: ""
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").dialog title: "Data Dictionary - #{@dictionaryentries.models["0"].get("interpretation")}"
-                        $("#dialog-modal").html("<hm2>#{@dictionaryentries.models["0"].get("code")} <br><br> <span>What it is: </span>#{@dictionaryentries.models["0"].get("importance")} <br><br> <span>Why it's important: </span>#{@dictionaryentries.models["0"].get("description")} <br><br> <span>Technical notes: </span>#{@dictionaryentries.models["0"].get("technical_notes")}</hm2>")
+                        $("#dialog-modal").dialog title: ""
+                        $("#dialog-modal").html("<div class='row'>
+                                                    <div class='col-md-1'>
+                                                        <span class='glyphicon-class'></span><span class='glyphicon glyphicon-check'>
+                                                    </div>
+                                                    <div class='col-md-10' style='text-align: justify;'>
+                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span style='font-style: italic;'>#{@dictionaryentries.models["0"].get("code")} </span>
+                                                    </div>
+                                                </div>
+                                                <hr> 
+                                                <div class='row'>
+                                                    <div class='col-md-1'>
+                                                        <span class='glyphicon glyphicon-info-sign'></span>
+                                                    </div>
+                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
+                                                        #{@dictionaryentries.models["0"].get("importance")} 
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class='row'>
+                                                    <div class='col-md-1'> 
+                                                        <span class='glyphicon glyphicon-warning-sign'></span>
+                                                    </div>
+                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
+                                                        #{@dictionaryentries.models["0"].get("description")} 
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class='row'>
+                                                    <div class='col-md-1'><span class='glyphicon glyphicon-asterisk'>
+                                                        </span></div><div class='col-md-10' style='text-align: justify; font-style: italic;'>
+                                                            #{@dictionaryentries.models["0"].get("technical_notes")}
+                                                    </div>
+                                                </div></hm2>")
                         $("#dialog-modal").dialog height: "auto" 
                         $("#dialog-modal").dialog modal: true
 
               $("#searchinput2").autocomplete
                 source: gon.muni_names.muni_names
-                minLength: 3
-                select: (event, ui) ->
-                    console.log event.view.gon
-                    console.log ui.item.value.toLowerCase()      
+                minLength: 3   
               $("[rel=tooltip]").tooltip placement: "top"  
               fm_options =
                 bootstrap: true
@@ -215,10 +245,10 @@
                   fail_color: "#d2322d"
                   delay_success_milliseconds: 3500
                   send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
-              fm.init fm_options
+              #fm.init fm_options
             $("html, body").animate
-                  scrollTop: 0
-                , 600         
+              scrollTop: ($("#adv-fields").offset().top)
+            , 500      
 
         events: 
             'click #searchbuttom': 'inputChange'

@@ -93,8 +93,8 @@
               return
             $(document).ready -> 
                 $("html, body").animate
-                  scrollTop: 0
-                , 600
+                  scrollTop: ($("#detailscol").offset().top)
+                , 500
                 $("body").removeClass "nav-expanded"        
                 $("#printpaker").click ->
                     $("a.print-preview").printPreview()
@@ -159,8 +159,27 @@
                   window.open "data:text/csv;charset=utf-8," + escape(csv)
                   return
 
-                $("feedback_trigger").click (event, ui) ->
-                    console.log "gets the ckick"
+                $(".feedback_trigger").click (event, ui) ->
+                    $("#accordion").accordion "disable"
+                    $(@el).tooltip "option", title: ""
+                    $("#dialog-modal").dialog "open"
+                    $("#dialog-modal").html("")
+                    $("#dialog-modal").dialog title: ""
+                    $("#dialog-modal").html("<div class='container-fluid' style='background-color: white;''>
+                                                <div class='row'>
+                                                    <div id='boxplot' class='col-md-6 class='col-xs-4'>
+                                                        <p class='hm2' style='text-align: justify;'>
+                                                        Box plot is a way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots show distribution of an attribute for all the station areas. the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and 'whiskers' above and below the box show the locations of the minimum and maximum for all staton areas. The red + indicates the current station value for the field. 
+                                                        </p>
+                                                    </div>
+                                                    <div class='col-md-6 class='col-xs-4'>
+                                                        <img src='img/boxplotsimple08.png' class='img-responsive' alt='Box Plot'>
+                                                    </div>
+                                                </div>
+                                            </div>")
+                    $("#dialog-modal").dialog height: "auto" 
+                    $("#dialog-modal").dialog modal: true
+                        
 
                 $("#searchrefine").click (event, ui) ->
                     console.log "it gets the click"
@@ -206,8 +225,40 @@
                         $(@el).tooltip "option", title: ""
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").dialog title: "Data Dictionary - #{@dictionaryentries.models["0"].get("interpretation")}"
-                        $("#dialog-modal").html("<hm2>#{@dictionaryentries.models["0"].get("code")} <br><br> <span>What it is: </span>#{@dictionaryentries.models["0"].get("importance")} <br><br> <span>Why it's important: </span>#{@dictionaryentries.models["0"].get("description")} <br><br> <span>Technical notes: </span>#{@dictionaryentries.models["0"].get("technical_notes")}</hm2>")
+                        $("#dialog-modal").dialog title: ""
+                        $("#dialog-modal").html("<div class='row'>
+                                                    <div class='col-md-1'>
+                                                        <span class='glyphicon-class'></span><span class='glyphicon glyphicon-check'>
+                                                    </div>
+                                                    <div class='col-md-10' style='text-align: justify;'>
+                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span style='font-style: italic;'>#{@dictionaryentries.models["0"].get("code")} </span>
+                                                    </div>
+                                                </div>
+                                                <hr> 
+                                                <div class='row'>
+                                                    <div class='col-md-1'>
+                                                        <span class='glyphicon glyphicon-info-sign'></span>
+                                                    </div>
+                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
+                                                        #{@dictionaryentries.models["0"].get("importance")} 
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class='row'>
+                                                    <div class='col-md-1'> 
+                                                        <span class='glyphicon glyphicon-warning-sign'></span>
+                                                    </div>
+                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
+                                                        #{@dictionaryentries.models["0"].get("description")} 
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class='row'>
+                                                    <div class='col-md-1'><span class='glyphicon glyphicon-asterisk'>
+                                                        </span></div><div class='col-md-10' style='font-style: italic;'>
+                                                            #{@dictionaryentries.models["0"].get("technical_notes")}
+                                                    </div>
+                                                </div></hm2>")
                         $("#dialog-modal").dialog height: "auto" 
                         $("#dialog-modal").dialog modal: true
 
@@ -264,35 +315,16 @@
             pfeatures = _.values gon.features
             pjfeatures = pfeatures.map (pf) -> pf.properties
             jfeatures = JSON.stringify(pjfeatures)
-            $("#titles").html "<p class='h2'>Search Results </p><p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a></p>"
+            # $("#titles").html "<p class='h2'>Search Results </p><p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a></p>"
             $("html, body").animate
-                  scrollTop: 0
-                , "fast"
+              scrollTop: ($("#detailscol").offset().top)
+            , 500
             #$("[rel=tooltipu]").tooltip placement: "top"
-            $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a> "
+            $("#panel").html "<span class='glyphicon-class'></span> <a href='#advsearch/' id='searchrefine'><span class='glyphicon glyphicon-filter' rel='tooltipb' title='Refine the Search Results'>  </span></a>"
             $("[rel=tooltiprf]").click (event, ui) ->
                 gon.query = "#{@.title}&" + gon.query
                 App.vent.trigger "searchFired", gon.query
-            $("#dllink").html "<button id='download' type='button' class='btn btn-default btn3d col-xs-offset-0'>Download This Data</button>"
-            if gon.paginate == true
-                $("#navigationsb").html '<button id="previousbuttom" type="button" class="btn btn-default btn3d">&lsaquo;</button><strong class="col-xs-offset-0"><a class="hm2" href="#"> <strong>Navigate Results</strong></a></strong><button id="nextbuttom" type="button" class="btn btn-default btn3d col-xs-offset-0">&rsaquo;</button>'
-                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a>"
-                $("#nextbuttom").click ->
-                    if gon.num_pages > gon.page_number is true
-                        App.vent.trigger "searchFired", gon.query
-                    else
-                        gon.page_number = gon.page_number + 1 
-                        App.vent.trigger "searchFired", "pgr" + "#{gon.page_number}"
-                $("#previousbuttom").click ->
-                    if gon.num_pages > gon.page_number is true
-                        App.vent.trigger "searchFired", gon.query
-                    else
-                        gon.page_number = gon.page_number - 1 if gon.page_number > 1
-                        App.vent.trigger "searchFired", "pgr" + "#{gon.page_number}"
-
-            else
-                $("#panel").html "<a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a> "
-
+            $("#dllink").html "<span class='glyphicon-class'></span> <a href='#' id='download'><span class='glyphicon glyphicon-download' rel='tooltipb' title='Download Data for These Stations' >  </span></a>"
             JSON2CSV = (objArray) ->
               array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
               str = ""
