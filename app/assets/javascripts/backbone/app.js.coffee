@@ -3,8 +3,6 @@
   App = new Marionette.Application 
 
   App.on "initialize:before", (options) ->
-    # console.log "options:"
-    # console.log options
 
   RegionMan = new Marionette.RegionManager
   App.vent = new Backbone.Wreqr.EventAggregator()
