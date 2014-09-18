@@ -2,7 +2,8 @@
 	<div>
 		<div id="gsa-txt" class="white-bg">
 			<div class="container-fluid">
-				<div class="row">
+			</br>
+				<!-- <div class="row">
 					<div class="col-md-8 col-md-offset-2 text-left">
 						<p class="h2">
 							Growing Station Areas
@@ -11,9 +12,14 @@
 							The Variety and Potential of Transit Oriented Development in Metro Boston
 						</p>
 					</div>
+				</div> -->
+				<div class="row">
+					<div class="col-md-6 col-lg-6 col-md-offset-3 text-left">
+						<img src="assets/mapc_etod.png" class="img-responsive" alt="Growing Station Areas Report Cover Image">
+					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-8 col-md-offset-2 text-left">
 						<div id="etodpagetext">
 						</br>
 						</br>
@@ -24,12 +30,17 @@
 							</p>
 						</div>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
-						<img src="assets/mapc_etod.png" class="img-responsive" alt="Image Title">
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-lg-6 col-md-offset-3 text-left">
+					</br>
+					</br>
+						<img src="assets/gsatyp.png" class="img-responsive" alt="Growing Station Areas Typology">	
+						</br>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4 col-md-offset-2 text-left">
+					<div class="col-md-8 col-md-offset-2 text-left">
 						<div id="etodpagetext">
 						</br>
 						</br>
@@ -42,17 +53,10 @@
 						</br>
 						</div>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
-					</br>
-					</br>
-						<img src="assets/gsatyp.png" class="img-responsive" alt="Image Title">	
-						</br>
-					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-left">
 				          	<p class="hm2"> 
-				          	</br>
 						    </br>
 				            	<ul class="hm2">
 				              	<li>  Housing, economic development, and infrastructure programs can use the typology to establish funding criteria that reflect both local conditions as well as regional TOD goals. </li>
@@ -62,10 +66,11 @@
 				              	<li>  The MBTA can use the analysis of TOD potential to plan for capacity expansion or to evaluate the potential development impacts of service changes. </li>
 				            	</ul>
 				            </br>
-						    </br>
 				          	</p>
+				          	<!-- <p class = "hm2">The station area types are introduced briefly below.  
+				          	 --></p>
 				          	<p class = "hm2">
-							The station area types are introduced briefly below.  Download the full report <a href="http://www.mapc.org/sites/default/files/MAPC-TOD-Report-FINAL-web-reduced-size.pdf" target="_blank">here</a>
+							Download the full report <a href="http://www.mapc.org/sites/default/files/MAPC-TOD-Report-FINAL-web-reduced-size.pdf" target="_blank">here</a>
 							</p>
 							</br>
 						</br>
