@@ -70,7 +70,7 @@
                 name_placeholder: "boxplot"
                 title_label : ""
                 trigger_label : "How to Read Diagrams"
-                custom_html: '<div class="container-fluid" style="background-color: white;"><div class="row"><div id="boxplot" class="col-md-6 class="col-xs-4"><p style="line-height: 1.8em; text-align: justify; font-size: 12px;">Box plot is a way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots show distribution of an attribute for all the station areas. the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and "whiskers" above and below the box show the locations of the minimum and maximum for all staton areas. The red + indicates the current station value for the field. </p></div><div class="col-md-6 class="col-xs-4"><img src="img/boxplotsimple08.png" class="img-responsive" alt="Box Plot"></div></div></div>'
+                custom_html: '<div class="container-fluid" style="background-color: white;"><div class="row"><div id="boxplot" class="col-md-6 class="col-xs-4"><p style="line-height: 5.2em; text-align: justify; font-size: 14px;"></br>Box plot is a way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots show distribution of an attribute for all the station areas. the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and "whiskers" above and below the box show the locations of the minimum and maximum for all staton areas. The red + indicates the current station value for the field. </p></div><div class="col-md-6 class="col-xs-4"><img src="assets/boxplotsimple08.png" class="img-responsive" alt="Box Plot"></div></div></div>'
                 show_form: false
                 name_required: false
                 close_on_click_outisde: true
@@ -153,10 +153,37 @@
                 $(document).ready -> 
                     $("body").removeClass "nav-expanded"
 
-                $("#download").click ->
+                exportTableToCSV = (jfeature, filename) ->
                   json = $.parseJSON(jfeature)
                   csv = JSON2CSV(json)
-                  window.open "data:text/csv;charset=utf-8," + escape(csv)
+
+                  # Data URI
+                  csvData = "data:application/csv;charset=utf-8," + encodeURIComponent(csv)
+                  $(this).attr
+                    download: filename
+                    href: csvData
+                    target: "_blank"
+
+                  return
+
+                # This must be a hyperlink
+                $(".export").on "click", (event) ->
+                  
+                  # CSV
+                  exportTableToCSV.apply this, [
+                    $("#dvData>table")
+                    "export.csv"
+                  ]
+                  return
+
+
+                # IF CSV, don't do event.preventDefault() or return false
+                # We actually need this to be a typical hyperlink
+                $("#download").click ->
+                  exportTableToCSV.apply this, [
+                    jfeature
+                    "tstationinfo.csv"
+                  ]
                   return
 
                 $(".feedback_trigger").click (event, ui) ->
@@ -351,10 +378,37 @@
             $(document).ready -> 
                 $("body").removeClass "nav-expanded"
 
-            $("#download").click ->
-              json = $.parseJSON(jfeatures)
+            exportTableToCSV = (jfeature, filename) ->
+              json = $.parseJSON(jfeature)
               csv = JSON2CSV(json)
-              window.open "data:text/csv;charset=utf-8," + escape(csv)
+
+              # Data URI
+              csvData = "data:application/csv;charset=utf-8," + encodeURIComponent(csv)
+              $(this).attr
+                download: filename
+                href: csvData
+                target: "_blank"
+
+              return
+
+            # This must be a hyperlink
+            $(".export").on "click", (event) ->
+              
+              # CSV
+              exportTableToCSV.apply this, [
+                $("#dvData>table")
+                "export.csv"
+              ]
+              return
+
+
+            # IF CSV, don't do event.preventDefault() or return false
+            # We actually need this to be a typical hyperlink
+            $("#download").click ->
+              exportTableToCSV.apply this, [
+                jfeatures
+                "tstationinfo.csv"
+              ]
               return
 
             $("#searchrefine").click (event, ui) ->

@@ -8,10 +8,125 @@
       </br>
       <!-- <h3 class="small">Search by:</h3> -->
       <!-- Search input-->
-        <div id="accordion">          
-          <h2 class="col-md-offset-1 col-xs-offset-2 text-left black" style="text-align: left;">Advanced Search</h2> 
-          </br>
-  </div>
+  <div class="row" id="search">
+    <!-- simple search form - start -->  
+    <p class="h2 col-md-offset-1 col-xs-offset-0 text-left"><strong>Advanced Search</strong></p>
+    </br>
+    <form class="form-horizontal well well-lg" style="padding: 0px;">
+      <fieldset>
+      <!-- Form Name -->
+    <div class="col-md-8 col-xs-12 col-md-offset-1 text-left"> 
+      <!-- <h3 class="small">Search by:</h3> -->
+      <!-- Search input-->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The name of the station stop" class="col-md-4 control-label" for="searchinput1">Station Name </label>
+        <div class="col-md-6">
+          <input id="searchinput1" placeholder="" class="form-control input-md" type="search">
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The name of the station stop</p>
+        </div>
+      </div>
+      <!-- <h3 class="small">Or:</h3> -->
+      </hr>
+      </hr>
+     <!--  <h3 class="small"><a id="browseall" class="black"href="">browse all stations</a></h3> -->
+      <!-- Search input-->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The name of the municipality in which the station is principally or wholly located" class="col-md-4 control-label" for="searchinput2">Municipality </label>
+        <div class="col-md-6">
+          <input id="searchinput2" name="searchinput2" placeholder="" class="form-control input-md" type="search">
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The name of the municipality in which the station is principally or wholly located</p>
+          <p class="help-block"></p>
+        </div>
+      </div>
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The type(s) of transit service available at this station" class="col-md-4 control-label" for="selectbasic2">Service Type </a></label>
+        <div class="col-md-6">
+          <select id="selectbasic2" data-filter="true" name="selectbasic2" class="form-control selectpicker" title="Select">
+              <option value="">Select</option>
+            <optgroup label="Rapid Transit">
+              <option value="Blue">Blue Line</option>
+              <option value="Green">Green Line</option>
+              <option value="Orange">Orange Line</option>
+              <option value="Red">Red Line</option>
+            </optgroup>
+            <optgroup label="Commuter Rail">
+              <option value="Fairmount">Fairmount Line</option>
+              <option value="Fitchburg">Fitchburg/South Acton Line</option>
+              <option value="Framingham">Framingham/Worcester Line</option>
+              <option value="Franklin">Franklin Line</option>
+              <option value="Greenbush">Greenbush Line</option>
+              <option value="Haverhill">Haverhill Line</option>
+              <option value="Kingston">Kingston/Plymouth Line</option>
+              <option value="Lowell">Lowell Line</option>
+              <option value="Middleborough">Middleborough/Lakeville Line</option>
+              <option value="Needham">Needham Line</option>
+              <option value="Newburyport">Newburyport/Rockport Line</option>
+              <option value="Providence">Providence/Stoughton Line</option>
+            </optgroup>
+            <optgroup label="Bus Routes">
+              <option value="22">Route 22</option>
+              <option value="23">Route 23</option>
+              <option value="28">Route 28</option>
+              <option value="32">Route 32</option>
+              <option value="57">Route 57</option>
+              <option value="66">Route 66</option>
+              <option value="71">Route 71</option>
+              <option value="73">Route 73</option>
+              <option value="77">Route 77</option>
+              <option value="111">Route 111</option>
+              <option value="116">Route 116</option>
+              <option value="117">Route 117</option>
+              <option value="SL1">SL1</option>
+              <option value="SL2">SL2</option>
+              <option value="SL4">SL4</option>
+              <option value="SL5">SL5</option>
+            </optgroup>
+          </select>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The type(s) of transit service available at this station</p>
+        </div>
+      </div>
+      
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="The group of stations to which this station belongs based on its TOD-supportive characteristics" class="col-md-4 control-label" for="selectbasic3">Station Type</label>
+        <div class="col-md-6">
+          <select id="selectbasic3" name="selectbasic3" class="form-control selectpicker">
+            <option value="">Select</option>
+            <option value="Neighborhood%20Subway">Neighborhood Subway</option>
+            <option value="Town%20&%20Village">Town & Village</option>
+            <option value="Transformational%20Subway">Transformational Subway</option>
+            <option value="Metro%20Core">Metro Core</option>
+            <option value="Undeveloped">Undeveloped</option>
+            <option value="Commerce%20Park">Commerce Park</option>
+            <option value="Urban%20Gateway">Urban Gateway</option>
+            <option value="Trolley%20Suburb">Trolley Suburb</option>
+            <option value="Seaport">Seaport / Airport</option>
+            <option value="Suburban%20Transformation">Suburban Transformation</option>
+          </select>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">The group of stations to which this station belongs based on its TOD-supportive characteristics</p>
+        </div>
+      </div>
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label href="#" rel="tooltip" title="eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD" class="col-md-4 control-label" for="selectbasic4">eTOD Group </label>
+        <div class="col-md-6">
+          <select id="selectbasic4" name="selectbasic4" class="form-control selectpicker">
+            <option value="">Select</option>
+            <option value="Transit-Supportive">Transit-Supportive</option>
+            <option value="Transit-Related">Transit-Related</option>
+            <option value="Transit-Oriented">Transit-Oriented</option>
+            <option value="Transit-Adjacent">Transit-Adjacent</option>
+          </select>
+          <p class="small" style="line-height: 130%; margin-top: 2%;">eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD</p>
+        </div>
+      </div>
+      </fieldset>
+      </br>
+      
+    </div>
+</form>
+</div>
   <div class="row">
   <p class="col-md-offset-2 col-xs-offset-0 text-left"><strong>Transportation</strong></p>
       <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
