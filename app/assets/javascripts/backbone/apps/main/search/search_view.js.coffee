@@ -7,15 +7,7 @@
             $(document).ready ->
                 # empty the boxplot element if it is not already empty
                 $("#boxplot").html ""
-                # initiate accordion for the station details page
-                $("#fpaccordion").accordion 
-                    header: "hm2" 
-                    active: "false"
-                    heightStyle: "content"
-                    collapsible: true
-                    icons:
-                        header: "ui-icon-plus"
-                        activeHeader: "ui-icon-minus"
+                # 
             $(document).ready ->
               # empty the space for title element 
               $("#titles").html "<p class='h2'></p>" 
