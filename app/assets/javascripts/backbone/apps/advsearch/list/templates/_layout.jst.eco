@@ -178,21 +178,6 @@
               <!-- Transporation -->
               </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Percentage of total commuting miles for which transit was used" class="col-md-4 col-xs-2 control-label small" for="searchinput9">Transit Share of Commuting Miles<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_trnpcmi"><span class="glyphicon glyphicon-question-sign"></span></a></label>
-                <div class="col-md-8 col-xs-12">
-                  <span class="inlinesparklinetrnpcmi"></span><br>
-                  <strong></strong> <input name="slider9" placeholder="" class="form-control input-md" id="slider9" type="text" class="span2" value="" data-slider-handle="triangle" /> </strong>
-                  
-                </div>
-              </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
-              <!-- Advanced Search input-->
-              <!-- Transporation -->
-              </br>
-              <div class="form-group">
                 <label href="#" rel="tooltip" title="Reflects CO2 only, per household, calculated by multiplying Vehicles Miles Traveled per household by a carbon equivalancy factor" class="col-md-4 col-xs-2 control-label small" for="searchinput10">GHGs from Transportation<span class="glyphicon-class"></span><a href="#" rel="tooltipd" title="ov_ghg"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
                 <div class="col-md-8 col-xs-12">
@@ -200,9 +185,8 @@
                   <strong></strong> <input name="slider10" placeholder="" class="form-control input-md" id="slider10" type="text" class="span2" value="" data-slider-handle="triangle"/> <strong></strong>
                 </div>
               </div>
-        </div>
       </div>
-      
+    </div>
 
       <!-- Advanced Search input-->
       <!-- Development -->

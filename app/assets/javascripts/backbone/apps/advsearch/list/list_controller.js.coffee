@@ -2,7 +2,7 @@
 
 	List.Controller =
 		showAdvsearchPage: ->
-			sliders = App.request 'set:slider', "random_name", [23,33,32,33,33,222]
+			sliders = App.request 'set:slider', "name", [23,33,32,33,33,222]
 			@layout = @getLayoutView sliders 
 			@layout.on 'show', ->
 				@showAdvsearch
