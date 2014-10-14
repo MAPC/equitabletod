@@ -8,15 +8,19 @@
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="The name of the municipality in which the station is principally or wholly located"> Municipality: <span class="glyphicon-class"></span> </strong>  <%= "#{@properties.muni_name}" %> <a href="#" rel="tooltipd" title="muni_name"><span class="glyphicon glyphicon-question-sign"></span></a>
 				</p>
+				<br>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="The type(s) of transit service available at this station" >Service Type: <span class="glyphicon-class"></span>  </strong>  <%= "#{@properties.line_descr}" %> <a href="#" rel="tooltipd" title="line_descr"><span class="glyphicon glyphicon-question-sign"></span></a>
 				</p>
+				<br>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="The group of stations to which this station belongs based on its TOD-supportive characteristics">Station Type<span class="glyphicon-class"></span></strong>  <%= "#{@properties.station_class}" %> <a href="#" rel="tooltipd" title="station_class"><span class="glyphicon glyphicon-question-sign"></span></a>
 				</p>
+				<br>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="">Community Type<span class="glyphicon-class"></span> </strong>  <%= "#{@properties.community_type_description}" %> <a href="#" rel="tooltipd" title="community_type_description"><span class="glyphicon glyphicon-question-sign"></span></a>
 				</p>
+				<br>
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="">Community Subtype<span class="glyphicon-class"></span> </strong>  <%= "#{@properties.subcommunity_type_description}" %> <a href="#" rel="tooltipd" title="subcommunity_type_description"><span class="glyphicon glyphicon-question-sign"></span></a>
 				</p>
@@ -32,13 +36,17 @@
 					<div id="dialog-chart"></div>
 					<div id="chart"></div>
 					</div>
-					<p class="hm2"><strong href="#" rel="tooltipu" title="Equitable Transit Oriented Development (eTOD) score and category, an expression of the suitability of the station area for high performing, equitable transit-oriented development">Total eTOD Score </strong><%= "#{@properties.etod_total}" %> out of 50 <a href="#" rel="tooltipd" title="etod_total"><span class="glyphicon glyphicon-question-sign"></span></a></p>
+					<p class="hm2"><strong href="#" rel="tooltipu" title="Equitable Transit Oriented Development (eTOD) score and category, an expression of the suitability of the station area for high performing, equitable transit-oriented development">Total eTOD Score </strong><%= "#{@properties.etod_total}" %> out of 50 <a href="#" rel="tooltipd" title="etod_total"><span class="glyphicon glyphicon-question-sign"></span></a>
+					</p>
+					<br>
 					<p class="hm2">
 						<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score<span class="glyphicon-class"></span> </strong> <%= "#{@properties.etod_sub1t}" %> out of 15 <a href="#" rel="tooltipd" title="etod_sub1t"><span class="glyphicon glyphicon-question-sign"></span></a>
 					</p>
+					<br>
 					<p class="hm2">
 						<strong href="#" rel="tooltipu" title="eTOD metric's orientation score"> Orientation Score<span class="glyphicon-class"></span> </strong> <%= "#{@properties.etod_sub2o}" %> out of 20 <a href="#" rel="tooltipd" title="etod_sub2o"><span class="glyphicon glyphicon-question-sign"></span></a>
 					</p>
+					<br>
 					<p class="hm2">
 						<strong href="#" rel="tooltipu" title="eTOD metric's development score"> Development Score<span class="glyphicon-class"></span> </strong> <%= "#{@properties.etod_sub3d}" %> out of 15 <a href="#" rel="tooltipd" title="etod_sub3d"><span class="glyphicon glyphicon-question-sign"></span></a>
 					</p>
@@ -59,9 +67,10 @@
 				<p class="hm2">
 					<strong href="#" rel="tooltipu" title="Average number of vehicles owned per household">Vehicle Ownership <span class="glyphicon-class"></span></strong>  <%= "#{@properties.ov_vehphh.toFixed 2}" %> <span href="#" rel="tooltipd" title="ov_vehphh" class="glyphicon glyphicon-question-sign"></span>
 					<span class="inlinesparklinevehphh"></span>
-				    <!-- </br> -->
+				    <br>
 					<strong href="#" rel="tooltipu" title="Percentage of total commuting miles for which transit was used">Transit Share of Commuting miles <span class="glyphicon-class"></span></strong>  <%= "#{(@properties.ov_trnpcmi * 100).toFixed 2}%" %> <span href="#" rel="tooltipd" title="ov_trnpcmi" class="glyphicon glyphicon-question-sign"></span>
 					<span class="inlinesparklinetrnpcmi"></span>
+					<br>
 					<strong href="#" rel="tooltipu" title="Share of all commuters in the station area who use public transit for their work commute">Transit Commuter Share <span class="glyphicon-class"></span></strong>  <%= "#{@properties.ov_pcttran.toFixed 2}" %> <span href="#" rel="tooltipd" title="ov_pcttran" class="glyphicon glyphicon-question-sign"></span>
 					<span class="inlinesparklinepcttran"></span>
 				</p>
