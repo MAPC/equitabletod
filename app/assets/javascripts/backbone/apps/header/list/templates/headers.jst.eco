@@ -8,7 +8,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="/" class="navbar-brand"><b>Ⓣ</b>Station.Info</a>
+					<a href="/" class="navbar-brand" style="font-size: xx-large; line-height: 55%;"><span style="font-weight: bold; font-family: Helvetica;">Ⓣ</span> station.info</a>
 				</div>
 				<div class="collapse navbar-collapse" id="headercollapse"style="padding: 0px;">
 					<ul class="nav navbar-nav">

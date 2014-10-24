@@ -194,7 +194,30 @@
                     max: Math.round gon.maxedatt = if gon.maxedatt then gon.maxedatt else 0.91
                     value:[0, 1]
                     step: 0.01
-                # empty out the title element text
+                # empty out the input element text if not defined else retain the inputs
+                if gon.muni_name == 'undefined'
+                    $("#searchinput2").val []
+                else
+                    $("#searchinput2").val gon.muni_name if gon.muni_name
+
+                if gon.name == 'undefined'
+                    $("#searchinput1").val []
+                else
+                    $("#searchinput1").val gon.name if gon.name
+
+                if gon.etod_group == 'undefined'
+                    $("#selectbasic4").val []
+                else
+                    console.log gon.etod_group
+                    $("#selectbasic4 option[text=\"" + gon.etod_group + "\"]")
+                    $("#selectbasic4 option[value=\"" + gon.etod_group + "\"]").prop "selected", true
+
+                    # val = $("#selectbasic4 option").filter(->
+                    #   $(this).text() is gon.etod_group or $(this).val() is gon.etod_group
+                    # )
+                    # $("#selectbasic4").val val.val()
+
+                # $("#selectbasic4").val gon.etod_group if gon.etod_group
                 $("#titles").html "<p class='h2'></p>"
                 # setup the jQuery Sparkline objects for each data point
                 $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'     
@@ -222,6 +245,9 @@
                 $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
            
             $(document).ready ->
+              $("#searchbuttom").stickyMojo
+                footerID: "#footer-region"
+                contentID: "#main-region"
               $("#dialog-modal").dialog 
                 position:
                     my: "right"
@@ -237,7 +263,11 @@
                     duration: 200
                 title: 
                     $("[rel=tooltipd]").title
-              $(".selectpicker").selectpicker()
+              # $(".selectpicker").selectpicker()
+              $("#resetbuttom").on "click", (e) ->
+                console.log "click"
+                $("select").val []
+                $("input").val []
               $("[rel=tooltipd]").click (event, ui) ->
                     dictionaryResponse = $.ajax
                             url: "/dictionary_entries.json?by_name=#{@.title}"
@@ -315,6 +345,9 @@
                   delay_success_milliseconds: 3500
                   send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
               #fm.init fm_options
+            $("#resetbuttom").click (event, ui) ->
+              $("button").val []
+              $("input").val []
             $("html, body").animate
               scrollTop: ($("#adv-fields").offset().top)
             , 500      
@@ -323,7 +356,6 @@
             'click #searchbuttom': 'inputChange'
             'click #etod': 'etodFired'
             'click #gsa': 'gsaFired'
-            'click #resetbuttom':  'resetFormArgs' 
             'click #mapClick': 'fireMap'   
             'select #searchinput1': 'inputChange'
             'click #ui-accordion-fpaccordion-header-0': 'moreText'

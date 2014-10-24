@@ -484,10 +484,10 @@
       </fieldset>
       </br>
       </form>
-        <div class="col-md-4 col-md-offset-6">
+        <div class="col-md-6 col-md-offset-6">
             <p>
               <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-4">Search</button>
-              <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
+              <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d">Reset</button>
             </p>
         </div>
     </div>

@@ -50,6 +50,11 @@
                         $("#dialog-modal").dialog height: "auto" 
                         $("#dialog-modal").dialog modal: true
               # bind an event to search navbar on the header to scroll to search element 
+              $("#resetbuttom").on "click", (e) ->
+                console.log "click"
+                $("select").val []
+                $("input").val []
+
               $("homeClick").on "click", (e) ->
                 $("html, body").animate
                     scrollTop: $("#search").offset().top
@@ -195,7 +200,6 @@
             App.vent.trigger "searchrefineFired"
 
         fireSimpleSearch: (e) =>
-            console.log "i get the click"
             $("html, body").animate
                 scrollTop: $("#search").offset().top
             , "fast"

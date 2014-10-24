@@ -34,7 +34,7 @@
                 #     $("#accordion").accordion "refresh"
                 fhupipe = gon.feature["0"].properties.ov_hupipe.toFixed 1 if gon.feature["0"].properties.ov_hupipe.toFixed
                 femppipe = gon.feature["0"].properties.ov_emppipe.toFixed 1 if gon.feature["0"].properties.ov_emppipe.toFixed
-                fvehphh = gon.feature["0"].properties.ov_vehphh.toFixed 
+                fvehphh = gon.feature["0"].properties.ov_vehphh.toFixed 2
                 ftrnpcmi = (gon.feature["0"].properties.ov_trnpcmi.toFixed 4) if gon.feature["0"].properties.ov_trnpcmi
                 fghg = gon.feature["0"].properties.ov_ghg.toFixed 4 if gon.feature["0"].properties.ov_ghg
                 fintntot = gon.feature["0"].properties.ov_intntot if gon.feature["0"].properties.ov_intntot
@@ -44,7 +44,7 @@
                 fest10 = gon.feature["0"].properties.ov_est_10.toFixed 4 if gon.feature["0"].properties.ov_est_10
                 faval = gon.feature["0"].properties.ov_aval.toFixed 0 if gon.feature["0"].properties.ov_aval
                 frentocc = (gon.feature["0"].properties.ov_rentocc.toFixed 4) if gon.feature["0"].properties.ov_rentocc
-                fhhnocar = (gon.feature["0"].properties.ov_hhnocar.toFixed 2) if gon.feature["0"].properties.ov_hhnocar
+                fhhnocar = ((gon.feature["0"].properties.ov_hhnocar.toFixed 2) * 100) if gon.feature["0"].properties.ov_hhnocar
                 fedatt = gon.feature["0"].properties.ov_ed_att.toFixed 2 if gon.feature["0"].properties.ov_ed_att
                 fwalkscore = gon.feature["0"].properties.walkscore.toFixed 2 if gon.feature["0"].properties.walkscore
                 $(".inlinesparklinehupipe").sparkline gon.hupipes, type: "box", raw: true, target: fhupipe, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000' 
@@ -187,20 +187,22 @@
                   return
 
                 $(".feedback_trigger").click (event, ui) ->
-                    $("#accordion").accordion "disable"
+                    # $("#accordion").accordion "disable"
                     $(@el).tooltip "option", title: ""
                     $("#dialog-modal").dialog "open"
                     $("#dialog-modal").html("")
                     $("#dialog-modal").dialog title: ""
-                    $("#dialog-modal").html("<div class='container-fluid' style='padding: 0px; padding-left: 40px; padding-right: 40px;'>
+                    $("#dialog-modal").html("<div class='container-fluid' style='padding: 0px; padding-left: 80px; padding-right: 40px;'>
                                                 <div class='row'>
-                                                    <div id='boxplot' class='col-md-6 class='col-xs-4'>
+                                                    <div class='col-md-10 class='col-xs-4'>
+                                                        <img src='assets/boxplotsimple09.png' class='img-responsive' alt='Box Plot'>
+                                                    </div>
+                                                </div>
+                                                <div class='row'>
+                                                    <div id='boxplot' class='col-md-10 class='col-xs-4'>
                                                         <p class='hm2' style='text-align: left; padding-top: 35px;'>
                                                         Box plot is a way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots show distribution of an attribute for all the station areas. the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and 'whiskers' above and below the box show the locations of the minimum and maximum for all staton areas. The red + indicates the current station value for the field. 
                                                         </p>
-                                                    </div>
-                                                    <div class='col-md-6 class='col-xs-4'>
-                                                        <img src='assets/boxplotsimple08.png' class='img-responsive' alt='Box Plot'>
                                                     </div>
                                                 </div>
                                             </div>")
@@ -240,7 +242,7 @@
                     gon.query = "#{@.title}&" + gon.query
                     App.vent.trigger "searchFired", gon.query
                 $("[rel=tooltipd]").click (event, ui) ->
-                    $("#accordion").accordion "disable"
+                    # $("#accordion").accordion "disable"
                     dictionaryResponse = $.ajax
                             url: "/dictionary_entries.json?by_name=#{@.title}"
                             done: (result) =>
@@ -257,7 +259,7 @@
                                                     <div class='col-md-1'>
                                                         <span class='glyphicon-class'></span><span class='glyphicon glyphicon-check'>
                                                     </div>
-                                                    <div class='col-md-10' style='text-align: justify;'>
+                                                    <div class='col-md-10' style='text-align: left;'>
                                                         <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span style='font-style: italic;'>#{@dictionaryentries.models["0"].get("code")} </span>
                                                     </div>
                                                 </div>
@@ -266,7 +268,7 @@
                                                     <div class='col-md-1'>
                                                         <span class='glyphicon glyphicon-info-sign'></span>
                                                     </div>
-                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
+                                                    <div class='col-md-10' style='text-align: left; font-style: italic;'>
                                                         #{@dictionaryentries.models["0"].get("importance")} 
                                                     </div>
                                                 </div>
@@ -275,7 +277,7 @@
                                                     <div class='col-md-1'> 
                                                         <span class='glyphicon glyphicon-warning-sign'></span>
                                                     </div>
-                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
+                                                    <div class='col-md-10' style='text-align: left; font-style: italic;'>
                                                         #{@dictionaryentries.models["0"].get("description")} 
                                                     </div>
                                                 </div>
@@ -346,7 +348,6 @@
             $("html, body").animate
               scrollTop: ($("#detailscol").offset().top)
             , 500
-            #$("[rel=tooltipu]").tooltip placement: "top"
             $("#panel").html "<span class='glyphicon-class'></span> <a href='#advsearch/' id='searchrefine'><span class='glyphicon glyphicon-filter' rel='tooltipb' title='Refine the Search Results'>  </span></a>"
             $("[rel=tooltiprf]").click (event, ui) ->
                 gon.query = "#{@.title}&" + gon.query
@@ -377,6 +378,7 @@
 
             $(document).ready -> 
                 $("body").removeClass "nav-expanded"
+                $("[rel=tooltipb]").tooltip placement: "buttom"
 
             exportTableToCSV = (jfeature, filename) ->
               json = $.parseJSON(jfeature)

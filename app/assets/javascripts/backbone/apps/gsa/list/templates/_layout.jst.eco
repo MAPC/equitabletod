@@ -14,17 +14,18 @@
 					</div>
 				</div> -->
 				<div class="row">
-					<div class="col-md-6 col-lg-6 col-md-offset-3 text-left">
+					<!-- <div class="col-md-6 col-lg-6 col-md-offset-3 text-left">
 						<img src="assets/mapc_etod.png" class="img-responsive" alt="Growing Station Areas Report Cover Image">
-					</div>
+					</div> -->
 				</div>
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-3 text-left">
 						<div id="etodpagetext">
 						</br>
 						</br>
 							<p class="hm2"> The Boston area is among the most transit-oriented regions in the country, with 25% of housing units and 37% of employment within a half-mile of a rapid transit or commuter rail station. In other words, a large proportion of our residents and jobs are already located in station areas.  With major bus stations included in consideration, the figures are even higher. 
 							</p>
+							</br>
 							<p class="hm2">
 							Currently, as in many parts of the country, Metro Boston is experiencing a new wave of growth near transit as municipalities and State agencies take steps to unlock the development potential of transit station areas. As the supply and demand sides of the TOD market grow, there is a clear need to establish standards and guidelines for successful station areas.  The intensity, mix, and phasing of development that may make sense in one kind of station area and maximize its TOD potential may not work in another station area with other characteristics. With over 250 rapid transit and commuter rail stations in the MBTA system, there is no one-size-fits-all approach.
 							</p>
@@ -40,13 +41,14 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-3 text-left">
 						<div id="etodpagetext">
 						</br>
 						</br>
 							<p class = "hm2">
 							The typology created by MAPC offers developers, local planners, funders, and community stakeholders a way to understand the region’s station areas and their potential.  The typology identifies ten different station area types based on a detailed analysis of existing conditions and the nature and magnitude of potential development over the next few decades.
 							</p>
+							</br>
 							<p class = "hm2">
 							The transit station area typology can help advance equitable and sustainable TOD in a variety of ways:
 							</p>
@@ -55,7 +57,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-left">
+					<div class="col-md-6 col-md-offset-3 text-left">
 				          	<p class="hm2"> 
 						    </br>
 				            	<ul class="hm2">
