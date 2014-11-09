@@ -127,6 +127,7 @@
                 $("#titlepage").html "<p class='h3'>Stations Area Details</p>"
                 $("#titlename").html "<span class='h4'>  #{gon.feature['0'].properties.name}  </span>"
                 $("#dllink").html "<span class='glyphicon-class'></span> <a href='#' id='download'><span class='glyphicon glyphicon-download' rel='tooltipb' title='Download Data for This Station' >  </span></a>"
+                $("#print").html "<span class='glyphicon-class'></span> <a href='#' id='print'><span class='glyphicon glyphicon-print' rel='tooltipb' title='Save as PDF' >  </span></a>"
                 JSON2CSV = (objArray) ->
                   array = (if typeof objArray isnt "object" then JSON.parse(objArray) else objArray)
                   str = ""
@@ -185,6 +186,13 @@
                     "tstationinfo.csv"
                   ]
                   return
+
+                $("#print").click ->
+                    doc = new jsPDF()
+                    $mapelement = $("#map-region")
+                    doc.text 20, 20, "Hello world."
+                    doc.save "Test.pdf"
+                  console.log "this is click on print"
 
                 $(".feedback_trigger").click (event, ui) ->
                     # $("#accordion").accordion "disable"

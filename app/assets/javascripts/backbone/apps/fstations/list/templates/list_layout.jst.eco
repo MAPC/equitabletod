@@ -5,8 +5,10 @@
 				<div class="row" style="margin-bottom: 5px;">
 					<div class="col-md-12 col-sm-10 col-xs-8 col-md-offset-0 text-left">
 						<div class="row">
-							<div class="col-md-10 col-xs-8 text-left"><span id="titlepage"></span></div>
-							<div id="panel" class="col-md-1 col-xs-1 text-right" style="min-height: 1px; padding-left: 5px; padding-top: 20px;"></div><div id="dllink" class="col-md-1 col-xs-1 text-right" style="padding-top: 20px;"></div>
+							<div class="col-md-8 col-xs-8 text-left"><span id="titlepage"></span></div>
+							<div id="panel" class="col-md-1 col-xs-1 text-right" style="min-height: 1px; padding-left: 5px; padding-top: 20px;"></div>
+							<div id="dllink" class="col-md-1 col-xs-1 text-right" style="padding-top: 20px;"></div>
+							<div id="print" class="col-md-1 col-xs-1 text-right" style="padding-top: 20px;"></div>
 						</div>
 						<div class="row">
 							<div class="col-md-12 col-md-offset-0 text-left">

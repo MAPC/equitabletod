@@ -21,7 +21,7 @@
 //= require ../../../vendor/assets/javascripts/d3.js
 //= require ../../../vendor/assets/javascripts/RadarChart.js
 //= require ../../../vendor/assets/javascripts/jquery.sparkline.js
-//= require ../../../vendor/assets/javascripts/jquery.print-preview.js
+//= require ../../../vendor/assets/javascripts/jspdf.source.js
 //= require ../../../vendor/assets/javascripts/table2CSV.js
 //= require ../../../vendor/assets/javascripts/leaflet.js
 //= require ../../../vendor/assets/javascripts/leaflet-providers.js
@@ -29,6 +29,7 @@
 //= require ../../../vendor/assets/javascripts/bootstrap-slider.js
 //= require ../../../vendor/assets/javascripts/mapc-layers.js
 //= require ../../../vendor/assets/javascripts/stickyMojo.js
+//= require ../../../vendor/assets/javascripts/leaflet-image.js
 //= require_tree ./backbone/config
 //= require backbone/app
 //= require_tree ./backbone/entities
