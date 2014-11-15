@@ -56,6 +56,7 @@
     App.module("FooterApp").start()
     App.module("MainApp").start()
     App.module("FstationsApp").start()
+    # App.module("PrintApp").start()
 
   App.on "initialize:after", (options) ->
     if Backbone.history

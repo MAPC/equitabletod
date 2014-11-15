@@ -188,11 +188,61 @@
                   return
 
                 $("#print").click ->
-                    doc = new jsPDF()
-                    $mapelement = $("#map-region")
-                    doc.text 20, 20, "Hello world."
-                    doc.save "Test.pdf"
-                  console.log "this is click on print"
+                    doc = new jsPDF("p", "pt", "letter")
+                    # margins = 
+                    #     top: 80
+                    #     botom: 60
+                    #     left: 40
+                    #     width: 532
+                    doc.text(10, 10, 'Station Area Details')
+                    html2canvas document.getElementById("resize-map"),
+                        allowTaint: true
+                        taintTest: false
+                        useCORS: true
+                        proxy: 'assets/php/proxy.php'
+                        onrendered: (canvas) ->
+                            imagel = document.createElement("div")
+                            imagel.setAttribute('id', 'mapImage')
+                            imagel.setAttribute('style', 'display:none;')
+                            # or it can get a img from leaflet-image plugin and return it as part of the function
+                            imagel.appendChild canvas
+                            # gon.imgData = canvas.toDataURL("image/png")
+                            document.body.appendChild imagel
+                            return 
+
+                    # doc.setFontSize(20)
+                    station_name_4p = document.getElementById("titlename").childNodes[0].innerHTML
+                    doc.text(20, 10, station_name_4p)     
+                    # deferred = new Deferred()
+                    mapImage = document.getElementById("mapImage")
+                    # dataImage = mapImage.then (res) ->
+                    #     canvas = res.childNodes[0]
+                    #     context = res.getContext('2d')
+                    #     console.log context 
+                    #     return              
+                    # doc.addImage
+                    #     imageData: imgData
+                    #     angle: 0
+                    #     x: 10
+                    #     y: 78
+                    #     w: 45
+                    #     h: 58
+                    # doc.text 20, 20, "Hello world."
+
+                    # doc.save ".pdf"
+                    # doc.fromHTML $('#map-region').get(0), 10, 10,
+                    #     'width': 170
+                    #     'elementHandlers':
+                    #         'H1': (el, renderer) =>
+                    #             doc.setFontSize(14)
+                    #             doc.setFontStyle('bold')
+                    #             true
+                    doc.save "station.pdf"
+
+
+                  # console.log "this is click on print"
+                console.log "document.getElementById"
+                console.log document.getElementById("titlename").childNodes[0].innerHTML
 
                 $(".feedback_trigger").click (event, ui) ->
                     # $("#accordion").accordion "disable"
@@ -564,8 +614,6 @@
               42.31
               -71.077359
             ], 10
-            
-
             info = L.control()
             info.onAdd = (map) ->
               @_div = L.DomUtil.create("div", "info")
@@ -656,6 +704,7 @@
                     fstation.addTo map
                 return
             map.on "zoomend", onZoomend
+            snapshot = document.getElementById("snapshot")
             $("#chart").click (event, ui) ->
                     console.log "chart clicked"
                     sub1 = gon.feature["0"].properties.etod_sub1t
