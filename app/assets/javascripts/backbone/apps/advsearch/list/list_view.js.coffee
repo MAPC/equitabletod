@@ -269,6 +269,26 @@
                 $("select").val []
                 $("input").val []
               $("[rel=tooltipd]").click (event, ui) ->
+                    spinopts =
+                        lines: 13 # The number of lines to draw
+                        length: 20 # The length of each line
+                        width: 10 # The line thickness
+                        radius: 30 # The radius of the inner circle
+                        corners: 1 # Corner roundness (0..1)
+                        rotate: 0 # The rotation offset
+                        direction: 1 # 1: clockwise, -1: counterclockwise
+                        color: "#000" # #rgb or #rrggbb or array of colors
+                        speed: 1 # Rounds per second
+                        trail: 60 # Afterglow percentage
+                        shadow: false # Whether to render a shadow
+                        hwaccel: false # Whether to use hardware acceleration
+                        className: "spinner" # The CSS class to assign to the spinner
+                        zIndex: 2e9 # The z-index (defaults to 2000000000)
+                        top: "50%" # Top position relative to parent
+                        left: "50%" # Left position relative to parent
+
+                    spintarget1 = document.getElementById("main-region")
+                    spinner1 = new Spinner(spinopts).spin(spintarget1)
                     dictionaryResponse = $.ajax
                             url: "/dictionary_entries.json?by_name=#{@.title}"
                             done: (result) =>
@@ -279,6 +299,7 @@
                         @dictionaryentries = App.request "set:dictionaryentry", dictionaries
                         $(@el).tooltip "option", title: ""
                         $("#dialog-modal").dialog "open"
+                        spinner1.stop()
                         $("#dialog-modal").html("")
                         $("#dialog-modal").dialog title: ""
                         $("#dialog-modal").html("<div class='row'>
@@ -362,6 +383,26 @@
             'click #ui-accordion-header-icon ui-icon ui-icon-minus': 'lessText'
 
         inputChange: (e)=>
+            spinopts =
+                lines: 13 # The number of lines to draw
+                length: 20 # The length of each line
+                width: 10 # The line thickness
+                radius: 30 # The radius of the inner circle
+                corners: 1 # Corner roundness (0..1)
+                rotate: 0 # The rotation offset
+                direction: 1 # 1: clockwise, -1: counterclockwise
+                color: "#000" # #rgb or #rrggbb or array of colors
+                speed: 1 # Rounds per second
+                trail: 60 # Afterglow percentage
+                shadow: false # Whether to render a shadow
+                hwaccel: false # Whether to use hardware acceleration
+                className: "spinner" # The CSS class to assign to the spinner
+                zIndex: 2e9 # The z-index (defaults to 2000000000)
+                top: "50%" # Top position relative to parent
+                left: "50%" # Left position relative to parent
+
+            spintarget = document.getElementById("searchbuttom")
+            spinner = new Spinner(spinopts).spin(spintarget)
             urlq = "?"
             muni_name = $('input#searchinput2').val().replace(" ", "%20").toLowerCase() if $('input#searchinput2').val()
             if muni_name is undefined
@@ -597,10 +638,12 @@
                         num = Number(num) + 1 if num_pages > num
                         gon.num_pages = num
                         gon.query = query
+                        spinner.stop()
                         App.vent.trigger "searchFired", gon.query
                     else
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Error"
                         $("#dialog-modal").html("")
+                        spinner.stop()
                         $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
             

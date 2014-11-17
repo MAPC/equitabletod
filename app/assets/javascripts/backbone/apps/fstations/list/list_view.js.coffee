@@ -92,6 +92,7 @@
               fm.init fm_options
               return
             $(document).ready -> 
+                console.log gon
                 $("html, body").animate
                   scrollTop: ($("#detailscol").offset().top)
                 , 500
@@ -154,10 +155,10 @@
                 $(document).ready -> 
                     $("body").removeClass "nav-expanded"
 
-                exportTableToCSV = (jfeature, filename) ->
+                exportTableToCSV = (jfeature, filename, spinnerD) ->
                   json = $.parseJSON(jfeature)
                   csv = JSON2CSV(json)
-
+                  spinnerD.stop()
                   # Data URI
                   csvData = "data:application/csv;charset=utf-8," + encodeURIComponent(csv)
                   $(this).attr
@@ -180,12 +181,33 @@
 
                 # IF CSV, don't do event.preventDefault() or return false
                 # We actually need this to be a typical hyperlink
-                $("#download").click ->
-                  exportTableToCSV.apply this, [
-                    jfeature
-                    "tstationinfo.csv"
-                  ]
-                  return
+                $("#download").on "click", (event) ->
+                    spinopts =
+                        lines: 13 # The number of lines to draw
+                        length: 20 # The length of each line
+                        width: 10 # The line thickness
+                        radius: 30 # The radius of the inner circle
+                        corners: 1 # Corner roundness (0..1)
+                        rotate: 0 # The rotation offset
+                        direction: 1 # 1: clockwise, -1: counterclockwise
+                        color: "#000" # #rgb or #rrggbb or array of colors
+                        speed: 1 # Rounds per second
+                        trail: 60 # Afterglow percentage
+                        shadow: false # Whether to render a shadow
+                        hwaccel: false # Whether to use hardware acceleration
+                        className: "spinner" # The CSS class to assign to the spinner
+                        zIndex: 2e9 # The z-index (defaults to 2000000000)
+                        top: "50%" # Top position relative to parent
+                        left: "50%" # Left position relative to parent
+
+                    spintargetD = document.getElementById("main-region")
+                    spinnerD = new Spinner(spinopts).spin(spintargetD)
+                    exportTableToCSV.apply this, [
+                        jfeature
+                        "tstationinfo.csv"
+                        spinnerD
+                    ]
+                    return
 
                 
                 $("#print").click ->
@@ -208,11 +230,11 @@
                         top: "50%" # Top position relative to parent
                         left: "50%" # Left position relative to parent
 
-                    spintarget = document.getElementById("main-region")
+                    spintarget = document.getElementById("print")
                     spinner = new Spinner(spinopts).spin(spintarget)
                     #get a image of snapshot of the current map object
                     html2canvas document.getElementById("resize-map"),
-                        allowTaint: true
+                        # allowTaint: true
                         taintTest: false
                         useCORS: true
                         proxy: 'assets/php/proxy.php'
@@ -224,66 +246,29 @@
                             imagel.appendChild canvas
                             # gon.imgData = canvas.toDataURL("image/png")
                             document.body.appendChild imagel
+                            ctx = canvas.getContext("2d")
+                            gon.imageData = canvas.toDataURL()
+                            ## making up the pdf using jspdf
+                            doc = new jsPDF("p", "pt", "letter")
+                            doc.setFont('helvetica')
+                            doc.setFontType('bold')
+                            doc.setLineWidth(2)
+                            doc.circle(45, 34, 9, '')
+                            doc.text("T  station.info", 40, 40)
+                            doc.setLineWidth(1)
+                            doc.setDrawColor(0.00, 0.60, 0.80, 0.00)
+                            doc.line(40, 48, 540, 48)
+                            doc.setFontSize(12)
+                            doc.setFontType('normal')
+                            doc.text("Station Area Details For: #{gon.feature[0].properties.name}", 40, 62)
+
+                            doc.addImage gon.imageData, "PNG", 400, 50, 180, 180
+
+
+                            doc.save "tstationinfo.pdf"
                             return 
 
-                    doc = new jsPDF("p", "pt", "letter")
-                    doc.addHTML document.body, ->
-                        string = doc.output("datauristring")
-                        $("#mapImage").attr "src", string
-                        return
-                    # margins = 
-                    #     top: 80
-                    #     botom: 60
-                    #     left: 40
-                    #     width: 532
-                    # doc.text(10, 10, 'Station Area Details')
-
-                    # # doc.setFontSize(20)
-                    # station_name_4p = document.getElementById("titlename").childNodes[0].innerHTML
-                    # doc.text(20, 10, station_name_4p)     
-                    # # deferred = new Deferred()
-                    # mapImage = document.getElementById("mapImage")
-                    # mapImage.style.display = 'block'
-                    # console.log "mapImage"
-                    # console.log mapImage
-
-                    specialElementHandlers = 
-                        "#map": (element, renderer) ->
-                            true
-                    doc.fromHTML $('#mapImage')[0], 15, 15,
-                        width: 170
-                        elementHandlers: specialElementHandlers
-                    # # dataImage = mapImage.then (res) ->
-                    # #     canvas = res.childNodes[0]
-                    # #     context = res.getContext('2d')
-                    # #     console.log context 
-                    # #     return              
-                    # # doc.addImage
-                    # #     imageData: imgData
-                    # #     angle: 0
-                    # #     x: 10
-                    # #     y: 78
-                    # #     w: 45
-                    # #     h: 58
-                    # # doc.text 20, 20, "Hello world."
-
-                    # # doc.save ".pdf"
-                    # # doc.fromHTML $('#map-region').get(0), 10, 10,
-                    # #     'width': 170
-                    # #     'elementHandlers':
-                    # #         'H1': (el, renderer) =>
-                    # #             doc.setFontSize(14)
-                    # #             doc.setFontStyle('bold')
-                    # #             true
-                    # # mapImage.setAttribute('style', 'display:none;')
-                    doc.save "station.pdf"
                     spinner.stop()
-                    # mapImage.setAttribute('style', 'display:none;')
-
-
-                  # console.log "this is click on print"
-                console.log "document.getElementById"
-                console.log document.getElementById("titlename").childNodes[0].innerHTML
 
                 $(".feedback_trigger").click (event, ui) ->
                     # $("#accordion").accordion "disable"
@@ -713,6 +698,7 @@
                 style: (feature) ->
                     feature.properties and feature.properties.style
                 pointToLayer: (feature, latlng) ->
+                    gon.latlong = latlng
                     L.circle latlng, 804.672,
                       fillColor: "#FFFFFF"
                       color: "#000"
@@ -721,6 +707,12 @@
                       fillOpacity: 0.5
                     
             map.addLayer(fstation)
+            fstationI = new L.GeoJSON geoCollection,
+                L.Icon.Default.imagePath = "/assets"
+                L.marker(gon.latlong).on 'mouseover', (e) ->
+                    popup = L.popup().setLatLng(latlong)
+            
+            map.addLayer fstationI
             fstationZoom = new L.GeoJSON geoCollection,
                 style: (feature) ->
                     feature.properties and feature.properties.style

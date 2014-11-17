@@ -233,7 +233,6 @@
                     fstations = collection.responseJSON
                     console.log fstations
                     features = _.values fstations.features
-                    spinner.stop()
                     #window.features = Backbone.Collection.extend(localStorage: new Backbone.LocalStorage("features"))
                     #window.features = features
                     if features.length > 0
@@ -244,6 +243,7 @@
                         num = Number(num) + 1 if num_pages > num
                         gon.num_pages = num
                         gon.query = query
+                        spinner.stop()
                         App.vent.trigger "searchFired", query
                     else
                         # console.log "error"
@@ -255,6 +255,7 @@
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Error"
                         $("#dialog-modal").html("")
+                        spinner.stop()
                         $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
 
 
