@@ -21,7 +21,6 @@
 //= require ../../../vendor/assets/javascripts/d3.js
 //= require ../../../vendor/assets/javascripts/RadarChart.js
 //= require ../../../vendor/assets/javascripts/jquery.sparkline.js
-//= require ../../../vendor/assets/javascripts/jspdf.source.js
 //= require ../../../vendor/assets/javascripts/table2CSV.js
 //= require ../../../vendor/assets/javascripts/leaflet.js
 //= require ../../../vendor/assets/javascripts/leaflet-providers.js
@@ -30,8 +29,21 @@
 //= require ../../../vendor/assets/javascripts/mapc-layers.js
 //= require ../../../vendor/assets/javascripts/stickyMojo.js
 //= require ../../../vendor/assets/javascripts/leaflet-image.js
+//= require ../../../vendor/assets/javascripts/spin.js
 //= require ../../../vendor/assets/javascripts/html2canvas.js
-//= require ../../../vendor/assets/javascripts/promise.js
+//= require ../../../vendor/assets/javascripts/jspdf.min.js
+//= require ../../../vendor/assets/javascripts/jspdf.debug.js
+//= require ../../../vendor/assets/javascripts/jspdf.PLUGINTEMPLATE.js
+//= require ../../../vendor/assets/javascripts/jspdf.plugin.total_pages.js
+//= require ../../../vendor/assets/javascripts/jspdf.plugin.standard_fonts_metrics.js
+//= require ../../../vendor/assets/javascripts/jspdf.plugin.png_support.js
+//= require ../../../vendor/assets/javascripts/jspdf.plugin.javascript.js
+//= require ../../../vendor/assets/javascripts/jspdf.plugin.from_html.js
+//= require ../../../vendor/assets/javascripts/jspdf.plugin.addimage.js
+//= require ../../../vendor/assets/javascripts/jspdf.plugin.addhtml.js
+
+
+
 //= require_tree ./backbone/config
 //= require backbone/app
 //= require_tree ./backbone/entities

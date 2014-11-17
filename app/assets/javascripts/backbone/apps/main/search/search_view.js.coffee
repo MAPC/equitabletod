@@ -33,6 +33,7 @@
                         $("[rel=tooltipd]").title
                 # initiate the tooltip for question marks and assign the response to the click 
                 $("[rel=tooltipd]").click (event, ui) ->
+
                     $("#dialog-modal").dialog 
                     dictionaryResponse = $.ajax
                             url: "/dictionary_entries.json?by_name=#{@.title}"
@@ -62,6 +63,26 @@
                 return 
               # bind an event to search by station name input to do search when hit enter
               $("#searchinput1").on "keypress", (e) ->
+                spinopts =
+                    lines: 13 # The number of lines to draw
+                    length: 20 # The length of each line
+                    width: 10 # The line thickness
+                    radius: 30 # The radius of the inner circle
+                    corners: 1 # Corner roundness (0..1)
+                    rotate: 0 # The rotation offset
+                    direction: 1 # 1: clockwise, -1: counterclockwise
+                    color: "#000" # #rgb or #rrggbb or array of colors
+                    speed: 1 # Rounds per second
+                    trail: 60 # Afterglow percentage
+                    shadow: false # Whether to render a shadow
+                    hwaccel: false # Whether to use hardware acceleration
+                    className: "spinner" # The CSS class to assign to the spinner
+                    zIndex: 2e9 # The z-index (defaults to 2000000000)
+                    top: "50%" # Top position relative to parent
+                    left: "50%" # Left position relative to parent
+
+                spintarget1 = document.getElementById("searchinput1")
+                spinner1 = new Spinner(spinopts).spin(spintarget1)
                 p = e.which
                 if p is 13
                     name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() 
@@ -80,6 +101,7 @@
                     collection.done =>
                             fstations = collection.responseJSON
                             features = _.values fstations.features
+                            spinner1.stop()
                             if features.length > 0
                                 gon.features = features
                                 App.vent.trigger "searchFired", query
@@ -103,15 +125,36 @@
                             source: l_n_muni_names
                             minLength: 3
                             select: (event, ui) ->
-                                console.log event.view.gon
-                                console.log ui.item.value.toLowerCase()  
+                                # console.log event.view.gon
+                                # console.log ui.item.value.toLowerCase()  
                         $("#searchinput1").autocomplete
                             source: gon.names.names
                             minLength: 3
                             select: (event, ui) ->
+                                spinopts =
+                                    lines: 13 # The number of lines to draw
+                                    length: 20 # The length of each line
+                                    width: 10 # The line thickness
+                                    radius: 30 # The radius of the inner circle
+                                    corners: 1 # Corner roundness (0..1)
+                                    rotate: 0 # The rotation offset
+                                    direction: 1 # 1: clockwise, -1: counterclockwise
+                                    color: "#000" # #rgb or #rrggbb or array of colors
+                                    speed: 1 # Rounds per second
+                                    trail: 60 # Afterglow percentage
+                                    shadow: false # Whether to render a shadow
+                                    hwaccel: false # Whether to use hardware acceleration
+                                    className: "spinner" # The CSS class to assign to the spinner
+                                    zIndex: 2e9 # The z-index (defaults to 2000000000)
+                                    top: "50%" # Top position relative to parent
+                                    left: "50%" # Left position relative to parent
+
+                                spintarget2 = document.getElementById("searchinput1")
+                                spinner2 = new Spinner(spinopts).spin(spintarget2)
                                 name = ui.item.value.replace(" ", "%20").toLowerCase()
                                 urlstr = "by_name=" + "#{name}".replace(/\s*\(.*?\)\s*/g, "")
                                 query = "#{urlstr}"
+                                spinner2.stop()
                                 App.vent.trigger "searchFired", query
                     return
 
@@ -126,6 +169,26 @@
             'select #searchinput1': 'inputChange'
         # actions in respond to event: clicking on search
         inputChange: (e)=>
+            spinopts =
+                lines: 13 # The number of lines to draw
+                length: 20 # The length of each line
+                width: 10 # The line thickness
+                radius: 30 # The radius of the inner circle
+                corners: 1 # Corner roundness (0..1)
+                rotate: 0 # The rotation offset
+                direction: 1 # 1: clockwise, -1: counterclockwise
+                color: "#000" # #rgb or #rrggbb or array of colors
+                speed: 1 # Rounds per second
+                trail: 60 # Afterglow percentage
+                shadow: false # Whether to render a shadow
+                hwaccel: false # Whether to use hardware acceleration
+                className: "spinner" # The CSS class to assign to the spinner
+                zIndex: 2e9 # The z-index (defaults to 2000000000)
+                top: "50%" # Top position relative to parent
+                left: "50%" # Left position relative to parent
+
+            spintarget = document.getElementById("searchbuttom")
+            spinner = new Spinner(spinopts).spin(spintarget)
             btn = e
             # btn.button('loading')
             # making up the query string for the search from the form inputs and assiging in to a gon object
@@ -179,6 +242,7 @@
                         num = Number(num) + 1 if num_pages > num
                         gon.num_pages = num
                         gon.query = query
+                        spinner.stop()
                         App.vent.trigger "searchFired", query
                     else
                         $("#dialog-modal").dialog "open"

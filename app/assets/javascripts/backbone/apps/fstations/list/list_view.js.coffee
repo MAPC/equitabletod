@@ -187,14 +187,30 @@
                   ]
                   return
 
+                
                 $("#print").click ->
-                    doc = new jsPDF("p", "pt", "letter")
-                    # margins = 
-                    #     top: 80
-                    #     botom: 60
-                    #     left: 40
-                    #     width: 532
-                    doc.text(10, 10, 'Station Area Details')
+                    # make a spinner object to put in while loading/waiting
+                    spinopts =
+                        lines: 13 # The number of lines to draw
+                        length: 20 # The length of each line
+                        width: 10 # The line thickness
+                        radius: 30 # The radius of the inner circle
+                        corners: 1 # Corner roundness (0..1)
+                        rotate: 0 # The rotation offset
+                        direction: 1 # 1: clockwise, -1: counterclockwise
+                        color: "#000" # #rgb or #rrggbb or array of colors
+                        speed: 1 # Rounds per second
+                        trail: 60 # Afterglow percentage
+                        shadow: false # Whether to render a shadow
+                        hwaccel: false # Whether to use hardware acceleration
+                        className: "spinner" # The CSS class to assign to the spinner
+                        zIndex: 2e9 # The z-index (defaults to 2000000000)
+                        top: "50%" # Top position relative to parent
+                        left: "50%" # Left position relative to parent
+
+                    spintarget = document.getElementById("main-region")
+                    spinner = new Spinner(spinopts).spin(spintarget)
+                    #get a image of snapshot of the current map object
                     html2canvas document.getElementById("resize-map"),
                         allowTaint: true
                         taintTest: false
@@ -203,41 +219,66 @@
                         onrendered: (canvas) ->
                             imagel = document.createElement("div")
                             imagel.setAttribute('id', 'mapImage')
-                            imagel.setAttribute('style', 'display:none;')
+                            # imagel.setAttribute('style', 'display:none;')
                             # or it can get a img from leaflet-image plugin and return it as part of the function
                             imagel.appendChild canvas
                             # gon.imgData = canvas.toDataURL("image/png")
                             document.body.appendChild imagel
                             return 
 
-                    # doc.setFontSize(20)
-                    station_name_4p = document.getElementById("titlename").childNodes[0].innerHTML
-                    doc.text(20, 10, station_name_4p)     
-                    # deferred = new Deferred()
-                    mapImage = document.getElementById("mapImage")
-                    # dataImage = mapImage.then (res) ->
-                    #     canvas = res.childNodes[0]
-                    #     context = res.getContext('2d')
-                    #     console.log context 
-                    #     return              
-                    # doc.addImage
-                    #     imageData: imgData
-                    #     angle: 0
-                    #     x: 10
-                    #     y: 78
-                    #     w: 45
-                    #     h: 58
-                    # doc.text 20, 20, "Hello world."
+                    doc = new jsPDF("p", "pt", "letter")
+                    doc.addHTML document.body, ->
+                        string = doc.output("datauristring")
+                        $("#mapImage").attr "src", string
+                        return
+                    # margins = 
+                    #     top: 80
+                    #     botom: 60
+                    #     left: 40
+                    #     width: 532
+                    # doc.text(10, 10, 'Station Area Details')
 
-                    # doc.save ".pdf"
-                    # doc.fromHTML $('#map-region').get(0), 10, 10,
-                    #     'width': 170
-                    #     'elementHandlers':
-                    #         'H1': (el, renderer) =>
-                    #             doc.setFontSize(14)
-                    #             doc.setFontStyle('bold')
-                    #             true
+                    # # doc.setFontSize(20)
+                    # station_name_4p = document.getElementById("titlename").childNodes[0].innerHTML
+                    # doc.text(20, 10, station_name_4p)     
+                    # # deferred = new Deferred()
+                    # mapImage = document.getElementById("mapImage")
+                    # mapImage.style.display = 'block'
+                    # console.log "mapImage"
+                    # console.log mapImage
+
+                    specialElementHandlers = 
+                        "#map": (element, renderer) ->
+                            true
+                    doc.fromHTML $('#mapImage')[0], 15, 15,
+                        width: 170
+                        elementHandlers: specialElementHandlers
+                    # # dataImage = mapImage.then (res) ->
+                    # #     canvas = res.childNodes[0]
+                    # #     context = res.getContext('2d')
+                    # #     console.log context 
+                    # #     return              
+                    # # doc.addImage
+                    # #     imageData: imgData
+                    # #     angle: 0
+                    # #     x: 10
+                    # #     y: 78
+                    # #     w: 45
+                    # #     h: 58
+                    # # doc.text 20, 20, "Hello world."
+
+                    # # doc.save ".pdf"
+                    # # doc.fromHTML $('#map-region').get(0), 10, 10,
+                    # #     'width': 170
+                    # #     'elementHandlers':
+                    # #         'H1': (el, renderer) =>
+                    # #             doc.setFontSize(14)
+                    # #             doc.setFontStyle('bold')
+                    # #             true
+                    # # mapImage.setAttribute('style', 'display:none;')
                     doc.save "station.pdf"
+                    spinner.stop()
+                    # mapImage.setAttribute('style', 'display:none;')
 
 
                   # console.log "this is click on print"
@@ -300,6 +341,27 @@
                     gon.query = "#{@.title}&" + gon.query
                     App.vent.trigger "searchFired", gon.query
                 $("[rel=tooltipd]").click (event, ui) ->
+                    console.log event
+                    spinopts =
+                        lines: 13 # The number of lines to draw
+                        length: 20 # The length of each line
+                        width: 10 # The line thickness
+                        radius: 30 # The radius of the inner circle
+                        corners: 1 # Corner roundness (0..1)
+                        rotate: 0 # The rotation offset
+                        direction: 1 # 1: clockwise, -1: counterclockwise
+                        color: "#000" # #rgb or #rrggbb or array of colors
+                        speed: 1 # Rounds per second
+                        trail: 60 # Afterglow percentage
+                        shadow: false # Whether to render a shadow
+                        hwaccel: false # Whether to use hardware acceleration
+                        className: "spinner" # The CSS class to assign to the spinner
+                        zIndex: 2e9 # The z-index (defaults to 2000000000)
+                        top: "50%" # Top position relative to parent
+                        left: "50%" # Left position relative to parent
+
+                    spintarget = document.getElementById("main-region")
+                    spinner = new Spinner(spinopts).spin(spintarget)
                     # $("#accordion").accordion "disable"
                     dictionaryResponse = $.ajax
                             url: "/dictionary_entries.json?by_name=#{@.title}"
@@ -313,6 +375,7 @@
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").html("")
                         $("#dialog-modal").dialog title: ""
+                        spinner.stop()
                         $("#dialog-modal").html("<div class='row'>
                                                     <div class='col-md-1'>
                                                         <span class='glyphicon-class'></span><span class='glyphicon glyphicon-check'>

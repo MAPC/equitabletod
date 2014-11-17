@@ -95,6 +95,26 @@
                     , "fast"
                 return 
               $("#searchinput1").on "keypress", (e) ->
+                spinopts =
+                    lines: 13 # The number of lines to draw
+                    length: 20 # The length of each line
+                    width: 10 # The line thickness
+                    radius: 30 # The radius of the inner circle
+                    corners: 1 # Corner roundness (0..1)
+                    rotate: 0 # The rotation offset
+                    direction: 1 # 1: clockwise, -1: counterclockwise
+                    color: "#000" # #rgb or #rrggbb or array of colors
+                    speed: 1 # Rounds per second
+                    trail: 60 # Afterglow percentage
+                    shadow: false # Whether to render a shadow
+                    hwaccel: false # Whether to use hardware acceleration
+                    className: "spinner" # The CSS class to assign to the spinner
+                    zIndex: 2e9 # The z-index (defaults to 2000000000)
+                    top: "50%" # Top position relative to parent
+                    left: "50%" # Left position relative to parent
+
+                spintarget1 = document.getElementById("searchbuttom")
+                spinner1 = new Spinner(spinopts).spin(spintarget1)
                 p = e.which
                 if p is 13
                     name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() 
@@ -117,6 +137,7 @@
                             fstations = collection.responseJSON
                             console.log fstations
                             features = _.values fstations.features
+                            spinner1.stop()
                             #window.features = Backbone.Collection.extend(localStorage: new Backbone.LocalStorage("features"))
                             #window.features = features
                             if features.length > 0
@@ -141,6 +162,26 @@
             'click #ui-accordion-header-icon ui-icon ui-icon-minus': 'lessText'
 
         inputChange: (e)=>
+            spinopts =
+                lines: 13 # The number of lines to draw
+                length: 20 # The length of each line
+                width: 10 # The line thickness
+                radius: 30 # The radius of the inner circle
+                corners: 1 # Corner roundness (0..1)
+                rotate: 0 # The rotation offset
+                direction: 1 # 1: clockwise, -1: counterclockwise
+                color: "#000" # #rgb or #rrggbb or array of colors
+                speed: 1 # Rounds per second
+                trail: 60 # Afterglow percentage
+                shadow: false # Whether to render a shadow
+                hwaccel: false # Whether to use hardware acceleration
+                className: "spinner" # The CSS class to assign to the spinner
+                zIndex: 2e9 # The z-index (defaults to 2000000000)
+                top: "50%" # Top position relative to parent
+                left: "50%" # Left position relative to parent
+
+            spintarget = document.getElementById("searchbuttom")
+            spinner = new Spinner(spinopts).spin(spintarget)
             console.log e
             #console.log $(@)
             btn = e
@@ -192,6 +233,7 @@
                     fstations = collection.responseJSON
                     console.log fstations
                     features = _.values fstations.features
+                    spinner.stop()
                     #window.features = Backbone.Collection.extend(localStorage: new Backbone.LocalStorage("features"))
                     #window.features = features
                     if features.length > 0
