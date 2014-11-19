@@ -230,7 +230,7 @@
                         top: "50%" # Top position relative to parent
                         left: "50%" # Left position relative to parent
 
-                    spintarget = document.getElementById("print")
+                    spintarget = document.getElementById("main-region")
                     spinner = new Spinner(spinopts).spin(spintarget)
                     #get a image of snapshot of the current map object
                     html2canvas document.getElementById("resize-map"),
@@ -241,7 +241,7 @@
                         onrendered: (canvas) ->
                             imagel = document.createElement("div")
                             imagel.setAttribute('id', 'mapImage')
-                            # imagel.setAttribute('style', 'display:none;')
+                            imagel.setAttribute('style', 'display:none;')
                             # or it can get a img from leaflet-image plugin and return it as part of the function
                             imagel.appendChild canvas
                             # gon.imgData = canvas.toDataURL("image/png")
@@ -250,6 +250,9 @@
                             gon.imageData = canvas.toDataURL()
                             ## making up the pdf using jspdf
                             doc = new jsPDF("p", "pt", "letter")
+                            ## line height is about each 15 pts
+                            ## the header seperation lines are 4 pts after the header
+                            ## header themselves have the line height of 16
                             doc.setFont('helvetica')
                             doc.setFontType('bold')
                             doc.setLineWidth(2)
@@ -257,18 +260,116 @@
                             doc.text("T  station.info", 40, 40)
                             doc.setLineWidth(1)
                             doc.setDrawColor(0.00, 0.60, 0.80, 0.00)
-                            doc.line(40, 48, 540, 48)
+                            doc.line(40, 50, 400, 50)
                             doc.setFontSize(12)
                             doc.setFontType('normal')
-                            doc.text("Station Area Details For: #{gon.feature[0].properties.name}", 40, 62)
+                            doc.setTextColor(255, 102, 51)
+                            doc.text("Station Area Details", 40, 64)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontSize(10)
+                            doc.text("#{gon.feature[0].properties.name}", 40, 80)
+
+                            # html2canvas document.getElementById("chart"),
+                            #     # allowTaint: true
+                            #     taintTest: false
+                            #     useCORS: true
+                            #     proxy: 'assets/php/proxy.php'
+                            #     onrendered: (canvas) ->
+                            #         chartimagel = document.createElement("div")
+                            #         chartimagel.setAttribute('id', 'chartImage')
+                            #         chartimagel.setAttribute('style', 'display:none;')
+                            #         # or it can get a img from leaflet-image plugin and return it as part of the function
+                            #         chartimagel.appendChild canvas
+                            #         # gon.imgData = canvas.toDataURL("image/png")
+                            #         document.body.appendChild chartimagel
+                            #         ctx = canvas.getContext("2d")
+                            #         gon.chartImageData = canvas.toDataURL()
+                            #         doc.addImage gon.chartImageData, "PNG", 200, 250, 180, 180
+
+                            doc.setDrawColor(0.0314, 0.0135, 0.00, 0.125)
+                            doc.setLineWidth(0.25)
+                            # doc.line(40, 108, 400, 108)
+
+                            doc.setFontSize(12)
+                            doc.setTextColor(255, 102, 51)
+                            doc.text("Basic info", 40, 104)
+
+                            doc.setFontSize(10)
+                            doc.setTextColor(0, 0, 0)
+                            doc.text("Municipality: #{gon.feature[0].properties.muni_name}", 40, 120)
+                            doc.text("Service Type: #{gon.feature[0].properties.line_descr}", 40, 135)
+                            doc.text("Station Type: #{gon.feature[0].properties.station_class}", 40, 150)
+                            doc.text("Community Type: #{gon.feature[0].properties.community_type_description}", 40, 165)
+                            doc.text("Community Subtype: #{gon.feature[0].properties.subcommunity_type_description}", 40, 180)
+
+                            doc.setFontSize(12)
+                            doc.setTextColor(255, 102, 51)
+                            doc.text("eTOD", 40, 196)
 
                             doc.addImage gon.imageData, "PNG", 400, 50, 180, 180
 
+                            doc.setFontSize(10)
+                            doc.setTextColor(0, 0, 0)
+                            doc.text("eTOD Group: #{gon.feature[0].properties.etod_type}", 40, 212)
+                            doc.text("Total eTOD Score: #{gon.feature[0].properties.etod_total} out of 50", 40, 227)
+                            doc.text("Transit Score: #{gon.feature[0].properties.etod_sub1t} out of 15", 40, 242)
+                            doc.text("Orientation Score: #{gon.feature[0].properties.etod_sub2o} out of 20", 40, 257)
+                            doc.text("Development Score: #{gon.feature[0].properties.etod_sub3d} out of 15", 40, 272)
+
+                            doc.setFontSize(12)
+                            doc.setTextColor(255, 102, 51)
+                            doc.text("Transportation Performance", 40, 288)
+
+                            doc.setFontSize(10)
+                            doc.setTextColor(0, 0, 0)
+                            doc.text("Vehicle Miles Traveled (VMT): #{gon.feature[0].properties.ov_vmthday.toFixed 2}", 40, 304)
+                            doc.text("GHG Emissions-Transportation: #{gon.feature[0].properties.ov_ghg.toFixed 2}", 40, 319)
+                            doc.text("Vehicle Ownership: #{gon.feature[0].properties.ov_vehphh.toFixed 2}", 40, 334)
+                            doc.text("Transit Share of Commuting miles: #{(gon.feature[0].properties.ov_trnpcmi * 100).toFixed 2}%", 40, 349)
+                            doc.text("Transit Commuter Share: #{gon.feature[0].properties.ov_pcttran.toFixed 2}", 40, 364)
+
+                            doc.setFontSize(12)
+                            doc.setTextColor(255, 102, 51)
+                            doc.text("Development Context", 40, 380)
+
+                            doc.setFontSize(10)
+                            doc.setTextColor(0, 0, 0)
+                            doc.text("Floor Area Ratio (FAR): #{gon.feature[0].properties.ov_far.toFixed 2}", 40, 396)
+                            doc.text("Surface Parking (acre): #{gon.feature[0].properties.ov_prkac.toFixed 2}", 40, 411)
+                            doc.text("Current Development Intensity: #{gon.feature[0].properties.ov_intntot.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 426)
+                            doc.text("Current Development Mix: #{gon.feature[0].properties.ov_mix.toFixed 2}", 40, 441)
+                            doc.text("Net Residential Density: #{gon.feature[0].properties.ov_hupac.toFixed 2}", 40, 456)
+                            doc.text("Net Employment Density: #{gon.feature[0].properties.ov_empden.toFixed 2}", 40, 471)
+                            doc.text("Walkscore: #{gon.feature[0].properties.walkscore.toFixed 2}", 40, 486)
+                            doc.text("Residential Pipeline: #{gon.feature[0].properties.ov_hupipe.toFixed 1}", 40, 501)
+                            doc.text("Commercial Pipeline: #{gon.feature[0].properties.ov_emppipe.toFixed 1}", 40, 516)
+
+                            doc.setFontSize(12)
+                            doc.setTextColor(255, 102, 51)
+                            doc.text("Economics", 40, 532)
+
+                            doc.setFontSize(10)
+                            doc.setTextColor(0, 0, 0)
+                            doc.text("Number of Employees: #{gon.feature[0].properties.ov_emp10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 548)
+                            doc.text("Tax Revenue ($): #{gon.feature[0].properties.ex_taxrev.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 563)
+                            doc.text("Number of Establishments: #{gon.feature[0].properties.ov_est_10}", 40, 578)
+                            doc.text("Assessed Value ($): #{gon.feature[0].properties.ov_aval.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 593)
+
+                            doc.setFontSize(12)
+                            doc.setTextColor(255, 102, 51)
+                            doc.text("Demographics", 40, 609)
+
+                            doc.text("Number of Households: #{gon.feature[0].properties.ov_hh10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 624)
+                            doc.text("Household Median Income ($): #{gon.feature[0].properties.ov_hhinc.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 639)
+                            doc.text("Renter Households: #{gon.feature[0].properties.ov_rentocc.toFixed 2}", 40, 654)
+                            doc.text("Zero-Car Households: #{(gon.feature[0].properties.ov_hhnocar * 100).toFixed 2 }%", 40, 669)
+                            doc.text("Zero-Car Households: #{gon.feature[0].properties.ov_ed_att.toFixed 2}", 40, 669)
+
 
                             doc.save "tstationinfo.pdf"
+                            spinner.stop()
                             return 
 
-                    spinner.stop()
 
                 $(".feedback_trigger").click (event, ui) ->
                     # $("#accordion").accordion "disable"
@@ -362,34 +463,35 @@
                         $("#dialog-modal").dialog title: ""
                         spinner.stop()
                         $("#dialog-modal").html("<div class='row'>
-                                                    <div class='col-md-1'>
-                                                        <span class='glyphicon-class'></span><span class='glyphicon glyphicon-check'>
+                                                    <div class='col-md-2'>
+                                                       <strong>Description</strong> 
                                                     </div>
                                                     <div class='col-md-10' style='text-align: left;'>
-                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span style='font-style: italic;'>#{@dictionaryentries.models["0"].get("code")} </span>
+                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span>#{@dictionaryentries.models["0"].get("code")} </span>
                                                     </div>
                                                 </div>
-                                                <hr> 
+                                                <br> 
                                                 <div class='row'>
-                                                    <div class='col-md-1'>
-                                                        <span class='glyphicon glyphicon-info-sign'></span>
+                                                    <div class='col-md-2'>
+                                                        <span><strong>Interpretation</strong></span>
                                                     </div>
-                                                    <div class='col-md-10' style='text-align: left; font-style: italic;'>
+                                                    <div class='col-md-10' style='text-align: left;'>
                                                         #{@dictionaryentries.models["0"].get("importance")} 
                                                     </div>
                                                 </div>
-                                                <hr>
+                                                <br>
                                                 <div class='row'>
-                                                    <div class='col-md-1'> 
-                                                        <span class='glyphicon glyphicon-warning-sign'></span>
+                                                    <div class='col-md-2'> 
+                                                        <span><strong>Importance</strong></span>
                                                     </div>
-                                                    <div class='col-md-10' style='text-align: left; font-style: italic;'>
+                                                    <div class='col-md-10' style='text-align: left;'>
                                                         #{@dictionaryentries.models["0"].get("description")} 
                                                     </div>
                                                 </div>
-                                                <hr>
+                                                <br>
                                                 <div class='row'>
-                                                    <div class='col-md-1'><span class='glyphicon glyphicon-asterisk'>
+                                                    <div class='col-md-2'>
+                                                        <span><strong>Note</strong>
                                                         </span></div><div class='col-md-10' style='font-style: italic;'>
                                                             #{@dictionaryentries.models["0"].get("technical_notes")}
                                                     </div>
