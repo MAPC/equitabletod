@@ -232,8 +232,76 @@
 
                     spintarget = document.getElementById("main-region")
                     spinner = new Spinner(spinopts).spin(spintarget)
-                    #get a image of snapshot of the current map object
-                    html2canvas document.getElementById("resize-map"),
+                    # d3ChartElement = $("#chart")[0].firstChild
+                    # gon.d3ChartElement = d3ChartElement
+                    # console.log "d3ChartElement"
+                    # console.log d3ChartElement
+                    # svgData = new XMLSerializer().serializeToString(d3ChartElement) 
+                    # gon.svgData = svgData
+                    # d3canvas = document.createElement("canvas")
+                    # d3ctx = d3canvas.getContext( "2d" )
+                    # d3img = new Image
+                    # d3imgEl = document.createElement("div")
+                    # d3img.src = "d3image.svg"
+                    # d3img.onload = ->
+                    #     d3ctx.drawImage d3img, 0, 0
+                    #     return
+                    
+                    # d3img.setAttribute( "src", "data:image/svg+xml;base64," + btoa( svgData ) )
+                    
+                    sparklineVmt = $(".inlinesparklinevmt")[0].firstChild
+                    sparklineGhg = $(".inlinesparklineghg")[0].firstChild
+                    sparklineVehphh = $(".inlinesparklinevehphh")[0].firstChild
+                    sparklineTrnpcmi = $(".inlinesparklinetrnpcmi")[0].firstChild
+                    sparklinePcttran = $(".inlinesparklinepcttran")[0].firstChild
+                    sparklineFar = $(".inlinesparklinefar")[0].firstChild
+                    sparklinePrkac = $(".inlinesparklineprkac")[0].firstChild
+                    sparklineIntntot = $(".inlinesparklineintntot")[0].firstChild
+                    sparklineMix = $(".inlinesparklinemix")[0].firstChild
+                    sparklineHupac = $(".inlinesparklinehupac")[0].firstChild
+                    sparklineEmpden = $(".inlinesparklineempden")[0].firstChild
+                    sparklineWalkscore = $(".inlinesparklinewalkscore")[0].firstChild
+                    sparklineHupipe = $(".inlinesparklinehupipe")[0].firstChild
+                    sparklineEmppipe = $(".inlinesparklineemppipe")[0].firstChild
+                    sparklineEmp10 = $(".inlinesparklineemp10")[0].firstChild
+                    sparklineExtaxrev = $(".inlinesparklineextaxrev")[0].firstChild
+                    sparklineEst10 = $(".inlinesparklineest10")[0].firstChild
+                    sparklineAval = $(".inlinesparklineaval")[0].firstChild
+                    sparklineHh10 = $(".inlinesparklinehh10")[0].firstChild
+                    sparklineHhinc = $(".inlinesparklinehhinc")[0].firstChild
+                    sparklineRentocc = $(".inlinesparklinerentocc")[0].firstChild
+                    sparklineHhnocar = $(".inlinesparklinehhnocar")[0].firstChild
+                    sparklineEdatt = $(".inlinesparklineedatt")[0].firstChild
+
+
+
+                    gon.sparklineVmt = sparklineVmt.toDataURL()
+                    gon.sparklineGhg = sparklineGhg.toDataURL()
+                    gon.sparklineVehphh = sparklineVehphh.toDataURL()
+                    gon.sparklineTrnpcmi = sparklineTrnpcmi.toDataURL()
+                    gon.sparklinePcttran = sparklinePcttran.toDataURL()
+                    gon.sparklineFar = sparklineFar.toDataURL()
+                    gon.sparklinePrkac = sparklinePrkac.toDataURL()
+                    gon.sparklineIntntot = sparklineIntntot.toDataURL()
+                    gon.sparklineMix = sparklineMix.toDataURL()
+                    gon.sparklineHupac = sparklineHupac.toDataURL()
+                    gon.sparklineEmpden = sparklineEmpden.toDataURL()
+                    gon.sparklineWalkscore = sparklineWalkscore.toDataURL()
+                    gon.sparklineHupipe = sparklineHupipe.toDataURL()
+                    gon.sparklineEmppipe = sparklineEmppipe.toDataURL()
+                    gon.sparklineEmp10 = sparklineEmp10.toDataURL()
+                    gon.sparklineExtaxrev = sparklineExtaxrev.toDataURL()
+                    gon.sparklineEst10 = sparklineEst10.toDataURL()
+                    gon.sparklineAval = sparklineAval.toDataURL()
+                    gon.sparklineHh10 = sparklineHh10.toDataURL()
+                    gon.sparklineHhinc = sparklineHhinc.toDataURL()
+                    gon.sparklineRentocc = sparklineRentocc.toDataURL()
+                    gon.sparklineHhnocar = sparklineHhnocar.toDataURL()
+                    gon.sparklineEdatt = sparklineEdatt.toDataURL()
+
+
+                    # gon.d3ChartElement = d3canvas.toDataURL( "image/png" )
+                    html2canvas document.getElementById("map-region"),
                         # allowTaint: true
                         taintTest: false
                         useCORS: true
@@ -294,7 +362,7 @@
                             doc.setTextColor(255, 102, 51)
                             doc.text("Basic info", 40, 104)
 
-                            doc.setFontSize(10)
+                            doc.setFontSize(9)
                             doc.setTextColor(0, 0, 0)
                             doc.text("Municipality: #{gon.feature[0].properties.muni_name}", 40, 120)
                             doc.text("Service Type: #{gon.feature[0].properties.line_descr}", 40, 135)
@@ -306,9 +374,11 @@
                             doc.setTextColor(255, 102, 51)
                             doc.text("eTOD", 40, 196)
 
+                            # doc.addSVG gon.svgData, "PNG", 120, 40, 310, 170
                             doc.addImage gon.imageData, "PNG", 400, 50, 180, 180
+                            
 
-                            doc.setFontSize(10)
+                            doc.setFontSize(9)
                             doc.setTextColor(0, 0, 0)
                             doc.text("eTOD Group: #{gon.feature[0].properties.etod_type}", 40, 212)
                             doc.text("Total eTOD Score: #{gon.feature[0].properties.etod_total} out of 50", 40, 227)
@@ -320,11 +390,15 @@
                             doc.setTextColor(255, 102, 51)
                             doc.text("Transportation Performance", 40, 288)
 
-                            doc.setFontSize(10)
+                            doc.setFontSize(9)
                             doc.setTextColor(0, 0, 0)
-                            doc.text("Vehicle Miles Traveled (VMT): #{gon.feature[0].properties.ov_vmthday.toFixed 2}", 40, 304)
-                            doc.text("GHG Emissions-Transportation: #{gon.feature[0].properties.ov_ghg.toFixed 2}", 40, 319)
-                            doc.text("Vehicle Ownership: #{gon.feature[0].properties.ov_vehphh.toFixed 2}", 40, 334)
+                            doc.text("Vehicle Miles Traveled (VMT): #{gon.feature[0].properties.ov_vmthday.toFixed 2}", 40, 305)
+                            # the sparkline png need to be 9 points less than the line itself
+                            doc.addImage gon.sparklineVmt, "PNG", 220, 295, 75, 9
+                            doc.text("GHG Emissions-Transportation: #{gon.feature[0].properties.ov_ghg.toFixed 2}", 40, 325)
+                            doc.addImage gon.sparklineGhg, "PNG", 220, 316, 75, 9
+                            doc.text("Vehicle Ownership: #{gon.feature[0].properties.ov_vehphh.toFixed 2}", 40, 345)
+                            doc.addImage gon.sparklineVehphh, "PNG", 220, 336, 75, 9
                             doc.text("Transit Share of Commuting miles: #{(gon.feature[0].properties.ov_trnpcmi * 100).toFixed 2}%", 40, 349)
                             doc.text("Transit Commuter Share: #{gon.feature[0].properties.ov_pcttran.toFixed 2}", 40, 364)
 
@@ -332,7 +406,7 @@
                             doc.setTextColor(255, 102, 51)
                             doc.text("Development Context", 40, 380)
 
-                            doc.setFontSize(10)
+                            doc.setFontSize(9)
                             doc.setTextColor(0, 0, 0)
                             doc.text("Floor Area Ratio (FAR): #{gon.feature[0].properties.ov_far.toFixed 2}", 40, 396)
                             doc.text("Surface Parking (acre): #{gon.feature[0].properties.ov_prkac.toFixed 2}", 40, 411)
@@ -348,7 +422,7 @@
                             doc.setTextColor(255, 102, 51)
                             doc.text("Economics", 40, 532)
 
-                            doc.setFontSize(10)
+                            doc.setFontSize(9)
                             doc.setTextColor(0, 0, 0)
                             doc.text("Number of Employees: #{gon.feature[0].properties.ov_emp10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 548)
                             doc.text("Tax Revenue ($): #{gon.feature[0].properties.ex_taxrev.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 563)
@@ -359,6 +433,8 @@
                             doc.setTextColor(255, 102, 51)
                             doc.text("Demographics", 40, 609)
 
+                            doc.setFontSize(9)
+                            doc.setTextColor(0, 0, 0)
                             doc.text("Number of Households: #{gon.feature[0].properties.ov_hh10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 624)
                             doc.text("Household Median Income ($): #{gon.feature[0].properties.ov_hhinc.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 639)
                             doc.text("Renter Households: #{gon.feature[0].properties.ov_rentocc.toFixed 2}", 40, 654)
