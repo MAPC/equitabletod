@@ -36,17 +36,22 @@
   <div class="row">
     <div class="col-md-4 col-md-offset-2 text-left">
         <div id="fpaccordion">
-            <p style="text-align: left;"><strong>A new age of transit-oriented development is underway in Metropolitan Boston. </strong>From downtown subway stops to the far reaches of the commuter rail lines, transit station areas are seeing a burst of housing and commercial development, bringing new benefits to the region’s economy, environment, and transportation system. Information Station is a data tool to help communities, state agencies, and developers to unlock the full potential of transit-oriented development in the region. It provides easy access to demographic, economic, transportation, and development information for over 300 existing and planned MBTA transit station areas.
+            <p style="text-align: left;"><strong>A new age of transit oriented development is underway in Metropolitan Boston. </strong>
+            <p/> 
+            <p style="text-align: left;">From downtown subway stops to the far reaches of the commuter rail lines, transit station areas are seeing a burst of housing and commercial development, bringing new benefits to the region’s economy, environment, and transportation system. 
+            </p>
+            <p>Information Station is a data tool to help communities, state agencies, and developers to unlock the full potential of transit oriented development in the region. It provides easy access to demographic, economic, transportation, and development information for over 300 existing and planned MBTA transit station areas.
             </p>
           </div>
         </div>
     <div class="col-md-4 col-md-offset-0 text-left">
       <div id="fpaccordion">
             <p style="text-align: left;"> Planners, developers, and policy makers can use the tool to better understand their station area, to compare stations across the region, or to find development opportunities. Look inside to:
-              <ul class="tod" style="text-align: left;">
-                <li>  Search for station areas matching specific criteria </li>
-                <li>  View and print a Station Area Profile with a concise snapshot of each station area </li>
-                <li>  Download the comprehensive dataset and detailed data dictionary </li>
+              <ul >
+                <br>
+                <li>  Search for station areas matching specific criteria </li><br>
+                <li>  View and print a Station Area Profile with a concise snapshot of each station area </li><br>
+                <li>  Download the comprehensive dataset and detailed data dictionary </li><br>
                 <li>  Learn more about the types of station areas in the region and the eTOD rating system to help guide equitable development. </li>
               </ul>
             </p>

@@ -450,7 +450,7 @@
       <div class="col-md-4 col-md-offset-0 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
               </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Percentage of all households in station area that do not own a car" class="col-md-4 col-xs-2 control-label small" for="searchinput28">Zero-Car Households<span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ov_hhnocar"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Percentage of all households in station area that do not own a car" class="col-md-4 col-xs-2 control-label small" for="searchinput28">Zero-Car Households: <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ov_hhnocar"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
                 <div class="col-md-8 col-xs-12">
                   <span class="inlinesparklinehhnocar"></span></br>
@@ -467,7 +467,7 @@
       <div class="col-md-4 col-md-offset-2 text-left" style="border-bottom: solid; border-bottom-color: #FF7D52; border-bottom-width: thin;">
               </br>
               <div class="form-group">
-                <label href="#" rel="tooltip" title="Percentage of households with at least one bachelors degree" class="col-md-4 col-xs-2 control-label small" for="searchinput29">Educational Attainment<span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ov_ed_att"><span class="glyphicon glyphicon-question-sign"></span></a></label>
+                <label href="#" rel="tooltip" title="Percentage of households with at least one bachelors degree" class="col-md-4 col-xs-2 control-label small" for="searchinput29">Adult College Graduates: <span class="glyphicon-class" ></span><a href="#" rel="tooltipd" title="ov_ed_att"><span class="glyphicon glyphicon-question-sign"></span></a></label>
               
                 <div class="col-md-8 col-xs-12">
                   <span class="inlinesparklineedatt"></span>
@@ -486,7 +486,7 @@
       </form>
         <div class="col-md-6 col-md-offset-6">
             <p>
-              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-4">Search</button>
+              <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d ">Search</button>
               <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d">Reset</button>
             </p>
         </div>

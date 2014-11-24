@@ -27,17 +27,17 @@
 		CollectionEvents:
 		  "change" : "render"
 
-		# onShow: ->
-		# 	$(document).ready ->
-		# 		dictionaryResponse = $.ajax
-	 #                            url: "/dictionary_entries.json?by_name="
-	 #                            done: (result) =>
-	 #                                return result
+		onShow: ->
+			$(document).ready ->
+				dictionaryResponse = $.ajax
+	                            url: "/dictionary_entries.json?by_name="
+	                            done: (result) =>
+	                                return result
 	            
-	 #            dictionary = dictionaryResponse.complete()
-	 #            dictionary.done =>
-	 #                dictionaries = dictionary.responseJSON
-	 #                @dictionaryentries = App.request "set:dictionaryentry", dictionaries
-	 #                @collection = @dictionaryentries
+	            dictionary = dictionaryResponse.complete()
+	            dictionary.done =>
+	                dictionaries = dictionary.responseJSON
+	                @dictionaryentries = App.request "set:dictionaryentry", dictionaries
+	                @collection = @dictionaryentries
 
 

@@ -3,6 +3,15 @@
 	List.Controller =
 
 		getFstationById: (q) ->
+			# getting the current data for today to be later put on the pdf
+			today = new Date()
+			dd = today.getDate()
+			mm = today.getMonth() + 1 #January is 0!
+			yyyy = today.getFullYear()
+			dd = "0" + dd  if dd < 10
+			mm = "0" + mm  if mm < 10
+			gon.today = mm + "/" + dd + "/" + yyyy
+			#
 			urlstr = "/search.json?" + "#{q}"
 			responseFeature = $.ajax
 		          	url: urlstr

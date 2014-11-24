@@ -8,6 +8,8 @@
 
 		onShow: ->
             $(document).ready ->
+                resetButtom = $("#resetbuttom")
+                searchButtom = $("#searchbuttom")
                 gon.fars = [0, 0.18, 0.47, 0.80, 5.79] # _.map features, (key, value) -> key.properties.ov_far 
                 gon.hhincs = [22175, 50945, 66066, 83495, 175695] # _.map features, (key, value) -> key.properties.ov_hhinc
                 gon.vmts = [0 , 13.05, 21.53, 32.14, 69.07] # _.map features, (key, value) -> key.properties.ov_vmthday
@@ -303,36 +305,37 @@
                         $("#dialog-modal").html("")
                         $("#dialog-modal").dialog title: ""
                         $("#dialog-modal").html("<div class='row'>
-                                                    <div class='col-md-1'>
-                                                        <span class='glyphicon-class'></span><span class='glyphicon glyphicon-check'>
+                                                    <div class='col-md-2'>
+                                                       <strong>Description</strong> 
                                                     </div>
-                                                    <div class='col-md-10' style='text-align: justify;'>
-                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span style='font-style: italic;'>#{@dictionaryentries.models["0"].get("code")} </span>
-                                                    </div>
-                                                </div>
-                                                <hr> 
-                                                <div class='row'>
-                                                    <div class='col-md-1'>
-                                                        <span class='glyphicon glyphicon-info-sign'></span>
-                                                    </div>
-                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
-                                                        #{@dictionaryentries.models["0"].get("importance")} 
+                                                    <div class='col-md-10' style='text-align: left;'>
+                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span><p>#{@dictionaryentries.models["0"].get("code")} <p></span>
                                                     </div>
                                                 </div>
-                                                <hr>
+                                                <br> 
                                                 <div class='row'>
-                                                    <div class='col-md-1'> 
-                                                        <span class='glyphicon glyphicon-warning-sign'></span>
+                                                    <div class='col-md-2'>
+                                                        <span><strong>Interpretation</strong></span>
                                                     </div>
-                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
-                                                        #{@dictionaryentries.models["0"].get("description")} 
+                                                    <div class='col-md-10' style='text-align: left;'>
+                                                        <p>#{@dictionaryentries.models["0"].get("importance")} </p>
                                                     </div>
                                                 </div>
-                                                <hr>
+                                                <br>
                                                 <div class='row'>
-                                                    <div class='col-md-1'><span class='glyphicon glyphicon-asterisk'>
-                                                        </span></div><div class='col-md-10' style='text-align: justify; font-style: italic;'>
-                                                            #{@dictionaryentries.models["0"].get("technical_notes")}
+                                                    <div class='col-md-2'> 
+                                                        <span><strong>Importance</strong></span>
+                                                    </div>
+                                                    <div class='col-md-10' style='text-align: left;'>
+                                                        <p>#{@dictionaryentries.models["0"].get("description")} </p>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class='row'>
+                                                    <div class='col-md-2'>
+                                                        <span><strong>Note</strong>
+                                                        </span></div><div class='col-md-10' style='font-style: italic; font-size:10;'>
+                                                            <p>#{@dictionaryentries.models["0"].get("technical_notes")}</p>
                                                     </div>
                                                 </div></hm2>")
                         $("#dialog-modal").dialog height: "auto" 

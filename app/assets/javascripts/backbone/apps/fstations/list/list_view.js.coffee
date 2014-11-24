@@ -13,6 +13,52 @@
 
 		onShow: ->
 			$(document).ready ->
+                # seting up design parameters for pdf exports
+                gon.section_header_lead = 25
+                gon.section_header_fontSize = 10
+                gon.section_header_fontSyle = 'bold'
+                gon.item_lead = 23
+                gon.item_fontSize = 8
+                gon.item_fontStyle = 'normal'
+                gon.describton_lead = 8
+                gon.describton_fontSize = 6
+                gon.describton_fontStyle = 'normal'
+                gon.sparkline_lead = -9
+                gon.sparkline_x_left = 220
+                gon.sparkline_x_right = 500
+                # # section zero points
+
+                gon.page_header_z_point_x = 460
+                gon.page_header_z_point_y = 30
+
+                gon.basic_z_point_x = 40
+                gon.basic_z_point_y = 60
+
+                gon.etod_z_point_x = 40
+                gon.etod_z_point_y = 190
+
+                gon.transportation_z_point_x = 40
+                gon.transportation_z_point_y = 380
+
+                gon.development_z_point_x = 340
+                gon.development_z_point_y = 315
+
+                gon.economics_z_point_x = 40
+                gon.economics_z_point_y = 540
+
+                gon.demographics_z_point_x = 340
+                gon.demographics_z_point_y = 560
+
+                # drawing the radar chart manually
+                gon.radar_z_x = 110
+                gon.radar_z_y = gon.etod_z_point_y+gon.section_header_lead+gon.item_lead + 40
+                gon.radar_width = 70
+                gon.radar_height = 60
+
+
+
+
+                # seting up data for sparklines
                 fvmt = gon.feature["0"].properties.ov_vmthday.toFixed 4
                 ffar = gon.feature["0"].properties.ov_far.toFixed 4
                 fpcttran = (gon.feature["0"].properties.ov_pcttran.toFixed 4)
@@ -40,7 +86,7 @@
                 fintntot = gon.feature["0"].properties.ov_intntot if gon.feature["0"].properties.ov_intntot
                 fmix = gon.feature["0"].properties.ov_mix.toFixed 4 if gon.feature["0"].properties.ov_mix
                 fhupac = gon.feature["0"].properties.ov_hupac.toFixed 2 if gon.feature["0"].properties.ov_hupac
-                fempden = gon.feature["0"].properties.ov_empden.toFixed 2 if gon.feature["0"].properties.ov_empden
+                fempden = gon.feature["0"].properties.ov_empden.toFixed 0 if gon.feature["0"].properties.ov_empden
                 fest10 = gon.feature["0"].properties.ov_est_10.toFixed 4 if gon.feature["0"].properties.ov_est_10
                 faval = gon.feature["0"].properties.ov_aval.toFixed 0 if gon.feature["0"].properties.ov_aval
                 frentocc = (gon.feature["0"].properties.ov_rentocc.toFixed 4) if gon.feature["0"].properties.ov_rentocc
@@ -88,18 +134,15 @@
                   send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
               #init feedback_me plugin
             $(document).ready ->
-              #set up some minimal options for the feedback_me plugin
-              fm.init fm_options
-              return
+                #set up some minimal options for the feedback_me plugin
+                fm.init fm_options
+                return
             $(document).ready -> 
                 console.log gon
                 $("html, body").animate
                   scrollTop: ($("#detailscol").offset().top)
                 , 500
-                $("body").removeClass "nav-expanded"        
-                $("#printpaker").click ->
-                    $("a.print-preview").printPreview()
-                    App.vent.trigger "printFired"                    
+                $("body").removeClass "nav-expanded"                           
                 #$("[rel=tooltipu]").tooltip placement: "top"
                 $("#navigationsbl").html ''
                 $("#navigationsbr").html ''
@@ -209,8 +252,9 @@
                     ]
                     return
 
-                
+                console.log "#{gon.feature[0].properties.name}".indexOf("STATION") isnt -1
                 $("#print").click ->
+                    gon.d3ChartElement = $("#chart")[0]
                     # make a spinner object to put in while loading/waiting
                     spinopts =
                         lines: 13 # The number of lines to draw
@@ -232,22 +276,8 @@
 
                     spintarget = document.getElementById("main-region")
                     spinner = new Spinner(spinopts).spin(spintarget)
-                    # d3ChartElement = $("#chart")[0].firstChild
-                    # gon.d3ChartElement = d3ChartElement
-                    # console.log "d3ChartElement"
-                    # console.log d3ChartElement
-                    # svgData = new XMLSerializer().serializeToString(d3ChartElement) 
-                    # gon.svgData = svgData
-                    # d3canvas = document.createElement("canvas")
-                    # d3ctx = d3canvas.getContext( "2d" )
-                    # d3img = new Image
-                    # d3imgEl = document.createElement("div")
-                    # d3img.src = "d3image.svg"
-                    # d3img.onload = ->
-                    #     d3ctx.drawImage d3img, 0, 0
-                    #     return
                     
-                    # d3img.setAttribute( "src", "data:image/svg+xml;base64," + btoa( svgData ) )
+    
                     
                     sparklineVmt = $(".inlinesparklinevmt")[0].firstChild
                     sparklineGhg = $(".inlinesparklineghg")[0].firstChild
@@ -300,13 +330,13 @@
                     gon.sparklineEdatt = sparklineEdatt.toDataURL()
 
 
-                    # gon.d3ChartElement = d3canvas.toDataURL( "image/png" )
                     html2canvas document.getElementById("map-region"),
                         # allowTaint: true
                         taintTest: false
                         useCORS: true
                         proxy: 'assets/php/proxy.php'
                         onrendered: (canvas) ->
+                            console.log 
                             imagel = document.createElement("div")
                             imagel.setAttribute('id', 'mapImage')
                             imagel.setAttribute('style', 'display:none;')
@@ -317,6 +347,9 @@
                             ctx = canvas.getContext("2d")
                             gon.imageData = canvas.toDataURL()
                             ## making up the pdf using jspdf
+                            mapcLogoData = 'data:image/png;base64,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'
+                            northeasternLogoData = 'data:image/png;base64,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'
+                            # defining zero_x_points and zero_y_points for each sections
                             doc = new jsPDF("p", "pt", "letter")
                             ## line height is about each 15 pts
                             ## the header seperation lines are 4 pts after the header
@@ -324,131 +357,413 @@
                             doc.setFont('helvetica')
                             doc.setFontType('bold')
                             doc.setLineWidth(2)
-                            doc.circle(45, 34, 9, '')
-                            doc.text("T  station.info", 40, 40)
+                            doc.circle(gon.page_header_z_point_x+5, gon.page_header_z_point_y-6, 9, '')
+                            doc.text("T  station.info", gon.page_header_z_point_x, gon.page_header_z_point_y)
                             doc.setLineWidth(1)
                             doc.setDrawColor(0.00, 0.60, 0.80, 0.00)
-                            doc.line(40, 50, 400, 50)
-                            doc.setFontSize(12)
+                            doc.line(40, 50, 340, 50)
+                            doc.setFontSize(10)
                             doc.setFontType('normal')
                             doc.setTextColor(255, 102, 51)
-                            doc.text("Station Area Details", 40, 64)
+                            doc.text("Station Area Summary", gon.page_header_z_point_x, gon.page_header_z_point_y+14)
                             doc.setTextColor(0, 0, 0)
                             doc.setFontSize(10)
-                            doc.text("#{gon.feature[0].properties.name}", 40, 80)
+                            doc.setFontType('bold')
+                            if "#{gon.feature[0].properties.name}".indexOf("STATION") isnt -1 or "#{gon.feature[0].properties.name}".indexOf("STOP") isnt -1
+                                doc.text("#{gon.feature[0].properties.name}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                            else if "#{gon.feature[0].properties.name}".indexOf("STATION") is -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") isnt -1
+                                doc.text("#{gon.feature[0].properties.name}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                            else if "#{gon.feature[0].properties.name}".indexOf("@") isnt -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") isnt -1 
+                                doc.text("#{gon.feature[0].properties.name}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                            else if "#{gon.feature[0].properties.name}".indexOf("@") isnt -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") is -1
+                                doc.text("#{gon.feature[0].properties.name} STOP", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                            else if "#{gon.feature[0].properties.line_descr}".indexOf("SL") isnt -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") is -1
+                                doc.text("#{gon.feature[0].properties.name} STOP", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                            else
+                                doc.text("#{gon.feature[0].properties.name} STATION", gon.basic_z_point_x, gon.basic_z_point_y - 15)
 
-                            # html2canvas document.getElementById("chart"),
-                            #     # allowTaint: true
-                            #     taintTest: false
-                            #     useCORS: true
-                            #     proxy: 'assets/php/proxy.php'
-                            #     onrendered: (canvas) ->
-                            #         chartimagel = document.createElement("div")
-                            #         chartimagel.setAttribute('id', 'chartImage')
-                            #         chartimagel.setAttribute('style', 'display:none;')
-                            #         # or it can get a img from leaflet-image plugin and return it as part of the function
-                            #         chartimagel.appendChild canvas
-                            #         # gon.imgData = canvas.toDataURL("image/png")
-                            #         document.body.appendChild chartimagel
-                            #         ctx = canvas.getContext("2d")
-                            #         gon.chartImageData = canvas.toDataURL()
-                            #         doc.addImage gon.chartImageData, "PNG", 200, 250, 180, 180
-
+                            doc.setFontType('normal')
                             doc.setDrawColor(0.0314, 0.0135, 0.00, 0.125)
                             doc.setLineWidth(0.25)
                             # doc.line(40, 108, 400, 108)
 
-                            doc.setFontSize(12)
-                            doc.setTextColor(255, 102, 51)
-                            doc.text("Basic info", 40, 104)
+                            # doc.setFontSize(12)
+                            # doc.setTextColor(255, 102, 51)
+                            # doc.text("Basic info", 40, 104)
 
-                            doc.setFontSize(9)
+                            doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
-                            doc.text("Municipality: #{gon.feature[0].properties.muni_name}", 40, 120)
-                            doc.text("Service Type: #{gon.feature[0].properties.line_descr}", 40, 135)
-                            doc.text("Station Type: #{gon.feature[0].properties.station_class}", 40, 150)
-                            doc.text("Community Type: #{gon.feature[0].properties.community_type_description}", 40, 165)
-                            doc.text("Community Subtype: #{gon.feature[0].properties.subcommunity_type_description}", 40, 180)
+                            doc.text("Municipality: #{gon.feature[0].properties.muni_name}", gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead)
+                            doc.text("Service Type: #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead+gon.item_lead)
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            # doc.text("Whether the station is served by Raipid Tranist Line, Commuter Rail Line, Key Bus Route, or Ferry Routes.",gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
 
-                            doc.setFontSize(12)
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Station Type: #{gon.feature[0].properties.station_class}", gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead+(2*gon.item_lead))
+                            doc.text("Community Type: #{gon.feature[0].properties.community_type_description}", gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead+(3*gon.item_lead))
+                            doc.text("Community Subtype: #{gon.feature[0].properties.subcommunity_type_description}", gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead+(4*gon.item_lead))
+
+
+                            doc.setFontSize(7)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType('bold')
+
+
+
+                            console.log "gon.d3ChartElement", gon.d3ChartElement
+                            # doc.addSVG gon.d3ChartElement, 120, 140,
+                            # drawing the radar chart manually
+                            # diagram charts
+                            radar_ratio = 1 - ((gon.radar_width/2)**2)/gon.radar_height**2
+                            amood = radar_ratio * gon.radar_height
+                            yaal = Math.sqrt (gon.radar_width/2)**2 + (1-(radar_ratio*gon.radar_height))**2
+
+                            doc.setDrawColor(0.0, 0.0, 0.00, 53)
+                            doc.line(gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y, gon.radar_z_x, gon.radar_z_y+gon.radar_height)
+                            doc.setFontSize(6)
+                            doc.setFontType('normal')
+                            doc.setTextColor(0, 0, 0)
+                            doc.text("20 Orientation", gon.radar_z_x+(gon.radar_width/2)+3, gon.radar_z_y-3)
+                            doc.line(gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y, gon.radar_z_x+gon.radar_width, gon.radar_z_y+gon.radar_height)
+                            doc.text("15 Development", gon.radar_z_x+gon.radar_width+3, gon.radar_z_y+gon.radar_height+3)
+                            doc.line(gon.radar_z_x, gon.radar_z_y+gon.radar_height, gon.radar_z_x+gon.radar_width, gon.radar_z_y+gon.radar_height)
+                            doc.text("Transit 15", gon.radar_z_x-30, gon.radar_z_y+gon.radar_height+3)
+                            doc.setLineWidth(0.5)
+                            doc.line(gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y, gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y+(gon.radar_height*radar_ratio))
+                            doc.line(gon.radar_z_x+gon.radar_width, gon.radar_z_y+gon.radar_height, gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y+(gon.radar_height*radar_ratio))
+                            doc.line(gon.radar_z_x, gon.radar_z_y+gon.radar_height, gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y+(gon.radar_height*radar_ratio))
+                            # drawing the trangle based on the station's etod values
+                            doc.setFillColor(253, 3, 3)
+                            doc.setLineWidth(0)
+                            doc.triangle(gon.radar_z_x + (gon.radar_width/2), (amood * ((20-gon.feature[0].properties.etod_sub2o)/20)) + gon.radar_z_y, gon.radar_z_x + (((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_width/2)), gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_height - amood)), gon.radar_z_x + (gon.radar_width/2) + ((gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_width/2), gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_height - amood)), 'FD')
+
+
+                            doc.addImage gon.imageData, "PNG", 340, 60, 230, 230
+                            # doc.circle(460, 260, 9, '')
+
+
+                            doc.addImage mapcLogoData, "PNG", 40, 725, 55, 55
+                            doc.addImage northeasternLogoData, "PNG", 304, 735, 30, 30
+
+                            doc.line(40, 730, 340, 730)
+
+                            doc.text("MAPC", 96, 743)
+                            doc.setFontType('normal')
+                            doc.setFontSize(6)
+                            doc.setFont('helvetica')
+                            doc.text("60 Temple Place", 96, 753)
+                            doc.text("Boston, MA 02111", 96, 761)
+                            doc.text("(617) 451-2770", 96, 769)
+                            doc.setFontSize(7)
+                            doc.setFont('helvetica')
+                            doc.setFontType('bold')
+                            doc.text("Dukakis Center For Urban and Regional Policy", 340, 743)
+                            doc.setFont('helvetica')
+
+
+                            doc.setFontType('normal')
+                            doc.setFontSize(6)
+                            doc.text("Northeastern University", 340, 753)
+                            # doc.text("School of Public Policy & Urban Affairs", 340, 761)
+                            doc.text("www.northeastern.edu/dukakiscenter", 340, 761)
+
+                            doc.setFont('helvetica')
+
+                            doc.setFontSize(gon.section_header_fontSize)
+                            doc.setFontType(gon.section_header_fontSyle)
                             doc.setTextColor(255, 102, 51)
-                            doc.text("eTOD", 40, 196)
+                            doc.text("Equitable Transit Oriented Development (eTOD)", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead)
 
-                            # doc.addSVG gon.svgData, "PNG", 120, 40, 310, 170
-                            doc.addImage gon.imageData, "PNG", 400, 50, 180, 180
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.setTextColor(0, 0, 0)
+                            doc.text("eTOD Group: #{gon.feature[0].properties.etod_type}", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead)
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Expression of the suitability of the station area for high performing, equitable TOD", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
+                            
+                            # doc.text("Total eTOD Score: #{gon.feature[0].properties.etod_total} out of 50", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(2*gon.item_lead))
+                            # doc.text("Transit Score: #{gon.feature[0].properties.etod_sub1t} out of 15", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(3*gon.item_lead))
+                            # doc.text("Orientation Score: #{gon.feature[0].properties.etod_sub2o} out of 20", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(4*gon.item_lead))
+                            # doc.text("Development Score: #{gon.feature[0].properties.etod_sub3d} out of 15", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(5*gon.item_lead))
+
+                            doc.setFontSize(gon.section_header_fontSize)
+                            doc.setFontType(gon.section_header_fontSyle)
+                            doc.setTextColor(255, 102, 51)
+                            doc.text("Transportation Performance", gon.transportation_z_point_x, gon.transportation_z_point_y)
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Vehicle Miles Traveled (VMT): #{gon.feature[0].properties.ov_vmthday.toFixed 2}", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead)
+                            doc.addImage gon.sparklineVmt, "PNG", gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Daily vehicle miles traveled (VMT) for households in station areas", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+gon.describton_lead)
+                            
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("GHG Emissions-Transportation: #{gon.feature[0].properties.ov_ghg.toFixed 2}", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+gon.item_lead)
+                            doc.addImage gon.sparklineGhg, "PNG", gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+gon.item_lead+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Estimated total greenhouse gases (kilograms CO2 equivalent) ", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Vehicle Ownership: #{gon.feature[0].properties.ov_vehphh.toFixed 2}", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(2*gon.item_lead))
+                            doc.addImage gon.sparklineVehphh, "PNG", gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.sparkline_lead, 93, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Number of vehicles per household", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Transit Share of Commuting miles: #{(gon.feature[0].properties.ov_trnpcmi * 100).toFixed 2}%", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(3*gon.item_lead))
+                            doc.addImage gon.sparklineTrnpcmi, "PNG", gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Percentage of total commuting miles for which transit was used", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Transit Commuter Share: #{(gon.feature[0].properties.ov_pcttran * 100).toFixed 2}%", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(4*gon.item_lead))
+                            doc.addImage gon.sparklinePcttran, "PNG", gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+(4*gon.item_lead)+gon.sparkline_lead, 215, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Percent of commuters using transit", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(4*gon.item_lead)+gon.describton_lead)
+
+                            doc.setFontSize(gon.section_header_fontSize)
+                            doc.setFontType(gon.section_header_fontSyle)
+                            doc.setTextColor(255, 102, 51)
+                            doc.text("Development Context", gon.development_z_point_x, gon.development_z_point_y)
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Floor Area Ratio (FAR): #{gon.feature[0].properties.ov_far.toFixed 2}", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead)
+                            doc.addImage gon.sparklinePcttran, "PNG", gon.sparkline_x_right, gon.development_z_point_y+gon.section_header_lead+gon.sparkline_lead, 215, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Total gross floor area divided by total parcel size", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+gon.describton_lead)
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Surface Parking (acre): #{gon.feature[0].properties.ov_prkac.toFixed 2}", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+gon.item_lead)
+                            doc.addImage gon.sparklinePrkac, "PNG", gon.sparkline_x_right, gon.development_z_point_y+gon.section_header_lead+gon.item_lead+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Acres of surface parking within the station area", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Current Development Intensity: #{gon.feature[0].properties.ov_intntot.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(2*gon.item_lead))
+                            doc.addImage gon.sparklineIntntot, "PNG", gon.sparkline_x_right, gon.development_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Sum of population and employment in the station area", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
                             
 
-                            doc.setFontSize(9)
+                            doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
-                            doc.text("eTOD Group: #{gon.feature[0].properties.etod_type}", 40, 212)
-                            doc.text("Total eTOD Score: #{gon.feature[0].properties.etod_total} out of 50", 40, 227)
-                            doc.text("Transit Score: #{gon.feature[0].properties.etod_sub1t} out of 15", 40, 242)
-                            doc.text("Orientation Score: #{gon.feature[0].properties.etod_sub2o} out of 20", 40, 257)
-                            doc.text("Development Score: #{gon.feature[0].properties.etod_sub3d} out of 15", 40, 272)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Current Development Mix: #{gon.feature[0].properties.ov_mix.toFixed 2}", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(3*gon.item_lead))
+                            doc.addImage gon.sparklineMix, "PNG", gon.sparkline_x_right, gon.development_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.sparkline_lead, 150, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Employment share of total Development Intensity (population + employment)", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
+                            
 
-                            doc.setFontSize(12)
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Net Residential Density: #{gon.feature[0].properties.ov_hupac.toFixed 2}", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(4*gon.item_lead))
+                            doc.addImage gon.sparklineHupac, "PNG", gon.sparkline_x_right, gon.development_z_point_y+gon.section_header_lead+(4*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Housing units per acre of residential land use", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(4*gon.item_lead)+gon.describton_lead)
+                            
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Net Employment Density: #{gon.feature[0].properties.ov_empden.toFixed 2}", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(5*gon.item_lead))
+                            doc.addImage gon.sparklineEmpden, "PNG", gon.sparkline_x_right, gon.development_z_point_y+gon.section_header_lead+(5*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Estimated employment per acre of developed land use", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(5*gon.item_lead)+gon.describton_lead)
+                            
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("WalkScore®: #{gon.feature[0].properties.walkscore.toFixed 2}", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(6*gon.item_lead))
+                            doc.addImage gon.sparklineWalkscore, "PNG", gon.sparkline_x_right, gon.development_z_point_y+gon.section_header_lead+(6*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Rating of walkability on a 100-point scale", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(6*gon.item_lead)+gon.describton_lead)
+                            
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Residential Pipeline: #{(gon.feature[0].properties.ov_hupipe.toFixed 0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(7*gon.item_lead))
+                            doc.addImage gon.sparklineHupipe, "PNG", gon.sparkline_x_right, gon.development_z_point_y+gon.section_header_lead+(7*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Estimated housing units in projects under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(7*gon.item_lead)+gon.describton_lead)
+                            
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Commercial Pipeline: #{(gon.feature[0].properties.ov_emppipe.toFixed 0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead))
+                            doc.addImage gon.sparklineEmppipe, "PNG", gon.sparkline_x_right, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Anticipated employment in nonresidential projects under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead)+gon.describton_lead)
+                            
+
+                            doc.setFontSize(gon.section_header_fontSize)
+                            doc.setFontType(gon.section_header_fontSyle)
                             doc.setTextColor(255, 102, 51)
-                            doc.text("Transportation Performance", 40, 288)
+                            doc.text("Economics", gon.economics_z_point_x, gon.economics_z_point_y)
 
-                            doc.setFontSize(9)
+                            doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
-                            doc.text("Vehicle Miles Traveled (VMT): #{gon.feature[0].properties.ov_vmthday.toFixed 2}", 40, 305)
-                            # the sparkline png need to be 9 points less than the line itself
-                            doc.addImage gon.sparklineVmt, "PNG", 220, 295, 75, 9
-                            doc.text("GHG Emissions-Transportation: #{gon.feature[0].properties.ov_ghg.toFixed 2}", 40, 325)
-                            doc.addImage gon.sparklineGhg, "PNG", 220, 316, 75, 9
-                            doc.text("Vehicle Ownership: #{gon.feature[0].properties.ov_vehphh.toFixed 2}", 40, 345)
-                            doc.addImage gon.sparklineVehphh, "PNG", 220, 336, 75, 9
-                            doc.text("Transit Share of Commuting miles: #{(gon.feature[0].properties.ov_trnpcmi * 100).toFixed 2}%", 40, 349)
-                            doc.text("Transit Commuter Share: #{gon.feature[0].properties.ov_pcttran.toFixed 2}", 40, 364)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Number of Employees: #{gon.feature[0].properties.ov_emp10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead)
+                            doc.addImage gon.sparklineEmp10, "PNG", gon.sparkline_x_left, gon.economics_z_point_y+gon.section_header_lead+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Total employment in the station area, 2011", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(0*gon.item_lead)+gon.describton_lead)
+                            
 
-                            doc.setFontSize(12)
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Tax Revenue ($): #{gon.feature[0].properties.ex_taxrev.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+gon.item_lead)
+                            doc.addImage gon.sparklineExtaxrev, "PNG", gon.sparkline_x_left, gon.economics_z_point_y+gon.section_header_lead+gon.item_lead+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Estimated municipal property tax revenue from parcels in the station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(1*gon.item_lead)+gon.describton_lead)
+                            
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Number of Establishments: #{gon.feature[0].properties.ov_est_10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead))
+                            doc.addImage gon.sparklineEst10, "PNG", gon.sparkline_x_left, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Number of businesses, public agencies, non-profit organizations, and other employers", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
+                            
+
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Assessed Value ($): #{gon.feature[0].properties.ov_aval.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead))
+                            doc.addImage gon.sparklineAval, "PNG", gon.sparkline_x_left, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Total assessed value of land and improvements for all parcels in station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
+                            
+
+                            doc.setFontSize(gon.section_header_fontSize)
+                            doc.setFontType(gon.section_header_fontSyle)
                             doc.setTextColor(255, 102, 51)
-                            doc.text("Development Context", 40, 380)
+                            doc.text("Demographics", gon.demographics_z_point_x, gon.demographics_z_point_y)
 
-                            doc.setFontSize(9)
+                            doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
-                            doc.text("Floor Area Ratio (FAR): #{gon.feature[0].properties.ov_far.toFixed 2}", 40, 396)
-                            doc.text("Surface Parking (acre): #{gon.feature[0].properties.ov_prkac.toFixed 2}", 40, 411)
-                            doc.text("Current Development Intensity: #{gon.feature[0].properties.ov_intntot.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 426)
-                            doc.text("Current Development Mix: #{gon.feature[0].properties.ov_mix.toFixed 2}", 40, 441)
-                            doc.text("Net Residential Density: #{gon.feature[0].properties.ov_hupac.toFixed 2}", 40, 456)
-                            doc.text("Net Employment Density: #{gon.feature[0].properties.ov_empden.toFixed 2}", 40, 471)
-                            doc.text("Walkscore: #{gon.feature[0].properties.walkscore.toFixed 2}", 40, 486)
-                            doc.text("Residential Pipeline: #{gon.feature[0].properties.ov_hupipe.toFixed 1}", 40, 501)
-                            doc.text("Commercial Pipeline: #{gon.feature[0].properties.ov_emppipe.toFixed 1}", 40, 516)
-
-                            doc.setFontSize(12)
-                            doc.setTextColor(255, 102, 51)
-                            doc.text("Economics", 40, 532)
-
-                            doc.setFontSize(9)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Number of Households: #{gon.feature[0].properties.ov_hh10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead)
+                            doc.addImage gon.sparklineHh10, "PNG", gon.sparkline_x_right, gon.demographics_z_point_y+gon.section_header_lead+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Number of households in 2010", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(0*gon.item_lead)+gon.describton_lead)
+                            
+                            doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
-                            doc.text("Number of Employees: #{gon.feature[0].properties.ov_emp10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 548)
-                            doc.text("Tax Revenue ($): #{gon.feature[0].properties.ex_taxrev.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 563)
-                            doc.text("Number of Establishments: #{gon.feature[0].properties.ov_est_10}", 40, 578)
-                            doc.text("Assessed Value ($): #{gon.feature[0].properties.ov_aval.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 593)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Household Median Income ($): #{gon.feature[0].properties.ov_hhinc.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+gon.item_lead)
+                            doc.addImage gon.sparklineHhinc, "PNG", gon.sparkline_x_right, gon.demographics_z_point_y+gon.section_header_lead+gon.item_lead+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Weighted average of the median annual household income", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(1*gon.item_lead)+gon.describton_lead)
 
-                            doc.setFontSize(12)
-                            doc.setTextColor(255, 102, 51)
-                            doc.text("Demographics", 40, 609)
-
-                            doc.setFontSize(9)
+                            doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
-                            doc.text("Number of Households: #{gon.feature[0].properties.ov_hh10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 624)
-                            doc.text("Household Median Income ($): #{gon.feature[0].properties.ov_hhinc.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", 40, 639)
-                            doc.text("Renter Households: #{gon.feature[0].properties.ov_rentocc.toFixed 2}", 40, 654)
-                            doc.text("Zero-Car Households: #{(gon.feature[0].properties.ov_hhnocar * 100).toFixed 2 }%", 40, 669)
-                            doc.text("Zero-Car Households: #{gon.feature[0].properties.ov_ed_att.toFixed 2}", 40, 669)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Renter Households: #{gon.feature[0].properties.ov_rentocc.toFixed 2}", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(2*gon.item_lead))
+                            doc.addImage gon.sparklineRentocc, "PNG", gon.sparkline_x_right, gon.demographics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.sparkline_lead, 150, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Renter households as a share of total occupied housing units", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
 
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Zero-Car Households: #{(gon.feature[0].properties.ov_hhnocar * 100).toFixed 0 }%", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(3*gon.item_lead))
+                            doc.addImage gon.sparklineHhnocar, "PNG", gon.sparkline_x_right, gon.demographics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Percentage of households in station area reporting zero vehicles available", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
 
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            doc.text("Adult College Graduates: #{(gon.feature[0].properties.ov_ed_att * 100).toFixed 0}%", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(4*gon.item_lead))
+                            doc.addImage gon.sparklineEdatt, "PNG", gon.sparkline_x_right, gon.demographics_z_point_y+gon.section_header_lead+(4*gon.item_lead)+gon.sparkline_lead, 175, 9
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.text("Share of adult population with a four-year college degree or higher", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(4*gon.item_lead)+gon.describton_lead)
+
+                            # put a date of download 
+                            doc.setFontType('italic')
+                            doc.text("This report is created on #{gon.today}", 40, 720)
+                            doc.text("Live url: tstation.info/#fss/q/by_name=#{gon.feature[0].properties.name}", 40, 725)
                             doc.save "tstationinfo.pdf"
                             spinner.stop()
                             return 
 
 
                 $(".feedback_trigger").click (event, ui) ->
-                    # $("#accordion").accordion "disable"
+                    $("#accordion").accordion "disable"
                     $(@el).tooltip "option", title: ""
                     $("#dialog-modal").dialog "open"
                     $("#dialog-modal").html("")
@@ -460,19 +775,23 @@
                                                     </div>
                                                 </div>
                                                 <div class='row'>
-                                                    <div id='boxplot' class='col-md-10 class='col-xs-4'>
-                                                        <p class='hm2' style='text-align: left; padding-top: 35px;'>
-                                                        Box plot is a way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots show distribution of an attribute for all the station areas. the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR). A segment inside the rectangle shows the median and 'whiskers' above and below the box show the locations of the minimum and maximum for all staton areas. The red + indicates the current station value for the field. 
+                                                    <div id='boxplot' class='col-md-4 class='col-xs-4'>
+                                                        <p style='text-align: left; padding-top: 35px;'>
+                                                        Box plot is a way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots show distribution of an attribute for all the station areas. the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR).
+                                                        </p>
+                                                    </div>
+                                                    <div id='boxplot' class='col-md-4 class='col-xs-4'>
+                                                        <p style='text-align: left; padding-top: 35px;'>
+                                                         A segment inside the rectangle shows the median and 'whiskers' above and below the box show the locations of the minimum and maximum for all staton areas. The red + indicates the current station value for the field.
                                                         </p>
                                                     </div>
                                                 </div>
                                             </div>")
                     $("#dialog-modal").dialog height: "auto" 
-                    $("#dialog-modal").dialog modal: true
+                    $("#dialog-modal").dialog modal: false
                         
 
                 $("#searchrefine").click (event, ui) ->
-                    console.log "it gets the click"
                     App.vent.trigger "searchrefineFired"
                 $("#dialog-modal").dialog 
                     position:
@@ -482,7 +801,7 @@
                     autoOpen: false
                     closeOnEscape: true
                     height: 1150
-                    width: 820
+                    width: 950
                     show:
                         effect: "fade"
                         duration: 100  
@@ -543,7 +862,7 @@
                                                        <strong>Description</strong> 
                                                     </div>
                                                     <div class='col-md-10' style='text-align: left;'>
-                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span>#{@dictionaryentries.models["0"].get("code")} </span>
+                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation").replace("пїЅ","'")}: </strong> <span><p>#{@dictionaryentries.models["0"].get("code")} <p></span>
                                                     </div>
                                                 </div>
                                                 <br> 
@@ -552,7 +871,7 @@
                                                         <span><strong>Interpretation</strong></span>
                                                     </div>
                                                     <div class='col-md-10' style='text-align: left;'>
-                                                        #{@dictionaryentries.models["0"].get("importance")} 
+                                                        <p>#{@dictionaryentries.models["0"].get("importance").replace("ђ","'").replace("пїЅ","'")} </p>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -561,15 +880,15 @@
                                                         <span><strong>Importance</strong></span>
                                                     </div>
                                                     <div class='col-md-10' style='text-align: left;'>
-                                                        #{@dictionaryentries.models["0"].get("description")} 
+                                                        <p>#{@dictionaryentries.models["0"].get("description").replace("пїЅ","'")} </p>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class='row'>
                                                     <div class='col-md-2'>
                                                         <span><strong>Note</strong>
-                                                        </span></div><div class='col-md-10' style='font-style: italic;'>
-                                                            #{@dictionaryentries.models["0"].get("technical_notes")}
+                                                        </span></div><div class='col-md-10' style='font-style: italic; font-size:10;'>
+                                                            <p>#{@dictionaryentries.models["0"].get("technical_notes").replace("пїЅ","'")}</p>
                                                     </div>
                                                 </div></hm2>")
                         $("#dialog-modal").dialog height: "auto" 
@@ -691,11 +1010,33 @@
             # IF CSV, don't do event.preventDefault() or return false
             # We actually need this to be a typical hyperlink
             $("#download").click ->
-              exportTableToCSV.apply this, [
-                jfeatures
-                "tstationinfo.csv"
-              ]
-              return
+                spinopts =
+                    lines: 13 # The number of lines to draw
+                    length: 20 # The length of each line
+                    width: 10 # The line thickness
+                    radius: 30 # The radius of the inner circle
+                    corners: 1 # Corner roundness (0..1)
+                    rotate: 0 # The rotation offset
+                    direction: 1 # 1: clockwise, -1: counterclockwise
+                    color: "#000" # #rgb or #rrggbb or array of colors
+                    speed: 1 # Rounds per second
+                    trail: 60 # Afterglow percentage
+                    shadow: false # Whether to render a shadow
+                    hwaccel: false # Whether to use hardware acceleration
+                    className: "spinner" # The CSS class to assign to the spinner
+                    zIndex: 2e9 # The z-index (defaults to 2000000000)
+                    top: "50%" # Top position relative to parent
+                    left: "50%" # Left position relative to parent
+
+                spintargetDl = document.getElementById("main-region")
+                spinnerDl = new Spinner(spinopts).spin(spintargetDl)
+
+                exportTableToCSV.apply this, [
+                    jfeatures
+                    "tstationinfo.csv"
+                ]
+                return
+                spintargetDl.stop()
 
             $("#searchrefine").click (event, ui) ->
                 console.log "it gets the click"
