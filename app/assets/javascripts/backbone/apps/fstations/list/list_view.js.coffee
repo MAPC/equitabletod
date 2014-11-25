@@ -14,15 +14,15 @@
 		onShow: ->
 			$(document).ready ->
                 # seting up design parameters for pdf exports
-                gon.section_header_lead = 25
+                gon.section_header_lead = 18
                 gon.section_header_fontSize = 10
                 gon.section_header_fontSyle = 'bold'
-                gon.item_lead = 23
+                gon.item_lead = 32
                 gon.item_fontSize = 8
                 gon.item_fontStyle = 'normal'
-                gon.describton_lead = 8
-                gon.describton_fontSize = 6
-                gon.describton_fontStyle = 'normal'
+                gon.describton_lead = 10
+                gon.describton_fontSize = 7
+                gon.describton_fontStyle = 'italic'
                 gon.sparkline_lead = -9
                 gon.sparkline_x_left = 220
                 gon.sparkline_x_right = 500
@@ -32,28 +32,28 @@
                 gon.page_header_z_point_y = 30
 
                 gon.basic_z_point_x = 40
-                gon.basic_z_point_y = 60
+                gon.basic_z_point_y = 55
 
                 gon.etod_z_point_x = 40
-                gon.etod_z_point_y = 190
+                gon.etod_z_point_y = 130
 
                 gon.transportation_z_point_x = 40
-                gon.transportation_z_point_y = 380
+                gon.transportation_z_point_y = 350
 
                 gon.development_z_point_x = 340
-                gon.development_z_point_y = 315
+                gon.development_z_point_y = 265
 
-                gon.economics_z_point_x = 40
-                gon.economics_z_point_y = 540
+                gon.economics_z_point_x = 340
+                gon.economics_z_point_y = 585
 
-                gon.demographics_z_point_x = 340
-                gon.demographics_z_point_y = 560
+                gon.demographics_z_point_x = 40
+                gon.demographics_z_point_y = 540
 
                 # drawing the radar chart manually
-                gon.radar_z_x = 110
-                gon.radar_z_y = gon.etod_z_point_y+gon.section_header_lead+gon.item_lead + 40
+                gon.radar_z_x = 80
+                gon.radar_z_y = gon.etod_z_point_y+gon.section_header_lead+gon.item_lead + 30
                 gon.radar_width = 70
-                gon.radar_height = 60
+                gon.radar_height = 70
 
 
 
@@ -329,14 +329,14 @@
                     gon.sparklineHhnocar = sparklineHhnocar.toDataURL()
                     gon.sparklineEdatt = sparklineEdatt.toDataURL()
 
-
+                    # html2canvas document.getElementsByClassName("leaflet-layer"),
                     html2canvas document.getElementById("map-region"),
                         # allowTaint: true
                         taintTest: false
                         useCORS: true
                         proxy: 'assets/php/proxy.php'
                         onrendered: (canvas) ->
-                            console.log 
+                            # console.log document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-clickable")
                             imagel = document.createElement("div")
                             imagel.setAttribute('id', 'mapImage')
                             imagel.setAttribute('style', 'display:none;')
@@ -370,17 +370,17 @@
                             doc.setFontSize(10)
                             doc.setFontType('bold')
                             if "#{gon.feature[0].properties.name}".indexOf("STATION") isnt -1 or "#{gon.feature[0].properties.name}".indexOf("STOP") isnt -1
-                                doc.text("#{gon.feature[0].properties.name}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                                doc.text("#{gon.feature[0].properties.name}, #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
                             else if "#{gon.feature[0].properties.name}".indexOf("STATION") is -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") isnt -1
-                                doc.text("#{gon.feature[0].properties.name}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                                doc.text("#{gon.feature[0].properties.name}, #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
                             else if "#{gon.feature[0].properties.name}".indexOf("@") isnt -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") isnt -1 
-                                doc.text("#{gon.feature[0].properties.name}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                                doc.text("#{gon.feature[0].properties.name}, #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
                             else if "#{gon.feature[0].properties.name}".indexOf("@") isnt -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") is -1
-                                doc.text("#{gon.feature[0].properties.name} STOP", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                                doc.text("#{gon.feature[0].properties.name} STOP, #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
                             else if "#{gon.feature[0].properties.line_descr}".indexOf("SL") isnt -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") is -1
-                                doc.text("#{gon.feature[0].properties.name} STOP", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                                doc.text("#{gon.feature[0].properties.name} STOP, #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
                             else
-                                doc.text("#{gon.feature[0].properties.name} STATION", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                                doc.text("#{gon.feature[0].properties.name} STATION, #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
 
                             doc.setFontType('normal')
                             doc.setDrawColor(0.0314, 0.0135, 0.00, 0.125)
@@ -393,8 +393,8 @@
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
-                            doc.text("Municipality: #{gon.feature[0].properties.muni_name}", gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead)
-                            doc.text("Service Type: #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead+gon.item_lead)
+                            doc.text("Municipality: #{gon.feature[0].properties.muni_name}", gon.basic_z_point_x, gon.basic_z_point_y+(gon.item_lead/2))
+                            # doc.text("#{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 27 + gon.item_lead)
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
@@ -403,9 +403,9 @@
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
-                            doc.text("Station Type: #{gon.feature[0].properties.station_class}", gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead+(2*gon.item_lead))
-                            doc.text("Community Type: #{gon.feature[0].properties.community_type_description}", gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead+(3*gon.item_lead))
-                            doc.text("Community Subtype: #{gon.feature[0].properties.subcommunity_type_description}", gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead+(4*gon.item_lead))
+                            doc.text("Station Type: #{gon.feature[0].properties.station_class}", gon.basic_z_point_x, gon.basic_z_point_y+(2*gon.item_lead/2))
+                            doc.text("Community Type: #{gon.feature[0].properties.community_type_description}", gon.basic_z_point_x, gon.basic_z_point_y+(3*gon.item_lead/2))
+                            doc.text("Community Subtype: #{gon.feature[0].properties.subcommunity_type_description}", gon.basic_z_point_x, gon.basic_z_point_y+(4*gon.item_lead/2))
 
 
                             doc.setFontSize(7)
@@ -424,32 +424,75 @@
 
                             doc.setDrawColor(0.0, 0.0, 0.00, 53)
                             doc.line(gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y, gon.radar_z_x, gon.radar_z_y+gon.radar_height)
-                            doc.setFontSize(6)
+                            doc.setFontSize(gon.item_fontSize)
                             doc.setFontType('normal')
                             doc.setTextColor(0, 0, 0)
-                            doc.text("20 Orientation", gon.radar_z_x+(gon.radar_width/2)+3, gon.radar_z_y-3)
-                            doc.line(gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y, gon.radar_z_x+gon.radar_width, gon.radar_z_y+gon.radar_height)
-                            doc.text("15 Development", gon.radar_z_x+gon.radar_width+3, gon.radar_z_y+gon.radar_height+3)
-                            doc.line(gon.radar_z_x, gon.radar_z_y+gon.radar_height, gon.radar_z_x+gon.radar_width, gon.radar_z_y+gon.radar_height)
-                            doc.text("Transit 15", gon.radar_z_x-30, gon.radar_z_y+gon.radar_height+3)
+                            
                             doc.setLineWidth(0.5)
                             doc.line(gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y, gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y+(gon.radar_height*radar_ratio))
                             doc.line(gon.radar_z_x+gon.radar_width, gon.radar_z_y+gon.radar_height, gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y+(gon.radar_height*radar_ratio))
                             doc.line(gon.radar_z_x, gon.radar_z_y+gon.radar_height, gon.radar_z_x+(gon.radar_width/2), gon.radar_z_y+(gon.radar_height*radar_ratio))
+                            doc.line(gon.radar_z_x + (gon.radar_width/2), gon.radar_z_y, gon.radar_z_x+gon.radar_width, gon.radar_z_y+gon.radar_height)
+                            doc.setLineWidth(0.25)
+                            
+                            doc.setDrawColor(169, 167, 166)
+                            
+                            doc.line(gon.radar_z_x + (gon.radar_width/2)-1,  (amood * ((20-gon.feature[0].properties.etod_sub2o)/20)) + gon.radar_z_y-1, gon.radar_z_x + (gon.radar_width/2)-20,  (amood * ((20-gon.feature[0].properties.etod_sub2o)/20)) + gon.radar_z_y-8)
+                            doc.line(gon.radar_z_x + (((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_width/2))-1, gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_height - amood))-1, gon.radar_z_x + (((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_width/2)) - 20, gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_height - amood)) - 16)
+                            doc.line(gon.radar_z_x + (gon.radar_width/2) + ((gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_width/2)+1, gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_height - amood))-1, gon.radar_z_x + (gon.radar_width/2) + ((gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_width/2)+20, gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_height - amood))-8)
+                            
+                            doc.setDrawColor(0.0, 0.0, 0.00, 53)
+                            doc.setTextColor(169, 167, 166)
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.text("#{gon.feature[0].properties.etod_sub2o}", gon.radar_z_x + (gon.radar_width/2)-28,  (amood * ((20-gon.feature[0].properties.etod_sub2o)/20)) + gon.radar_z_y-8)
+                            doc.text("#{gon.feature[0].properties.etod_sub1t}", gon.radar_z_x + (((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_width/2)) - 26, gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_height - amood)) - 16)
+                            doc.text("#{gon.feature[0].properties.etod_sub3d}", gon.radar_z_x + (gon.radar_width/2) + ((gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_width/2)+23, gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_height - amood))-8)
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setFontType(gon.describton_fontStyle)
+                            doc.setTextColor(169, 167, 166)
+                            doc.text("Aggregate eTOD measure of demographic", gon.radar_z_x+(gon.radar_width/2)+23, gon.radar_z_y-3 + gon.describton_lead)
+                            doc.text("orientation toward transit", gon.radar_z_x+(gon.radar_width/2)+23, gon.radar_z_y-3 + 2*(gon.describton_lead))
+                            doc.text("Aggregate eTOD measure",  gon.radar_z_x-36, gon.radar_z_y+gon.radar_height+12+(1*gon.describton_lead))
+                            doc.text("of transit quality",  gon.radar_z_x-36, gon.radar_z_y+gon.radar_height+12+(2*gon.describton_lead))
+                            doc.text("Aggregate eTOD measure of development",  gon.radar_z_x+gon.radar_width+18, gon.radar_z_y+gon.radar_height+7+ gon.describton_lead)
+                            doc.text("characteristics conducive to transit ridership",  gon.radar_z_x+gon.radar_width+18, gon.radar_z_y+gon.radar_height+7+ 2*(gon.describton_lead))
+
+                            doc.setFontSize(gon.describton_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.setFontType(gon.item_fontStyle)
+                            # doc.setTextColor(169, 167, 166)
+                            doc.text("20", gon.radar_z_x+(gon.radar_width/2)+3, gon.radar_z_y-3)
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.text("   Orientation", gon.radar_z_x+(gon.radar_width/2)+15, gon.radar_z_y-6)
+                            doc.setFontSize(gon.describton_fontSize)
+                            # doc.setTextColor(169, 167, 166)
+                            doc.text("15", gon.radar_z_x+gon.radar_width+3, gon.radar_z_y+gon.radar_height+3)
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.text("   Development", gon.radar_z_x+gon.radar_width+10, gon.radar_z_y+gon.radar_height+5)
+                            doc.line(gon.radar_z_x, gon.radar_z_y+gon.radar_height, gon.radar_z_x+gon.radar_width, gon.radar_z_y+gon.radar_height)
+                            doc.setFontSize(gon.describton_fontSize)
+                            # doc.setTextColor(169, 167, 166)
+                            doc.text("        15", gon.radar_z_x-27, gon.radar_z_y+gon.radar_height+3)
+                            doc.setFontSize(gon.item_fontSize)
+                            doc.setTextColor(0, 0, 0)
+                            doc.text("Transit", gon.radar_z_x-37, gon.radar_z_y+gon.radar_height+10)
                             # drawing the trangle based on the station's etod values
                             doc.setFillColor(253, 3, 3)
-                            doc.setLineWidth(0)
-                            doc.triangle(gon.radar_z_x + (gon.radar_width/2), (amood * ((20-gon.feature[0].properties.etod_sub2o)/20)) + gon.radar_z_y, gon.radar_z_x + (((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_width/2)), gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_height - amood)), gon.radar_z_x + (gon.radar_width/2) + ((gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_width/2), gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_height - amood)), 'FD')
+                            doc.setDrawColor(253, 3, 3)
+                            doc.setLineWidth(1)
+                            doc.triangle(gon.radar_z_x + (gon.radar_width/2), (amood * ((20-gon.feature[0].properties.etod_sub2o)/20)) + gon.radar_z_y, gon.radar_z_x + (((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_width/2)), gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub1t)/15)*(gon.radar_height - amood)), gon.radar_z_x + (gon.radar_width/2) + ((gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_width/2), gon.radar_z_y+(gon.radar_height - ((15-gon.feature[0].properties.etod_sub3d)/15)*(gon.radar_height - amood)), 'S')
 
 
-                            doc.addImage gon.imageData, "PNG", 340, 60, 230, 230
+                            doc.addImage gon.imageData, "PNG", 380, 55, 190, 185
                             # doc.circle(460, 260, 9, '')
 
 
                             doc.addImage mapcLogoData, "PNG", 40, 725, 55, 55
-                            doc.addImage northeasternLogoData, "PNG", 304, 735, 30, 30
+                            doc.addImage northeasternLogoData, "PNG", 184, 735, 30, 30
 
-                            doc.line(40, 730, 340, 730)
+                            doc.line(40, 730, 574, 730)
 
                             doc.text("MAPC", 96, 743)
                             doc.setFontType('normal')
@@ -461,15 +504,15 @@
                             doc.setFontSize(7)
                             doc.setFont('helvetica')
                             doc.setFontType('bold')
-                            doc.text("Dukakis Center For Urban and Regional Policy", 340, 743)
+                            
+                            doc.text("Dukakis Center For Urban and Regional Policy", 220, 743)
                             doc.setFont('helvetica')
-
 
                             doc.setFontType('normal')
                             doc.setFontSize(6)
-                            doc.text("Northeastern University", 340, 753)
+                            doc.text("Northeastern University", 220, 753)
                             # doc.text("School of Public Policy & Urban Affairs", 340, 761)
-                            doc.text("www.northeastern.edu/dukakiscenter", 340, 761)
+                            doc.text("www.northeastern.edu/dukakiscenter", 220, 761)
 
                             doc.setFont('helvetica')
 
@@ -481,16 +524,28 @@
                             doc.setFontSize(gon.item_fontSize)
                             doc.setFontType(gon.item_fontStyle)
                             doc.setTextColor(0, 0, 0)
-                            doc.text("eTOD Group: #{gon.feature[0].properties.etod_type}", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead)
+                            doc.text("eTOD Group: #{gon.feature[0].properties.etod_type}", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(1*gon.item_lead)-10)
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
-                            doc.text("Expression of the suitability of the station area for high performing, equitable TOD", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
+                            doc.text("Expression of the suitability of the station area for high performing, equitable TOD", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead-10)
                             
                             # doc.text("Total eTOD Score: #{gon.feature[0].properties.etod_total} out of 50", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(2*gon.item_lead))
                             # doc.text("Transit Score: #{gon.feature[0].properties.etod_sub1t} out of 15", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(3*gon.item_lead))
                             # doc.text("Orientation Score: #{gon.feature[0].properties.etod_sub2o} out of 20", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(4*gon.item_lead))
                             # doc.text("Development Score: #{gon.feature[0].properties.etod_sub3d} out of 15", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(5*gon.item_lead))
+                            doc.setDrawColor(169, 167, 166)
+                            doc.setLineWidth(0.25)
+                            doc.line(gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-19)
+                            doc.text("min", gon.sparkline_x_left-10, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-20)
+                            doc.line(gon.sparkline_x_left+13, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+13, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-28)
+                            doc.text("25th quantile", gon.sparkline_x_left-26, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-29)
+                            doc.line(gon.sparkline_x_left+23, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+23, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-21)
+                            doc.text("median", gon.sparkline_x_left+24, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-22)
+                            doc.line(gon.sparkline_x_left+33, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+33, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-10)
+                            doc.text("75th quantile", gon.sparkline_x_left+33, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-11)
+                            doc.line(gon.sparkline_x_left+75, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+75, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-25)
+                            doc.text("max", gon.sparkline_x_left+76, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-26)
 
                             doc.setFontSize(gon.section_header_fontSize)
                             doc.setFontType(gon.section_header_fontSyle)
@@ -506,6 +561,7 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Daily vehicle miles traveled (VMT) for households in station areas", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+gon.describton_lead)
+                            # doc.text("for households in station areas", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(2*gon.describton_lead))
                             
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -515,7 +571,8 @@
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
-                            doc.text("Estimated total greenhouse gases (kilograms CO2 equivalent) ", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
+                            doc.text("Estimated total greenhouse gases (kilograms CO2 equivalent)", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
+                            # doc.text("(kilograms CO2 equivalent) ", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+gon.item_lead+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -536,6 +593,7 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Percentage of total commuting miles for which transit was used", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
+                            # doc.text("for which transit was used", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(3*gon.item_lead)+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -561,6 +619,7 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Total gross floor area divided by total parcel size", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+gon.describton_lead)
+                            # doc.text("by total parcel size", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -571,6 +630,7 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Acres of surface parking within the station area", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
+                            # doc.text("within the station area", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+gon.item_lead+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -581,6 +641,7 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Sum of population and employment in the station area", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
+                            # doc.text("in the station area", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(2*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
@@ -592,6 +653,7 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Employment share of total Development Intensity (population + employment)", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
+                            # doc.text("Intensity (population + employment)", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(3*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
@@ -614,6 +676,7 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Estimated employment per acre of developed land use", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(5*gon.item_lead)+gon.describton_lead)
+                            # doc.text("of developed land use", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(5*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
@@ -636,6 +699,7 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Estimated housing units in projects under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(7*gon.item_lead)+gon.describton_lead)
+                            # doc.text("under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(7*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
@@ -646,7 +710,8 @@
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
-                            doc.text("Anticipated employment in nonresidential projects under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead)+gon.describton_lead)
+                            doc.text("Anticipated employment in nonresidential projects under construction+planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead)+gon.describton_lead)
+                            # doc.text("projects under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.section_header_fontSize)
@@ -658,7 +723,7 @@
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
                             doc.text("Number of Employees: #{gon.feature[0].properties.ov_emp10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead)
-                            doc.addImage gon.sparklineEmp10, "PNG", gon.sparkline_x_left, gon.economics_z_point_y+gon.section_header_lead+gon.sparkline_lead, 75, 9
+                            doc.addImage gon.sparklineEmp10, "PNG", gon.sparkline_x_right, gon.economics_z_point_y+gon.section_header_lead+gon.sparkline_lead, 75, 9
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
@@ -669,33 +734,36 @@
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
                             doc.text("Tax Revenue ($): #{gon.feature[0].properties.ex_taxrev.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+gon.item_lead)
-                            doc.addImage gon.sparklineExtaxrev, "PNG", gon.sparkline_x_left, gon.economics_z_point_y+gon.section_header_lead+gon.item_lead+gon.sparkline_lead, 75, 9
+                            doc.addImage gon.sparklineExtaxrev, "PNG", gon.sparkline_x_right, gon.economics_z_point_y+gon.section_header_lead+gon.item_lead+gon.sparkline_lead, 75, 9
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Estimated municipal property tax revenue from parcels in the station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(1*gon.item_lead)+gon.describton_lead)
+                            # doc.text("from parcels in the station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(1*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
                             doc.text("Number of Establishments: #{gon.feature[0].properties.ov_est_10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead))
-                            doc.addImage gon.sparklineEst10, "PNG", gon.sparkline_x_left, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.addImage gon.sparklineEst10, "PNG", gon.sparkline_x_right, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.sparkline_lead, 75, 9
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
-                            doc.text("Number of businesses, public agencies, non-profit organizations, and other employers", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
+                            doc.text("Number of businesses, public agencies, non–profits, and other employers", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
+                            # doc.text("profit organizations, and other employers", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
                             doc.text("Assessed Value ($): #{gon.feature[0].properties.ov_aval.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead))
-                            doc.addImage gon.sparklineAval, "PNG", gon.sparkline_x_left, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.addImage gon.sparklineAval, "PNG", gon.sparkline_x_right, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.sparkline_lead, 75, 9
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Total assessed value of land and improvements for all parcels in station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
+                            # doc.text("for all parcels in station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.section_header_fontSize)
@@ -707,7 +775,7 @@
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
                             doc.text("Number of Households: #{gon.feature[0].properties.ov_hh10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead)
-                            doc.addImage gon.sparklineHh10, "PNG", gon.sparkline_x_right, gon.demographics_z_point_y+gon.section_header_lead+gon.sparkline_lead, 75, 9
+                            doc.addImage gon.sparklineHh10, "PNG", gon.sparkline_x_left, gon.demographics_z_point_y+gon.section_header_lead+gon.sparkline_lead, 75, 9
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
@@ -717,46 +785,52 @@
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
                             doc.text("Household Median Income ($): #{gon.feature[0].properties.ov_hhinc.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+gon.item_lead)
-                            doc.addImage gon.sparklineHhinc, "PNG", gon.sparkline_x_right, gon.demographics_z_point_y+gon.section_header_lead+gon.item_lead+gon.sparkline_lead, 75, 9
+                            doc.addImage gon.sparklineHhinc, "PNG", gon.sparkline_x_left, gon.demographics_z_point_y+gon.section_header_lead+gon.item_lead+gon.sparkline_lead, 75, 9
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Weighted average of the median annual household income", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(1*gon.item_lead)+gon.describton_lead)
+                            # doc.text("annual household income", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(1*gon.item_lead)+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
                             doc.text("Renter Households: #{gon.feature[0].properties.ov_rentocc.toFixed 2}", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(2*gon.item_lead))
-                            doc.addImage gon.sparklineRentocc, "PNG", gon.sparkline_x_right, gon.demographics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.sparkline_lead, 150, 9
+                            doc.addImage gon.sparklineRentocc, "PNG", gon.sparkline_x_left, gon.demographics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.sparkline_lead, 150, 9
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Renter households as a share of total occupied housing units", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
+                            # doc.text("total occupied housing units", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
                             doc.text("Zero-Car Households: #{(gon.feature[0].properties.ov_hhnocar * 100).toFixed 0 }%", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(3*gon.item_lead))
-                            doc.addImage gon.sparklineHhnocar, "PNG", gon.sparkline_x_right, gon.demographics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.sparkline_lead, 75, 9
+                            doc.addImage gon.sparklineHhnocar, "PNG", gon.sparkline_x_left, gon.demographics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.sparkline_lead, 75, 9
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Percentage of households in station area reporting zero vehicles available", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
+                            # doc.text("reporting zero vehicles available", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
                             doc.text("Adult College Graduates: #{(gon.feature[0].properties.ov_ed_att * 100).toFixed 0}%", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(4*gon.item_lead))
-                            doc.addImage gon.sparklineEdatt, "PNG", gon.sparkline_x_right, gon.demographics_z_point_y+gon.section_header_lead+(4*gon.item_lead)+gon.sparkline_lead, 175, 9
+                            doc.addImage gon.sparklineEdatt, "PNG", gon.sparkline_x_left, gon.demographics_z_point_y+gon.section_header_lead+(4*gon.item_lead)+gon.sparkline_lead, 175, 9
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Share of adult population with a four-year college degree or higher", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(4*gon.item_lead)+gon.describton_lead)
+                            # doc.text("college degree or higher", gon.docemographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(4*gon.item_lead)+(2*gon.describton_lead))
 
                             # put a date of download 
                             doc.setFontType('italic')
-                            doc.text("This report is created on #{gon.today}", 40, 720)
-                            doc.text("Live url: tstation.info/#fss/q/by_name=#{gon.feature[0].properties.name}", 40, 725)
+                            doc.text("Sources: U.S. Census, American Community Survey", 405, 743)
+                            doc.text("MassGIS, Infogroup, MAPC, Dukakis Center", 405, 751)
+                            doc.text("Created on #{gon.today}", 405, 759)
+                            doc.text("tstation.info/#fss/q/by_name=#{gon.feature[0].properties.name}", 405, 768)
                             doc.save "tstationinfo.pdf"
                             spinner.stop()
                             return 
@@ -1213,18 +1287,40 @@
                 "Esri Aerial": esri
                 "MapBox StreetMap": streets
             geoCollection =  gon.feature
+            console.log gon.feature
+            console.log gon.feature[0].geometry.coordinates
             fstation = new L.GeoJSON geoCollection,
                 style: (feature) ->
                     feature.properties and feature.properties.style
                 pointToLayer: (feature, latlng) ->
                     gon.latlong = latlng
+                    console.log latlng.lat
                     L.circle latlng, 804.672,
                       fillColor: "#FFFFFF"
                       color: "#000"
                       weight: 1
                       opacity: 0.3
                       fillOpacity: 0.5
-                    
+                    # circleOptions =
+                    #   fillColor: "#FFFFFF"
+                    #   color: "#000"
+                    #   weight: 1
+                    #   opacity: 0.3
+                    #   fillOpacity: 0.5
+                    # circle = new L.Circle(circleLocation, 804.672, circleOptions)
+                    # group = new L.LayerGroup()
+                    # circleMarker = new L.CircleMarker(circleLocation,
+                    #   fillColor: "#FFFFFF"
+                    #   fillOpacity: 1
+                    #   stroke: true
+                    # )
+                    # # L.CircleMarker latlng, 
+                    # #   fillColor: "#FFFFFF"
+                    # #   color: "#000"
+                    # #   weight: 1
+                    # #   opacity: 0.3
+                    # #   fillOpacity: 0.5
+                    # group.addLayer(circle).addLayer(circleMarker)            
             map.addLayer(fstation)
             fstationI = new L.GeoJSON geoCollection,
                 L.Icon.Default.imagePath = "/assets"
@@ -1243,6 +1339,133 @@
                       opacity: 0.5
                       fillOpacity: 0
             L.control.scale().addTo(map)
+            circle1 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1)
+            circle2 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 2)
+            circle3 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 3)
+            circle1to2 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1/2)
+            circle1to3 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1/3)
+            circle1to4 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1/4)
+            circle1.draw = (ctx, w, h) ->
+              ctx.translate w / 2, h / 2
+              ctx.beginPath()
+              ctx.fillStyle = "#000"
+              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
+              # ctx.fill()
+              ctx.lineWidth = 3
+              ctx.strokeStyle = "#000"
+              # ctx.moveTo -w / 5, -h / 5
+              # ctx.lineTo w / 5, h / 5
+              # ctx.moveTo -w / 5, h / 5
+              # ctx.lineTo w / 5, -h / 5
+              ctx.stroke()
+              ctx.closePath()
+              return
+            circle2.draw = (ctx, w, h) ->
+              ctx.translate w / 2, h / 2
+              ctx.beginPath()
+              ctx.fillStyle = "#000"
+              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
+              # ctx.fill()
+              ctx.lineWidth = 3
+              ctx.strokeStyle = "#000"
+              # ctx.moveTo -w / 5, -h / 5
+              # ctx.lineTo w / 5, h / 5
+              # ctx.moveTo -w / 5, h / 5
+              # ctx.lineTo w / 5, -h / 5
+              ctx.stroke()
+              ctx.closePath()
+              return
+            circle3.draw = (ctx, w, h) ->
+              ctx.translate w / 2, h / 2
+              ctx.beginPath()
+              ctx.fillStyle = "#000"
+              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
+              # ctx.fill()
+              ctx.lineWidth = 3
+              ctx.strokeStyle = "#000"
+              # ctx.moveTo -w / 5, -h / 5
+              # ctx.lineTo w / 5, h / 5
+              # ctx.moveTo -w / 5, h / 5
+              # ctx.lineTo w / 5, -h / 5
+              ctx.stroke()
+              ctx.closePath()
+              return  
+            circle1to2.draw = (ctx, w, h) ->
+              ctx.translate w / 2, h / 2
+              ctx.beginPath()
+              ctx.fillStyle = "#000"
+              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
+              # ctx.fill()
+              ctx.lineWidth = 3
+              ctx.strokeStyle = "#000"
+              # ctx.moveTo -w / 5, -h / 5
+              # ctx.lineTo w / 5, h / 5
+              # ctx.moveTo -w / 5, h / 5
+              # ctx.lineTo w / 5, -h / 5
+              ctx.stroke()
+              ctx.closePath()
+              return
+            circle1to3.draw = (ctx, w, h) ->
+              ctx.translate w / 2, h / 2
+              ctx.beginPath()
+              ctx.fillStyle = "#000"
+              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
+              # ctx.fill()
+              ctx.lineWidth = 3
+              ctx.strokeStyle = "#000"
+              # ctx.moveTo -w / 5, -h / 5
+              # ctx.lineTo w / 5, h / 5
+              # ctx.moveTo -w / 5, h / 5
+              # ctx.lineTo w / 5, -h / 5
+              ctx.stroke()
+              ctx.closePath()
+              return  
+            circle1to4.draw = (ctx, w, h) ->
+              ctx.translate w / 2, h / 2
+              ctx.beginPath()
+              ctx.fillStyle = "#000"
+              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
+              # ctx.fill()
+              ctx.lineWidth = 3
+              ctx.strokeStyle = "#000"
+              # ctx.moveTo -w / 5, -h / 5
+              # ctx.lineTo w / 5, h / 5
+              # ctx.moveTo -w / 5, h / 5
+              # ctx.lineTo w / 5, -h / 5
+              ctx.stroke()
+              ctx.closePath()
+              return
+            canvasCircles = new L.Marker(gon.latlong,
+              icon: circle1
+              draggable: false
+              opacity: 0.8
+            )
+            map.addLayer canvasCircles
+            # canvasCircles2 = new L.Marker(gon.latlong,
+            #   icon: circle2
+            #   draggable: false
+            #   opacity: 0.8
+            # )
+            # canvasCircles3 = new L.Marker(gon.latlong,
+            #   icon: circle3
+            #   draggable: false
+            #   opacity: 0.8
+            # )
+            # canvasCircles1to2 = new L.Marker(gon.latlong,
+            #   icon: circle1to2
+            #   draggable: false
+            #   opacity: 0.8
+            # )
+            # canvasCircles1to3 = new L.Marker(gon.latlong,
+            #   icon: circle1to3
+            #   draggable: false
+            #   opacity: 0.8
+            # )
+            # canvasCircles1to4 = new L.Marker(gon.latlong,
+            #   icon: circle1to4
+            #   draggable: false
+            #   opacity: 0.8
+            # )
             overlays =
                 "Regional Networks": regional
                 "On-road Bicycle Facilities": onroad
@@ -1256,7 +1479,7 @@
                 )
             map.addControl layersControl
 
-            bbox = fstation.getBounds().toBBoxString()
+            bbox = fstationZoom.getBounds().toBBoxString()
             console.log bbox
             map.fitBounds [
               [
@@ -1268,8 +1491,24 @@
                 parseFloat(bbox.split(",")[2])
               ]
             ]
+            currentZoom = map.getZoom()
+            console.log "currentZoom", currentZoom
+            console.log "L", L
             onZoomend = ->
                 zoom = map.getZoom()
+                console.log "new zoom is", zoom
+                console.log currentZoom/zoom
+                console.log "map", map
+                # if zoom - currentZoom + 1 == 2
+                #     map.removeLayer canvasCircles
+                #     map.addLayer canvasCircles1to2
+                # else if zoom - currentZoom + 1 == 3
+                #     map.removeLayer canvasCircles
+                #     map.addLayer canvasCircles1to3
+                # else if zoom - currentZoom + 1 == 0
+                #     map.removeLayer canvasCircles
+                #     map.addLayer canvasCircles2
+
                 if zoom >= 16
                     map.removeLayer fstation
                     fstationZoom.addTo map
@@ -1278,17 +1517,8 @@
                     fstation.addTo map
                 return
             map.on "zoomend", onZoomend
-            snapshot = document.getElementById("snapshot")
-            $("#chart").click (event, ui) ->
-                    console.log "chart clicked"
-                    sub1 = gon.feature["0"].properties.etod_sub1t
-                    sub2 = gon.feature["0"].properties.etod_sub2o
-                    sub3 = gon.feature["0"].properties.etod_sub3d
-                    totscore = gon.feature["0"].properties.etod_total
-                    $("#dialog-chart").dialog "open"
-                    $("#dialog-chart").html("Transit Score: #{sub1}<br>Orientation Score: #{sub2}<br>Development Score: #{sub3}<br><hr>Total Score: #{totscore}")
-
-			
+            Lsvg = L.noConflict()
+            L_PREFER_CANVAS = true
 
 
 

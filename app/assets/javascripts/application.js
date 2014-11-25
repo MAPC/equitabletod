@@ -42,6 +42,9 @@
 //= require ../../../vendor/assets/javascripts/jspdf.plugin.addimage.js
 //= require ../../../vendor/assets/javascripts/jspdf.plugin.addhtml.js
 //= require ../../../vendor/assets/javascripts/jspdf.plugin.svgToPdf.js
+//= require ../../../vendor/assets/javascripts/QuadTree.js
+//= require ../../../vendor/assets/javascripts/L.TileLayer.MaskCanvas.js
+//= require ../../../vendor/assets/javascripts/Icon.Canvas.js
 //= require_tree ./backbone/config
 //= require backbone/app
 //= require_tree ./backbone/entities
