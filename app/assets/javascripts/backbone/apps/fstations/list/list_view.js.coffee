@@ -25,10 +25,10 @@
                 gon.describton_fontStyle = 'italic'
                 gon.sparkline_lead = -9
                 gon.sparkline_x_left = 220
-                gon.sparkline_x_right = 500
+                gon.sparkline_x_right = 495
                 # # section zero points
 
-                gon.page_header_z_point_x = 460
+                gon.page_header_z_point_x = 463
                 gon.page_header_z_point_y = 30
 
                 gon.basic_z_point_x = 40
@@ -330,7 +330,7 @@
                     gon.sparklineEdatt = sparklineEdatt.toDataURL()
 
                     # html2canvas document.getElementsByClassName("leaflet-layer"),
-                    html2canvas document.getElementById("map-region"),
+                    html2canvas document.getElementById("map"),
                         # allowTaint: true
                         taintTest: false
                         useCORS: true
@@ -365,7 +365,7 @@
                             doc.setFontSize(10)
                             doc.setFontType('normal')
                             doc.setTextColor(255, 102, 51)
-                            doc.text("Station Area Summary", gon.page_header_z_point_x, gon.page_header_z_point_y+14)
+                            doc.text("Station Area Summary", gon.page_header_z_point_x+4, gon.page_header_z_point_y+14)
                             doc.setTextColor(0, 0, 0)
                             doc.setFontSize(10)
                             doc.setFontType('bold')
@@ -375,6 +375,8 @@
                                 doc.text("#{gon.feature[0].properties.name}, #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
                             else if "#{gon.feature[0].properties.name}".indexOf("@") isnt -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") isnt -1 
                                 doc.text("#{gon.feature[0].properties.name}, #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
+                            else if "#{gon.feature[0].properties.line_descr}".indexOf("73,71") isnt -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") is -1
+                                doc.text("#{gon.feature[0].properties.name} STOP, #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
                             else if "#{gon.feature[0].properties.name}".indexOf("@") isnt -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") is -1
                                 doc.text("#{gon.feature[0].properties.name} STOP, #{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 15)
                             else if "#{gon.feature[0].properties.line_descr}".indexOf("SL") isnt -1 and "#{gon.feature[0].properties.name}".indexOf("STOP") is -1
@@ -414,7 +416,7 @@
 
 
 
-                            console.log "gon.d3ChartElement", gon.d3ChartElement
+                            # console.log "gon.d3ChartElement", gon.d3ChartElement
                             # doc.addSVG gon.d3ChartElement, 120, 140,
                             # drawing the radar chart manually
                             # diagram charts
@@ -538,11 +540,11 @@
                             doc.setLineWidth(0.25)
                             doc.line(gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-19)
                             doc.text("min", gon.sparkline_x_left-10, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-20)
-                            doc.line(gon.sparkline_x_left+13, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+13, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-28)
+                            doc.line(gon.sparkline_x_left+14, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+14, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-28)
                             doc.text("25th quantile", gon.sparkline_x_left-26, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-29)
                             doc.line(gon.sparkline_x_left+23, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+23, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-21)
                             doc.text("median", gon.sparkline_x_left+24, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-22)
-                            doc.line(gon.sparkline_x_left+33, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+33, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-10)
+                            doc.line(gon.sparkline_x_left+34, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+34, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-10)
                             doc.text("75th quantile", gon.sparkline_x_left+33, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-11)
                             doc.line(gon.sparkline_x_left+75, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+75, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-25)
                             doc.text("max", gon.sparkline_x_left+76, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-26)
@@ -652,7 +654,7 @@
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
-                            doc.text("Employment share of total Development Intensity (population + employment)", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
+                            doc.text("Employment share of total Development Intensity", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
                             # doc.text("Intensity (population + employment)", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(3*gon.item_lead)+(2*gon.describton_lead))
                             
 
@@ -710,7 +712,7 @@
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
-                            doc.text("Anticipated employment in nonresidential projects under construction+planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead)+gon.describton_lead)
+                            doc.text("Anticipated employment in projects under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead)+gon.describton_lead)
                             # doc.text("projects under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead)+(2*gon.describton_lead))
                             
 
@@ -762,7 +764,7 @@
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
-                            doc.text("Total assessed value of land and improvements for all parcels in station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
+                            doc.text("Total assessed value of land and improvements in station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
                             # doc.text("for all parcels in station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+(2*gon.describton_lead))
                             
 
@@ -831,8 +833,28 @@
                             doc.text("MassGIS, Infogroup, MAPC, Dukakis Center", 405, 751)
                             doc.text("Created on #{gon.today}", 405, 759)
                             doc.text("tstation.info/#fss/q/by_name=#{gon.feature[0].properties.name}", 405, 768)
-                            doc.save "tstationinfo.pdf"
-                            spinner.stop()
+                            
+                            html2canvas document.getElementsByClassName("leaflet-marker-icon leaflet-canvas-icon leaflet-zoom-animated leaflet-clickable"),
+                                # allowTaint: true
+                                taintTest: false
+                                useCORS: true
+                                proxy: 'assets/php/proxy.php'
+                                onrendered: (canvas) ->
+                                    # console.log document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-clickable")
+                                    markel = document.createElement("div")
+                                    markel.setAttribute('id', 'markerElement')
+                                    markel.setAttribute('style', 'display:none;')
+                                    # or it can get a img from leaflet-image plugin and return it as part of the function
+                                    markel.appendChild canvas
+                                    # gon.imgData = canvas.toDataURL("image/png")
+                                    document.body.appendChild markel
+                                    ctx = canvas.getContext("2d")
+                                    gon.markerElementData = canvas.toDataURL()
+                                    doc.addImage gon.markerElementData, "PNG", 380+(190/4), 55+(190/4), 190/2, 190/2
+                                    console.log "canvas", canvas
+                                    doc.save "tstationinfo.pdf"
+                                    spinner.stop()
+                            
                             return 
 
 
@@ -1340,18 +1362,16 @@
                       fillOpacity: 0
             L.control.scale().addTo(map)
             circle1 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1)
-            circle2 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 2)
-            circle3 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 3)
-            circle1to2 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1/2)
-            circle1to3 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1/3)
-            circle1to4 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1/4)
+            circle2 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1)
+            circle3 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1)
+            circle4 = new L.Icon.Canvas(iconSize: new L.Point(460, 460), scaleFactor: 1)
             circle1.draw = (ctx, w, h) ->
               ctx.translate w / 2, h / 2
               ctx.beginPath()
               ctx.fillStyle = "#000"
               ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
               # ctx.fill()
-              ctx.lineWidth = 3
+              ctx.lineWidth = 5
               ctx.strokeStyle = "#000"
               # ctx.moveTo -w / 5, -h / 5
               # ctx.lineTo w / 5, h / 5
@@ -1360,87 +1380,56 @@
               ctx.stroke()
               ctx.closePath()
               return
-            circle2.draw = (ctx, w, h) ->
-              ctx.translate w / 2, h / 2
-              ctx.beginPath()
-              ctx.fillStyle = "#000"
-              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
-              # ctx.fill()
-              ctx.lineWidth = 3
-              ctx.strokeStyle = "#000"
-              # ctx.moveTo -w / 5, -h / 5
-              # ctx.lineTo w / 5, h / 5
-              # ctx.moveTo -w / 5, h / 5
-              # ctx.lineTo w / 5, -h / 5
-              ctx.stroke()
-              ctx.closePath()
-              return
-            circle3.draw = (ctx, w, h) ->
-              ctx.translate w / 2, h / 2
-              ctx.beginPath()
-              ctx.fillStyle = "#000"
-              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
-              # ctx.fill()
-              ctx.lineWidth = 3
-              ctx.strokeStyle = "#000"
-              # ctx.moveTo -w / 5, -h / 5
-              # ctx.lineTo w / 5, h / 5
-              # ctx.moveTo -w / 5, h / 5
-              # ctx.lineTo w / 5, -h / 5
-              ctx.stroke()
-              ctx.closePath()
-              return  
-            circle1to2.draw = (ctx, w, h) ->
-              ctx.translate w / 2, h / 2
-              ctx.beginPath()
-              ctx.fillStyle = "#000"
-              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
-              # ctx.fill()
-              ctx.lineWidth = 3
-              ctx.strokeStyle = "#000"
-              # ctx.moveTo -w / 5, -h / 5
-              # ctx.lineTo w / 5, h / 5
-              # ctx.moveTo -w / 5, h / 5
-              # ctx.lineTo w / 5, -h / 5
-              ctx.stroke()
-              ctx.closePath()
-              return
-            circle1to3.draw = (ctx, w, h) ->
-              ctx.translate w / 2, h / 2
-              ctx.beginPath()
-              ctx.fillStyle = "#000"
-              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
-              # ctx.fill()
-              ctx.lineWidth = 3
-              ctx.strokeStyle = "#000"
-              # ctx.moveTo -w / 5, -h / 5
-              # ctx.lineTo w / 5, h / 5
-              # ctx.moveTo -w / 5, h / 5
-              # ctx.lineTo w / 5, -h / 5
-              ctx.stroke()
-              ctx.closePath()
-              return  
-            circle1to4.draw = (ctx, w, h) ->
-              ctx.translate w / 2, h / 2
-              ctx.beginPath()
-              ctx.fillStyle = "#000"
-              ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
-              # ctx.fill()
-              ctx.lineWidth = 3
-              ctx.strokeStyle = "#000"
-              # ctx.moveTo -w / 5, -h / 5
-              # ctx.lineTo w / 5, h / 5
-              # ctx.moveTo -w / 5, h / 5
-              # ctx.lineTo w / 5, -h / 5
-              ctx.stroke()
-              ctx.closePath()
-              return
+            # circle2.draw = (ctx, w, h) ->
+            #   ctx.translate w / 2, h / 2
+            #   ctx.beginPath()
+            #   ctx.fillStyle = "#000"
+            #   ctx.arc 0, 0, w / 2 - 1, Math.PI * 0.5, Math.PI * 1, true
+            #   # ctx.fill()
+            #   ctx.lineWidth = 3
+            #   ctx.strokeStyle = "#000"
+            #   # ctx.moveTo -w / 5, -h / 5
+            #   # ctx.lineTo w / 5, h / 5
+            #   # ctx.moveTo -w / 5, h / 5
+            #   # ctx.lineTo w / 5, -h / 5
+            #   ctx.stroke()
+            #   ctx.closePath()
+            #   return
+            # circle3.draw = (ctx, w, h) ->
+            #   ctx.translate w / 2, h / 2
+            #   ctx.beginPath()
+            #   ctx.fillStyle = "#000"
+            #   ctx.arc 0, 0, w / 2 - 1, Math.PI * 1, Math.PI * 1.5, true
+            #   # ctx.fill()
+            #   ctx.lineWidth = 3
+            #   ctx.strokeStyle = "#000"
+            #   # ctx.moveTo -w / 5, -h / 5
+            #   # ctx.lineTo w / 5, h / 5
+            #   # ctx.moveTo -w / 5, h / 5
+            #   # ctx.lineTo w / 5, -h / 5
+            #   ctx.stroke()
+            #   ctx.closePath()
+            #   return  
+            # circle4.draw = (ctx, w, h) ->
+            #   ctx.translate w / 2, h / 2
+            #   ctx.beginPath()
+            #   ctx.fillStyle = "#000"
+            #   ctx.arc 0, 0, w / 2 - 1, Math.PI * 1.5, Math.PI * 2, true
+            #   # ctx.fill()
+            #   ctx.lineWidth = 3
+            #   ctx.strokeStyle = "#000"
+            #   # ctx.moveTo -w / 5, -h / 5
+            #   # ctx.lineTo w / 5, h / 5
+            #   # ctx.moveTo -w / 5, h / 5
+            #   # ctx.lineTo w / 5, -h / 5
+            #   ctx.stroke()
+            #   ctx.closePath()
+            #   return
             canvasCircles = new L.Marker(gon.latlong,
               icon: circle1
               draggable: false
               opacity: 0.8
             )
-            map.addLayer canvasCircles
             # canvasCircles2 = new L.Marker(gon.latlong,
             #   icon: circle2
             #   draggable: false
@@ -1451,21 +1440,13 @@
             #   draggable: false
             #   opacity: 0.8
             # )
-            # canvasCircles1to2 = new L.Marker(gon.latlong,
-            #   icon: circle1to2
+            # canvasCircles4 = new L.Marker(gon.latlong,
+            #   icon: circle4
             #   draggable: false
             #   opacity: 0.8
             # )
-            # canvasCircles1to3 = new L.Marker(gon.latlong,
-            #   icon: circle1to3
-            #   draggable: false
-            #   opacity: 0.8
-            # )
-            # canvasCircles1to4 = new L.Marker(gon.latlong,
-            #   icon: circle1to4
-            #   draggable: false
-            #   opacity: 0.8
-            # )
+            map.addLayer canvasCircles
+            # map.addLayer canvasCircles2, canvasCircles3, canvasCircles4
             overlays =
                 "Regional Networks": regional
                 "On-road Bicycle Facilities": onroad
@@ -1496,6 +1477,10 @@
             console.log "L", L
             onZoomend = ->
                 zoom = map.getZoom()
+                if zoom != 15
+                    map.removeLayer canvasCircles
+                else if zoom == 15
+                    canvasCircles.addTo map
                 console.log "new zoom is", zoom
                 console.log currentZoom/zoom
                 console.log "map", map
@@ -1517,7 +1502,7 @@
                     fstation.addTo map
                 return
             map.on "zoomend", onZoomend
-            Lsvg = L.noConflict()
+            # Lsvg = L.noConflict()
             L_PREFER_CANVAS = true
 
 
