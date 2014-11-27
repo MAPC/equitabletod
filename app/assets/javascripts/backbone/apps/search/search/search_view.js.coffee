@@ -4,6 +4,7 @@
         template: "search/search/templates/simple_search_layout" 
         
         onShow: ->
+            $("select").val []
             gon.paginate = false
             gon.page_number = -1
             @names = App.request "set:name", gon.names.names
@@ -21,6 +22,10 @@
             _.map l_muni_names, (key, value) -> l_n_muni_names.push key["0"]
                 #console.log muni_names
                 #muni_names[2].toLowerCase()
+            $("#resetbuttom").on "click", (e) ->
+                    $("select").val []
+                    $("input").val []
+
             $("#searchinput2").autocomplete
                 source: l_n_muni_names
                 minLength: 3
@@ -88,7 +93,7 @@
                         $("#dialog-modal").dialog title: "Data Dictionary"
                         $("#dialog-modal").html("")
                         $("#dialog-modal").html("#{@dictionaryentries.models["0"].get("description")}")
-              $(".selectpicker").selectpicker()
+              # $(".selectpicker").selectpicker()
               $("homeClick").on "click", (e) ->
                 $("html, body").animate
                     scrollTop: $("#search").offset().top

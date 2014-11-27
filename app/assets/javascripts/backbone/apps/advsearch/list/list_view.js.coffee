@@ -210,16 +210,19 @@
                 if gon.etod_group == 'undefined'
                     $("#selectbasic4").val []
                 else
-                    console.log gon.etod_group
-                    $("#selectbasic4 option[text=\"" + gon.etod_group + "\"]")
-                    $("#selectbasic4 option[value=\"" + gon.etod_group + "\"]").prop "selected", true
+                    $('select[name=selectbasic4]').val(gon.etod_group)
+                    $('.selectpicker').selectpicker('refresh')
+                if gon.service_type == 'undefined'
+                    $("#selectbasic2").val []
+                else
+                    $('select[name=selectbasic2]').val(gon.service_type)
+                    $('.selectpicker').selectpicker('refresh')
+                if gon.station_type == 'undefined'
+                    $("#selectbasic3").val []
+                else
+                    $('select[name=selectbasic3]').val(gon.station_type)
+                    $('.selectpicker').selectpicker('refresh')
 
-                    # val = $("#selectbasic4 option").filter(->
-                    #   $(this).text() is gon.etod_group or $(this).val() is gon.etod_group
-                    # )
-                    # $("#selectbasic4").val val.val()
-
-                # $("#selectbasic4").val gon.etod_group if gon.etod_group
                 $("#titles").html "<p class='h2'></p>"
                 # setup the jQuery Sparkline objects for each data point
                 $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'     
@@ -265,10 +268,10 @@
                     duration: 200
                 title: 
                     $("[rel=tooltipd]").title
-              # $(".selectpicker").selectpicker()
+              $(".selectpicker").selectpicker()
               $("#resetbuttom").on "click", (e) ->
-                console.log "click"
                 $("select").val []
+                $('.selectpicker').selectpicker('render')
                 $("input").val []
               $("[rel=tooltipd]").click (event, ui) ->
                     spinopts =

@@ -4,7 +4,34 @@
         template: "main/search/templates/simple_search_layout" 
         
         onShow: ->
+            $('.selectpicker').selectpicker()
             $(document).ready ->
+                if gon.muni_name == 'undefined'
+                    $("#searchinput2").val []
+                else
+                    $("#searchinput2").val gon.muni_name if gon.muni_name
+
+                if gon.name == 'undefined'
+                    $("#searchinput1").val []
+                else
+                    $("#searchinput1").val gon.name if gon.name
+
+                if gon.etod_group == 'undefined'
+                    $("#selectbasic4").val []
+                else
+                    $('select[name=selectbasic4]').val(gon.etod_group)
+                    $('.selectpicker').selectpicker('refresh')
+                if gon.service_type == 'undefined'
+                    $("#selectbasic2").val []
+                else
+                    $('select[name=selectbasic2]').val(gon.service_type)
+                    $('.selectpicker').selectpicker('refresh')
+                if gon.station_type == 'undefined'
+                    $("#selectbasic3").val []
+                else
+                    $('select[name=selectbasic3]').val(gon.station_type)
+                    $('.selectpicker').selectpicker('refresh')
+                # $("select").val []
                 # empty the boxplot element if it is not already empty
                 $("#boxplot").html ""
                 # 
@@ -14,46 +41,49 @@
               # initiate the default tooltip  
               $("[rel=tooltip]").tooltip placement: "top"
               # initiate the left tooltip
-              $("[rel=tooltipl]").tooltip placement: "left"
+              # $("[rel=tooltipl]").tooltip placement: "left"
               # initiate the modal that contains the dictionary information
-              $("#dialog-modal").dialog 
-                    position:
-                        my: "right"
-                        at: "right"
-                    autoOpen: false
-                    closeOnEscape: true
-                    width: 280
-                    show:
-                        effect: "blind"
-                        duration: 200  
-                    hide:
-                        effect: "blind"
-                        duration: 200
-                    title: 
-                        $("[rel=tooltipd]").title
+              # $("#dialog-modal").dialog 
+              #       position:
+              #           my: "right"
+              #           at: "right"
+              #       autoOpen: false
+              #       closeOnEscape: true
+              #       width: 280
+              #       show:
+              #           effect: "blind"
+              #           duration: 200  
+              #       hide:
+              #           effect: "blind"
+              #           duration: 200
+              #       title: 
+              #           $("[rel=tooltipd]").title
                 # initiate the tooltip for question marks and assign the response to the click 
-                $("[rel=tooltipd]").click (event, ui) ->
+                # $("[rel=tooltipd]").click (event, ui) ->
 
-                    $("#dialog-modal").dialog 
-                    dictionaryResponse = $.ajax
-                            url: "/dictionary_entries.json?by_name=#{@.title}"
-                            done: (result) =>
-                                return result
-                    dictionary = dictionaryResponse.complete()
-                    dictionary.done =>
-                        dictionaries = dictionary.responseJSON
-                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
-                        $(@el).tooltip "option", title: ""
-                        $("#dialog-modal").dialog "open"
-                        $("#dialog-modal").html("")
-                        $("#dialog-modal").dialog title: "Data Dictionary - #{@dictionaryentries.models["0"].get("interpretation")}"
-                        $("#dialog-modal").html("<hm2>#{@dictionaryentries.models["0"].get("code")} <br><br> <span>What it is: </span>#{@dictionaryentries.models["0"].get("importance")} <br><br> <span>Why it's important: </span>#{@dictionaryentries.models["0"].get("description")} <br><br> <span>Technical notes: </span>#{@dictionaryentries.models["0"].get("technical_notes")}</hm2>")
-                        $("#dialog-modal").dialog height: "auto" 
-                        $("#dialog-modal").dialog modal: true
+                #     $("#dialog-modal").dialog 
+                #     dictionaryResponse = $.ajax
+                #             url: "/dictionary_entries.json?by_name=#{@.title}"
+                #             done: (result) =>
+                #                 return result
+                #     dictionary = dictionaryResponse.complete()
+                #     dictionary.done =>
+                #         dictionaries = dictionary.responseJSON
+                #         @dictionaryentries = App.request "set:dictionaryentry", dictionaries
+                #         $(@el).tooltip "option", title: ""
+                #         $("#dialog-modal").dialog "open"
+                #         $("#dialog-modal").html("")
+                #         $("#dialog-modal").dialog title: "Data Dictionary - #{@dictionaryentries.models["0"].get("interpretation")}"
+                #         $("#dialog-modal").html("<hm2>#{@dictionaryentries.models["0"].get("code")} <br><br> <span>What it is: </span>#{@dictionaryentries.models["0"].get("importance")} <br><br> <span>Why it's important: </span>#{@dictionaryentries.models["0"].get("description")} <br><br> <span>Technical notes: </span>#{@dictionaryentries.models["0"].get("technical_notes")}</hm2>")
+                #         $("#dialog-modal").dialog height: "auto" 
+                #         $("#dialog-modal").dialog modal: true
               # bind an event to search navbar on the header to scroll to search element 
+              # empty out the input element text if not defined else retain the inputs
+                
+
               $("#resetbuttom").on "click", (e) ->
-                console.log "click"
                 $("select").val []
+                $('.selectpicker').selectpicker('render')
                 $("input").val []
 
               $("homeClick").on "click", (e) ->
@@ -198,7 +228,7 @@
                 qury = ""
             else
                 qury = "by_muni_name=#{muni_name}"
-            gon.muni_name = "#{muni_name}"
+            gon.muni_name = $('input#searchinput2').val()
             name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
             if name is undefined
                 qury = qury + ""
@@ -210,19 +240,19 @@
                 qury = qury + ""
             else    
                 qury = qury + "&by_line=#{service_type}".replace(/\s*\(.*?\)\s*/g, "")
-            gon.service_type = "#{service_type}"
+            gon.service_type = $('#selectbasic2 option:selected').val()
             station_type = $('#selectbasic3 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic3 option:selected').val()
             if station_type is undefined
                 qury = qury + ""
             else
                 qury = qury + "&by_station_class=#{station_type}".replace(/\s*\(.*?\)\s*/g, "")
-            gon.station_type = "#{station_type}"
+            gon.station_type = $('#selectbasic3 option:selected').val()
             etod_group = $('#selectbasic4 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic4 option:selected').val()
             if etod_group is undefined
                 qury = qury + ""
             else
                 qury = qury + "&by_etod_category=#{etod_group}".replace(/\s*\(.*?\)\s*/g, "")
-            gon.etod_group = "#{etod_group}"
+            gon.etod_group = $('#selectbasic4 option:selected').val()
             query = "#{qury}"
             urlstr = "/search.json?" + "#{query}"
             # making the ajax call using the search query string

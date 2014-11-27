@@ -13,6 +13,22 @@
 
 		onShow: ->
 			$(document).ready ->
+                dictionaryResponse = $.ajax
+                            url: "/dictionary_entries.json?by_name="
+                            done: (result) =>
+                                return result
+                    dictionary = dictionaryResponse.complete()
+                    dictionary.done =>
+                        dictionaries = dictionary.responseJSON
+                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
+                        console.log "@dictionaryentries", @dictionaryentries
+                        dict_lookup_dict = {}
+                        for each in @dictionaryentries.models
+                            console.log "each: ", each.attributes
+                            console.log "each name:", each.get("name")
+                            dict_lookup_dict[each.get("interpretation")] = each.get("name")
+                        console.log "dict_lookup_dict: ", dict_lookup_dict
+                        gon.dict_lookup_dict = dict_lookup_dict
                 # seting up design parameters for pdf exports
                 gon.section_header_lead = 18
                 gon.section_header_fontSize = 10
@@ -133,6 +149,7 @@
                   delay_success_milliseconds: 3500
                   send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
               #init feedback_me plugin
+            $("[rel=tooltipd]").tooltip placement: "right"
             $(document).ready ->
                 #set up some minimal options for the feedback_me plugin
                 fm.init fm_options
@@ -918,7 +935,6 @@
                     gon.query = "#{@.title}&" + gon.query
                     App.vent.trigger "searchFired", gon.query
                 $("[rel=tooltipd]").click (event, ui) ->
-                    console.log event
                     spinopts =
                         lines: 13 # The number of lines to draw
                         length: 20 # The length of each line
@@ -939,56 +955,61 @@
 
                     spintarget = document.getElementById("main-region")
                     spinner = new Spinner(spinopts).spin(spintarget)
+                    dict_dict = []
+                    dict_dict.push event.view.document.dictionaryentries.models
+                    try
+                        field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                    catch e
+                        field_interp = gon.dict_lookup_dict[event.target.parentNode.previousSibling.previousElementSibling.outerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                    console.log "field_interp: ", field_interp
+                    if field_interp is undefined
+                        field_interp = gon.dict_lookup_dict[event.target.previousElementSibling.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                    for each in dict_dict[0]
+                        dict_entry = each if each.get("name").toLowerCase() == field_interp.toLowerCase()
+
+                    console.log "dict_entry: ", dict_entry
                     # $("#accordion").accordion "disable"
-                    dictionaryResponse = $.ajax
-                            url: "/dictionary_entries.json?by_name=#{@.title}"
-                            done: (result) =>
-                                return result
-                    dictionary = dictionaryResponse.complete()
-                    dictionary.done =>
-                        dictionaries = dictionary.responseJSON
-                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
-                        $(@el).tooltip "option", title: ""
-                        $("#dialog-modal").dialog "open"
-                        $("#dialog-modal").html("")
-                        $("#dialog-modal").dialog title: ""
-                        spinner.stop()
-                        $("#dialog-modal").html("<div class='row'>
-                                                    <div class='col-md-2'>
-                                                       <strong>Description</strong> 
-                                                    </div>
-                                                    <div class='col-md-10' style='text-align: left;'>
-                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation").replace("пїЅ","'")}: </strong> <span><p>#{@dictionaryentries.models["0"].get("code")} <p></span>
-                                                    </div>
+                    $(@el).tooltip "option", title: ""
+                    $("#dialog-modal").dialog "open"
+                    $("#dialog-modal").html("")
+                    $("#dialog-modal").dialog title: ""
+                    spinner.stop()
+                    $("#dialog-modal").html("<div class='row'>
+                                                <div class='col-md-2'>
+                                                   <strong>Description</strong> 
                                                 </div>
-                                                <br> 
-                                                <div class='row'>
-                                                    <div class='col-md-2'>
-                                                        <span><strong>Interpretation</strong></span>
-                                                    </div>
-                                                    <div class='col-md-10' style='text-align: left;'>
-                                                        <p>#{@dictionaryentries.models["0"].get("importance").replace("ђ","'").replace("пїЅ","'")} </p>
-                                                    </div>
+                                                <div class='col-md-10' style='text-align: left;'>
+                                                    <hm2><strong> #{dict_entry.get("interpretation").replace("пїЅ","'")}: </strong> <span><p>#{dict_entry.get("code")} <p></span>
                                                 </div>
-                                                <br>
-                                                <div class='row'>
-                                                    <div class='col-md-2'> 
-                                                        <span><strong>Importance</strong></span>
-                                                    </div>
-                                                    <div class='col-md-10' style='text-align: left;'>
-                                                        <p>#{@dictionaryentries.models["0"].get("description").replace("пїЅ","'")} </p>
-                                                    </div>
+                                            </div>
+                                            <br> 
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                    <span><strong>Interpretation</strong></span>
                                                 </div>
-                                                <br>
-                                                <div class='row'>
-                                                    <div class='col-md-2'>
-                                                        <span><strong>Note</strong>
-                                                        </span></div><div class='col-md-10' style='font-style: italic; font-size:10;'>
-                                                            <p>#{@dictionaryentries.models["0"].get("technical_notes").replace("пїЅ","'")}</p>
-                                                    </div>
-                                                </div></hm2>")
-                        $("#dialog-modal").dialog height: "auto" 
-                        $("#dialog-modal").dialog modal: true
+                                                <div class='col-md-10' style='text-align: left;'>
+                                                    <p>#{dict_entry.get("importance").replace("ђ","'").replace("пїЅ","'") if dict_entry.get("importance") isnt null} </p>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class='row'>
+                                                <div class='col-md-2'> 
+                                                    <span><strong>Importance</strong></span>
+                                                </div>
+                                                <div class='col-md-10' style='text-align: left;'>
+                                                    <p>#{dict_entry.get("description").replace("пїЅ","'")} </p>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                    <span><strong>Note</strong>
+                                                    </span></div><div class='col-md-10' style='font-style: italic; font-size:10;'>
+                                                        <p>#{dict_entry.get("technical_notes").replace("пїЅ","'")}</p>
+                                                </div>
+                                            </div></hm2>")
+                    $("#dialog-modal").dialog height: "auto" 
+                    # $("#dialog-modal").dialog modal: false
 
 			$("[rel=tooltip]").tooltip placement: "left"
 			$("[rel=tooltipb]").tooltip placement: "buttom"
