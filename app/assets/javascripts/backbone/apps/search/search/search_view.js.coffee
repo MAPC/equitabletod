@@ -9,19 +9,11 @@
             gon.page_number = -1
             @names = App.request "set:name", gon.names.names
             @muni_names = App.request "set:muni_name", gon.muni_names.muni_names
-            console.log "@muni_names:"
-            console.log @muni_names
-            console.log "@collection:"
-            console.log @muni_names.models
-            features = _.values @muni_names.models # this returns an array of each features obkect
-            console.log "features: "
-            console.log features 
+            features = _.values @muni_names.models # this returns an array of each features obkect 
             l_muni_names = []
             _.map features, (key, value) -> l_muni_names.push _.keys key.attributes
             l_n_muni_names = []
             _.map l_muni_names, (key, value) -> l_n_muni_names.push key["0"]
-                #console.log muni_names
-                #muni_names[2].toLowerCase()
             $("#resetbuttom").on "click", (e) ->
                     $("select").val []
                     $("input").val []
@@ -30,19 +22,12 @@
                 source: l_n_muni_names
                 minLength: 3
                 select: (event, ui) ->
-                    console.log "gon object:"
-                    console.log event.view.gon
-                    console.log ui.item.value.toLowerCase()  
-                        #console.log gon.muni_names.muni_names
             $("#searchinput1").autocomplete
                 source: gon.names.names
                 minLength: 3
                 select: (event, ui) ->
-                    console.log ui.item.value.toLowerCase()
                     name = ui.item.value.replace(" ", "%20").toLowerCase()
-                    console.log name
-                    urlstr = "by_name=" + "#{name}".replace(/\s*\(.*?\)\s*/g, "")
-                    console.log urlstr          
+                    urlstr = "by_name=" + "#{name}".replace(/\s*\(.*?\)\s*/g, "")  
                     query = "#{urlstr}"
                     App.vent.trigger "searchFired", query
             $(document).ready ->
@@ -78,8 +63,6 @@
                     $("#accordion").accordion "enable"
 
                 $("[rel=tooltipd]").click (event, ui) ->
-                    console.log @
-                    console.log @.title
                     $("#dialog-modal").dialog 
                     dictionaryResponse = $.ajax
                             url: "/dictionary_entries.json?by_name=#{@.title}"
@@ -129,22 +112,16 @@
                         qury = qury + "&by_name=#{name}"
                         gon.name = "#{name}"
                     query = "#{qury}"
-                    console.log(query)
                     urlstr = "/search.json?" + "#{query}"
                     responseFeature = $.ajax
                             url: urlstr
                             done: (result) =>
                                 return result
-                    console.log "response to the ajax call"
-                      #console.log responseFeature
                     collection = responseFeature.complete()
                     collection.done =>
                             fstations = collection.responseJSON
-                            console.log fstations
                             features = _.values fstations.features
                             spinner1.stop()
-                            #window.features = Backbone.Collection.extend(localStorage: new Backbone.LocalStorage("features"))
-                            #window.features = features
                             if features.length > 0
                                 gon.features = features
                                 App.vent.trigger "searchFired", query
@@ -187,10 +164,7 @@
 
             spintarget = document.getElementById("searchbuttom")
             spinner = new Spinner(spinopts).spin(spintarget)
-            console.log e
-            #console.log $(@)
             btn = e
-            #btn.button('loading')
             urlq = "?"
             muni_name = $('input#searchinput2').val().replace(" ", "%20").toLowerCase() if $('input#searchinput2').val()
             if muni_name is undefined
@@ -224,22 +198,17 @@
                 qury = qury + "&by_etod_category=#{etod_group}".replace(/\s*\(.*?\)\s*/g, "")
             gon.etod_group = "#{etod_group}"
             query = "#{qury}"
-            console.log(query)
             # here would are the basic validation and if passed the vent will trigger
             urlstr = "/search.json?" + "#{query}"
-            #console.log urlstr
             responseFeature = $.ajax
                     url: urlstr
                     done: (result) =>
                         return result
-            #console.log responseFeature
             collection = responseFeature.complete()
             collection.done =>
                     fstations = collection.responseJSON
                     console.log fstations
                     features = _.values fstations.features
-                    #window.features = Backbone.Collection.extend(localStorage: new Backbone.LocalStorage("features"))
-                    #window.features = features
                     if features.length > 0
                         gon.features = features
                         num_pages = features.length / 10
@@ -251,12 +220,6 @@
                         spinner.stop()
                         App.vent.trigger "searchFired", query
                     else
-                        # console.log "error"
-                        # console.log btn
-                        # btn.target.validity.valid = false
-                        # btn.target.innerText = 'Error'
-                        # console.log @
-                        # console.log btn
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Error"
                         $("#dialog-modal").html("")

@@ -6,29 +6,29 @@
 		</hm3>
 			<div>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="The name of the municipality in which the station is principally or wholly located"> Municipality: <span class="glyphicon-class"></span> </strong>  <%= "#{@properties.muni_name}" %> <a href="#" rel="tooltipd" title="Click For More"><span class="glyphicon glyphicon-question-sign"></span></a>
+					<span class="glyphicon-class"></span> <strong href="#" rel="tooltipu" title="The name of the municipality in which the station is principally or wholly located"> Municipality: </strong>  <%= "#{@properties.muni_name}" %> <span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
 				</p>
 				<br>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="The type(s) of transit service available at this station" >Service Type: <span class="glyphicon-class"></span>  </strong>  <%= "#{@properties.line_descr}" %> <a href="#" rel="tooltipd" title="Click For More"><span class="glyphicon glyphicon-question-sign"></span></a>
+					<strong href="#" rel="tooltipu" title="The type(s) of transit service available at this station" >Service Type: <span class="glyphicon-class"></span>  </strong>  <%= "#{@properties.line_descr}" %> <span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
 				</p>
 				<br>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="The group of stations to which this station belongs based on its TOD-supportive characteristics">Station Type<span class="glyphicon-class"></span></strong>  <%= "#{@properties.station_class}" %> <a href="#" rel="tooltipd" title="Click For More"><span class="glyphicon glyphicon-question-sign"></span></a>
+					<strong href="#" rel="tooltipu" title="The group of stations to which this station belongs based on its TOD-supportive characteristics">Station Type: </strong>  <%= "#{@properties.station_class}" %> <span href="#" rel="tooltipd" title="Click For More"class="glyphicon glyphicon-question-sign"></span>
 				</p>
 				<br>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="">Community Type:<span class="glyphicon-class"></span> </strong>  <%= "#{@properties.community_type_description}" %> <a href="#" rel="tooltipd" title="Click For More"><span class="glyphicon glyphicon-question-sign"></span></a>
+					<strong href="#" rel="tooltipu" title="">Community Type: </strong>  <%= "#{@properties.community_type_description}" %> <span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
 				</p>
 				<br>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="">Community Subtype:<span class="glyphicon-class"></span> </strong>  <%= "#{@properties.subcommunity_type_description}" %> <a href="#" rel="tooltipd" title="Click For More"><span class="glyphicon glyphicon-question-sign"></span></a>
+					<strong href="#" rel="tooltipu" title="">Community Subtype: </strong>  <%= "#{@properties.subcommunity_type_description}" %> <span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
 				</p>
 			</div>
 		<hm3>
 				<p class="h3">Equitable Transit Oriented Development (eTOD)<span class="accordion-header hm5"></span></p>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="Equitable Transit Oriented Development (eTOD) score and category, an expression of the suitability of the station area for high performing, equitable transit-oriented development "> eTOD Group<span class="glyphicon-class"></span> </strong> <%= "#{@properties.etod_type}" %> <a href="#" rel="tooltipd" title="Click For More"><span class="glyphicon glyphicon-question-sign"></span></a>
+					<strong href="#" rel="tooltipu" title="Equitable Transit Oriented Development (eTOD) score and category, an expression of the suitability of the station area for high performing, equitable transit-oriented development ">eTOD Group: </strong><%= "#{@properties.etod_type} " %><span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
 				</p>
 		</hm3>
 				<div>
@@ -36,19 +36,19 @@
 					<div id="dialog-chart"></div>
 					<div id="chart"></div>
 					</div>
-					<p class="hm2"><strong href="#" rel="tooltipu" title="Equitable Transit Oriented Development (eTOD) score and category, an expression of the suitability of the station area for high performing, equitable transit-oriented development">Total eTOD Score </strong><%= "#{@properties.etod_total}" %> out of 50 <a href="#" rel="tooltipd" title="Click For More"><span class="glyphicon glyphicon-question-sign"></span></a>
+					<p class="hm2"><strong href="#" rel="tooltipu" title="Equitable Transit Oriented Development (eTOD) score and category, an expression of the suitability of the station area for high performing, equitable transit-oriented development">Total eTOD Score: </strong><%= "#{@properties.etod_total} " %> out of 50<span href="#" rel="tooltipd" title="Click For More"class="glyphicon glyphicon-question-sign"></span>
 					</p>
 					<br>
 					<p class="hm2">
-						<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score: <span class="glyphicon-class"></span> </strong> <%= "#{@properties.etod_sub1t}" %> out of 15 <a href="#" rel="tooltipd" title="Click For More"><span class="glyphicon glyphicon-question-sign"></span></a>
+						<strong href="#" rel="tooltipu" title="eTOD metric's transit score"> Transit Score: <span class="glyphicon-class"></span> </strong> <%= "#{@properties.etod_sub1t}" %> out of 15 <span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
 					</p>
 					<br>
 					<p class="hm2">
-						<strong href="#" rel="tooltipu" title="eTOD metric's orientation score"> Orientation Score<span class="glyphicon-class"></span> </strong> <%= "#{@properties.etod_sub2o}" %> out of 20 <a href="#" rel="tooltipd" title="Click For More"><span class="glyphicon glyphicon-question-sign"></span></a>
+						<strong href="#" rel="tooltipu" title="eTOD metric's orientation score"> Orientation Score<span class="glyphicon-class"></span> </strong> <%= "#{@properties.etod_sub2o}" %> out of 20 <span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
 					</p>
 					<br>
 					<p class="hm2">
-						<strong href="#" rel="tooltipu" title="eTOD metric's development score"> Development Score<span class="glyphicon-class"></span> </strong> <%= "#{@properties.etod_sub3d}" %> out of 15 <a href="#" rel="tooltipd" title="Click For More"><span class="glyphicon glyphicon-question-sign"></span></a>
+						<strong href="#" rel="tooltipu" title="eTOD metric's development score"> Development Score<span class="glyphicon-class"></span> </strong> <%= "#{@properties.etod_sub3d}" %> out of 15 <span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
 					</p>
 				</div>		
 		<hm3>
@@ -107,7 +107,7 @@
 					<strong href="#" rel="tooltipu" title="Number of housing units planned or under construction">Residential Pipeline: </strong> <%= "#{(@properties.ov_hupipe.toFixed 0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %> <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span> 
 					<span class="inlinesparklinehupipe"></span>
 				<br>
-					<strong href="#" rel="tooltipu" title="Estimated employment in developments planned or under construction">Commercial Pipeline: </strong> <%= "#{(@properties.ov_emppipe.toFixed 0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %> <span class="glyphicon-class"></span> <span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span> 
+					<strong href="#" rel="tooltipu" title="Estimated employment in developments planned or under construction">Commercial Pipeline: </strong> <%= "#{(@properties.ov_emppipe.toFixed 0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %> <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span> 
 					<span class="inlinesparklineemppipe"></span>
 				</p>
 			</div>
@@ -125,10 +125,10 @@
 		</hm3>
 			<div>
 				<p class="hm2">
-					<strong href="#" rel="tooltipu" title="Number of public, private, and non-profit organizations located in the station area">Number of Establishments: </strong> <%= "#{@properties.ov_est_10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %> <span class="glyphicon-class"></span> <span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
+					<strong href="#" rel="tooltipu" title="Number of public, private, and non-profit organizations located in the station area">Number of Establishments: </strong><%= "#{@properties.ov_est_10.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %> <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
 					<span class="inlinesparklineest10"></span>
 				<br>
-					<strong href="#" rel="tooltipu" title="Total assessed value of all parcels in station area">Assessed Value ($): </strong> <%= "#{@properties.ov_aval.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %> <span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
+					<strong href="#" rel="tooltipu" title="Total assessed value of all parcels in station area">Assessed Value ($): </strong><%= "#{@properties.ov_aval.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, "$1,")}" %><span class="glyphicon-class"></span><span href="#" rel="tooltipd" title="Click For More" class="glyphicon glyphicon-question-sign"></span>
 					<span class="inlinesparklineaval"></span>
 				</p>
 			</div>

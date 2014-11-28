@@ -19,9 +19,6 @@
 				</div>
 			</div>
 			<div id="fstations-region">
-				<div id="dialog-modal">
-  					<p></p>
-				</div>
 			</div>
 		</div>
 		<div id="resize-map" class="col-md-8 col-sm-6 col-xs-12 col-md-offset-0 text-left">
@@ -39,5 +36,8 @@
 			<div id="print-region" class="col-md-2 col-xs-4 text-left"></div>
 		</div>
 	</div>
+<div id="dialog-modal">
+  					<p></p>
+				</div>
 </div>	
 <script>

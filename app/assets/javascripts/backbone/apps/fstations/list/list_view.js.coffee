@@ -13,6 +13,21 @@
 
 		onShow: ->
 			$(document).ready ->
+                $("#dialog-modal").dialog 
+                    position:
+                        my: "right"
+                        at: "right"
+                    autoOpen: false
+                    closeOnEscape: true
+                    width: 780
+                    show:
+                        effect: "fade"
+                        duration: 400  
+                    hide:
+                        effect: "fade"
+                        duration: 400
+                    title: 
+                        $("[rel=tooltipd]").title
                 dictionaryResponse = $.ajax
                             url: "/dictionary_entries.json?by_name="
                             done: (result) =>
@@ -21,15 +36,14 @@
                     dictionary.done =>
                         dictionaries = dictionary.responseJSON
                         @dictionaryentries = App.request "set:dictionaryentry", dictionaries
-                        console.log "@dictionaryentries", @dictionaryentries
                         dict_lookup_dict = {}
                         for each in @dictionaryentries.models
-                            console.log "each: ", each.attributes
-                            console.log "each name:", each.get("name")
                             dict_lookup_dict[each.get("interpretation")] = each.get("name")
-                        console.log "dict_lookup_dict: ", dict_lookup_dict
+
                         gon.dict_lookup_dict = dict_lookup_dict
+                
                 # seting up design parameters for pdf exports
+
                 gon.section_header_lead = 18
                 gon.section_header_fontSize = 10
                 gon.section_header_fontSyle = 'bold'
@@ -160,7 +174,6 @@
                   scrollTop: ($("#detailscol").offset().top)
                 , 500
                 $("body").removeClass "nav-expanded"                           
-                #$("[rel=tooltipu]").tooltip placement: "top"
                 $("#navigationsbl").html ''
                 $("#navigationsbr").html ''
                 $("#navigationsbl").html '<span class="glyphicon-class"></span><a><span id="previousbuttom" class="glyphicon glyphicon-chevron-left">  </span></a>' if gon.length > 1
@@ -269,7 +282,6 @@
                     ]
                     return
 
-                console.log "#{gon.feature[0].properties.name}".indexOf("STATION") isnt -1
                 $("#print").click ->
                     gon.d3ChartElement = $("#chart")[0]
                     # make a spinner object to put in while loading/waiting
@@ -346,26 +358,23 @@
                     gon.sparklineHhnocar = sparklineHhnocar.toDataURL()
                     gon.sparklineEdatt = sparklineEdatt.toDataURL()
 
-                    # html2canvas document.getElementsByClassName("leaflet-layer"),
                     html2canvas document.getElementById("map"),
-                        # allowTaint: true
                         taintTest: false
                         useCORS: true
                         proxy: 'assets/php/proxy.php'
                         onrendered: (canvas) ->
-                            # console.log document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-clickable")
                             imagel = document.createElement("div")
                             imagel.setAttribute('id', 'mapImage')
                             imagel.setAttribute('style', 'display:none;')
                             # or it can get a img from leaflet-image plugin and return it as part of the function
                             imagel.appendChild canvas
-                            # gon.imgData = canvas.toDataURL("image/png")
                             document.body.appendChild imagel
                             ctx = canvas.getContext("2d")
                             gon.imageData = canvas.toDataURL()
                             ## making up the pdf using jspdf
                             mapcLogoData = 'data:image/png;base64,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'
                             northeasternLogoData = 'data:image/png;base64,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'
+                            gon.markerElementData = 'data:image/png;base64,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'
                             # defining zero_x_points and zero_y_points for each sections
                             doc = new jsPDF("p", "pt", "letter")
                             ## line height is about each 15 pts
@@ -404,20 +413,13 @@
                             doc.setFontType('normal')
                             doc.setDrawColor(0.0314, 0.0135, 0.00, 0.125)
                             doc.setLineWidth(0.25)
-                            # doc.line(40, 108, 400, 108)
-
-                            # doc.setFontSize(12)
-                            # doc.setTextColor(255, 102, 51)
-                            # doc.text("Basic info", 40, 104)
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
                             doc.text("Municipality: #{gon.feature[0].properties.muni_name}", gon.basic_z_point_x, gon.basic_z_point_y+(gon.item_lead/2))
-                            # doc.text("#{gon.feature[0].properties.line_descr}", gon.basic_z_point_x, gon.basic_z_point_y - 27 + gon.item_lead)
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
-                            # doc.text("Whether the station is served by Raipid Tranist Line, Commuter Rail Line, Key Bus Route, or Ferry Routes.",gon.basic_z_point_x, gon.basic_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -432,9 +434,6 @@
                             doc.setFontType('bold')
 
 
-
-                            # console.log "gon.d3ChartElement", gon.d3ChartElement
-                            # doc.addSVG gon.d3ChartElement, 120, 140,
                             # drawing the radar chart manually
                             # diagram charts
                             radar_ratio = 1 - ((gon.radar_width/2)**2)/gon.radar_height**2
@@ -479,20 +478,17 @@
                             doc.setFontSize(gon.describton_fontSize)
                             doc.setTextColor(0, 0, 0)
                             doc.setFontType(gon.item_fontStyle)
-                            # doc.setTextColor(169, 167, 166)
                             doc.text("20", gon.radar_z_x+(gon.radar_width/2)+3, gon.radar_z_y-3)
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
                             doc.text("   Orientation", gon.radar_z_x+(gon.radar_width/2)+15, gon.radar_z_y-6)
                             doc.setFontSize(gon.describton_fontSize)
-                            # doc.setTextColor(169, 167, 166)
                             doc.text("15", gon.radar_z_x+gon.radar_width+3, gon.radar_z_y+gon.radar_height+3)
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
                             doc.text("   Development", gon.radar_z_x+gon.radar_width+10, gon.radar_z_y+gon.radar_height+5)
                             doc.line(gon.radar_z_x, gon.radar_z_y+gon.radar_height, gon.radar_z_x+gon.radar_width, gon.radar_z_y+gon.radar_height)
                             doc.setFontSize(gon.describton_fontSize)
-                            # doc.setTextColor(169, 167, 166)
                             doc.text("        15", gon.radar_z_x-27, gon.radar_z_y+gon.radar_height+3)
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -505,14 +501,14 @@
 
 
                             doc.addImage gon.imageData, "PNG", 380, 55, 190, 185
-                            # doc.circle(460, 260, 9, '')
 
 
                             doc.addImage mapcLogoData, "PNG", 40, 725, 55, 55
                             doc.addImage northeasternLogoData, "PNG", 184, 735, 30, 30
 
                             doc.line(40, 730, 574, 730)
-
+                            doc.setFontType('bold')
+                            doc.setFontSize(7)
                             doc.text("MAPC", 96, 743)
                             doc.setFontType('normal')
                             doc.setFontSize(6)
@@ -530,7 +526,6 @@
                             doc.setFontType('normal')
                             doc.setFontSize(6)
                             doc.text("Northeastern University", 220, 753)
-                            # doc.text("School of Public Policy & Urban Affairs", 340, 761)
                             doc.text("www.northeastern.edu/dukakiscenter", 220, 761)
 
                             doc.setFont('helvetica')
@@ -549,10 +544,6 @@
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Expression of the suitability of the station area for high performing, equitable TOD", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead-10)
                             
-                            # doc.text("Total eTOD Score: #{gon.feature[0].properties.etod_total} out of 50", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(2*gon.item_lead))
-                            # doc.text("Transit Score: #{gon.feature[0].properties.etod_sub1t} out of 15", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(3*gon.item_lead))
-                            # doc.text("Orientation Score: #{gon.feature[0].properties.etod_sub2o} out of 20", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(4*gon.item_lead))
-                            # doc.text("Development Score: #{gon.feature[0].properties.etod_sub3d} out of 15", gon.etod_z_point_x, gon.etod_z_point_y+gon.section_header_lead+(5*gon.item_lead))
                             doc.setDrawColor(169, 167, 166)
                             doc.setLineWidth(0.25)
                             doc.line(gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-19)
@@ -580,7 +571,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Daily vehicle miles traveled (VMT) for households in station areas", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+gon.describton_lead)
-                            # doc.text("for households in station areas", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(2*gon.describton_lead))
                             
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -591,7 +581,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Estimated total greenhouse gases (kilograms CO2 equivalent)", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
-                            # doc.text("(kilograms CO2 equivalent) ", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+gon.item_lead+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -612,7 +601,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Percentage of total commuting miles for which transit was used", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
-                            # doc.text("for which transit was used", gon.transportation_z_point_x, gon.transportation_z_point_y+gon.section_header_lead+(3*gon.item_lead)+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -638,7 +626,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Total gross floor area divided by total parcel size", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+gon.describton_lead)
-                            # doc.text("by total parcel size", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -649,7 +636,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Acres of surface parking within the station area", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+gon.item_lead+gon.describton_lead)
-                            # doc.text("within the station area", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+gon.item_lead+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -660,7 +646,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Sum of population and employment in the station area", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
-                            # doc.text("in the station area", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(2*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
@@ -672,7 +657,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Employment share of total Development Intensity", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
-                            # doc.text("Intensity (population + employment)", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(3*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
@@ -695,7 +679,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Estimated employment per acre of developed land use", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(5*gon.item_lead)+gon.describton_lead)
-                            # doc.text("of developed land use", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(5*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
@@ -718,7 +701,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Estimated housing units in projects under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(7*gon.item_lead)+gon.describton_lead)
-                            # doc.text("under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(7*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
@@ -730,7 +712,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Anticipated employment in projects under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead)+gon.describton_lead)
-                            # doc.text("projects under construction or planned", gon.development_z_point_x, gon.development_z_point_y+gon.section_header_lead+(8*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.section_header_fontSize)
@@ -758,7 +739,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Estimated municipal property tax revenue from parcels in the station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(1*gon.item_lead)+gon.describton_lead)
-                            # doc.text("from parcels in the station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(1*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
@@ -770,7 +750,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Number of businesses, public agencies, non–profits, and other employers", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
-                            # doc.text("profit organizations, and other employers", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.item_fontSize)
@@ -782,7 +761,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Total assessed value of land and improvements in station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
-                            # doc.text("for all parcels in station area", gon.economics_z_point_x, gon.economics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+(2*gon.describton_lead))
                             
 
                             doc.setFontSize(gon.section_header_fontSize)
@@ -809,7 +787,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Weighted average of the median annual household income", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(1*gon.item_lead)+gon.describton_lead)
-                            # doc.text("annual household income", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(1*gon.item_lead)+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -820,7 +797,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Renter households as a share of total occupied housing units", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+gon.describton_lead)
-                            # doc.text("total occupied housing units", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(2*gon.item_lead)+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -831,7 +807,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Percentage of households in station area reporting zero vehicles available", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+gon.describton_lead)
-                            # doc.text("reporting zero vehicles available", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(3*gon.item_lead)+(2*gon.describton_lead))
 
                             doc.setFontSize(gon.item_fontSize)
                             doc.setTextColor(0, 0, 0)
@@ -842,7 +817,6 @@
                             doc.setTextColor(169, 167, 166)
                             doc.setFontType(gon.describton_fontStyle)
                             doc.text("Share of adult population with a four-year college degree or higher", gon.demographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(4*gon.item_lead)+gon.describton_lead)
-                            # doc.text("college degree or higher", gon.docemographics_z_point_x, gon.demographics_z_point_y+gon.section_header_lead+(4*gon.item_lead)+(2*gon.describton_lead))
 
                             # put a date of download 
                             doc.setFontType('italic')
@@ -851,32 +825,27 @@
                             doc.text("Created on #{gon.today}", 405, 759)
                             doc.text("tstation.info/#fss/q/by_name=#{gon.feature[0].properties.name}", 405, 768)
                             
-                            html2canvas document.getElementsByClassName("leaflet-marker-icon leaflet-canvas-icon leaflet-zoom-animated leaflet-clickable"),
-                                # allowTaint: true
-                                taintTest: false
-                                useCORS: true
-                                proxy: 'assets/php/proxy.php'
-                                onrendered: (canvas) ->
-                                    # console.log document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-clickable")
-                                    markel = document.createElement("div")
-                                    markel.setAttribute('id', 'markerElement')
-                                    markel.setAttribute('style', 'display:none;')
-                                    # or it can get a img from leaflet-image plugin and return it as part of the function
-                                    markel.appendChild canvas
-                                    # gon.imgData = canvas.toDataURL("image/png")
-                                    document.body.appendChild markel
-                                    ctx = canvas.getContext("2d")
-                                    gon.markerElementData = canvas.toDataURL()
-                                    doc.addImage gon.markerElementData, "PNG", 380+(190/4), 55+(190/4), 190/2, 190/2
-                                    console.log "canvas", canvas
-                                    doc.save "tstationinfo.pdf"
-                                    spinner.stop()
-                            
+                            zoomScale = 15 - gon.currentZoom
+                            if zoomScale < 0
+                                doc.save "tstationinfo.pdf"
+                                spinner.stop()
+                            else if zoomScale < 2
+                                doc.addImage gon.markerElementData, "PNG", 380+(190 / 4 * (zoomScale+1))-(190 / (2**(zoomScale+2)) * (zoomScale)), 55+(190 / 4 * (zoomScale+1) ) - (190 / (2**(zoomScale+2)) * (zoomScale) ), 190 / ( 2 * (zoomScale+1) ) , 190 / ( 2 * (zoomScale+1))
+                                doc.save "tstationinfo.pdf"
+                                spinner.stop()
+                            else if zoomScale < 3
+                                doc.addImage gon.markerElementData, "PNG", 380+(190 / ((zoomScale)))-(190 / (2**(zoomScale+2)) ), 55+(190 / ((zoomScale) )) - (190 / (2**(zoomScale+2)) ), 190 / ( 2 * (zoomScale+1) ) , 190 / ( 2 * (zoomScale+1))
+                                doc.save "tstationinfo.pdf"
+                                spinner.stop()
+                            else
+                                doc.save "tstationinfo.pdf"
+                                spinner.stop()
                             return 
 
 
                 $(".feedback_trigger").click (event, ui) ->
-                    $("#accordion").accordion "disable"
+                    # $("#accordion").accordion "disable"
+                    $("#dialog-modal").dialog
                     $(@el).tooltip "option", title: ""
                     $("#dialog-modal").dialog "open"
                     $("#dialog-modal").html("")
@@ -901,11 +870,12 @@
                                                 </div>
                                             </div>")
                     $("#dialog-modal").dialog height: "auto" 
-                    $("#dialog-modal").dialog modal: false
+                    # $("#dialog-modal").dialog modal: false
                         
 
                 $("#searchrefine").click (event, ui) ->
                     App.vent.trigger "searchrefineFired"
+                
                 $("#dialog-modal").dialog 
                     position:
                         my: "right"
@@ -960,14 +930,14 @@
                     try
                         field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                     catch e
-                        field_interp = gon.dict_lookup_dict[event.target.parentNode.previousSibling.previousElementSibling.outerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
-                    console.log "field_interp: ", field_interp
-                    if field_interp is undefined
-                        field_interp = gon.dict_lookup_dict[event.target.previousElementSibling.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                        try
+                            field_interp = gon.dict_lookup_dict[event.target.parentNode.previousSibling.previousElementSibling.outerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                        catch
+                            field_interp = gon.dict_lookup_dict[event.target.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+
                     for each in dict_dict[0]
                         dict_entry = each if each.get("name").toLowerCase() == field_interp.toLowerCase()
 
-                    console.log "dict_entry: ", dict_entry
                     # $("#accordion").accordion "disable"
                     $(@el).tooltip "option", title: ""
                     $("#dialog-modal").dialog "open"
@@ -1009,7 +979,7 @@
                                                 </div>
                                             </div></hm2>")
                     $("#dialog-modal").dialog height: "auto" 
-                    # $("#dialog-modal").dialog modal: false
+                    $("#dialog-modal").dialog modal: false
 
 			$("[rel=tooltip]").tooltip placement: "left"
 			$("[rel=tooltipb]").tooltip placement: "buttom"
@@ -1048,11 +1018,10 @@
                 muni_names[2].toLowerCase()
                 names = (_.pluck key, 'name')
                 names[2].toLowerCase()
-            #@collection = names
             names = _.map stationfeature, (key, value) ->
                     names = (_.pluck key, 'name')
                     names[2].toLowerCase()
-                console.log names
+
 			station = [
 			  {
 			    name: names
@@ -1064,7 +1033,6 @@
             pfeatures = _.values gon.features
             pjfeatures = pfeatures.map (pf) -> pf.properties
             jfeatures = JSON.stringify(pjfeatures)
-            # $("#titles").html "<p class='h2'>Search Results </p><p><a href='#advsearch/' id='searchrefine'><button type='button' class='btn btn-default btn3d col-xs-offset-0'>Refine Results</button></a></p>"
             $("html, body").animate
               scrollTop: ($("#detailscol").offset().top)
             , 500
@@ -1127,27 +1095,7 @@
             # IF CSV, don't do event.preventDefault() or return false
             # We actually need this to be a typical hyperlink
             $("#download").click ->
-                spinopts =
-                    lines: 13 # The number of lines to draw
-                    length: 20 # The length of each line
-                    width: 10 # The line thickness
-                    radius: 30 # The radius of the inner circle
-                    corners: 1 # Corner roundness (0..1)
-                    rotate: 0 # The rotation offset
-                    direction: 1 # 1: clockwise, -1: counterclockwise
-                    color: "#000" # #rgb or #rrggbb or array of colors
-                    speed: 1 # Rounds per second
-                    trail: 60 # Afterglow percentage
-                    shadow: false # Whether to render a shadow
-                    hwaccel: false # Whether to use hardware acceleration
-                    className: "spinner" # The CSS class to assign to the spinner
-                    zIndex: 2e9 # The z-index (defaults to 2000000000)
-                    top: "50%" # Top position relative to parent
-                    left: "50%" # Left position relative to parent
-
-                spintargetDl = document.getElementById("main-region")
-                spinnerDl = new Spinner(spinopts).spin(spintargetDl)
-
+                
                 exportTableToCSV.apply this, [
                     jfeatures
                     "tstationinfo.csv"
@@ -1156,7 +1104,6 @@
                 spintargetDl.stop()
 
             $("#searchrefine").click (event, ui) ->
-                console.log "it gets the click"
                 App.vent.trigger "searchrefineFired"
 
 		
@@ -1259,7 +1206,6 @@
           "change" : "render"
 
         onShow: ->
-            console.log "this is dictview"
             dictionaryResponse = $.ajax
                         url: "/dictionary_entries.json?by_name=#{@.title}"
                         done: (result) =>
@@ -1292,7 +1238,7 @@
               touchZoom: false
               doubleClickZoom: true
               zoomControl: true
-              dragging: true
+              dragging: false
             )
             map.setView [
               42.31
@@ -1306,16 +1252,12 @@
             info.update = (props) ->
               @_div.innerHTML = '<div id="chart"> </div>' 
               return
-            #info.addTo map
             mapc = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
               attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
             )
-            #defaultLayer = L.tileLayer.provider("OpenStreetMap.Mapnik").addTo(map)
             streets = L.tileLayer.provider "MapBox.mapc.i8ddbf5a"
             esri = L.tileLayer.provider "Esri.WorldImagery"
             esri.addTo(map)
-            #esring = L.tileLayer.provider "Esri.NatGeoWorldMap"
-            #esrism = L.tileLayer.provider "Esri.WorldStreetMap"
             basemap = new L.MAPCTileLayer("basemap")
             regional = new L.MAPCTileLayer("trailmap-regional")
             onroad = new L.MAPCTileLayer("trailmap-onroad")
@@ -1330,40 +1272,18 @@
                 "Esri Aerial": esri
                 "MapBox StreetMap": streets
             geoCollection =  gon.feature
-            console.log gon.feature
-            console.log gon.feature[0].geometry.coordinates
             fstation = new L.GeoJSON geoCollection,
                 style: (feature) ->
                     feature.properties and feature.properties.style
                 pointToLayer: (feature, latlng) ->
                     gon.latlong = latlng
-                    console.log latlng.lat
                     L.circle latlng, 804.672,
                       fillColor: "#FFFFFF"
                       color: "#000"
                       weight: 1
                       opacity: 0.3
                       fillOpacity: 0.5
-                    # circleOptions =
-                    #   fillColor: "#FFFFFF"
-                    #   color: "#000"
-                    #   weight: 1
-                    #   opacity: 0.3
-                    #   fillOpacity: 0.5
-                    # circle = new L.Circle(circleLocation, 804.672, circleOptions)
-                    # group = new L.LayerGroup()
-                    # circleMarker = new L.CircleMarker(circleLocation,
-                    #   fillColor: "#FFFFFF"
-                    #   fillOpacity: 1
-                    #   stroke: true
-                    # )
-                    # # L.CircleMarker latlng, 
-                    # #   fillColor: "#FFFFFF"
-                    # #   color: "#000"
-                    # #   weight: 1
-                    # #   opacity: 0.3
-                    # #   fillOpacity: 0.5
-                    # group.addLayer(circle).addLayer(circleMarker)            
+          
             map.addLayer(fstation)
             fstationI = new L.GeoJSON geoCollection,
                 L.Icon.Default.imagePath = "/assets"
@@ -1391,83 +1311,19 @@
               ctx.beginPath()
               ctx.fillStyle = "#000"
               ctx.arc 0, 0, w / 2 - 1, 0, Math.PI * 2, true
-              # ctx.fill()
               ctx.lineWidth = 5
               ctx.strokeStyle = "#000"
-              # ctx.moveTo -w / 5, -h / 5
-              # ctx.lineTo w / 5, h / 5
-              # ctx.moveTo -w / 5, h / 5
-              # ctx.lineTo w / 5, -h / 5
               ctx.stroke()
               ctx.closePath()
               return
-            # circle2.draw = (ctx, w, h) ->
-            #   ctx.translate w / 2, h / 2
-            #   ctx.beginPath()
-            #   ctx.fillStyle = "#000"
-            #   ctx.arc 0, 0, w / 2 - 1, Math.PI * 0.5, Math.PI * 1, true
-            #   # ctx.fill()
-            #   ctx.lineWidth = 3
-            #   ctx.strokeStyle = "#000"
-            #   # ctx.moveTo -w / 5, -h / 5
-            #   # ctx.lineTo w / 5, h / 5
-            #   # ctx.moveTo -w / 5, h / 5
-            #   # ctx.lineTo w / 5, -h / 5
-            #   ctx.stroke()
-            #   ctx.closePath()
-            #   return
-            # circle3.draw = (ctx, w, h) ->
-            #   ctx.translate w / 2, h / 2
-            #   ctx.beginPath()
-            #   ctx.fillStyle = "#000"
-            #   ctx.arc 0, 0, w / 2 - 1, Math.PI * 1, Math.PI * 1.5, true
-            #   # ctx.fill()
-            #   ctx.lineWidth = 3
-            #   ctx.strokeStyle = "#000"
-            #   # ctx.moveTo -w / 5, -h / 5
-            #   # ctx.lineTo w / 5, h / 5
-            #   # ctx.moveTo -w / 5, h / 5
-            #   # ctx.lineTo w / 5, -h / 5
-            #   ctx.stroke()
-            #   ctx.closePath()
-            #   return  
-            # circle4.draw = (ctx, w, h) ->
-            #   ctx.translate w / 2, h / 2
-            #   ctx.beginPath()
-            #   ctx.fillStyle = "#000"
-            #   ctx.arc 0, 0, w / 2 - 1, Math.PI * 1.5, Math.PI * 2, true
-            #   # ctx.fill()
-            #   ctx.lineWidth = 3
-            #   ctx.strokeStyle = "#000"
-            #   # ctx.moveTo -w / 5, -h / 5
-            #   # ctx.lineTo w / 5, h / 5
-            #   # ctx.moveTo -w / 5, h / 5
-            #   # ctx.lineTo w / 5, -h / 5
-            #   ctx.stroke()
-            #   ctx.closePath()
-            #   return
+
             canvasCircles = new L.Marker(gon.latlong,
               icon: circle1
               draggable: false
               opacity: 0.8
             )
-            # canvasCircles2 = new L.Marker(gon.latlong,
-            #   icon: circle2
-            #   draggable: false
-            #   opacity: 0.8
-            # )
-            # canvasCircles3 = new L.Marker(gon.latlong,
-            #   icon: circle3
-            #   draggable: false
-            #   opacity: 0.8
-            # )
-            # canvasCircles4 = new L.Marker(gon.latlong,
-            #   icon: circle4
-            #   draggable: false
-            #   opacity: 0.8
-            # )
+
             map.addLayer canvasCircles
-            # map.addLayer canvasCircles2, canvasCircles3, canvasCircles4
             overlays =
                 "Regional Networks": regional
                 "On-road Bicycle Facilities": onroad
@@ -1482,7 +1338,6 @@
             map.addControl layersControl
 
             bbox = fstationZoom.getBounds().toBBoxString()
-            console.log bbox
             map.fitBounds [
               [
                 parseFloat(bbox.split(",")[1])
@@ -1494,26 +1349,15 @@
               ]
             ]
             currentZoom = map.getZoom()
-            console.log "currentZoom", currentZoom
-            console.log "L", L
+            gon.currentZoom = currentZoom
+
             onZoomend = ->
                 zoom = map.getZoom()
+                gon.currentZoom = zoom
                 if zoom != 15
                     map.removeLayer canvasCircles
                 else if zoom == 15
                     canvasCircles.addTo map
-                console.log "new zoom is", zoom
-                console.log currentZoom/zoom
-                console.log "map", map
-                # if zoom - currentZoom + 1 == 2
-                #     map.removeLayer canvasCircles
-                #     map.addLayer canvasCircles1to2
-                # else if zoom - currentZoom + 1 == 3
-                #     map.removeLayer canvasCircles
-                #     map.addLayer canvasCircles1to3
-                # else if zoom - currentZoom + 1 == 0
-                #     map.removeLayer canvasCircles
-                #     map.addLayer canvasCircles2
 
                 if zoom >= 16
                     map.removeLayer fstation
@@ -1523,9 +1367,7 @@
                     fstation.addTo map
                 return
             map.on "zoomend", onZoomend
-            # Lsvg = L.noConflict()
             L_PREFER_CANVAS = true
-
 
 
 

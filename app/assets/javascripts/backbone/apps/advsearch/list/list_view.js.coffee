@@ -8,6 +8,36 @@
 
 		onShow: ->
             $(document).ready ->
+                $("[rel=tooltipd]").tooltip placement: "right"
+                $("#dialog-modal").dialog 
+                    position:
+                        my: "right"
+                        at: "right"
+                    autoOpen: false
+                    closeOnEscape: true
+                    width: 800
+                    show:
+                        effect: "fade"
+                        duration: 100  
+                        easing: "linear"
+                    hide:
+                        effect: "fade"
+                        duration: 100
+                        easing: "linear"
+                    title: 
+                        $("[rel=tooltipd]").title
+                dictionaryResponse = $.ajax
+                            url: "/dictionary_entries.json?by_name="
+                            done: (result) =>
+                                return result
+                    dictionary = dictionaryResponse.complete()
+                    dictionary.done =>
+                        dictionaries = dictionary.responseJSON
+                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
+                        dict_lookup_dict = {}
+                        for each in @dictionaryentries.models
+                            dict_lookup_dict[each.get("interpretation")] = each.get("name")
+                        gon.dict_lookup_dict = dict_lookup_dict
                 resetButtom = $("#resetbuttom")
                 searchButtom = $("#searchbuttom")
                 gon.fars = [0, 0.18, 0.47, 0.80, 5.79] # _.map features, (key, value) -> key.properties.ov_far 
@@ -187,7 +217,7 @@
                     step: 0.01
                 $("#slider28").slider
                     min: Math.round gon.minhhnocar = if gon.minhhnocar then gon.minhhnocar else 0
-                    max: Math.round gon.maxhhnocar = if gon.maxhhnocar then gon.maxhhnocar else 0.66
+                    max: 1
                     value:[0, 1]
                     step: 0.01
 
@@ -253,21 +283,7 @@
               $("#searchbuttom").stickyMojo
                 footerID: "#footer-region"
                 contentID: "#main-region"
-              $("#dialog-modal").dialog 
-                position:
-                    my: "right"
-                    at: "right"
-                autoOpen: false
-                closeOnEscape: true
-                width: 780
-                show:
-                    effect: "blind"
-                    duration: 200  
-                hide:
-                    effect: "blind"
-                    duration: 200
-                title: 
-                    $("[rel=tooltipd]").title
+
               $(".selectpicker").selectpicker()
               $("#resetbuttom").on "click", (e) ->
                 $("select").val []
@@ -294,60 +310,66 @@
 
                     spintarget1 = document.getElementById("main-region")
                     spinner1 = new Spinner(spinopts).spin(spintarget1)
-                    dictionaryResponse = $.ajax
-                            url: "/dictionary_entries.json?by_name=#{@.title}"
-                            done: (result) =>
-                                return result
-                    dictionary = dictionaryResponse.complete()
-                    dictionary.done =>
-                        dictionaries = dictionary.responseJSON
-                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
-                        $(@el).tooltip "option", title: ""
-                        $("#dialog-modal").dialog "open"
-                        spinner1.stop()
-                        $("#dialog-modal").html("")
-                        $("#dialog-modal").dialog title: ""
-                        $("#dialog-modal").html("<div class='row'>
-                                                    <div class='col-md-2'>
-                                                       <strong>Description</strong> 
-                                                    </div>
-                                                    <div class='col-md-10' style='text-align: left;'>
-                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span><p>#{@dictionaryentries.models["0"].get("code")} <p></span>
-                                                    </div>
+                    dict_dict = []
+                    dict_dict.push event.view.document.dictionaryentries.models
+                    try
+                        field_interp = gon.dict_lookup_dict[event.target.previousSibling.data.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                    catch e
+                        try
+                            field_interp = gon.dict_lookup_dict[event.target.parentNode.previousSibling.previousElementSibling.outerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                        catch
+                            field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+
+                    for each in dict_dict[0]
+                        dict_entry = each if each.get("name").toLowerCase() == field_interp.toLowerCase()
+                    
+                    # $("#accordion").accordion "disable"
+                    $(@el).tooltip "option", title: ""
+                    $("#dialog-modal").dialog "open"
+                    $("#dialog-modal").html("")
+                    $("#dialog-modal").dialog title: ""
+                    spinner1.stop()
+                    $("#dialog-modal").html("<div class='row'>
+                                                <div class='col-md-2'>
+                                                   <strong>Description</strong> 
                                                 </div>
-                                                <br> 
-                                                <div class='row'>
-                                                    <div class='col-md-2'>
-                                                        <span><strong>Interpretation</strong></span>
-                                                    </div>
-                                                    <div class='col-md-10' style='text-align: left;'>
-                                                        <p>#{@dictionaryentries.models["0"].get("importance")} </p>
-                                                    </div>
+                                                <div class='col-md-10' style='text-align: left;'>
+                                                    <hm2><strong> #{dict_entry.get("interpretation").replace("пїЅ","'")}: </strong> <span><p>#{dict_entry.get("code")} <p></span>
                                                 </div>
-                                                <br>
-                                                <div class='row'>
-                                                    <div class='col-md-2'> 
-                                                        <span><strong>Importance</strong></span>
-                                                    </div>
-                                                    <div class='col-md-10' style='text-align: left;'>
-                                                        <p>#{@dictionaryentries.models["0"].get("description")} </p>
-                                                    </div>
+                                            </div>
+                                            <br> 
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                    <span><strong>Interpretation</strong></span>
                                                 </div>
-                                                <br>
-                                                <div class='row'>
-                                                    <div class='col-md-2'>
-                                                        <span><strong>Note</strong>
-                                                        </span></div><div class='col-md-10' style='font-style: italic; font-size:10;'>
-                                                            <p>#{@dictionaryentries.models["0"].get("technical_notes")}</p>
-                                                    </div>
-                                                </div></hm2>")
-                        $("#dialog-modal").dialog height: "auto" 
-                        $("#dialog-modal").dialog modal: true
+                                                <div class='col-md-10' style='text-align: left;'>
+                                                    <p>#{dict_entry.get("importance").replace("ђ","'").replace("пїЅ","'") if dict_entry.get("importance") isnt null} </p>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class='row'>
+                                                <div class='col-md-2'> 
+                                                    <span><strong>Importance</strong></span>
+                                                </div>
+                                                <div class='col-md-10' style='text-align: left;'>
+                                                    <p>#{dict_entry.get("description").replace("пїЅ","'")} </p>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                    <span><strong>Note</strong>
+                                                    </span></div><div class='col-md-10' style='font-style: italic; font-size:10;'>
+                                                        <p>#{dict_entry.get("technical_notes").replace("пїЅ","'")}</p>
+                                                </div>
+                                            </div></hm2>")
+                    $("#dialog-modal").dialog height: "auto" 
+                    $("#dialog-modal").dialog modal: false
 
               $("#searchinput2").autocomplete
                 source: gon.muni_names.muni_names
                 minLength: 3   
-              $("[rel=tooltip]").tooltip placement: "top"  
+              # $("[rel=tooltip]").tooltip placement: "top"  
               fm_options =
                 bootstrap: true
                 show_radio_button_list: false
@@ -415,6 +437,7 @@
                 qury = ""
             else
                 qury = "by_muni_name=#{muni_name}".replace(/\s*\(.*?\)\s*/g, "")
+            gon.muni_name = $('input#searchinput2').val()
             name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
             if name is undefined
                 qury = qury + ""
@@ -425,16 +448,19 @@
                 qury = qury + ""
             else    
                 qury = qury + "&by_line=#{service_type}".replace(/\s*\(.*?\)\s*/g, "")
+            gon.service_type = $('#selectbasic2 option:selected')
             station_type = $('#selectbasic3 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic3 option:selected').val()
             if station_type is undefined
                 qury = qury + ""
             else
                 qury = qury + "&by_station_class=#{station_type}".replace(/\s*\(.*?\)\s*/g, "")
+            gon.station_type = $('#selectbasic3 option:selected')
             etod_group = $('#selectbasic4 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic4 option:selected').val()
             if etod_group is undefined
                 qury = qury + ""
             else
                 qury = qury + "&by_etod_category=#{etod_group}".replace(/\s*\(.*?\)\s*/g, "")
+            gon.etod_group = $('#selectbasic4 option:selected').val()
             # pick the advanced search values from slider #
             ## by_vmt ##
             vmt = $('#slider6').val().replace(" ", "%20").toLowerCase() if $('#slider6').val()

@@ -31,7 +31,6 @@
                 else
                     $('select[name=selectbasic3]').val(gon.station_type)
                     $('.selectpicker').selectpicker('refresh')
-                # $("select").val []
                 # empty the boxplot element if it is not already empty
                 $("#boxplot").html ""
                 # 
@@ -40,45 +39,6 @@
               $("#titles").html "<p class='h2'></p>" 
               # initiate the default tooltip  
               $("[rel=tooltip]").tooltip placement: "top"
-              # initiate the left tooltip
-              # $("[rel=tooltipl]").tooltip placement: "left"
-              # initiate the modal that contains the dictionary information
-              # $("#dialog-modal").dialog 
-              #       position:
-              #           my: "right"
-              #           at: "right"
-              #       autoOpen: false
-              #       closeOnEscape: true
-              #       width: 280
-              #       show:
-              #           effect: "blind"
-              #           duration: 200  
-              #       hide:
-              #           effect: "blind"
-              #           duration: 200
-              #       title: 
-              #           $("[rel=tooltipd]").title
-                # initiate the tooltip for question marks and assign the response to the click 
-                # $("[rel=tooltipd]").click (event, ui) ->
-
-                #     $("#dialog-modal").dialog 
-                #     dictionaryResponse = $.ajax
-                #             url: "/dictionary_entries.json?by_name=#{@.title}"
-                #             done: (result) =>
-                #                 return result
-                #     dictionary = dictionaryResponse.complete()
-                #     dictionary.done =>
-                #         dictionaries = dictionary.responseJSON
-                #         @dictionaryentries = App.request "set:dictionaryentry", dictionaries
-                #         $(@el).tooltip "option", title: ""
-                #         $("#dialog-modal").dialog "open"
-                #         $("#dialog-modal").html("")
-                #         $("#dialog-modal").dialog title: "Data Dictionary - #{@dictionaryentries.models["0"].get("interpretation")}"
-                #         $("#dialog-modal").html("<hm2>#{@dictionaryentries.models["0"].get("code")} <br><br> <span>What it is: </span>#{@dictionaryentries.models["0"].get("importance")} <br><br> <span>Why it's important: </span>#{@dictionaryentries.models["0"].get("description")} <br><br> <span>Technical notes: </span>#{@dictionaryentries.models["0"].get("technical_notes")}</hm2>")
-                #         $("#dialog-modal").dialog height: "auto" 
-                #         $("#dialog-modal").dialog modal: true
-              # bind an event to search navbar on the header to scroll to search element 
-              # empty out the input element text if not defined else retain the inputs
                 
 
               $("#resetbuttom").on "click", (e) ->
@@ -155,8 +115,7 @@
                             source: l_n_muni_names
                             minLength: 3
                             select: (event, ui) ->
-                                # console.log event.view.gon
-                                # console.log ui.item.value.toLowerCase()  
+
                         $("#searchinput1").autocomplete
                             source: gon.names.names
                             minLength: 3
@@ -220,7 +179,6 @@
             spintarget = document.getElementById("searchbuttom")
             spinner = new Spinner(spinopts).spin(spintarget)
             btn = e
-            # btn.button('loading')
             # making up the query string for the search from the form inputs and assiging in to a gon object
             urlq = "?"
             muni_name = $('input#searchinput2').val().replace(" ", "%20").toLowerCase() if $('input#searchinput2').val()
@@ -281,8 +239,6 @@
                         $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
                         $("#dialog-modal").dialog height: "auto" 
                         $("#dialog-modal").dialog modal: true
-                        # btn.target.validity.valid = false
-                        # btn.target.innerText = 'Error - Search has no results, Reload Page Or Refine The Search'
 
         etodFired: (e) =>
             App.vent.trigger "etodFired"
