@@ -1,4 +1,6 @@
-### equitableTOD
+### Information Station
+
+[![Build Status](https://travis-ci.org/MAPC/equitabletod.svg?branch=master)](https://travis-ci.org/MAPC/equitabletod) [![Code Climate](https://codeclimate.com/github/MAPC/equitabletod/badges/gpa.svg)](https://codeclimate.com/github/MAPC/equitabletod) [![Test Coverage](https://codeclimate.com/github/MAPC/equitabletod/badges/coverage.svg)](https://codeclimate.com/github/MAPC/equitabletod)
 
 A web application to display Equitable TOD (ETOD) scores, which measure how well transit-oriented development is oriented toward core riders and transit-dependent citizens.
 

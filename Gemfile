@@ -36,6 +36,11 @@ group :development, :test do
   gem 'sqlite3' # for the convenience of the designer
 end
 
+group :test do
+  gem 'rake'
+  gem 'codeclimate-test-reporter', require: nil
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
