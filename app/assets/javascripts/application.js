@@ -28,7 +28,6 @@
 //= require ../../../vendor/assets/javascripts/bootstrap-slider.js
 //= require ../../../vendor/assets/javascripts/mapc-layers.js
 //= require ../../../vendor/assets/javascripts/stickyMojo.js
-//= require ../../../vendor/assets/javascripts/leaflet-image.js
 //= require ../../../vendor/assets/javascripts/spin.js
 //= require ../../../vendor/assets/javascripts/html2canvas.js
 //= require ../../../vendor/assets/javascripts/jspdf.min.js
