@@ -659,7 +659,21 @@
                     done: (result) =>
                         return result
             collection = responseFeature.complete()
+            console.log "collection", collection
+            collection.error =>
+                $("#dialog-modal").dialog "open"
+                $("#dialog-modal").dialog title: "Error"
+                $("#dialog-modal").html("")
+                spinner.stop()
+                $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
             collection.done =>
+                if collection.status == 500
+                    $("#dialog-modal").dialog "open"
+                    $("#dialog-modal").dialog title: "Error"
+                    $("#dialog-modal").html("")
+                    spinner.stop()
+                    $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
+                else
                     fstations = collection.responseJSON
                     features = _.values fstations.features
                     if features.length > 0
