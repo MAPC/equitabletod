@@ -170,7 +170,6 @@
                 fm.init fm_options
                 return
             $(document).ready -> 
-                console.log gon
                 $("html, body").animate
                   scrollTop: ($("#detailscol").offset().top)
                 , 500
@@ -819,7 +818,6 @@
                 return
             map.on "zoomend", onZoomend
             L_PREFER_CANVAS = true
-            console.log "L.DomUtil.get()", L.DomUtil.get("print")
             L.DomEvent.addListener L.DomUtil.get("print"), 'click', (e) ->
                 map.removeLayer fstationZoom
                 map.removeLayer fstation
@@ -1377,7 +1375,6 @@
                         doc.text("tstation.info/#fss/q/by_name=#{gon.feature[0].properties.name}", 405, 768)
                         doc.setFontSize(gon.describton_fontSize)
                         zoomScale = 15 - gon.currentZoom
-                        console.log "zoomScale", zoomScale
                         if zoomScale < 0
                             doc.addImage gon.markerElementData, "PNG", 380+(190 / 4 * (zoomScale+1)), 55+(190 / 4 * (zoomScale+1) ), 190 / ( 1 * (zoomScale+2) ) , 190 / ( 1 * (zoomScale+2))
                             doc.save "tstationinfo.pdf"
