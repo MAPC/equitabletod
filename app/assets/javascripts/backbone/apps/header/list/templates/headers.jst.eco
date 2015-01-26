@@ -8,7 +8,10 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="/" class="navbar-brand" style="font-size: xx-large; line-height: 55%;"><span style="font-weight: bold; font-family: Helvetica;">Ⓣ</span> station.info</a>
+					<a href="/" class="navbar-brand" style="font-size: xx-large; line-height: 55%;">
+					<span style="font-weight: bold; font-family: 'GillSans-Bold';">Ⓣ</span> station.info
+					<!-- <embed type="image/svg+xml" src="/assets/tstationinfologo.svg" /> -->
+					</a>
 				</div>
 				<div class="collapse navbar-collapse" id="headercollapse"style="padding: 0px;">
 					<ul class="nav navbar-nav">
