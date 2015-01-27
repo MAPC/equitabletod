@@ -65,8 +65,10 @@
                 gon.basic_z_point_x = 40
                 gon.basic_z_point_y = 55
 
+                gon.columns_width = 170 
+
                 gon.etod_z_point_x = 40
-                gon.etod_z_point_y = 125
+                gon.etod_z_point_y = 95
 
                 gon.transportation_z_point_x = 40
                 gon.transportation_z_point_y = 350
@@ -956,18 +958,31 @@
                         doc.setLineWidth(0.25)
                         # console.log "something: ",  (gon.feature[0].properties.name.split(' ').map (word) -> word[0].toUpperCase() + word[1..-1].toLowerCase()).join ' '
                         doc.setFontSize(gon.item_fontSize)
+                        doc.setFontType(gon.section_header_fontSyle)
                         doc.setTextColor(0, 0, 0)
-                        doc.text("Municipality: #{gon.feature[0].properties.muni_name}", gon.basic_z_point_x, gon.basic_z_point_y+(gon.item_lead/2))
+                        doc.text("Municipality: ", gon.basic_z_point_x, gon.basic_z_point_y+(gon.item_lead/2))
+                        doc.setFontType(gon.item_fontStyle)
+                        doc.text("                        #{gon.feature[0].properties.muni_name}", gon.basic_z_point_x, gon.basic_z_point_y+(gon.item_lead/2))
                         doc.setFontSize(gon.describton_fontSize)
                         doc.setTextColor(169, 167, 166)
                         doc.setFontType(gon.describton_fontStyle)
 
                         doc.setFontSize(gon.item_fontSize)
                         doc.setTextColor(0, 0, 0)
+                        doc.setFontType(gon.section_header_fontSyle)
+                        doc.text("Station Type: ", gon.basic_z_point_x , gon.basic_z_point_y+(2*gon.item_lead/2))
                         doc.setFontType(gon.item_fontStyle)
-                        doc.text("Station Type: #{gon.feature[0].properties.station_class}", gon.basic_z_point_x, gon.basic_z_point_y+(2*gon.item_lead/2))
-                        doc.text("Community Type: #{gon.feature[0].properties.community_type_description}", gon.basic_z_point_x, gon.basic_z_point_y+(3*gon.item_lead/2))
-                        doc.text("Community Subtype: #{gon.feature[0].properties.subcommunity_type_description}", gon.basic_z_point_x, gon.basic_z_point_y+(4*gon.item_lead/2))
+                        doc.text("                        #{gon.feature[0].properties.station_class}", gon.basic_z_point_x , gon.basic_z_point_y+(2*gon.item_lead/2))
+                        
+                        # go to a second columns and follow the y position as the two prev lines
+                        doc.setFontType(gon.section_header_fontSyle)
+                        doc.text("Community Type: ", gon.basic_z_point_x + gon.columns_width , gon.basic_z_point_y+(gon.item_lead/2))
+                        doc.setFontType(gon.item_fontStyle)
+                        doc.text("                                #{gon.feature[0].properties.community_type_description}", gon.basic_z_point_x + gon.columns_width , gon.basic_z_point_y+(gon.item_lead/2))
+                        doc.setFontType(gon.section_header_fontSyle)
+                        doc.text("Community Subtype: ", gon.basic_z_point_x + gon.columns_width, gon.basic_z_point_y+(2*gon.item_lead/2))
+                        doc.setFontType(gon.item_fontStyle)
+                        doc.text("#{gon.feature[0].properties.subcommunity_type_description}", gon.basic_z_point_x + gon.columns_width, gon.basic_z_point_y+(3*gon.item_lead/2))
 
 
                         doc.setFontSize(7)
@@ -1011,10 +1026,10 @@
                         doc.setTextColor(169, 167, 166)
                         doc.text("Aggregate eTOD measure of demographic", gon.radar_z_x+(gon.radar_width/2)+23, gon.radar_z_y-3 + gon.describton_lead)
                         doc.text("orientation toward transit", gon.radar_z_x+(gon.radar_width/2)+23, gon.radar_z_y-3 + 2*(gon.describton_lead))
-                        doc.text("Aggregate eTOD measure",  gon.radar_z_x-36, gon.radar_z_y+gon.radar_height+12+(1*gon.describton_lead))
-                        doc.text("of transit quality",  gon.radar_z_x-36, gon.radar_z_y+gon.radar_height+12+(2*gon.describton_lead))
-                        doc.text("Aggregate eTOD measure of development",  gon.radar_z_x+gon.radar_width+18, gon.radar_z_y+gon.radar_height+7+ gon.describton_lead)
-                        doc.text("characteristics conducive to transit ridership",  gon.radar_z_x+gon.radar_width+18, gon.radar_z_y+gon.radar_height+7+ 2*(gon.describton_lead))
+                        doc.text("Aggregate eTOD measure",  gon.radar_z_x-36, gon.radar_z_y+gon.radar_height+14+(1*gon.describton_lead))
+                        doc.text("of transit quality",  gon.radar_z_x-36, gon.radar_z_y+gon.radar_height+14+(2*gon.describton_lead))
+                        doc.text("Aggregate eTOD measure of development",  gon.radar_z_x+gon.radar_width+18, gon.radar_z_y+gon.radar_height+5+ gon.describton_lead)
+                        doc.text("characteristics conducive to transit ridership",  gon.radar_z_x+gon.radar_width+18, gon.radar_z_y+gon.radar_height+5+ 2*(gon.describton_lead))
 
                         doc.setFontSize(gon.describton_fontSize)
                         doc.setTextColor(0, 0, 0)
@@ -1027,13 +1042,13 @@
                         doc.text("15", gon.radar_z_x+gon.radar_width+3, gon.radar_z_y+gon.radar_height+3)
                         doc.setFontSize(gon.item_fontSize)
                         doc.setTextColor(0, 0, 0)
-                        doc.text("   Development", gon.radar_z_x+gon.radar_width+10, gon.radar_z_y+gon.radar_height+5)
+                        doc.text("   Development", gon.radar_z_x+gon.radar_width+10, gon.radar_z_y+gon.radar_height+3)
                         doc.line(gon.radar_z_x, gon.radar_z_y+gon.radar_height, gon.radar_z_x+gon.radar_width, gon.radar_z_y+gon.radar_height)
                         doc.setFontSize(gon.describton_fontSize)
                         doc.text("        15", gon.radar_z_x-27, gon.radar_z_y+gon.radar_height+3)
                         doc.setFontSize(gon.item_fontSize)
                         doc.setTextColor(0, 0, 0)
-                        doc.text("Transit", gon.radar_z_x-37, gon.radar_z_y+gon.radar_height+10)
+                        doc.text("Transit", gon.radar_z_x-37, gon.radar_z_y+gon.radar_height+12)
                         # drawing the trangle based on the station's etod values
                         doc.setFillColor(253, 3, 3)
                         doc.setDrawColor(253, 3, 3)
@@ -1099,12 +1114,15 @@
                         doc.line(gon.sparkline_x_left+75, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-4, gon.sparkline_x_left+75, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-25)
                         doc.text("max", gon.sparkline_x_left+76, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead-26)
                         doc.line(gon.sparkline_x_left+85, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead/2, gon.sparkline_x_left+105, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead/2)
-                        doc.line(gon.sparkline_x_left+105, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead/2, gon.sparkline_x_left+105, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+54)
-                        doc.line(gon.sparkline_x_left+100, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+54, gon.sparkline_x_left+105, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+54)
+                        doc.line(gon.sparkline_x_left+105, gon.transportation_z_point_y+gon.section_header_lead+gon.sparkline_lead/2, gon.sparkline_x_left+105, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+135-gon.describton_lead)
+                        doc.line(gon.sparkline_x_left+100, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+135-gon.describton_lead, gon.sparkline_x_left+105, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+135-gon.describton_lead)
                         doc.setFontSize(gon.describton_fontSize2)
-                        doc.text("The box plots show how this station area,", gon.sparkline_x_left-10, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+45)
-                        doc.text("indicated by the red cross (+) compares", gon.sparkline_x_left-10, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+45+gon.describton_lead)
-                        doc.text("to the 350 other transit station areas.", gon.sparkline_x_left-10, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+45+(2*gon.describton_lead))
+                        doc.setTextColor(255, 102, 51)
+                        doc.text("How To Read a Box Plot", gon.sparkline_x_left-10, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+131-gon.describton_lead)
+                        doc.setTextColor(169, 167, 166)
+                        doc.text("The box plots show how this station area,", gon.sparkline_x_left-10, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+131)
+                        doc.text("indicated by the red cross (+) compares", gon.sparkline_x_left-10, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+131+gon.describton_lead)
+                        doc.text("to the 350 other transit station areas.", gon.sparkline_x_left-10, gon.etod_z_point_y+gon.section_header_lead+gon.item_lead/3+gon.item_lead+gon.describton_lead+131+(2*gon.describton_lead))
                         doc.setFontSize(gon.describton_fontSize)
                         doc.setFontSize(gon.section_header_fontSize)
                         doc.setFontType(gon.section_header_fontSyle)
