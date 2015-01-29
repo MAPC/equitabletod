@@ -114,7 +114,7 @@
                 fhupipe = gon.feature["0"].properties.ov_hupipe.toFixed 1 if gon.feature["0"].properties.ov_hupipe.toFixed
                 femppipe = gon.feature["0"].properties.ov_emppipe.toFixed 1 if gon.feature["0"].properties.ov_emppipe.toFixed
                 fvehphh = gon.feature["0"].properties.ov_vehphh.toFixed 2
-                ftrnpcmi = (gon.feature["0"].properties.ov_trnpcmi.toFixed 4) if gon.feature["0"].properties.ov_trnpcmi
+                ftrnpcmi = ((gon.feature["0"].properties.ov_trnpcmi.toFixed 4) * 100) if gon.feature["0"].properties.ov_trnpcmi
                 fghg = gon.feature["0"].properties.ov_ghg.toFixed 4 if gon.feature["0"].properties.ov_ghg
                 fintntot = gon.feature["0"].properties.ov_intntot if gon.feature["0"].properties.ov_intntot
                 fmix = gon.feature["0"].properties.ov_mix.toFixed 4 if gon.feature["0"].properties.ov_mix
