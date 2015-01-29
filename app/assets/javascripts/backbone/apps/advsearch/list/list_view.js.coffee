@@ -662,17 +662,17 @@
             console.log "collection", collection
             collection.error =>
                 $("#dialog-modal").dialog "open"
-                $("#dialog-modal").dialog title: "Error"
+                $("#dialog-modal").dialog title: "No results"
                 $("#dialog-modal").html("")
                 spinner.stop()
-                $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
+                $("#dialog-modal").html("No results - Search has no results, it's possible that there is no station area that meets your filter values, reload the page then refine the search with less filter values")
             collection.done =>
                 if collection.status == 500
                     $("#dialog-modal").dialog "open"
-                    $("#dialog-modal").dialog title: "Error"
+                    $("#dialog-modal").dialog title: "No results"
                     $("#dialog-modal").html("")
                     spinner.stop()
-                    $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
+                    $("#dialog-modal").html("No results - Search has no results, it's possible that there is no station area that meets your filter values, reload the page then refine the search with less filter values")
                 else
                     fstations = collection.responseJSON
                     features = _.values fstations.features

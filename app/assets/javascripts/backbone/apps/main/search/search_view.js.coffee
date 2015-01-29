@@ -97,9 +97,9 @@
                                 App.vent.trigger "searchFired", query
                             else
                                 $("#dialog-modal").dialog "open"
-                                $("#dialog-modal").dialog title: "Error"
+                                $("#dialog-modal").dialog title: "No results"
                                 $("#dialog-modal").html("")
-                                $("#dialog-modal").html("Search has no results, Please try again with different parameteres")
+                                $("#dialog-modal").html("No results - Search has no results, it's possible that there is no station area that meets your filter values, reload the page then refine the search with less filter values")
             # make an ajax call for populating the autocomplete/typeahead when scrolling down 15% of the page  
             $(window).scroll (options) ->
                     if $(window).scrollTop() + $(window).height() > $(document).height() - .75 * $(document).height()
@@ -234,9 +234,9 @@
                         App.vent.trigger "searchFired", query
                     else
                         $("#dialog-modal").dialog "open"
-                        $("#dialog-modal").dialog title: "Error"
+                        $("#dialog-modal").dialog title: "No results"
                         $("#dialog-modal").html("")
-                        $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
+                        $("#dialog-modal").html("No results - Search has no results, it's possible that there is no station area that meets your filter values, reload the page then refine the search with less filter values")
                         $("#dialog-modal").dialog height: "auto" 
                         $("#dialog-modal").dialog modal: true
 
