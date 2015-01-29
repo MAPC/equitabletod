@@ -163,24 +163,76 @@ var RadarChart = {
 					 .style("fill", function(j, i){return "red"})
 					 .style("fill-opacity", cfg.opacityArea)
 					 .on('mouseover', function (d){
+					 					//  g.selectAll(".nodes")
+											// .data(y).enter()
+											// .append("svg:circle")
+											// .attr("class", "radar-chart-serie"+series)
+											// .attr('r', cfg.radius+6)
+											// .attr("alt", function(j){return Math.max(j.value, 0)})
+											// .attr("cx", function(j, i){
+											//   dataValues.push([
+											// 	cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)), 
+											// 	cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
+											// ]);
+											//   console.log(d3.select(j.value));
+											// return cfg.w/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total));
+											// })
+											// .attr("cy", function(j, i){
+											//   return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));
+											// })
+											// .attr("data-id", function(j){return j.axis})
+											// .style("fill", "red").style("fill-opacity", 0.5)
+					 					newX =  parseFloat(d3.select(this).attr('cx')) - 50;
+										newY =  parseFloat(d3.select(this).attr('cy')) - 15;
+										// console.log(d3.select(this));
+											
 										z = "polygon."+d3.select(this).attr("class");
-										tooltip
-											.attr('x', x-10)
-											.attr('y', y["0"])
-											.text("")
-											.transition(200)
-											.style('opacity', 1);
-										g.selectAll("polygon")
-										 .transition(200)
-										 .style("fill-opacity", 0.1); 
-										g.selectAll(z)
-										 .transition(200)
-										 .style("fill-opacity", .7);
+										// console.log(dataValues);
+										// g.selectAll("polygon")
+										// 	.transition(200)
+										// 	.style("fill-opacity", 0.1); 
+										// g.selectAll(z)
+										// 	.transition(200)
+										// 	.style("fill-opacity", .7);
+										// g.selectAll("circle")
+										//     .append('text')
+										//     .style('opacity', 0)
+										//     .style('font-family', 'sans-serif')
+										//     .attr('x', x)
+										//     .attr('y', y)
+										// 	// .transition(200)
+										// 	.text(d3.select(j.value)[0][0])
+										 //    .style('font-size', '13px');
+										// z = "polygon."+d3.select(this).attr("class");
+										// tooltip
+										// 	.attr('x', cx)
+										// 	.attr('y', cy)
+										// 	.transition(200)
+										// 	.text(.text(d3.select(j.value)[0][0]))
+										// tooltip
+										// 	.attr('x', x-20)
+										// 	.attr('y', y["0"])
+										// 	.text("")
+										// 	.transition(200)
+										// 	.style('opacity', 1);
+										// g.selectAll("polygon")
+										//  .transition(200)
+										//  .style("fill-opacity", 0.1); 
+										// g.selectAll(z)
+										//  .transition(200)
+										//  .style("fill-opacity", .7);
+
 									  })
 					 .on('mouseout', function(){
-									 	tooltip
+					 					tooltip
 											.transition(200)
 											.style('opacity', 0);
+					 				// 	g.selectAll("circle")
+										// 	.transition(200)
+										// 	.style("fill-opacity", 0)
+										// g.selectAll(z)
+										// 	.transition(200)
+										// 	.style("fill-opacity", 0);
 										g.selectAll("polygon")
 										 	.transition(200)
 										 	.style("fill-opacity", cfg.opacityArea);
@@ -210,13 +262,14 @@ var RadarChart = {
 		.attr("data-id", function(j){return j.axis})
 		.style("fill", "red").style("fill-opacity", 0.01)
 		.on('mouseover', function (d){
-					newX =  parseFloat(d3.select(this).attr('cx')) - 10;
-					newY =  parseFloat(d3.select(this).attr('cy')) - 5;
+					newX =  parseFloat(d3.select(this).attr('cx')) - 50;
+					newY =  parseFloat(d3.select(this).attr('cy')) - 15;
+					// console.log(d3.select(this));
 					
 					tooltip
 						.attr('x', newX)
 						.attr('y', newY)
-						.text(Format(d.value))
+						.text(d.axis +": " + Format(d.value))
 						.transition(200)
 						.style('opacity', 1);
 						
@@ -244,7 +297,7 @@ var RadarChart = {
 	//Tooltip
 	tooltip = g.append('text')
 			   .style('opacity', 0)
-			   .style('font-family', 'sans-serif')
-			   .style('font-size', '13px');
+			   .style('font-family', 'Lato')
+			   .style('font-size', '12px');
   }
 };
