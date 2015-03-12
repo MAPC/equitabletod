@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.13'
 
@@ -19,7 +20,6 @@ gem 'has_scope',  '0.5.1'
 gem 'gon',        '5.0.4'
 gem 'js-routes',  '0.9.7'
 gem 'jquery-rails', '3.1.0'
-gem 'therubyracer', '0.12.1'
 
 
 group :development do
@@ -47,8 +47,7 @@ group :assets do
   gem 'twitter-bootstrap-rails', '2.2.8'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  gem 'therubyracer', '0.12.1', platforms: :ruby
   gem 'uglifier', '>= 1.0.3'
 end
 
