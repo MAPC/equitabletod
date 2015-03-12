@@ -17,7 +17,7 @@ development: &development
 # Do not set this db to the same as development or production.
 test:       &test
   <<: *default
-  database: metrofuture_test
+  database: tstation_test
   host:     localhost
 
 
