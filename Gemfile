@@ -18,6 +18,8 @@ gem 'has_scope',  '0.5.1'
 
 gem 'gon',        '5.0.4'
 gem 'js-routes',  '0.9.7'
+gem 'jquery-rails', '3.1.0'
+gem 'therubyracer', '0.12.1'
 
 
 group :development do
@@ -32,8 +34,6 @@ group :development, :test do
   gem 'rspec-rails',        '2.14.1'
   gem 'factory_girl_rails', '4.4.0'
   gem 'faker',              '1.2.0'
-
-  gem 'sqlite3' # for the convenience of the designer
 end
 
 # Gems used only for assets and not required
@@ -44,8 +44,6 @@ group :assets do
   gem 'eco',          '1.0.0'
   gem 'less',         '2.4.0'
   gem 'less-rails',   '2.4.2'
-  gem 'therubyracer', '0.12.1'
-
   gem 'twitter-bootstrap-rails', '2.2.8'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -53,8 +51,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails', '3.1.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
