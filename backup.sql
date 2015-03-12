@@ -23,14 +23,14 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
-SET search_path = public, pg_catalog;
+SET search_path = tstation, public, pg_catalog;
 
-SET default_tablespace = '';
+SET default_tablespace = 'tstation';
 
 SET default_with_oids = false;
 
 --
--- Name: dictionary_entries; Type: TABLE; Schema: public; Owner: arminakhavan; Tablespace: 
+-- Name: dictionary_entries; Type: TABLE; Schema: tstation; Owner: editor; Tablespace: 
 --
 
 CREATE TABLE dictionary_entries (
@@ -47,10 +47,10 @@ CREATE TABLE dictionary_entries (
 );
 
 
-ALTER TABLE public.dictionary_entries OWNER TO arminakhavan;
+ALTER TABLE tstation.dictionary_entries OWNER TO editor;
 
 --
--- Name: dictionary_entries_id_seq; Type: SEQUENCE; Schema: public; Owner: arminakhavan
+-- Name: dictionary_entries_id_seq; Type: SEQUENCE; Schema: tstation; Owner: editor
 --
 
 CREATE SEQUENCE dictionary_entries_id_seq
@@ -61,17 +61,17 @@ CREATE SEQUENCE dictionary_entries_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.dictionary_entries_id_seq OWNER TO arminakhavan;
+ALTER TABLE tstation.dictionary_entries_id_seq OWNER TO editor;
 
 --
--- Name: dictionary_entries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: arminakhavan
+-- Name: dictionary_entries_id_seq; Type: SEQUENCE OWNED BY; Schema: tstation; Owner: editor
 --
 
 ALTER SEQUENCE dictionary_entries_id_seq OWNED BY dictionary_entries.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: arminakhavan; Tablespace: 
+-- Name: schema_migrations; Type: TABLE; Schema: tstation; Owner: editor; Tablespace: 
 --
 
 CREATE TABLE schema_migrations (
@@ -79,10 +79,10 @@ CREATE TABLE schema_migrations (
 );
 
 
-ALTER TABLE public.schema_migrations OWNER TO arminakhavan;
+ALTER TABLE tstation.schema_migrations OWNER TO editor;
 
 --
--- Name: station_areas; Type: TABLE; Schema: public; Owner: arminakhavan; Tablespace: 
+-- Name: station_areas; Type: TABLE; Schema: tstation; Owner: editor; Tablespace: 
 --
 
 CREATE TABLE station_areas (
@@ -194,10 +194,10 @@ CREATE TABLE station_areas (
 );
 
 
-ALTER TABLE public.station_areas OWNER TO arminakhavan;
+ALTER TABLE tstation.station_areas OWNER TO editor;
 
 --
--- Name: station_areas_id_seq; Type: SEQUENCE; Schema: public; Owner: arminakhavan
+-- Name: station_areas_id_seq; Type: SEQUENCE; Schema: tstation; Owner: editor
 --
 
 CREATE SEQUENCE station_areas_id_seq
@@ -208,17 +208,17 @@ CREATE SEQUENCE station_areas_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.station_areas_id_seq OWNER TO arminakhavan;
+ALTER TABLE tstation.station_areas_id_seq OWNER TO editor;
 
 --
--- Name: station_areas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: arminakhavan
+-- Name: station_areas_id_seq; Type: SEQUENCE OWNED BY; Schema: tstation; Owner: editor
 --
 
 ALTER SEQUENCE station_areas_id_seq OWNED BY station_areas.id;
 
 
 --
--- Name: station_areas_transit_lines; Type: TABLE; Schema: public; Owner: arminakhavan; Tablespace: 
+-- Name: station_areas_transit_lines; Type: TABLE; Schema: tstation; Owner: editor; Tablespace: 
 --
 
 CREATE TABLE station_areas_transit_lines (
@@ -228,10 +228,10 @@ CREATE TABLE station_areas_transit_lines (
 );
 
 
-ALTER TABLE public.station_areas_transit_lines OWNER TO arminakhavan;
+ALTER TABLE tstation.station_areas_transit_lines OWNER TO editor;
 
 --
--- Name: station_areas_transit_lines_id_seq; Type: SEQUENCE; Schema: public; Owner: arminakhavan
+-- Name: station_areas_transit_lines_id_seq; Type: SEQUENCE; Schema: tstation; Owner: editor
 --
 
 CREATE SEQUENCE station_areas_transit_lines_id_seq
@@ -242,17 +242,17 @@ CREATE SEQUENCE station_areas_transit_lines_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.station_areas_transit_lines_id_seq OWNER TO arminakhavan;
+ALTER TABLE tstation.station_areas_transit_lines_id_seq OWNER TO editor;
 
 --
--- Name: station_areas_transit_lines_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: arminakhavan
+-- Name: station_areas_transit_lines_id_seq; Type: SEQUENCE OWNED BY; Schema: tstation; Owner: editor
 --
 
 ALTER SEQUENCE station_areas_transit_lines_id_seq OWNED BY station_areas_transit_lines.id;
 
 
 --
--- Name: transit_lines; Type: TABLE; Schema: public; Owner: arminakhavan; Tablespace: 
+-- Name: transit_lines; Type: TABLE; Schema: tstation; Owner: editor; Tablespace: 
 --
 
 CREATE TABLE transit_lines (
@@ -265,10 +265,10 @@ CREATE TABLE transit_lines (
 );
 
 
-ALTER TABLE public.transit_lines OWNER TO arminakhavan;
+ALTER TABLE tstation.transit_lines OWNER TO editor;
 
 --
--- Name: transit_lines_id_seq; Type: SEQUENCE; Schema: public; Owner: arminakhavan
+-- Name: transit_lines_id_seq; Type: SEQUENCE; Schema: tstation; Owner: editor
 --
 
 CREATE SEQUENCE transit_lines_id_seq
@@ -279,45 +279,45 @@ CREATE SEQUENCE transit_lines_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.transit_lines_id_seq OWNER TO arminakhavan;
+ALTER TABLE tstation.transit_lines_id_seq OWNER TO editor;
 
 --
--- Name: transit_lines_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: arminakhavan
+-- Name: transit_lines_id_seq; Type: SEQUENCE OWNED BY; Schema: tstation; Owner: editor
 --
 
 ALTER SEQUENCE transit_lines_id_seq OWNED BY transit_lines.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: arminakhavan
+-- Name: id; Type: DEFAULT; Schema: tstation; Owner: editor
 --
 
 ALTER TABLE ONLY dictionary_entries ALTER COLUMN id SET DEFAULT nextval('dictionary_entries_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: arminakhavan
+-- Name: id; Type: DEFAULT; Schema: tstation; Owner: editor
 --
 
 ALTER TABLE ONLY station_areas ALTER COLUMN id SET DEFAULT nextval('station_areas_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: arminakhavan
+-- Name: id; Type: DEFAULT; Schema: tstation; Owner: editor
 --
 
 ALTER TABLE ONLY station_areas_transit_lines ALTER COLUMN id SET DEFAULT nextval('station_areas_transit_lines_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: arminakhavan
+-- Name: id; Type: DEFAULT; Schema: tstation; Owner: editor
 --
 
 ALTER TABLE ONLY transit_lines ALTER COLUMN id SET DEFAULT nextval('transit_lines_id_seq'::regclass);
 
 
 --
--- Data for Name: dictionary_entries; Type: TABLE DATA; Schema: public; Owner: arminakhavan
+-- Data for Name: dictionary_entries; Type: TABLE DATA; Schema: tstation; Owner: editor
 --
 
 COPY dictionary_entries (id, name, code, description, importance, interpretation, technical_notes, "order", created_at, updated_at) FROM stdin;
@@ -329,14 +329,14 @@ COPY dictionary_entries (id, name, code, description, importance, interpretation
 
 
 --
--- Name: dictionary_entries_id_seq; Type: SEQUENCE SET; Schema: public; Owner: arminakhavan
+-- Name: dictionary_entries_id_seq; Type: SEQUENCE SET; Schema: tstation; Owner: editor
 --
 
 SELECT pg_catalog.setval('dictionary_entries_id_seq', 1, false);
 
 
 --
--- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: arminakhavan
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: tstation; Owner: editor
 --
 
 COPY schema_migrations (version) FROM stdin;
@@ -349,7 +349,7 @@ COPY schema_migrations (version) FROM stdin;
 
 
 --
--- Data for Name: station_areas; Type: TABLE DATA; Schema: public; Owner: arminakhavan
+-- Data for Name: station_areas; Type: TABLE DATA; Schema: tstation; Owner: editor
 --
 
 COPY station_areas (id, name, muni_name, muni_id, latitude, longitude, community_type_id, community_type_description, subcommunity_type_id, subcommunity_type_description, station_class, ov_area, ex_area, ex_aval, ov_aval, ov_comac, ex_comac, ov_compc, ov_comprk, ex_comprk, ov_dvothac, ex_dvothac, ov_dvothpc, ov_dvotprk, ex_dvotprk, ov_ed_att, ov_emp10, ex_emp10, ov_empcons, ex_empcons, ov_empden, ov_empplan, ex_empplan, ov_est_10, ex_est_10, ov_far, ov_ghg, ex_ghg, ov_hh10, ex_hh10, ov_hhnocar, ov_hhinc, ov_hresac, ex_hresac, ov_hrespc, ov_hrspkac, ex_hrspkac, ov_hu10, ex_hu10, ov_hu_0010, ex_hu_0010, ov_hucons, ex_hucons, ov_hupac, ov_huplan, ex_huplan, ov_intnpac, ov_intntot, ov_jobacc, ov_lresac, ex_lresac, ov_lrespc, ov_mix, ov_pct_abc, ov_pcttran, ov_pop_0010, ex_pop_0010, ov_pop10, ex_pop10, ex_prkac, ov_prkac, ov_prkpc, ov_rentocc, ov_respc, ov_taxrev, ex_taxrev, ov_trnpcmi, ov_vacdvac, ex_vacdvac, ov_vacdvpc, ov_vacunac, ov_vacunpc, ov_vehphh, ov_vmthday, phase, mapc, walkscore, etod_q0car, etod_q25k, etod_qabc, etod_qaff, etod_qdens, etod_qgrav, etod_qrent, etod_qtas, etod_qtci, etod_qwalk, etod_sub1t, etod_sub2o, etod_sub3d, etod_total, etod_type, created_at, updated_at, "LINE_DESCR") FROM stdin;
@@ -684,14 +684,14 @@ COPY station_areas (id, name, muni_name, muni_id, latitude, longitude, community
 
 
 --
--- Name: station_areas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: arminakhavan
+-- Name: station_areas_id_seq; Type: SEQUENCE SET; Schema: tstation; Owner: editor
 --
 
 SELECT pg_catalog.setval('station_areas_id_seq', 1, false);
 
 
 --
--- Data for Name: station_areas_transit_lines; Type: TABLE DATA; Schema: public; Owner: arminakhavan
+-- Data for Name: station_areas_transit_lines; Type: TABLE DATA; Schema: tstation; Owner: editor
 --
 
 COPY station_areas_transit_lines (id, station_area_id, transit_line_id) FROM stdin;
@@ -699,14 +699,14 @@ COPY station_areas_transit_lines (id, station_area_id, transit_line_id) FROM std
 
 
 --
--- Name: station_areas_transit_lines_id_seq; Type: SEQUENCE SET; Schema: public; Owner: arminakhavan
+-- Name: station_areas_transit_lines_id_seq; Type: SEQUENCE SET; Schema: tstation; Owner: editor
 --
 
 SELECT pg_catalog.setval('station_areas_transit_lines_id_seq', 1, false);
 
 
 --
--- Data for Name: transit_lines; Type: TABLE DATA; Schema: public; Owner: arminakhavan
+-- Data for Name: transit_lines; Type: TABLE DATA; Schema: tstation; Owner: editor
 --
 
 COPY transit_lines (id, name, service_type, mapc_code, created_at, updated_at) FROM stdin;
@@ -714,14 +714,14 @@ COPY transit_lines (id, name, service_type, mapc_code, created_at, updated_at) F
 
 
 --
--- Name: transit_lines_id_seq; Type: SEQUENCE SET; Schema: public; Owner: arminakhavan
+-- Name: transit_lines_id_seq; Type: SEQUENCE SET; Schema: tstation; Owner: editor
 --
 
 SELECT pg_catalog.setval('transit_lines_id_seq', 1, false);
 
 
 --
--- Name: dictionary_entries_pkey; Type: CONSTRAINT; Schema: public; Owner: arminakhavan; Tablespace: 
+-- Name: dictionary_entries_pkey; Type: CONSTRAINT; Schema: tstation; Owner: editor; Tablespace: 
 --
 
 ALTER TABLE ONLY dictionary_entries
@@ -729,7 +729,7 @@ ALTER TABLE ONLY dictionary_entries
 
 
 --
--- Name: station_areas_pkey; Type: CONSTRAINT; Schema: public; Owner: arminakhavan; Tablespace: 
+-- Name: station_areas_pkey; Type: CONSTRAINT; Schema: tstation; Owner: editor; Tablespace: 
 --
 
 ALTER TABLE ONLY station_areas
@@ -737,7 +737,7 @@ ALTER TABLE ONLY station_areas
 
 
 --
--- Name: station_areas_transit_lines_pkey; Type: CONSTRAINT; Schema: public; Owner: arminakhavan; Tablespace: 
+-- Name: station_areas_transit_lines_pkey; Type: CONSTRAINT; Schema: tstation; Owner: editor; Tablespace: 
 --
 
 ALTER TABLE ONLY station_areas_transit_lines
@@ -745,7 +745,7 @@ ALTER TABLE ONLY station_areas_transit_lines
 
 
 --
--- Name: transit_lines_pkey; Type: CONSTRAINT; Schema: public; Owner: arminakhavan; Tablespace: 
+-- Name: transit_lines_pkey; Type: CONSTRAINT; Schema: tstation; Owner: editor; Tablespace: 
 --
 
 ALTER TABLE ONLY transit_lines
@@ -753,19 +753,19 @@ ALTER TABLE ONLY transit_lines
 
 
 --
--- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: arminakhavan; Tablespace: 
+-- Name: unique_schema_migrations; Type: INDEX; Schema: tstation; Owner: editor; Tablespace: 
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: arminakhavan
+-- Name: public; Type: ACL; Schema: -; Owner: editor
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM arminakhavan;
-GRANT ALL ON SCHEMA public TO arminakhavan;
+REVOKE ALL ON SCHEMA public FROM editor;
+GRANT ALL ON SCHEMA public TO editor;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
