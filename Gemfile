@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.0.0'
 
 gem 'rails', '3.2.13'
 
@@ -8,14 +8,13 @@ gem 'rails', '3.2.13'
 
 gem 'pg', '0.17.1'
 
-#    app server
-gem 'unicorn'
-gem 'foreman'
+gem 'unicorn' # app server
+gem 'foreman' # process manager
 
-gem 'rabl', '0.9.3'
-gem 'oj',   '2.5.5'
+gem 'rabl', '0.9.3' # JSON templates
+gem 'oj',   '2.5.5' # JSON parser
 
-gem 'has_scope',  '0.5.1'
+gem 'has_scope',  '0.5.1' # scopes for searching
 
 gem 'gon',        '5.0.4'
 gem 'js-routes',  '0.9.7'
