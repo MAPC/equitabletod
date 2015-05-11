@@ -1,25 +1,25 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-development:
-  adapter: postgresql
-  database: etod_dev
-  pool: 5
-  timeout: 5000
+default: &default
+  adapter:  postgresql
+  database: <%= ENV.fetch('DB_NAME') { 'tstation_development' } %>
+  username: <%= ENV.fetch('DB_USERNAME') { nil } %>
+  password: <%= ENV.fetch('DB_PASSWORD') { nil } %>
+  host:     <%= ENV.fetch('DB_PORT_5432_TCP_ADDR') { 'localhost' } %>
+  port:     <%= ENV.fetch('DB_PORT_5432_TCP_PORT') { '5432' }      %>
+  timeout:  5000
+  pool:     5
+  schema_search_path: <%= ENV.fetch('DB_SCHEMA_SEARCH_PATH') { "tstation,public" } %>
+
+development: &development
+  <<: *default
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  adapter: postgresql
-  database: etod_test
-  pool: 5
-  timeout: 5000
+test:       &test
+  <<: *default
+  database: tstation_test
+  host:     localhost
+
 
 production:
-  adapter: postgresql
-  database: etod_prod
-  pool: 5
-  timeout: 5000
+  <<: *default
