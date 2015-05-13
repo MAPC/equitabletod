@@ -1,13 +1,13 @@
 default: &default
   adapter:  postgresql
-  database: <%= ENV.fetch('DB_NAME') { 'tstation_development' } %>
-  username: <%= ENV.fetch('DB_USERNAME') { nil } %>
-  password: <%= ENV.fetch('DB_PASSWORD') { nil } %>
-  host:     <%= ENV.fetch('DB_PORT_5432_TCP_ADDR') { 'localhost' } %>
-  port:     <%= ENV.fetch('DB_PORT_5432_TCP_PORT') { '5432' }      %>
+  database: <%= ENV.fetch('DB_NAME')               { 'tstation_development' } %>
+  username: <%= ENV.fetch('DB_USERNAME')           { nil }                    %>
+  password: <%= ENV.fetch('DB_PASSWORD')           { nil }                    %>
+  host:     <%= ENV.fetch('DB_PORT_5432_TCP_ADDR') { 'localhost' }            %>
+  port:     <%= ENV.fetch('DB_PORT_5432_TCP_PORT') { '5432' }                 %>
   timeout:  5000
   pool:     5
-  schema_search_path: <%= ENV.fetch('DB_SCHEMA_SEARCH_PATH') { "tstation,public" } %>
+  schema_search_path: <%= schema = ENV.fetch('DB_SCHEMA_SEARCH_PATH') { 'tstation' } + ',public' %>
 
 development: &development
   <<: *default
