@@ -6,7 +6,7 @@ class ServiceType < ActiveRecord::Base
   before_save :set_slug
 
   def set_slug
-    self.slug = self.mode.downcase.gsub(/[\s+\W]+/, '-').gsub(/\A[-*]+|[-*]\z+/, '')
+    self.slug = self.mode.parameterize
   end
 
   def title

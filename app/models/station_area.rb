@@ -8,9 +8,9 @@ class StationArea < ActiveRecord::Base
 
   # Basic Search
 
-  scope :by_name,      -> name { where("station_areas.name ~* ?", name) }
+  scope :by_name,      -> name      { where("station_areas.name ~* ?", name) }
   scope :by_muni_name, -> muni_name { where("station_areas.muni_name ~* ?", muni_name) }
-  scope :by_line,      -> by_line { includes(:transit_lines).where("transit_lines.name ~* ?", by_line) }
+  scope :by_line,      -> by_line   { includes(:transit_lines).where("transit_lines.name ~* ?", by_line) }
   
   scope :by_service, -> service_type {
     includes(:transit_lines).where("transit_lines.service_type ~* ?", service_type) }
