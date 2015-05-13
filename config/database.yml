@@ -19,6 +19,7 @@ test:       &test
   <<: *default
   database: tstation_test
   host:     localhost
+  schema_search_path: public
 
 
 production:
