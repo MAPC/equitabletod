@@ -902,7 +902,7 @@
                 html2canvas document.getElementById("map"),
                     taintTest: false
                     useCORS: true
-                    proxy: 'assets/php/proxy.php'
+                    #proxy: 'assets/php/proxy.php'
                     onrendered: (canvas) ->
                         imagel = document.createElement("div")
                         imagel.setAttribute('id', 'mapImage')
