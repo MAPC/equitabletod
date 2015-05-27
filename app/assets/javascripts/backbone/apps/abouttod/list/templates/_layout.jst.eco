@@ -2,246 +2,261 @@
 	<div>
 		<div id="home-txt" class="white-bg">
 			<div class="container-fluid">
+				<!-- <div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<p class="h2">Learn About TOD</p>
+					</div>
+				</div> -->
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-left">
+				</br>
+				</br>
+				</br>
+					<div class="col-md-4 col-md-offset-2 text-left">
 						<div id="etodpagetext">
-							<p class="h2">
-								Learn About TOD
+							<p> Transit Oriented Development (TOD) is a strategy for developing residential and commercial areas in places that are already accessible by public transit, in ways that reduce congestion, improve affordability, support ridership, and create neighborhoods where people want to live. 
 							</p>
-							<p class="hm2"> Transit Oriented Development (TOD) is a strategy for developing residential and commercial areas in places that are already accessible by public transit, in ways that reduce congestion, improve affordability, support ridership, and create neighborhoods where people want to live. 
-							</p>
-						</br>
-							<p class = "hm2">
-							The Boston region is transit-rich, with 25% of housing units and 37% of employment within a half-mile of a rapid transit or commuter rail station, and every day sees new growth around stations.  However, achieving sustainable and equitable TOD in the Boston region requires varied strategies. Defining these strategies requires a detailed understanding of factors such as land use, demographics, and development plans in existing station areas. Fortunately, much has been learned over the last few decades about what does and does not work, the components of successful TOD, and how to measure outcomes and impacts. 
+							<p>
+							The Boston region is transit-rich, with 25% of housing units and 37% of employment within a half-mile of a rapid transit or commuter rail station, and every day sees new growth around stations.  However, achieving sustainable and equitable TOD in the Boston region requires varied strategies. 
 							</p>
 						</br>
-							<p class = "hm2">
-							The resources below provide a general introduction to TOD, and information on some of MAPC’s current efforts to support TOD in the region.
+						</div>
+					</div>
+					<div class="col-md-4 col-md-offset-0 text-left">
+							<p>
+							Defining these strategies requires a detailed understanding of factors such as land use, demographics, and development plans in existing station areas. Fortunately, much has been learned over the last few decades about what does and does not work, the components of successful TOD, and how to measure outcomes and impacts. The resources below provide a general introduction to TOD, and information on some of MAPC’s current efforts to support TOD in the region.
 							</p>
-							<p class="h2">
+							
+					</div>
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-2">
+						<p class="h2">
 								General Introduction to TOD
 							</p>
-						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
-						<p class="hm2">
+					<div class="col-md-4 col-md-offset-2 text-left">
+						<br>
+						<p>
 							<strong><a href="http://www.ctod.org/pdfs/tod101.pdf" target="_blank">TOD 101: Why TOD? Why Now?</a></strong>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						The first in a series of short publications on TOD funded by the Federal Transit Administration.  In an easy-to-read format, concisely explains what TOD is and how shifting demographics and a changing real estate market have increased TOD opportunities. (2007, 24 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
-						<a href="http://www.ctod.org/pdfs/tod101.pdf" target="_blank"><img src="assets/tod101.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://www.ctod.org/pdfs/tod101.pdf" target="_blank"><img src="assets/tod101.png" class="img-responsive" alt="ctod.org TOD 101 pdf cover image"></a>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
-						<p class="hm2">
+					<div class="col-md-4 col-md-offset-2 text-left">
+						<p>
 							<strong><a href="http://www.ctod.org/pdfs/tod202stations.pdf" target="_blank">TOD 202: Station Area Planning</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						Part of a series on TOD funded by the Federal Transit Administration, TOD 202 aims to simplify the complex decisions that surround planning for TOD projects and station areas.  Following the easy-to-read format of TOD 101, this manual provides details about the scales of development likely to occur in different places, offers insights into station area planning principles, and includes TOD plan checklists. (2008, 28 pp.)
 						</p>
 					</div>
 					<br>
-					<div class="col-md-4 col-md-offset-0 text-left">
-						<a href="http://www.ctod.org/pdfs/tod202stations.pdf" target="_blank"><img src="assets/tod202.png" class="img-responsive" alt="Image Title"></a>
-					</div>
+					
+					<div class="col-md-3 col-md-offset-1 text-left">
+				</br>
+						<a href="http://www.ctod.org/pdfs/tod202stations.pdf" target="_blank"><img src="assets/tod202.png" class="img-responsive" alt="ctod.org TOD 202 pdf image cover"></a>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
+					<div class="col-md-4 col-md-offset-2 text-left">
 						<br>
-						<p class="hm2">
+						<p>
 							<strong><a href="http://www.fta.dot.gov/documents/TOD_Lessons_Learned_12_21.pdf" target="_blank">FTA's TOD Lessons Learned</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						This short booklet summarizes the results of listening sessions undertaken by the Federal Transit Administration (FTA) in several cities with new or impending transit investments. Input from planners, developers, and bankers in Portland, Minneapolis, Phoenix, and Charlotte, is distilled into a summary of what works, what doesn’t work, and what facilitates successful TOD.  (2005, 12 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
-						<br>
-						<a href="http://www.fta.dot.gov/documents/TOD_Lessons_Learned_12_21.pdf" target="_blank"><img src="assets/fta.png" class="img-responsive" alt="Image Title"></a>
+					<div class="col-md-3 col-md-offset-1 text-left">
+						</br>
+						<a href="http://www.fta.dot.gov/documents/TOD_Lessons_Learned_12_21.pdf" target="_blank"><img src="assets/fta.png" class="img-responsive" alt="FTA TOD lessons leared pdf cover image"></a>
 					</div>
 					<p>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
-						<p class="hm2">
+					<div class="col-md-4 col-md-offset-2 text-left">
+						<p>
 							<a href="http://uli.org/wp-content/uploads/2012/07/TP_DevTransit.ashx_.pdf" target="_blank"><strong>ULI's Ten Principles for Successful Development Around Transit</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						A concise overview of ten principles for successful TODs, published by land use research organization Urban Land Institute. Intended as “reminders” for communities, designers, developers, and transit agencies working to create TOD, this booklet draws on many examples from around the country to illustrate the principles it outlines. (2003, 23 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
-						<a href="http://uli.org/wp-content/uploads/2012/07/TP_DevTransit.ashx_.pdf" target="_blank"><img src="assets/uli.png" class="img-responsive" alt="Image Title"></a>
+						<a href="http://uli.org/wp-content/uploads/2012/07/TP_DevTransit.ashx_.pdf" target="_blank"><img src="assets/uli.png" class="img-responsive" alt="Urban land institute princimples of TOD cover image"></a>
 					</div>
 					<br>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
+					<div class="col-md-4 col-md-offset-2 text-left">
 						<p class="h2">
 							Research on TOD
 						</p>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
-						<p class="hm2">
+					<div class="col-md-4 col-md-offset-2 text-left">
+						<p>
 							<a href="www.toddata.cnt.org" target="_blank"><strong>Transit Oriented Development Database</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						Provides economic and demographic information for every existing and proposed fixed guideway transit station in the U.S. (4,417 existing stations and 1,583 proposed stations in 54 metropolitan areas), as of December 2011. Data are available at three geographic levels; the transit zone (the 1/2 mile or 1/4 mile buffer around a station), the transit shed (the aggregate of transit zones), and the transit region (aligns with the Metropolitan Statistical Area boundary). Data sources include the 2000 and 2010 Decennial Census, the 2009 American Community Survey, the 2000 Census Transportation Planning Package, and the 2002 - 2009 Local Employment Dynamics. Created by the Center for Transit Oriented Development.  (2003-2012)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
 						<a href="www.toddata.cnt.org" target="_blank"><img src="assets/ctod.png" class="img-responsive" alt="Image Title"></a>
 					</div>
+					
 				</div>
-				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
-						<p class="hm2">
+					<div class="col-md-4 col-md-offset-2 text-left">
+						<p>
 							<br>
 							<a href="http://www.ncsl.org/Documents/transportation/TOD_Final.pdf" target="_blank"><strong>Transit-oriented Development in the States</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						Explores the role of State government to create regulatory, planning and funding frameworks to encourage TOD, with a spotlight on actions taken in Utah, Minnesota, New Mexico, Massachusetts, and California.  Explains why demand for TOD is increasing, and the relationship between TOD and State policy goals. Explains steps that States are taking to encourage TOD, such as facilitating land assembly, encouraging municipalities to create supportive zoning, and channeling resources to transit and to TODs. Contains a useful Appendix detailing State-level TOD statutes and programs. (2012, 38 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="row">
+				<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
 						<a href="http://www.ncsl.org/Documents/transportation/TOD_Final.pdf" target="_blank"><img src="assets/todus.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
-						<p class="hm2">
+					<div class="col-md-4 col-md-offset-2 text-left">
+						<p>
 							<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rpt_128.pdf" target="_blank"><strong>Effects of TOD on Housing, Parking, and Travel</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						TOD is an exciting strategy to many stakeholders in part because it is presents an alternative to the car-dependent, energy-intensive way communities have been built over the past several decades.  An essential element of a successful TOD is that people who live or work in the station area actually use transit as their mode of choice.  This report explores the actual behavior and motivation of TOD residents, employees, and employers in their mode choice.  It includes a detailed literature review and original data on residential trip generation and parking behavior in TODs, and identifies best practices to promote, maintain, and improve TOD-related transit ridership. (2008, 58 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
 						<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rpt_128.pdf" target="_blank"><img src="assets/todefects.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
-						<p class="hm2">
+					<div class="col-md-4 col-md-offset-2 text-left">
+						<p>
 							<a href="http://www.mapc.org/hnef" target="_blank"><strong>Transit Oriented Development and Health: A Health Impact Assessment to Inform the Healthy Neighborhoods Equity Fund</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						The Healthy Neighborhoods Equity Fund (HNEF) is a proposed $30 million private equity fund designed to transform neighborhoods, support health, and promote regional equity.  This Health Impact Assessment (HIA), undertaken by MAPC, uses three TOD projects in the City of Boston to examine the potential health impacts that could result from investments made by the HNEF. While the goal of this HIA was to help define successful HNEF investments in terms of health outcomes, the HIA approach can also inform developers and investors more broadly about a full range of changes that can result from TOD projects in general.  Additional health-related data can be accessed at http://ourhealthymass.org/. (2013, 105 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
 						<a href="http://www.mapc.org/hnef" target="_blank"><img src="assets/todhia.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
-						<p class="hm2">
+					<div class="col-md-4 col-md-offset-2 text-left">
+						<p>
 							<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rpt_95c17.pdf" target="_blank"><strong>Traveler Response to Transportation System Changes Handbook, Third Edition: Chapter 17, Transit-Oriented Development</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						Presents new and synthesized research on how transportation behavior changes in response to efforts to create TOD. Designed for transportation professionals as a comprehensive, accessible, interpretive compendium based on (1) different types of transportation system changes and policy actions and (2) alternative land use and site development design approaches. The study includes examples of TOD success factors, an index measuring “TOD-ness”, and case studies on traveler behavior in Portland, Arlington (VA), and Baltimore. (2008, 147 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
 						<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rpt_95c17.pdf" target="_blank"><img src="assets/trespons.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
-						<p class="hm2">
+					<div class="col-md-4 col-md-offset-2 text-left">
+						<p>
 							<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rrd_52.pdf" target="_blank"><strong>Transit-Oriented Development and Joint Development in the United States: A Literature Review</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						This comprehensive literature review aims to summarize what is known and not yet known about TOD and Transit Joint Development (TJD), the latter of which often occurs through a public-private partnership rather than being led by a public agency, and tends to be tied to a specific real estate development rather than encompasses a whole neighborhood.  The literature review evaluates the impacts and benefits of TOD and TJD, and covers key challenges and best practices in institutional collaboration, implementation, and urban design.  References and annotated bibliography included.  (2002, 144 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
 						<a href="http://onlinepubs.trb.org/onlinepubs/tcrp/tcrp_rrd_52.pdf" target="_blank"><img src="assets/todrev.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
+					<div class="col-md-4 col-md-offset-2 text-left">
 						<p class="h2">
 							TOD Planning in Metro Boston
 						</p>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
-						<p class="hm2">
+					<div class="col-md-4 col-md-offset-2 text-left">
+						<p>
 							<a href="http://www.mapc.org/melrosetod" target="_blank"><strong>TOD Project: Melrose Commuter Rail Corridor Visioning</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						Growth in downtown Melrose, MA and around its transit stations has been taking place for decades, but new development pressures are creating the need to look at how and where additional growth can be accommodated while maintaining the character of the community. The Tremont/Essex Street Corridor provides excellent access to the downtown, nearby schools, recreational opportunities, and transit, creating a corridor that is both desirable and an appropriate location for additional housing and mixed-use development. Building upon the existing transit assets in Melrose, MAPC and the City embarked on a planning process for the Tremont/Essex Street Corridor. This final report outlines a series of recommendations based on the core concepts of successful TOD, along with short- and long-term actions to capitalize on opportunities for, and overcome impediments to, investment in the Corridor. (2013, 51 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
 						<a href="http://www.mapc.org/melrosetod" target="_blank"><img src="assets/todp1.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
+					<div class="col-md-4 col-md-offset-2 text-left">
 						<br>
-						<p class="hm2">
+						<p>
 							<a href="http://www.mapc.org/envision-wollaston" target="_blank"><strong>TOD Project: Re-Envisioning Wollaston</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						The City of Quincy, MA benefits in many ways from having four MBTA Red Line rapid rail stations within its borders. Growth and development in Quincy Center and many of the city’s neighborhood business districts occurred well before the extension of the Red Line, but transit has played a key role in the way the City has re-envisioned the future of the areas around the stations. Transit access is one critical component in attracting new development, infrastructure and investment to an area and is clearly embodied in the ongoing revitalization of Quincy Center. Building upon the existing transit assets in Quincy, the Metropolitan Area Planning Council (MAPC) in partnership with the City embarked on a neighborhood planning process to identify the opportunities and impediments in Wollaston Center and develop an action-oriented plan for Re-Envisioning Wollaston. (2013, 47 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
 						<a href="http://www.mapc.org/envision-wollaston" target="_blank"><img src="assets/todp2.png" class="img-responsive" alt="Image Title"></a>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-md-offset-2 text-left">
+					<div class="col-md-4 col-md-offset-2 text-left">
 						<br>
-						<p class="hm2">
+						<p>
 							<a href="http://www.mapc.org/green-line-extension" target="_blank"><strong>TOD Project: Green Line Extension Community Visioning</strong></a>
 						</p>
 					</br>
-						<p class="hm2">
+						<p>
 						This report summarizes MAPC’s evaluation of the possible benefits and impacts associated with the extension of the Green Line into Somerville and Medford, two Massachusetts cities just outside of, but seamlessly linked to, the city of Boston.  MAPC undertook this analysis for the Massachusetts Department of Transportation well before funding had been secured to make the extension a reality.  MAPC was asked to analyze the potential for land use, zoning, and development changes, and to estimate future economic development benefits that could be derived from those changes. While benefits are anticipated for both cities and their residents, impacts such as additional traffic, added pressure on parking, and increased housing costs are also possible. The recommendations in this report were informed by input from both cities, key stakeholders in the area, and a series of public meetings. (2012, 83 pp.)
 						</p>
 					</div>
-					<div class="col-md-4 col-md-offset-0 text-left">
+					<div class="col-md-3 col-md-offset-1 text-left">
 						<br>
 						<a href="http://www.mapc.org/green-line-extension" target="_blank"><img src="assets/todp3.png" class="img-responsive" alt="Image Title"></a>
 						</br>

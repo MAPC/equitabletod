@@ -7,7 +7,7 @@
                 <center>
                   <a href="http://www.mapc.org/" target="_blank"><img src="assets/mapc_logo.png" class="img-circle" alt="the-brains"></a>
                   <br>
-                  <h4 class="footertext">Metropolitan Area Planning Council</h4>
+                  <p class="footertext">Metropolitan Area Planning Council</p>
                   <p class="footertext"><br>
                 </center>
               </div>
@@ -23,7 +23,7 @@
                 <center>
                   <a href="http://www.northeastern.edu/dukakiscenter/" target="_blank"><img src="assets/northeastern.png" class="img-circle" alt="...">
                   <br></a>
-                  <h4 class="footertext">Dukakis Center for Urban and Regional Policy</h4>
+                  <p class="footertext">Dukakis Center for Urban and Regional Policy</p>
                   <p class="footertext"><br>
                 </center>
               </div>

@@ -8,6 +8,38 @@
 
 		onShow: ->
             $(document).ready ->
+                $("[rel=tooltipd]").tooltip placement: "right"
+                $("#dialog-modal").dialog 
+                    position:
+                        my: "right"
+                        at: "right"
+                    autoOpen: false
+                    closeOnEscape: true
+                    width: 800
+                    show:
+                        effect: "fade"
+                        duration: 100  
+                        easing: "linear"
+                    hide:
+                        effect: "fade"
+                        duration: 100
+                        easing: "linear"
+                    title: 
+                        $("[rel=tooltipd]").title
+                dictionaryResponse = $.ajax
+                            url: "/dictionary_entries.json?by_name="
+                            done: (result) =>
+                                return result
+                    dictionary = dictionaryResponse.complete()
+                    dictionary.done =>
+                        dictionaries = dictionary.responseJSON
+                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
+                        dict_lookup_dict = {}
+                        for each in @dictionaryentries.models
+                            dict_lookup_dict[each.get("interpretation")] = each.get("name")
+                        gon.dict_lookup_dict = dict_lookup_dict
+                resetButtom = $("#resetbuttom")
+                searchButtom = $("#searchbuttom")
                 gon.fars = [0, 0.18, 0.47, 0.80, 5.79] # _.map features, (key, value) -> key.properties.ov_far 
                 gon.hhincs = [22175, 50945, 66066, 83495, 175695] # _.map features, (key, value) -> key.properties.ov_hhinc
                 gon.vmts = [0 , 13.05, 21.53, 32.14, 69.07] # _.map features, (key, value) -> key.properties.ov_vmthday
@@ -185,7 +217,7 @@
                     step: 0.01
                 $("#slider28").slider
                     min: Math.round gon.minhhnocar = if gon.minhhnocar then gon.minhhnocar else 0
-                    max: Math.round gon.maxhhnocar = if gon.maxhhnocar then gon.maxhhnocar else 0.66
+                    max: 1
                     value:[0, 1]
                     step: 0.01
 
@@ -194,7 +226,33 @@
                     max: Math.round gon.maxedatt = if gon.maxedatt then gon.maxedatt else 0.91
                     value:[0, 1]
                     step: 0.01
-                # empty out the title element text
+                # empty out the input element text if not defined else retain the inputs
+                if gon.muni_name == 'undefined'
+                    $("#searchinput2").val []
+                else
+                    $("#searchinput2").val gon.muni_name if gon.muni_name
+
+                if gon.name == 'undefined'
+                    $("#searchinput1").val []
+                else
+                    $("#searchinput1").val gon.name if gon.name
+
+                if gon.etod_group == 'undefined'
+                    $("#selectbasic4").val []
+                else
+                    $('select[name=selectbasic4]').val(gon.etod_group)
+                    $('.selectpicker').selectpicker('refresh')
+                if gon.service_type == 'undefined'
+                    $("#selectbasic2").val []
+                else
+                    $('select[name=selectbasic2]').val(gon.service_type)
+                    $('.selectpicker').selectpicker('refresh')
+                if gon.station_type == 'undefined'
+                    $("#selectbasic3").val []
+                else
+                    $('select[name=selectbasic3]').val(gon.station_type)
+                    $('.selectpicker').selectpicker('refresh')
+
                 $("#titles").html "<p class='h2'></p>"
                 # setup the jQuery Sparkline objects for each data point
                 $(".inlinesparklinevmt").sparkline gon.vmts, type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'     
@@ -222,75 +280,96 @@
                 $(".inlinesparklinewalkscore").sparkline gon.walkscores, type: "box", raw: true, lineColor: '#7f7e7e', whiskerColor: '#7f7e7e', boxFillColor: '#ffffff', spotRadius: 2.5, width: '150', outlierLineColor: '#303030', showOutliers: false, tooltipFormatFieldlistKey: 'field', medianColor: '#7f7e7e', targetColor: '#bf0000'   
            
             $(document).ready ->
-              $("#dialog-modal").dialog 
-                position:
-                    my: "right"
-                    at: "right"
-                autoOpen: false
-                closeOnEscape: true
-                width: 780
-                show:
-                    effect: "blind"
-                    duration: 200  
-                hide:
-                    effect: "blind"
-                    duration: 200
-                title: 
-                    $("[rel=tooltipd]").title
+              $("#searchbuttom").stickyMojo
+                footerID: "#footer-region"
+                contentID: "#main-region"
+
               $(".selectpicker").selectpicker()
+              $("#resetbuttom").on "click", (e) ->
+                $("select").val []
+                $('.selectpicker').selectpicker('render')
+                $("input").val []
               $("[rel=tooltipd]").click (event, ui) ->
-                    dictionaryResponse = $.ajax
-                            url: "/dictionary_entries.json?by_name=#{@.title}"
-                            done: (result) =>
-                                return result
-                    dictionary = dictionaryResponse.complete()
-                    dictionary.done =>
-                        dictionaries = dictionary.responseJSON
-                        @dictionaryentries = App.request "set:dictionaryentry", dictionaries
-                        $(@el).tooltip "option", title: ""
-                        $("#dialog-modal").dialog "open"
-                        $("#dialog-modal").html("")
-                        $("#dialog-modal").dialog title: ""
-                        $("#dialog-modal").html("<div class='row'>
-                                                    <div class='col-md-1'>
-                                                        <span class='glyphicon-class'></span><span class='glyphicon glyphicon-check'>
-                                                    </div>
-                                                    <div class='col-md-10' style='text-align: justify;'>
-                                                        <hm2><strong> #{@dictionaryentries.models["0"].get("interpretation")}: </strong> <span style='font-style: italic;'>#{@dictionaryentries.models["0"].get("code")} </span>
-                                                    </div>
+                    spinopts =
+                        lines: 13 # The number of lines to draw
+                        length: 20 # The length of each line
+                        width: 10 # The line thickness
+                        radius: 30 # The radius of the inner circle
+                        corners: 1 # Corner roundness (0..1)
+                        rotate: 0 # The rotation offset
+                        direction: 1 # 1: clockwise, -1: counterclockwise
+                        color: "#000" # #rgb or #rrggbb or array of colors
+                        speed: 1 # Rounds per second
+                        trail: 60 # Afterglow percentage
+                        shadow: false # Whether to render a shadow
+                        hwaccel: false # Whether to use hardware acceleration
+                        className: "spinner" # The CSS class to assign to the spinner
+                        zIndex: 2e9 # The z-index (defaults to 2000000000)
+                        top: "50%" # Top position relative to parent
+                        left: "50%" # Left position relative to parent
+
+                    spintarget1 = document.getElementById("main-region")
+                    spinner1 = new Spinner(spinopts).spin(spintarget1)
+                    dict_dict = []
+                    dict_dict.push event.view.document.dictionaryentries.models
+                    try
+                        field_interp = gon.dict_lookup_dict[event.target.previousSibling.data.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                    catch e
+                        try
+                            field_interp = gon.dict_lookup_dict[event.target.parentNode.previousSibling.previousElementSibling.outerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                        catch
+                            field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+
+                    for each in dict_dict[0]
+                        dict_entry = each if each.get("name").toLowerCase() == field_interp.toLowerCase()
+                    
+                    # $("#accordion").accordion "disable"
+                    $(@el).tooltip "option", title: ""
+                    $("#dialog-modal").dialog "open"
+                    $("#dialog-modal").html("")
+                    $("#dialog-modal").dialog title: ""
+                    spinner1.stop()
+                    $("#dialog-modal").html("<div class='row'>
+                                                <div class='col-md-2'>
+                                                   <strong>Description</strong> 
                                                 </div>
-                                                <hr> 
-                                                <div class='row'>
-                                                    <div class='col-md-1'>
-                                                        <span class='glyphicon glyphicon-info-sign'></span>
-                                                    </div>
-                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
-                                                        #{@dictionaryentries.models["0"].get("importance")} 
-                                                    </div>
+                                                <div class='col-md-10' style='text-align: left;'>
+                                                    <hm2><strong> #{dict_entry.get("interpretation").replace("пїЅ","'")}: </strong> <span><p>#{dict_entry.get("code")} <p></span>
                                                 </div>
-                                                <hr>
-                                                <div class='row'>
-                                                    <div class='col-md-1'> 
-                                                        <span class='glyphicon glyphicon-warning-sign'></span>
-                                                    </div>
-                                                    <div class='col-md-10' style='text-align: justify; font-style: italic;'>
-                                                        #{@dictionaryentries.models["0"].get("description")} 
-                                                    </div>
+                                            </div>
+                                            <br> 
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                    <span><strong>Interpretation</strong></span>
                                                 </div>
-                                                <hr>
-                                                <div class='row'>
-                                                    <div class='col-md-1'><span class='glyphicon glyphicon-asterisk'>
-                                                        </span></div><div class='col-md-10' style='text-align: justify; font-style: italic;'>
-                                                            #{@dictionaryentries.models["0"].get("technical_notes")}
-                                                    </div>
-                                                </div></hm2>")
-                        $("#dialog-modal").dialog height: "auto" 
-                        $("#dialog-modal").dialog modal: true
+                                                <div class='col-md-10' style='text-align: left;'>
+                                                    <p>#{dict_entry.get("importance").replace("ђ","'").replace("пїЅ","'") if dict_entry.get("importance") isnt null} </p>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class='row'>
+                                                <div class='col-md-2'> 
+                                                    <span><strong>Importance</strong></span>
+                                                </div>
+                                                <div class='col-md-10' style='text-align: left;'>
+                                                    <p>#{dict_entry.get("description").replace("пїЅ","'")} </p>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                    <span><strong>Note</strong>
+                                                    </span></div><div class='col-md-10' style='font-style: italic; font-size:10;'>
+                                                        <p>#{dict_entry.get("technical_notes").replace("пїЅ","'")}</p>
+                                                </div>
+                                            </div></hm2>")
+                    $("#dialog-modal").dialog height: "auto" 
+                    $("#dialog-modal").dialog modal: false
 
               $("#searchinput2").autocomplete
                 source: gon.muni_names.muni_names
                 minLength: 3   
-              $("[rel=tooltip]").tooltip placement: "top"  
+              # $("[rel=tooltip]").tooltip placement: "top"  
               fm_options =
                 bootstrap: true
                 show_radio_button_list: false
@@ -315,6 +394,9 @@
                   delay_success_milliseconds: 3500
                   send_success: "Thanks for your feedback, now go ahead and follow me on twitter/github :)"
               #fm.init fm_options
+            $("#resetbuttom").click (event, ui) ->
+              $("button").val []
+              $("input").val []
             $("html, body").animate
               scrollTop: ($("#adv-fields").offset().top)
             , 500      
@@ -323,19 +405,39 @@
             'click #searchbuttom': 'inputChange'
             'click #etod': 'etodFired'
             'click #gsa': 'gsaFired'
-            'click #resetbuttom':  'resetFormArgs' 
             'click #mapClick': 'fireMap'   
             'select #searchinput1': 'inputChange'
             'click #ui-accordion-fpaccordion-header-0': 'moreText'
             'click #ui-accordion-header-icon ui-icon ui-icon-minus': 'lessText'
 
         inputChange: (e)=>
+            spinopts =
+                lines: 13 # The number of lines to draw
+                length: 20 # The length of each line
+                width: 10 # The line thickness
+                radius: 30 # The radius of the inner circle
+                corners: 1 # Corner roundness (0..1)
+                rotate: 0 # The rotation offset
+                direction: 1 # 1: clockwise, -1: counterclockwise
+                color: "#000" # #rgb or #rrggbb or array of colors
+                speed: 1 # Rounds per second
+                trail: 60 # Afterglow percentage
+                shadow: false # Whether to render a shadow
+                hwaccel: false # Whether to use hardware acceleration
+                className: "spinner" # The CSS class to assign to the spinner
+                zIndex: 2e9 # The z-index (defaults to 2000000000)
+                top: "50%" # Top position relative to parent
+                left: "50%" # Left position relative to parent
+
+            spintarget = document.getElementById("searchbuttom")
+            spinner = new Spinner(spinopts).spin(spintarget)
             urlq = "?"
             muni_name = $('input#searchinput2').val().replace(" ", "%20").toLowerCase() if $('input#searchinput2').val()
             if muni_name is undefined
                 qury = ""
             else
                 qury = "by_muni_name=#{muni_name}".replace(/\s*\(.*?\)\s*/g, "")
+            gon.muni_name = $('input#searchinput2').val()
             name = $('input#searchinput1').val().replace(" ", "%20").toLowerCase() if $('input#searchinput1').val()
             if name is undefined
                 qury = qury + ""
@@ -346,16 +448,19 @@
                 qury = qury + ""
             else    
                 qury = qury + "&by_line=#{service_type}".replace(/\s*\(.*?\)\s*/g, "")
+            gon.service_type = $('#selectbasic2 option:selected')
             station_type = $('#selectbasic3 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic3 option:selected').val()
             if station_type is undefined
                 qury = qury + ""
             else
                 qury = qury + "&by_station_class=#{station_type}".replace(/\s*\(.*?\)\s*/g, "")
+            gon.station_type = $('#selectbasic3 option:selected')
             etod_group = $('#selectbasic4 option:selected').val().replace(" ", "%20").toLowerCase() if $('#selectbasic4 option:selected').val()
             if etod_group is undefined
                 qury = qury + ""
             else
                 qury = qury + "&by_etod_category=#{etod_group}".replace(/\s*\(.*?\)\s*/g, "")
+            gon.etod_group = $('#selectbasic4 option:selected').val()
             # pick the advanced search values from slider #
             ## by_vmt ##
             vmt = $('#slider6').val().replace(" ", "%20").toLowerCase() if $('#slider6').val()
@@ -554,7 +659,21 @@
                     done: (result) =>
                         return result
             collection = responseFeature.complete()
+            console.log "collection", collection
+            collection.error =>
+                $("#dialog-modal").dialog "open"
+                $("#dialog-modal").dialog title: "No results"
+                $("#dialog-modal").html("")
+                spinner.stop()
+                $("#dialog-modal").html("No results - Search has no results, it's possible that there is no station area that meets your filter values, reload the page then refine the search with less filter values")
             collection.done =>
+                if collection.status == 500
+                    $("#dialog-modal").dialog "open"
+                    $("#dialog-modal").dialog title: "No results"
+                    $("#dialog-modal").html("")
+                    spinner.stop()
+                    $("#dialog-modal").html("No results - Search has no results, it's possible that there is no station area that meets your filter values, reload the page then refine the search with less filter values")
+                else
                     fstations = collection.responseJSON
                     features = _.values fstations.features
                     if features.length > 0
@@ -565,10 +684,12 @@
                         num = Number(num) + 1 if num_pages > num
                         gon.num_pages = num
                         gon.query = query
+                        spinner.stop()
                         App.vent.trigger "searchFired", gon.query
                     else
                         $("#dialog-modal").dialog "open"
                         $("#dialog-modal").dialog title: "Error"
                         $("#dialog-modal").html("")
+                        spinner.stop()
                         $("#dialog-modal").html("Error - Search has no results, Reload Page Or Refine The Search")
             

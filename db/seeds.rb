@@ -87,7 +87,7 @@ end
 def transit_lines
   TransitLine.destroy_all
   ActiveRecord::Base.connection.reset_pk_sequence!("transit_lines")
-  CSV.foreach('db/fixtures/transit_lines.csv', :headers => true) do |csv_obj|
+  CSV.foreach('db/fixtures/transit_lines.csv', :headers => true,encoding: utf-8 ) do |csv_obj|
     name          = csv_obj['name']
     service_type  = csv_obj['service_type']
 

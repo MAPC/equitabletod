@@ -1,4 +1,4 @@
-<td>
+<td id="station-list">
 		<p class="hm2">
 			<a href="#fss/q/by_name=<%= "#{@properties.name}".replace(/\s*\(.*?\)\s*/g, "") %>"><%= "#{@properties.name}" %>
 			</a> <span><%= ", #{@properties.muni_name}" %></span>  
