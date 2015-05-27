@@ -775,18 +775,18 @@
             )
 
             map.addLayer canvasCircles
-            # overlays =
-                # "Regional Networks": regional
-                # "On-road Bicycle Facilities": onroad
-                # "Paths and Trails": paths
-                # "Sidewalk Inventory": sidewalks
-                # "Station Area": fstation
-                # "Half Mile Boundary": fstationZoom
+            overlays =
+                "Regional Networks": regional
+                "On-road Bicycle Facilities": onroad
+                "Paths and Trails": paths
+                "Sidewalk Inventory": sidewalks
+                "Station Area": fstation
+                "Half Mile Boundary": fstationZoom
             
-            # layersControl = new L.Control.Layers(baseMaps, overlays,
-                # collapsed: true
-                # )
-            # map.addControl layersControl
+            layersControl = new L.Control.Layers(baseMaps, overlays,
+                collapsed: true
+                )
+            map.addControl layersControl
 
             bbox = fstationZoom.getBounds().toBBoxString()
             map.fitBounds [
