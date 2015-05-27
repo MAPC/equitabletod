@@ -719,7 +719,7 @@
               transparent: true
             )
             baseMaps =
-                "MAPC Base Map": mapc
+                # "MAPC Base Map": mapc
                 "Esri Aerial": esri
                 "MapBox StreetMap": streets
             geoCollection =  gon.feature
