@@ -36,7 +36,7 @@
 					<div id="dialog-chart"></div>
 					<div id="chart"></div>
 					</div>
-					<p class="hm2"><strong href="#" rel="tooltipu" title="Equitable Transit Oriented Development (eTOD) score and category, an expression of the suitability of the station area for high performing, equitable transit-oriented development">Total eTOD Score: </strong><%= "#{@properties.etod_total} " %> out of 50<span href="#" rel="tooltipd" title="Click For More"class="glyphicon glyphicon-question-sign"></span>
+					<p class="hm2"><strong href="#" rel="tooltipu" title="Equitable Transit Oriented Development (eTOD) score and category, an expression of the suitability of the station area for high performing, equitable transit-oriented development">Total eTOD Score: </strong><%= "#{@properties.etod_total} " %> out of 50 <span href="#" rel="tooltipd" title="Click For More"class="glyphicon glyphicon-question-sign"></span>
 					</p>
 					<br>
 					<p class="hm2">
