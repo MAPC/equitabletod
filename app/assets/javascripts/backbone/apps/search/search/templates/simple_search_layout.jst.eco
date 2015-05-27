@@ -111,11 +111,11 @@
           <p class="small" style="line-height: 130%; margin-top: 2%;">eTOD categories group station areas based on their eTOD score, a composite rating of the extent to which the station area meets the goals of equitable TOD</p>
         </div>
       </div>
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-6 col-md-offset-5">
             <p>
               <button id="searchbuttom" type="button" class="btn btn-default btn-lg btn3d" data-loading-text="Loading...">Search</button>
               <button id="advSearchButtom" type="button" class="btn btn-default btn-lg btn3d" data-loading-text="Loading...">Advanced Search</button>
-              <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
+              <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d">Reset</button>
               <!-- <button id="resetfields" type="button" type="reset" value="Reset" class="btn btn-default btn-lg btn3d col-xs-offset-0">Reset</button> -->
               <!-- <button id="resetbuttom" type="button" class="btn btn-default btn-lg btn3d col-xs-offset-1">Reset</button> -->
             </p>

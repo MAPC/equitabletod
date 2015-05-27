@@ -26,17 +26,14 @@
   App.vent.on "gsaFired", ->
     App.navigate "gsa/", trigger: true
 
-  App.vent.on "guidFired", ->
-    App.navigate "guide/", trigger: true
+  # App.vent.on "guidFired", ->
+  #   App.navigate "guide/", trigger: true
 
   App.vent.on "datadlFired", ->
     App.navigate "datadl/", trigger: true
 
   App.vent.on "searchrefineFired", ->
     App.navigate "advsearch/", trigger: true
-
-  App.vent.on "printFired", ->
-    App.navigate "print/q/", trigger: true
 
   App.vent.on "searchFired", (query)->
     query = "fss/q/" + query
@@ -56,6 +53,7 @@
     App.module("FooterApp").start()
     App.module("MainApp").start()
     App.module("FstationsApp").start()
+    # App.module("UsrguidApp").start()
 
   App.on "initialize:after", (options) ->
     if Backbone.history

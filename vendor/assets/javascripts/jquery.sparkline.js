@@ -2528,19 +2528,38 @@
                 Math.round(canvasHeight * 0.9),
                 options.get('medianColor')).append();
             if (options.get('target')) {
-                size = Math.ceil(options.get('spotRadius'));
-                target.drawLine(
-                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
-                    Math.round((canvasHeight / 2) - size*2),
-                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
-                    Math.round((canvasHeight / 2) + size*2),
-                    options.get('targetColor')).append();
-                target.drawLine(
-                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft - size*2),
-                    Math.round(canvasHeight / 2),
-                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft + size*2),
-                    Math.round(canvasHeight / 2),
-                    options.get('targetColor')).append();
+                if (options.get('target') <= q1) {
+                    size = Math.ceil(options.get('spotRadius'));
+                    target.drawLine(
+                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft+1),
+                        Math.round((canvasHeight / 2) - size*2),
+                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft+1),
+                        Math.round((canvasHeight / 2) + size*2),
+                        options.get('targetColor')).append();
+                    target.drawLine(
+                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft - size*2),
+                        Math.round(canvasHeight / 2),
+                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft + size*2),
+                        Math.round(canvasHeight / 2),
+                        options.get('targetColor')).append();
+
+                }
+                else {
+                    size = Math.ceil(options.get('spotRadius'));
+                    target.drawLine(
+                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft-1),
+                        Math.round((canvasHeight / 2) - size*2),
+                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft-1),
+                        Math.round((canvasHeight / 2) + size*2),
+                        options.get('targetColor')).append();
+                    target.drawLine(
+                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft - size*2),
+                        Math.round(canvasHeight / 2),
+                        Math.round((options.get('target') - minValue) * unitSize + canvasLeft + size*2),
+                        Math.round(canvasHeight / 2),
+                        options.get('targetColor')).append();
+                }
+                
             }
             target.render();
         }
