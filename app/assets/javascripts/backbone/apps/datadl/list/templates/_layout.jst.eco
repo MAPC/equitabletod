@@ -1,15 +1,17 @@
 <div id="datadl-region">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3 text-left">
+			<div class="col-md-4 col-md-offset-2 text-left">
+			</br>
 				<p class="h2"> Download All Data
 				</p>
-				<p class="hm2">
+				</br>
+				<p >
 					The full dataset available in this <a id="downloader" href="#"> download </a> includes all data elements shown on the Station Area Details screen, plus additional data, for a total of over 150 variables for over 300 station areas.  
 				</p>
 				<br>
-				<p class="hm2">
-					Due to overlapping boundaries among station areas, it is not possible to add or average certain values across station areas.  Be sure to download the<a id="downloadguide" href="#guid/" data-toggle="portfilter" data-target="usrguid"> User Guide </a>, which provides guidance on boundaries and includes a detailed meta data explaining the source, meaning, and importance of each data element. 
+				<p>
+					Due to overlapping boundaries among station areas, it is not possible to add or average certain values across station areas. Download the boundary geographies <a href="Buffers_Stations_SpatialData.zip"> here </a>, and be sure to download the <a href="user_guide.pdf" target="_blank"> User Guide </a>, which provides guidance on boundaries and includes a detailed meta data explaining the source, meaning, and importance of each data element. 
 				</p>
 				<br />
 			</br>
