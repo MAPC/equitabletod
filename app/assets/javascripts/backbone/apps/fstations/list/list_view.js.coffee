@@ -382,6 +382,7 @@
                             catch e
                                 console.log event.target.previousSibling.previousElementSibling.nextSibling.textContent
                         catch e
+                            console.log event.target.previousSibling.previousElementSibling.nextSibling.textContent
                             field_interp = gon.dict_lookup_dict[event.target.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                     for each in dict_dict[0]
                         dict_entry = each if each.get("name").toLowerCase() == field_interp.toLowerCase()
