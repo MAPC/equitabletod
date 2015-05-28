@@ -789,7 +789,7 @@
                 "Paths and Trails": paths
                 # "Sidewalk Inventory": sidewalks
                 "Station Area": fstation
-                "Half Mile Boundary": fstationZoom
+                # "Half Mile Boundary": fstationZoom
             
             layersControl = new L.Control.Layers(baseMaps, overlays,
                 collapsed: true
