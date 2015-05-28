@@ -383,7 +383,7 @@
                                 console.log event.target.previousSibling.previousElementSibling.nextSibling.textContent
                         catch e
                             console.log event.target.previousSibling.previousElementSibling.textContent
-                            if gon.dict_lookup_dict[event.target.previousElementSibling.innerText is undefined
+                            if gon.dict_lookup_dict[event.target.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""] is undefined
                                 field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                             else
                                 field_interp = gon.dict_lookup_dict[event.target.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
