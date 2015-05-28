@@ -378,7 +378,7 @@
                         try
                             field_interp = gon.dict_lookup_dict[event.target.parentNode.previousSibling.previousElementSibling.outerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]                        
                             try
-                                field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.nextSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                                field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                             catch e
                                 console.log event.target.previousSibling.previousElementSibling.nextSibling.textContent
                         catch e
