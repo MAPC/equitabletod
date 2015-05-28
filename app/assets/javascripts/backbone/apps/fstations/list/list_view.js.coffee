@@ -380,7 +380,7 @@
                             try
                                 field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.nextSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                             catch e
-                                console.log field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.nextSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                                console.log event.target.previousSibling.previousElementSibling.nextSibling.textContent
                         catch e
                             field_interp = gon.dict_lookup_dict[event.target.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                     for each in dict_dict[0]
