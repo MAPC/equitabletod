@@ -100,52 +100,95 @@
                                 $("#dialog-modal").dialog title: "No results"
                                 $("#dialog-modal").html("")
                                 $("#dialog-modal").html("No results - Search has no results, it's possible that there is no station area that meets your filter values, reload the page then refine the search with less filter values")
+            @names = App.request "set:name", gon.names.names
+            @muni_names = App.request "set:muni_name", gon.muni_names.muni_names
+            features = _.values @muni_names.models # this returns an array of each features object
+            l_muni_names = []
+            _.map features, (key, value) -> l_muni_names.push _.keys key.attributes
+            l_n_muni_names = []
+            _.map l_muni_names, (key, value) -> l_n_muni_names.push key["0"]
+            $("#searchinput2").autocomplete
+                source: l_n_muni_names
+                minLength: 3
+                select: (event, ui) ->
+
+            $("#searchinput1").autocomplete
+                source: gon.names.names
+                minLength: 3
+                select: (event, ui) ->
+                    spinopts =
+                        lines: 13 # The number of lines to draw
+                        length: 20 # The length of each line
+                        width: 10 # The line thickness
+                        radius: 30 # The radius of the inner circle
+                        corners: 1 # Corner roundness (0..1)
+                        rotate: 0 # The rotation offset
+                        direction: 1 # 1: clockwise, -1: counterclockwise
+                        color: "#000" # #rgb or #rrggbb or array of colors
+                        speed: 1 # Rounds per second
+                        trail: 60 # Afterglow percentage
+                        shadow: false # Whether to render a shadow
+                        hwaccel: false # Whether to use hardware acceleration
+                        className: "spinner" # The CSS class to assign to the spinner
+                        zIndex: 2e9 # The z-index (defaults to 2000000000)
+                        top: "50%" # Top position relative to parent
+                        left: "50%" # Left position relative to parent
+
+                    spintarget2 = document.getElementById("searchinput1")
+                    spinner2 = new Spinner(spinopts).spin(spintarget2)
+                    name = ui.item.value.replace(" ", "%20").toLowerCase()
+                    urlstr = "by_name=" + "#{name}".replace(/\s*\(.*?\)\s*/g, "")
+                    query = "#{urlstr}"
+                    spinner2.stop()
+                    App.vent.trigger "searchFired", query
+
             # make an ajax call for populating the autocomplete/typeahead when scrolling down 15% of the page  
-            $(window).scroll (options) ->
-                    if $(window).scrollTop() + $(window).height() > $(document).height() - .75 * $(document).height()
-                        $(window).unbind "scroll"
-                        @names = App.request "set:name", gon.names.names
-                        @muni_names = App.request "set:muni_name", gon.muni_names.muni_names
-                        features = _.values @muni_names.models # this returns an array of each features object
-                        l_muni_names = []
-                        _.map features, (key, value) -> l_muni_names.push _.keys key.attributes
-                        l_n_muni_names = []
-                        _.map l_muni_names, (key, value) -> l_n_muni_names.push key["0"]
-                        $("#searchinput2").autocomplete
-                            source: l_n_muni_names
-                            minLength: 3
-                            select: (event, ui) ->
+            
+            # $(window).scroll (options) ->
+                    # if $(window).scrollTop() + $(window).height() > $(document).height() - .75 * $(document).height()
+                    # $(window).unbind "scroll"
+                    # @names = App.request "set:name", gon.names.names
+                    # @muni_names = App.request "set:muni_name", gon.muni_names.muni_names
+                    # features = _.values @muni_names.models # this returns an array of each features object
+                    # l_muni_names = []
+                    # _.map features, (key, value) -> l_muni_names.push _.keys key.attributes
+                    # l_n_muni_names = []
+                    # _.map l_muni_names, (key, value) -> l_n_muni_names.push key["0"]
+                    # $("#searchinput2").autocomplete
+                    #     source: l_n_muni_names
+                    #     minLength: 3
+                    #     select: (event, ui) ->
 
-                        $("#searchinput1").autocomplete
-                            source: gon.names.names
-                            minLength: 3
-                            select: (event, ui) ->
-                                spinopts =
-                                    lines: 13 # The number of lines to draw
-                                    length: 20 # The length of each line
-                                    width: 10 # The line thickness
-                                    radius: 30 # The radius of the inner circle
-                                    corners: 1 # Corner roundness (0..1)
-                                    rotate: 0 # The rotation offset
-                                    direction: 1 # 1: clockwise, -1: counterclockwise
-                                    color: "#000" # #rgb or #rrggbb or array of colors
-                                    speed: 1 # Rounds per second
-                                    trail: 60 # Afterglow percentage
-                                    shadow: false # Whether to render a shadow
-                                    hwaccel: false # Whether to use hardware acceleration
-                                    className: "spinner" # The CSS class to assign to the spinner
-                                    zIndex: 2e9 # The z-index (defaults to 2000000000)
-                                    top: "50%" # Top position relative to parent
-                                    left: "50%" # Left position relative to parent
+                    # $("#searchinput1").autocomplete
+                    #     source: gon.names.names
+                    #     minLength: 3
+                    #     select: (event, ui) ->
+                    #         spinopts =
+                    #             lines: 13 # The number of lines to draw
+                    #             length: 20 # The length of each line
+                    #             width: 10 # The line thickness
+                    #             radius: 30 # The radius of the inner circle
+                    #             corners: 1 # Corner roundness (0..1)
+                    #             rotate: 0 # The rotation offset
+                    #             direction: 1 # 1: clockwise, -1: counterclockwise
+                    #             color: "#000" # #rgb or #rrggbb or array of colors
+                    #             speed: 1 # Rounds per second
+                    #             trail: 60 # Afterglow percentage
+                    #             shadow: false # Whether to render a shadow
+                    #             hwaccel: false # Whether to use hardware acceleration
+                    #             className: "spinner" # The CSS class to assign to the spinner
+                    #             zIndex: 2e9 # The z-index (defaults to 2000000000)
+                    #             top: "50%" # Top position relative to parent
+                    #             left: "50%" # Left position relative to parent
 
-                                spintarget2 = document.getElementById("searchinput1")
-                                spinner2 = new Spinner(spinopts).spin(spintarget2)
-                                name = ui.item.value.replace(" ", "%20").toLowerCase()
-                                urlstr = "by_name=" + "#{name}".replace(/\s*\(.*?\)\s*/g, "")
-                                query = "#{urlstr}"
-                                spinner2.stop()
-                                App.vent.trigger "searchFired", query
-                    return
+                    #         spintarget2 = document.getElementById("searchinput1")
+                    #         spinner2 = new Spinner(spinopts).spin(spintarget2)
+                    #         name = ui.item.value.replace(" ", "%20").toLowerCase()
+                    #         urlstr = "by_name=" + "#{name}".replace(/\s*\(.*?\)\s*/g, "")
+                    #         query = "#{urlstr}"
+                    #         spinner2.stop()
+                    #         App.vent.trigger "searchFired", query
+                    # return
 
         # binding general events to the page's elements
         events: 

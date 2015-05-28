@@ -372,13 +372,21 @@
                     dict_dict = []
                     dict_dict.push event.view.document.dictionaryentries.models
                     try
+                        # console.log "event.target.previousSibling.previousElementSibling", event.target.previousSibling.previousElementSibling.nextSibling.textContent
                         field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                     catch e
                         try
-                            field_interp = gon.dict_lookup_dict[event.target.parentNode.previousSibling.previousElementSibling.outerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
-                        catch
-                            field_interp = gon.dict_lookup_dict[event.target.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
-
+                            field_interp = gon.dict_lookup_dict[event.target.parentNode.previousSibling.previousElementSibling.outerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]                        
+                            try
+                                field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                            catch e
+                                console.log event.target.previousSibling.previousElementSibling.nextSibling.textContent
+                        catch e
+                            console.log event.target.previousSibling.previousElementSibling.textContent
+                            if event.target.previousElementSibling.innerText is undefined
+                                field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                            else
+                                field_interp = gon.dict_lookup_dict[event.target.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                     for each in dict_dict[0]
                         dict_entry = each if each.get("name").toLowerCase() == field_interp.toLowerCase()
 
@@ -713,11 +721,11 @@
             regional = new L.MAPCTileLayer("trailmap-regional")
             onroad = new L.MAPCTileLayer("trailmap-onroad")
             paths = new L.MAPCTileLayer("trailmap-paths")
-            sidewalks = L.tileLayer.wms("http://metrobostondatacommon.org/geoserver/gwc/service/wms",
-              layers: "geonode:sidewalks"
-              format: "image/png"
-              transparent: true
-            )
+            # sidewalks = L.tileLayer.wms("http://metrobostondatacommon.org/geoserver/gwc/service/wms",
+            #   layers: "geonode:sidewalks"
+            #   format: "image/png"
+            #   transparent: true
+            # )
             baseMaps =
                 # "MAPC Base Map": mapc
                 "Esri Aerial": esri
@@ -779,9 +787,9 @@
                 "Regional Networks": regional
                 "On-road Bicycle Facilities": onroad
                 "Paths and Trails": paths
-                "Sidewalk Inventory": sidewalks
+                # "Sidewalk Inventory": sidewalks
                 "Station Area": fstation
-                "Half Mile Boundary": fstationZoom
+                # "Half Mile Boundary": fstationZoom
             
             layersControl = new L.Control.Layers(baseMaps, overlays,
                 collapsed: true

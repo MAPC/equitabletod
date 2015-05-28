@@ -8,12 +8,12 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require bootstrap
+ *= require jquery-ui-1.10.4.custom.min
  *= require font-awesome.min
  *= require custom
- *= require bootstrap
  *= require bootstrap-select
  *= require leaflet
- *= require jquery-ui-1.10.4.custom.min
  *= require jquery.feedback_me
  *= require bootstrap-slider
  *= require jquery.fancybox
