@@ -721,11 +721,11 @@
             regional = new L.MAPCTileLayer("trailmap-regional")
             onroad = new L.MAPCTileLayer("trailmap-onroad")
             paths = new L.MAPCTileLayer("trailmap-paths")
-            sidewalks = L.tileLayer.wms("http://metrobostondatacommon.org/geoserver/gwc/service/wms",
-              layers: "geonode:sidewalks"
-              format: "image/png"
-              transparent: true
-            )
+            # sidewalks = L.tileLayer.wms("http://metrobostondatacommon.org/geoserver/gwc/service/wms",
+            #   layers: "geonode:sidewalks"
+            #   format: "image/png"
+            #   transparent: true
+            # )
             baseMaps =
                 # "MAPC Base Map": mapc
                 "Esri Aerial": esri
@@ -787,7 +787,7 @@
                 "Regional Networks": regional
                 "On-road Bicycle Facilities": onroad
                 "Paths and Trails": paths
-                "Sidewalk Inventory": sidewalks
+                # "Sidewalk Inventory": sidewalks
                 "Station Area": fstation
                 "Half Mile Boundary": fstationZoom
             
