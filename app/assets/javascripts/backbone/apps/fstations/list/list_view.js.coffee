@@ -1,18 +1,18 @@
 @Equitabletod.module "FstationsApp.List", (List, App, Backbone, Marionette, $, _) ->
 
-	class List.Layout extends App.Views.Layout
-		template: "fstations/list/templates/list_layout"
-		regions: 
-			mapRegion: "#map-region"
-			fstationsRegion: "#fstations-region"
-			chartRegion: "#chart-region"
+    class List.Layout extends App.Views.Layout
+        template: "fstations/list/templates/list_layout"
+        regions: 
+            mapRegion: "#map-region"
+            fstationsRegion: "#fstations-region"
+            chartRegion: "#chart-region"
         
-	class List.Detstation extends App.Views.ItemView
-		template: "fstations/list/templates/_detstation"
-		tagName: "div"
+    class List.Detstation extends App.Views.ItemView
+        template: "fstations/list/templates/_detstation"
+        tagName: "div"
 
-		onShow: ->
-			$(document).ready ->
+        onShow: ->
+            $(document).ready ->
                 $("#dialog-modal").dialog 
                     position:
                         my: "right"
@@ -375,10 +375,16 @@
                         field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                     catch e
                         try
-                            field_interp = gon.dict_lookup_dict[event.target.parentNode.previousSibling.previousElementSibling.outerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
-                        catch
-                            field_interp = gon.dict_lookup_dict[event.target.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
-
+                            field_interp = gon.dict_lookup_dict[event.target.parentNode.previousSibling.previousElementSibling.outerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]                        
+                            try
+                                field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                            catch e
+                                console.log event.target.previousSibling.previousElementSibling.nextSibling.textContent
+                        catch e
+                            if event.target.previousElementSibling.innerText is undefined
+                                field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
+                            else
+                                field_interp = gon.dict_lookup_dict[event.target.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                     for each in dict_dict[0]
                         dict_entry = each if each.get("name").toLowerCase() == field_interp.toLowerCase()
 
@@ -425,10 +431,10 @@
                     $("#dialog-modal").dialog height: "auto" 
                     $("#dialog-modal").dialog modal: false
 
-			$("[rel=tooltip]").tooltip placement: "left"
-			$("[rel=tooltipb]").tooltip placement: "buttom"
-			$("[rel=tooltip]").tooltip track: true
-			$("#accordion").accordion 
+            $("[rel=tooltip]").tooltip placement: "left"
+            $("[rel=tooltipb]").tooltip placement: "buttom"
+            $("[rel=tooltip]").tooltip track: true
+            $("#accordion").accordion 
                 header: "hm3" 
                 active: "" # the index of accordion category to show expanded by inititiation
                 heightStyle: "content"
@@ -442,22 +448,22 @@
             $("#accordion").find($("span.accordion-header")).text " Click For More"
             return
 
-	class List.Detstations extends App.Views.CollectionView
-		template: "fstations/list/templates/_detstations"
-		itemView: List.Detstation
-		itemViewContainer: "tbody"
+    class List.Detstations extends App.Views.CollectionView
+        template: "fstations/list/templates/_detstations"
+        itemView: List.Detstation
+        itemViewContainer: "tbody"
 
-	class List.Fstation extends App.Views.ItemView
-		template: "fstations/list/templates/_fstation"
-		tagName: "tr"            
+    class List.Fstation extends App.Views.ItemView
+        template: "fstations/list/templates/_fstation"
+        tagName: "tr"            
 
-	class List.Fstations extends App.Views.CollectionView
-		template: "fstations/list/templates/_fstations"
-		itemView: List.Fstation
-		itemViewContainer: "tbody"
-		onBeforeRender: ->
-			stationfeature = gon.features
-			muni_names = _.map stationfeature, (key, value) ->
+    class List.Fstations extends App.Views.CollectionView
+        template: "fstations/list/templates/_fstations"
+        itemView: List.Fstation
+        itemViewContainer: "tbody"
+        onBeforeRender: ->
+            stationfeature = gon.features
+            muni_names = _.map stationfeature, (key, value) ->
                 muni_names = (_.pluck key, 'muni_name')
                 muni_names[2].toLowerCase()
                 names = (_.pluck key, 'name')
@@ -466,14 +472,14 @@
                     names = (_.pluck key, 'name')
                     names[2].toLowerCase()
 
-			station = [
-			  {
-			    name: names
-			    municipality: muni_names
-			  }
-			]
+            station = [
+              {
+                name: names
+                municipality: muni_names
+              }
+            ]
 
-		onShow: ->
+        onShow: ->
             pfeatures = _.values gon.features
             pjfeatures = pfeatures.map (pf) -> pf.properties
             jfeatures = JSON.stringify(pjfeatures)
@@ -550,61 +556,61 @@
             $("#searchrefine").click (event, ui) ->
                 App.vent.trigger "searchrefineFired"
 
-		
-	class List.Chart extends App.Views.Layout
-		template: "fstations/list/templates/_chart"
-		onShow: ->
-			stationfeature = gon.feature["0"] 
-			w = 150
-			h = 150
-			colorscale = d3.scale.category10()
+        
+    class List.Chart extends App.Views.Layout
+        template: "fstations/list/templates/_chart"
+        onShow: ->
+            stationfeature = gon.feature["0"] 
+            w = 150
+            h = 150
+            colorscale = d3.scale.category10()
 
-			#Legend titles
-			LegendOptions = [
-			  "Orientation"
-			  "Transit"
+            #Legend titles
+            LegendOptions = [
+              "Orientation"
+              "Transit"
               "Development"
-			]
+            ]
 
-			#Data
-			d = [
-			  [
-			    {
-			      axis: "Orientation"
-			      value: stationfeature.properties.etod_sub2o
-			    }
-			    {
-			      axis: "Transit"
-			      value: stationfeature.properties.etod_sub1t
-			    }
-			    {
-			      axis: "Development"
-			      value: stationfeature.properties.etod_sub3d
-			    }
-			  ]
-			 
-			]
+            #Data
+            d = [
+              [
+                {
+                  axis: "Orientation"
+                  value: stationfeature.properties.etod_sub2o
+                }
+                {
+                  axis: "Transit"
+                  value: stationfeature.properties.etod_sub1t
+                }
+                {
+                  axis: "Development"
+                  value: stationfeature.properties.etod_sub3d
+                }
+              ]
+             
+            ]
 
-			#Options for the Radar chart, other than default
-			mycfg =
-			  w: w
-			  h: h
-			  maxValue: 20
-			  levels: 4
-			  ExtraWidthX: 160
+            #Options for the Radar chart, other than default
+            mycfg =
+              w: w
+              h: h
+              maxValue: 20
+              levels: 4
+              ExtraWidthX: 160
 
 
-			#Call function to draw the Radar chart
-			#Will expect that data is in %'s
-			RadarChart.draw "#chart", d, mycfg
+            #Call function to draw the Radar chart
+            #Will expect that data is in %'s
+            RadarChart.draw "#chart", d, mycfg
 
-	class List.Map extends App.Views.Layout
-		template: "fstations/list/templates/_map"
-		el: "#maplist"
-		modelEvents:
-		  "change" : "render"
+    class List.Map extends App.Views.Layout
+        template: "fstations/list/templates/_map"
+        el: "#maplist"
+        modelEvents:
+          "change" : "render"
 
-		onShow: -> 
+        onShow: -> 
             maplist = undefined
             maplist = L.map("maplist",
               scrollWheelZoom: false
@@ -650,7 +656,7 @@
             #         e.stopPropagation()
             #         console.log "mouse over e", e
 
-	class List.DictView extends App.Views.Layout
+    class List.DictView extends App.Views.Layout
         template: "fstations/list/templates/_dict"
         el: "#dictview"
         modelEvents:
@@ -713,13 +719,13 @@
             regional = new L.MAPCTileLayer("trailmap-regional")
             onroad = new L.MAPCTileLayer("trailmap-onroad")
             paths = new L.MAPCTileLayer("trailmap-paths")
-            sidewalks = L.tileLayer.wms("http://metrobostondatacommon.org/geoserver/gwc/service/wms",
-              layers: "geonode:sidewalks"
-              format: "image/png"
-              transparent: true
-            )
+            # sidewalks = L.tileLayer.wms("http://metrobostondatacommon.org/geoserver/gwc/service/wms",
+            #   layers: "geonode:sidewalks"
+            #   format: "image/png"
+            #   transparent: true
+            # )
             baseMaps =
-                "MAPC Base Map": mapc
+                # "MAPC Base Map": mapc
                 "Esri Aerial": esri
                 "MapBox StreetMap": streets
             geoCollection =  gon.feature
@@ -779,9 +785,9 @@
                 "Regional Networks": regional
                 "On-road Bicycle Facilities": onroad
                 "Paths and Trails": paths
-                "Sidewalk Inventory": sidewalks
+                # "Sidewalk Inventory": sidewalks
                 "Station Area": fstation
-                "Half Mile Boundary": fstationZoom
+                # "Half Mile Boundary": fstationZoom
             
             layersControl = new L.Control.Layers(baseMaps, overlays,
                 collapsed: true
@@ -1413,7 +1419,3 @@
                 # map.removeLayer esri
                 # map.addLayer streets
                 e.stopPropagation()
-
-
-
-
