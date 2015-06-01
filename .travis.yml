@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+- 2.0.0
+bundler_args: "--without production"
+before_script:
+  - bundle exec rake db:create RAILS_ENV=test
+script:
+  - bundle exec rake db:schema:load RAILS_ENV=test
+  - bundle exec rake spec
+notifications:
+  slack:
+    secure: aObmYdbc5gcPCHcXBdSIgiVNlugePt7pekg3AQUuL1LJcZCBSCV1Q+no3f1wGwI90fTJyRVJ8CMVoqcfnWyS5bFEv4p25BYuwbgsslrkh7sULN696Nyh9nYLovtuE1qoAKesKiA78ex2rTQnLJbQMcnorqe8I5o86fvJb9UmKpI=
+addons:
+  code_climate:
+    repo_token: 7ae69711e86390c4e47c3f2ba763ad537488fbe53a43fd4190b6bc136f974f15

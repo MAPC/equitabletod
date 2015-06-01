@@ -1,4 +1,6 @@
-### equitableTOD
+### Information Station
+
+[![Build Status](https://travis-ci.org/MAPC/equitabletod.svg?branch=master)](https://travis-ci.org/MAPC/equitabletod) [![Code Climate](https://codeclimate.com/github/MAPC/equitabletod/badges/gpa.svg)](https://codeclimate.com/github/MAPC/equitabletod) [![Test Coverage](https://codeclimate.com/github/MAPC/equitabletod/badges/coverage.svg)](https://codeclimate.com/github/MAPC/equitabletod)
 
 A web application to display Equitable TOD (ETOD) scores, which measure how well transit-oriented development is oriented toward core riders and transit-dependent citizens.
 
@@ -49,6 +51,16 @@ You can put a backup into the database by running `pg_restore -d newdb db/fixtur
 Or, put fake sample data into the database by running `rake db:seed`.
 
 When you are ready to run the server, run `rails s` (short for `rails server`).
+
+```ruby
+$ rails c
+> copy_filedata("#{Rails.root}/db/fixtures/latest-csv.csv", :station_areas)
+```
+
+```sh
+$ rake db:seed
+```
+
 
 
 

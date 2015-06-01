@@ -1,18 +1,19 @@
 @Equitabletod.module "FstationsApp.List", (List, App, Backbone, Marionette, $, _) ->
 
-	class List.Layout extends App.Views.Layout
-		template: "fstations/list/templates/list_layout"
-		regions: 
-			mapRegion: "#map-region"
-			fstationsRegion: "#fstations-region"
-			chartRegion: "#chart-region"
+    class List.Layout extends App.Views.Layout
+        template: "fstations/list/templates/list_layout"
+        regions: 
+            mapRegion: "#map-region"
+            fstationsRegion: "#fstations-region"
+            chartRegion: "#chart-region"
         
-	class List.Detstation extends App.Views.ItemView
-		template: "fstations/list/templates/_detstation"
-		tagName: "div"
+    class List.Detstation extends App.Views.ItemView
+        template: "fstations/list/templates/_detstation"
+        tagName: "div"
 
 		onShow: ->
 			$(document).ready ->
+
                 $("#dialog-modal").dialog 
                     position:
                         my: "right"
@@ -301,6 +302,7 @@
                                                     </div>
                                                 </div>
                                                 <div class='row'>
+
                                                     <div id='boxplot' class='col-md-4 class='col-xs-4'>
                                                         <p style='text-align: left; padding-top: 35px;'>
                                                         Box plot is a way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots show distribution of an attribute for all the station areas. the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR).
@@ -435,6 +437,7 @@
 			$("[rel=tooltipb]").tooltip placement: "buttom"
 			$("[rel=tooltip]").tooltip track: true
 			$("#accordion").accordion 
+
                 header: "hm3" 
                 active: "" # the index of accordion category to show expanded by inititiation
                 heightStyle: "content"
@@ -448,22 +451,22 @@
             $("#accordion").find($("span.accordion-header")).text " Click For More"
             return
 
-	class List.Detstations extends App.Views.CollectionView
-		template: "fstations/list/templates/_detstations"
-		itemView: List.Detstation
-		itemViewContainer: "tbody"
+    class List.Detstations extends App.Views.CollectionView
+        template: "fstations/list/templates/_detstations"
+        itemView: List.Detstation
+        itemViewContainer: "tbody"
 
-	class List.Fstation extends App.Views.ItemView
-		template: "fstations/list/templates/_fstation"
-		tagName: "tr"            
+    class List.Fstation extends App.Views.ItemView
+        template: "fstations/list/templates/_fstation"
+        tagName: "tr"            
 
-	class List.Fstations extends App.Views.CollectionView
-		template: "fstations/list/templates/_fstations"
-		itemView: List.Fstation
-		itemViewContainer: "tbody"
-		onBeforeRender: ->
-			stationfeature = gon.features
-			muni_names = _.map stationfeature, (key, value) ->
+    class List.Fstations extends App.Views.CollectionView
+        template: "fstations/list/templates/_fstations"
+        itemView: List.Fstation
+        itemViewContainer: "tbody"
+        onBeforeRender: ->
+            stationfeature = gon.features
+            muni_names = _.map stationfeature, (key, value) ->
                 muni_names = (_.pluck key, 'muni_name')
                 muni_names[2].toLowerCase()
                 names = (_.pluck key, 'name')
@@ -556,19 +559,19 @@
             $("#searchrefine").click (event, ui) ->
                 App.vent.trigger "searchrefineFired"
 
-		
-	class List.Chart extends App.Views.Layout
-		template: "fstations/list/templates/_chart"
-		onShow: ->
-			stationfeature = gon.feature["0"] 
-			w = 150
-			h = 150
-			colorscale = d3.scale.category10()
+        
+    class List.Chart extends App.Views.Layout
+        template: "fstations/list/templates/_chart"
+        onShow: ->
+            stationfeature = gon.feature["0"] 
+            w = 150
+            h = 150
+            colorscale = d3.scale.category10()
 
-			#Legend titles
-			LegendOptions = [
-			  "Orientation"
-			  "Transit"
+            #Legend titles
+            LegendOptions = [
+              "Orientation"
+              "Transit"
               "Development"
 			]
 
@@ -1419,7 +1422,3 @@
                 # map.removeLayer esri
                 # map.addLayer streets
                 e.stopPropagation()
-
-
-
-

@@ -296,7 +296,3 @@
             $("html, body").animate
                 scrollTop: $("#search").offset().top
             , "fast"
-
-
-
-  

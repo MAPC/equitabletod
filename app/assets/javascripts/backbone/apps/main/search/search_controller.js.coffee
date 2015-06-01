@@ -33,6 +33,3 @@
 	  	getSimpleSearchView: (searchargs) ->
 	  		new Search.SimpleSearchFormLayout
 	  			collection: searchargs
-
-	  	
-

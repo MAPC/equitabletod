@@ -8,9 +8,9 @@ class StationArea < ActiveRecord::Base
 
   # Basic Search
 
-  scope :by_name,      -> name { where("station_areas.name ~* ?", name) }
+  scope :by_name,      -> name      { where("station_areas.name ~* ?", name) }
   scope :by_muni_name, -> muni_name { where("station_areas.muni_name ~* ?", muni_name) }
-  scope :by_line,      -> by_line { includes(:transit_lines).where("transit_lines.name ~* ?", by_line) }
+  scope :by_line,      -> by_line   { includes(:transit_lines).where("transit_lines.name ~* ?", by_line) }
   
   scope :by_service, -> service_type {
     includes(:transit_lines).where("transit_lines.service_type ~* ?", service_type) }
@@ -32,7 +32,7 @@ class StationArea < ActiveRecord::Base
     { name: :by_vehicle_perhousehold,   field_name: "ov_vehphh"   },
     { name: :by_transit_commutingmiles, field_name: "ov_trnpcmi"  },
     { name: :by_ghg,                    field_name: "ov_ghg"      },
-    { name: :by_development_intensity,  field_name: "intntot"     },
+    { name: :by_development_intensity,  field_name: "ov_intntot"  },
     { name: :by_development_mix,        field_name: "ov_mix"      },
     { name: :by_residential_density,    field_name: "hupac"       },
     { name: :by_employment_density,     field_name: "ov_empden"   },

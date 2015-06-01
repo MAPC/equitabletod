@@ -1,1 +1,1 @@
-web: bundle exec unicorn -c config/unicorn/staging.rb
+web: rails s -p $PORT
