@@ -11,9 +11,8 @@
         template: "fstations/list/templates/_detstation"
         tagName: "div"
 
-		onShow: ->
-			$(document).ready ->
-
+        onShow: ->
+            $(document).ready ->
                 $("#dialog-modal").dialog 
                     position:
                         my: "right"
@@ -302,7 +301,6 @@
                                                     </div>
                                                 </div>
                                                 <div class='row'>
-
                                                     <div id='boxplot' class='col-md-4 class='col-xs-4'>
                                                         <p style='text-align: left; padding-top: 35px;'>
                                                         Box plot is a way of displaying the distribution of data based on the five number summary: minimum, first quartile, median, third quartile, and maximum. Box plots show distribution of an attribute for all the station areas. the central rectangle spans the first quartile to the third quartile (the interquartile range or IQR).
@@ -374,6 +372,7 @@
                     dict_dict = []
                     dict_dict.push event.view.document.dictionaryentries.models
                     try
+                        # console.log "event.target.previousSibling.previousElementSibling", event.target.previousSibling.previousElementSibling.nextSibling.textContent
                         field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                     catch e
                         try
@@ -383,6 +382,7 @@
                             catch e
                                 console.log event.target.previousSibling.previousElementSibling.nextSibling.textContent
                         catch e
+                            console.log event.target.previousSibling.previousElementSibling.textContent
                             if event.target.previousElementSibling.innerText is undefined
                                 field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                             else
@@ -433,11 +433,10 @@
                     $("#dialog-modal").dialog height: "auto" 
                     $("#dialog-modal").dialog modal: false
 
-			$("[rel=tooltip]").tooltip placement: "left"
-			$("[rel=tooltipb]").tooltip placement: "buttom"
-			$("[rel=tooltip]").tooltip track: true
-			$("#accordion").accordion 
-
+            $("[rel=tooltip]").tooltip placement: "left"
+            $("[rel=tooltipb]").tooltip placement: "buttom"
+            $("[rel=tooltip]").tooltip track: true
+            $("#accordion").accordion 
                 header: "hm3" 
                 active: "" # the index of accordion category to show expanded by inititiation
                 heightStyle: "content"
@@ -475,14 +474,14 @@
                     names = (_.pluck key, 'name')
                     names[2].toLowerCase()
 
-			station = [
-			  {
-			    name: names
-			    municipality: muni_names
-			  }
-			]
+            station = [
+              {
+                name: names
+                municipality: muni_names
+              }
+            ]
 
-		onShow: ->
+        onShow: ->
             pfeatures = _.values gon.features
             pjfeatures = pfeatures.map (pf) -> pf.properties
             jfeatures = JSON.stringify(pjfeatures)
@@ -573,47 +572,47 @@
               "Orientation"
               "Transit"
               "Development"
-			]
+            ]
 
-			#Data
-			d = [
-			  [
-			    {
-			      axis: "Orientation"
-			      value: stationfeature.properties.etod_sub2o
-			    }
-			    {
-			      axis: "Transit"
-			      value: stationfeature.properties.etod_sub1t
-			    }
-			    {
-			      axis: "Development"
-			      value: stationfeature.properties.etod_sub3d
-			    }
-			  ]
-			 
-			]
+            #Data
+            d = [
+              [
+                {
+                  axis: "Orientation"
+                  value: stationfeature.properties.etod_sub2o
+                }
+                {
+                  axis: "Transit"
+                  value: stationfeature.properties.etod_sub1t
+                }
+                {
+                  axis: "Development"
+                  value: stationfeature.properties.etod_sub3d
+                }
+              ]
+             
+            ]
 
-			#Options for the Radar chart, other than default
-			mycfg =
-			  w: w
-			  h: h
-			  maxValue: 20
-			  levels: 4
-			  ExtraWidthX: 160
+            #Options for the Radar chart, other than default
+            mycfg =
+              w: w
+              h: h
+              maxValue: 20
+              levels: 4
+              ExtraWidthX: 160
 
 
-			#Call function to draw the Radar chart
-			#Will expect that data is in %'s
-			RadarChart.draw "#chart", d, mycfg
+            #Call function to draw the Radar chart
+            #Will expect that data is in %'s
+            RadarChart.draw "#chart", d, mycfg
 
-	class List.Map extends App.Views.Layout
-		template: "fstations/list/templates/_map"
-		el: "#maplist"
-		modelEvents:
-		  "change" : "render"
+    class List.Map extends App.Views.Layout
+        template: "fstations/list/templates/_map"
+        el: "#maplist"
+        modelEvents:
+          "change" : "render"
 
-		onShow: -> 
+        onShow: -> 
             maplist = undefined
             maplist = L.map("maplist",
               scrollWheelZoom: false
@@ -659,7 +658,7 @@
             #         e.stopPropagation()
             #         console.log "mouse over e", e
 
-	class List.DictView extends App.Views.Layout
+    class List.DictView extends App.Views.Layout
         template: "fstations/list/templates/_dict"
         el: "#dictview"
         modelEvents:
@@ -1422,3 +1421,7 @@
                 # map.removeLayer esri
                 # map.addLayer streets
                 e.stopPropagation()
+
+
+
+
