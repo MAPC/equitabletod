@@ -50,3 +50,4 @@
 //= require ../../../vendor/assets/javascripts/modernizr-2.6.2-respond-1.1.0.min.js
 //= require ../../../vendor/assets/javascripts/owl.carousel.min.js
 //= require_tree ./backbone/apps
+//= require_tree .
