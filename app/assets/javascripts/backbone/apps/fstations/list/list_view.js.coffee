@@ -372,6 +372,7 @@
                     dict_dict = []
                     dict_dict.push event.view.document.dictionaryentries.models
                     try
+                        # console.log "event.target.previousSibling.previousElementSibling", event.target.previousSibling.previousElementSibling.nextSibling.textContent
                         field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.innerText.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                     catch e
                         try
@@ -381,6 +382,7 @@
                             catch e
                                 console.log event.target.previousSibling.previousElementSibling.nextSibling.textContent
                         catch e
+                            console.log event.target.previousSibling.previousElementSibling.textContent
                             if event.target.previousElementSibling.innerText is undefined
                                 field_interp = gon.dict_lookup_dict[event.target.previousSibling.previousElementSibling.textContent.replace(":", "").replace("®", "").replace /^\s+|\s+$/g, ""]
                             else
@@ -1419,3 +1421,7 @@
                 # map.removeLayer esri
                 # map.addLayer streets
                 e.stopPropagation()
+
+
+
+

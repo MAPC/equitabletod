@@ -14,9 +14,10 @@
               <div class="col-md-4">
                 <center>
                   <h4 class="footertext">MAPC</h4>
-                  <p class="footertext">60 Temple Place<br>
-			  <p class="footertext">Boston, MA 02111<br>
-			  <p class="footertext">Phone: (617) 451-2770<br>
+                  <p class="footertext">60 Temple Place</p><br>
+          			  <p class="footertext">Boston, MA 02111</p><br>
+          			  <p class="footertext">Phone: (617) 451-2770</p><br>
+                  <p class="footertext">Contact: TstationInfo@mapc.org</p><br>
                 </center>
               </div>
               <div class="col-md-4">
