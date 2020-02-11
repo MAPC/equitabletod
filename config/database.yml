@@ -8,9 +8,9 @@ default: &default
 
 development:
   <<: *default
-  database: myapp_development
+  database: equitabletod_development
 
 
 test:
   <<: *default
-  database: myapp_test
+  database: equitabletod_test
