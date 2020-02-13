@@ -1,4 +1,4 @@
-### Information Station
+# tstation.info
 A web application to display Equitable TOD (ETOD) scores, which measure how well transit-oriented development is oriented toward core riders and transit-dependent citizens.
 
 More information on ETOD at [the Dukakis Center](http://www.northeastern.edu/dukakiscenter/wp-content/uploads/2013/10/A-Rating-System-for-Equitable-TOD-RailVolution-2013.pdf).
