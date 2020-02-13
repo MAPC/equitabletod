@@ -1,21 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '3.2.13'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'rails', '3.2.17'
 gem 'pg', '0.17.1'
-
 gem 'unicorn' # app server
 gem 'foreman' # process manager
-
 gem 'rabl', '0.9.3' # JSON templates
 gem 'oj',   '2.5.5' # JSON parser
-
 gem 'has_scope',  '0.5.1' # scopes for searching
-
 gem 'gon',        '5.0.4'
 gem 'js-routes',  '0.9.7'
 gem 'jquery-rails', '3.1.0'
@@ -60,18 +52,3 @@ group :assets do
   gem 'therubyracer', '0.12.1', platforms: :ruby
   gem 'uglifier', '>= 1.0.3'
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
