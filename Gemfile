@@ -18,7 +18,7 @@ gem 'has_scope',  '0.5.1' # scopes for searching
 
 gem 'gon',        '5.0.4'
 gem 'js-routes',  '0.9.7'
-gem 'jquery-rails', '3.1.0'
+gem 'jquery-rails', '3.1.3'
 
 
 group :development do
