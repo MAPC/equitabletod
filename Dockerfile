@@ -8,6 +8,10 @@ COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 COPY . /myapp
 
+
+# Compile Assets
+RUN bundle exec rake assets:precompile
+
 # Add a script to be executed every time the container starts.
 COPY /bin/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

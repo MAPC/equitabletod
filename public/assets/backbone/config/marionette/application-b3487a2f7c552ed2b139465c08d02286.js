@@ -1,1 +1,0 @@
-(function(){!function(t){return _.extend(t.Marionette.Application.prototype,{navigate:function(e,n){return null==n&&(n={}),"/"===e.charAt(0)&&(e="#"+e),t.history.navigate(e,n)},getCurrentRoute:function(){return t.history.fragment}})}(Backbone)}).call(this);
