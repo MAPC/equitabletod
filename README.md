@@ -11,7 +11,7 @@ There is a race condition between the database and web containers when you run `
 ```sh
 docker-compose build
 docker-compose run web rake db:create
-docker-compose run web pg_restore -h db -U postgres -d equitabletod_development db/fixtures/backup.dump
+docker-compose run web pg_restore -h db -U postgres -d equitabletod_development db/fixtures/etod.dump
 docker-compose up
 ```
 
@@ -20,6 +20,25 @@ docker-compose up
 * Point your browser to `http://localhost:3000`. You should see a sample page.
 * Go to `http://localhost:3000/station_areas.json`. You should see a collection of JSON objects representing station areas.
 * Go to `http://localhost:3000/station_areas/1.json`. You should see a single JSON object.
+
+## Heroku set up and Deploy to Production Comments
+I think this is correct. I have only been able to do this twice, so next time I will update in case there is something I missed.
+Read this first to familiarize yourself with the process https://devcenter.heroku.com/articles/git#for-an-existing-heroku-app
+Make sure you have a login to Heroku and are set up as user on the etod instance in Heroku.
+Also make sure you have install Heroku CLI via Brew
+```brew tap heroku/brew && brew install heroku```
+If you use zsh-oh-my the install is a little different that the zsh or the bash versions
+https://docs.brew.sh/Shell-Completion
+Load up your ssh keys into Heroku
+```heroku keys:add --yes```
+Clone the heroku version of the git code
+```heroku git:clone -a etod```
+Apply your changes to the above code base which is different from the code base of this read me, however they are the same.
+Do your git add and commit.
+Then run
+```git push heroku master```
+And skip the deploy below.
+
 
 ## Production Deployment
 Since Heroku no longer supports Ruby 2, we now deploy to Heroku using a Docker strategy. A basic deployment to a new heroku container can be
