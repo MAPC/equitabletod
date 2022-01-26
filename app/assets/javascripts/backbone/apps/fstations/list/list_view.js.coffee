@@ -712,7 +712,7 @@
             mapc = L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png",
               attribution: 'Map tiles by <a href="http://leafletjs.com">MAPC</a>'
             )
-            streets = L.tileLayer.provider "MapBox.mapc.i8ddbf5a"
+            streets = L.tileLayer.provider "Esri.WorldStreetMap"
             esri = L.tileLayer.provider "Esri.WorldImagery"
             streets.addTo(map)
             basemap = new L.MAPCTileLayer("basemap")
@@ -727,7 +727,7 @@
             baseMaps =
                 # "MAPC Base Map": mapc
                 "Esri Aerial": esri
-                "MapBox StreetMap": streets
+                "Esri World Street Map": streets
             geoCollection =  gon.feature
             fstation = new L.GeoJSON geoCollection,
                 style: (feature) ->
